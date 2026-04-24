@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<title>Abhishekh Singh — Principal Engineer</title>
+<meta name="description" content="Principal Engineer at Gainsight. 11+ years building distributed systems, data pipelines, and AI-powered search platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --bg: #04080f;
+  --bg-2: #0a1019;
+  --surface: #0d1525;
+  --surface-2: #131f35;
+  --surface-3: #192845;
+  --border: #1e3050;
+  --border-glow: #2a4570;
+  --text: #e4eaf4;
+  --text-dim: #7a90b8;
+  --text-muted: #4a6080;
+  --accent: #00c2d1;
+  --accent-2: #4d8bff;
+  --accent-3: #00cc8e;
+  --amber: #ffb344;
+  --red: #ff5c6c;
+  --purple: #9d7aff;
+  --pink: #ff6baa;
+  --teal: #00b8a9;
+  --font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --max-w: 1200px;
+  --glow: 0 0 40px rgba(0,194,209,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;animation:fadeIn .8s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px);background:rgba(4,8,15,0.85);border-bottom:1px solid transparent;transition:all .3s}
+.nav.scrolled{border-image:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent) 1;box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.nav-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:.85rem;color:#fff;letter-spacing:-.5px;box-shadow:0 0 20px rgba(0,194,209,.2)}
+.nav-links{display:flex;gap:8px}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:.88rem;font-weight:600;transition:all .25s;font-family:var(--font-head);padding:8px 14px;border-radius:8px;position:relative}
+.nav-links a:hover{color:var(--accent);background:rgba(0,194,209,.06)}
+.nav-links a::after{content:'';position:absolute;bottom:2px;left:50%;width:0;height:2px;background:var(--accent);transition:all .25s;transform:translateX(-50%);border-radius:2px}
+.nav-links a:hover::after{width:50%}
+@media(max-width:768px){.nav-links{display:none}.nav{padding:12px 20px}}
+
+/* ── SECTIONS ── */
+section{padding:100px 32px}
+.container{max-width:var(--max-w);margin:0 auto}
+.section-label{font-family:var(--font-mono);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px}
+.section-title{font-family:var(--font-head);font-size:2rem;font-weight:700;margin-bottom:16px;letter-spacing:-.5px}
+.section-sub{color:var(--text-dim);font-size:1rem;max-width:600px;margin-bottom:48px}
+
+/* ── HERO ── */
+.hero{min-height:82vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,194,209,.06) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(77,139,255,.05) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:6px 16px;font-size:.78rem;color:var(--accent);font-family:var(--font-mono);margin-bottom:28px}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-3);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-1.5px}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 50%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--text-dim);font-size:1.15rem;max-width:560px;margin-bottom:36px;line-height:1.8}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.hero-stat .num{font-family:var(--font-head);font-size:1.8rem;font-weight:700;color:var(--text)}
+.hero-stat .label{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-text p{color:var(--text-dim);margin-bottom:16px;font-size:.95rem}
+.about-highlights{display:grid;gap:16px}
+.about-hl{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;transition:border-color .3s}
+.about-hl:hover{border-color:var(--accent)}
+.about-hl h4{font-family:var(--font-head);font-size:.9rem;font-weight:600;margin-bottom:6px}
+.about-hl p{font-size:.82rem;color:var(--text-dim);margin:0}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent-2),var(--purple))}
+.tl-item{position:relative;margin-bottom:48px}
+.tl-item::before{content:'';position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;border:3px solid var(--accent);background:var(--bg)}
+.tl-item.active::before{background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.tl-date{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);margin-bottom:4px;letter-spacing:1px}
+.tl-role{font-family:var(--font-head);font-size:1.1rem;font-weight:600;margin-bottom:2px}
+.tl-company{font-size:.9rem;color:var(--text-dim);margin-bottom:10px}
+.tl-desc{font-size:.85rem;color:var(--text-muted);max-width:600px}
+
+/* ── PROJECTS ── */
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px;margin-bottom:32px;position:relative;overflow:hidden;transition:border-color .3s}
+.project-card:hover{border-color:var(--border-glow)}
+.project-card.featured{border-color:var(--accent);box-shadow:var(--glow)}
+.project-badge{display:inline-block;font-family:var(--font-mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+.badge-ai{background:rgba(157,122,255,.12);color:var(--purple);border:1px solid rgba(157,122,255,.3)}
+.badge-infra{background:rgba(0,194,209,.1);color:var(--accent);border:1px solid rgba(0,194,209,.25)}
+.badge-data{background:rgba(0,204,142,.1);color:var(--accent-3);border:1px solid rgba(0,204,142,.25)}
+.badge-security{background:rgba(255,179,68,.1);color:var(--amber);border:1px solid rgba(255,179,68,.25)}
+.project-card h3{font-family:var(--font-head);font-size:1.25rem;font-weight:700;margin-bottom:8px}
+.project-card .subtitle{color:var(--text-dim);font-size:.9rem;margin-bottom:20px}
+.project-card .desc{color:var(--text-muted);font-size:.88rem;margin-bottom:20px;line-height:1.8}
+.tech-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tech-pill{font-family:var(--font-mono);font-size:.68rem;padding:4px 10px;border-radius:6px;background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border)}
+.highlights-list{list-style:none}
+.highlights-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.85rem;color:var(--text-dim);line-height:1.7}
+.highlights-list li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+
+/* ── ARCHITECTURE DIAGRAMS ── */
+.arch-container{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;overflow-x:auto}
+.arch-container svg{width:100%;height:auto;display:block}
+
+/* ── ANIMATED FLOW ── */
+@keyframes flowRight{0%{offset-distance:0%}100%{offset-distance:100%}}
+@keyframes flowDown{0%{transform:translateY(-20px);opacity:0}50%{opacity:1}100%{transform:translateY(20px);opacity:0}}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 2px var(--accent))}50%{filter:drop-shadow(0 0 8px var(--accent))}}
+.flow-particle{animation:flowRight 3s linear infinite}
+
+/* ── SKILLS GRID ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 14px;text-align:center;transition:all .3s}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.skill-card img,.skill-card svg{width:28px;height:28px;margin-bottom:8px;opacity:.85;display:block;margin-left:auto;margin-right:auto}
+.skill-card .brand-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-family:var(--font-head);font-weight:700;font-size:.85rem;color:#fff}
+.skill-card .name{font-size:.78rem;font-weight:500;color:var(--text-dim)}
+.skill-category{margin-bottom:36px}
+.skill-category h3{font-family:var(--font-head);font-size:1rem;font-weight:600;margin-bottom:16px;color:var(--text)}
+
+/* ── TESTIMONIALS ── */
+.testimonial{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:20px}
+.testimonial blockquote{font-size:.92rem;color:var(--text-dim);line-height:1.8;font-style:italic;margin-bottom:16px}
+.testimonial .author{font-family:var(--font-head);font-size:.85rem;font-weight:600;color:var(--accent)}
+
+/* ── CONTACT ── */
+.contact-links{display:flex;gap:20px;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 24px;text-decoration:none;color:var(--text-dim);font-size:.88rem;transition:all .3s}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
+
+/* ── TABBED PROJECTS ── */
+.proj-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;padding:4px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}
+.proj-tab{padding:10px 18px;border-radius:10px;border:none;background:transparent;color:var(--text-muted);font-family:var(--font-head);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
+.proj-tab:hover{color:var(--text);background:var(--surface-2)}
+.proj-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 4px 15px rgba(0,194,209,.25)}
+.proj-panel{display:none;animation:panelIn .4s ease}
+.proj-panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.proj-panel .arch-container{margin:24px 0}
+.proj-panel .arch-container svg{min-width:0}
+.proj-panel .desc{color:var(--text-dim);font-size:.95rem;line-height:1.7;margin:16px 0}
+.proj-panel .subtitle{color:var(--text-muted);font-size:.82rem;margin-bottom:16px;font-family:var(--font-mono)}
+
+/* ── COLLAPSIBLE ── */
+.collapsible-toggle{background:none;border:1px solid var(--border);color:var(--accent);font-family:var(--font-head);font-size:.82rem;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;transition:all .2s;margin-top:16px}
+.collapsible-toggle:hover{background:rgba(0,194,209,.06);border-color:var(--accent)}
+.collapsible-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.collapsible-content.open{max-height:2000px}
+
+/* ── PLATFORM SCALE TICKER ── */
+.scale-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;overflow:hidden;position:relative}
+.scale-bar::before,.scale-bar::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.scale-bar::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.scale-bar::after{right:0;background:linear-gradient(90deg,transparent,var(--bg))}
+.scale-track{display:flex;gap:48px;align-items:center;white-space:nowrap;animation:scroll 25s linear infinite;width:max-content}
+.scale-track:hover{animation-play-state:paused}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.scale-item{display:flex;align-items:center;gap:10px}
+.scale-num{font-family:var(--font-head);font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.scale-label{font-size:.78rem;color:var(--text-muted);font-weight:500}
+.scale-dot{width:4px;height:4px;border-radius:50%;background:var(--border-glow)}
+
+/* ── PROJECT GRID ── */
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.project-grid{grid-template-columns:1fr}}
+.project-grid .project-card.full-width{grid-column:1/-1}
+
+/* ── MOBILE NAV ── */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text-dim)}
+.nav-toggle svg{width:24px;height:24px}
+.nav-mobile{display:none;position:fixed;top:66px;left:0;right:0;background:rgba(4,8,15,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:99}
+.nav-mobile.open{display:flex}
+.nav-mobile a{color:var(--text-dim);text-decoration:none;font-size:.95rem;font-weight:600;font-family:var(--font-head);padding:12px 16px;border-radius:8px;transition:all .2s}
+.nav-mobile a:hover{color:var(--accent);background:rgba(0,194,209,.06)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  section{padding:60px 16px}
+  .hero{padding-top:70px;min-height:auto;padding-bottom:40px}
+  .hero h1{font-size:1.8rem;letter-spacing:-.5px}
+  .hero p{font-size:1rem;line-height:1.7}
+  .hero-tag{font-size:.7rem;padding:5px 12px}
+  .hero-stats{gap:16px;flex-wrap:wrap}
+  .hero-stat .num{font-size:1.4rem}
+  .hero-stat .label{font-size:.7rem}
+  .hero-stat{min-width:calc(50% - 12px)}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav{padding:12px 16px}
+  .section-title{font-size:1.5rem}
+  .section-label{font-size:.65rem;letter-spacing:2px}
+  .about-grid{grid-template-columns:1fr;gap:24px}
+  .project-card{padding:20px}
+  .project-card h3{font-size:1.1rem}
+  .arch-container{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:12px}
+  .arch-container svg{min-width:700px}
+  .timeline{padding-left:30px}
+  .tl-item::before{left:-23px}
+  .tl-role{font-size:1rem}
+  .skills-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+  .proj-tabs{gap:2px;padding:3px}
+  .proj-tab{padding:8px 12px;font-size:.7rem}
+  .proj-panel .arch-container svg{min-width:650px}
+  .skill-card{padding:12px 10px}
+  .skill-card .brand-icon{width:30px;height:30px;font-size:.75rem}
+  .skill-card .name{font-size:.72rem}
+  .contact-links{flex-direction:column}
+  .contact-link{justify-content:center}
+  .testimonial{padding:20px}
+  .testimonial blockquote{font-size:.85rem}
+  .scale-item .scale-num{font-size:.95rem}
+  .scale-item .scale-label{font-size:.7rem}
+  .scale-track{gap:32px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.5rem}
+  .hero-stats{gap:12px}
+  .hero-stat{min-width:calc(50% - 8px)}
+  .hero-stat .num{font-size:1.2rem}
+  .section-title{font-size:1.3rem}
+  .project-grid{gap:16px}
+  .tech-pills{gap:4px}
+  .tech-pill{font-size:.6rem;padding:3px 8px}
+  .highlights-list li{font-size:.8rem;padding-left:16px}
+  .about-hl{padding:16px}
+  .tl-desc{font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">AS</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#journey" onclick="closeMobile()">Journey</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <div class="hero-tag"><span class="dot"></span> Principal Engineer @ Gainsight</div>
+    <h1>Building <span class="gradient">distributed systems</span> that power customer success at scale</h1>
+    <p>I architect the data infrastructure, search platforms, and AI systems behind Gainsight's enterprise SaaS — from pipeline engines processing billions of records daily, to AI-powered search with dual-LLM providers and an MCP server that lets Claude and ChatGPT query community knowledge natively.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">11+</div><div class="label">Years Engineering</div></div>
+      <div class="hero-stat"><div class="num">10+</div><div class="label">Production Systems</div></div>
+      <div class="hero-stat"><div class="num">35+</div><div class="label">SaaS Connectors</div></div>
+      <div class="hero-stat"><div class="num">600+</div><div class="label">Enterprise Tenants</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PLATFORM SCALE TICKER ═══════════════════ -->
+<div class="scale-bar">
+  <div class="scale-track">
+    <div class="scale-item"><span class="scale-num">61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">540K+</span><span class="scale-label">tasks executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">98.7%</span><span class="scale-label">job success rate</span></div><span class="scale-dot"></span>
+    <!-- duplicate for seamless loop -->
+    <div class="scale-item"><span class="scale-num">61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">540K+</span><span class="scale-label">tasks executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num">98.7%</span><span class="scale-label">job success rate</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">About</div>
+    <div class="section-title reveal">Abhishekh Singh</div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Principal Engineer at Gainsight with 11+ years building production distributed systems across two product lines — Customer Success (CS) and Customer Communities (CC). Based in Hyderabad, India. B.Tech in Computer Science from BBDITM, Lucknow.</p>
+        <p>On the CS side, I built the Data Highway pipeline engine, the graph-based permission system used by 7+ services, and the event processing platform with cross-region SQS failover. On the CC side, I architected the AI-native search platform — three LLM-powered features, a production MCP server with 21 tools, and a federated search system indexing records from 5 sources.</p>
+        <p>My work sits at the intersection of distributed systems, data engineering, and AI — building the kind of infrastructure that other teams build their products on.</p>
+      </div>
+      <div class="about-highlights reveal">
+        <div class="about-hl">
+          <h4>Platform Architecture</h4>
+          <p>10+ production services across Java (Vert.x, Spring Boot) and Python — DAG orchestration, event-driven pipelines, graph-based RBAC, and real-time search</p>
+        </div>
+        <div class="about-hl">
+          <h4>AI & MCP Integration</h4>
+          <p>Production MCP server with 21 tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
+        </div>
+        <div class="about-hl">
+          <h4>Data at Scale</h4>
+          <p>61B+ records processed daily, 25M+ search records indexed, 35+ SaaS connectors, dual-warehouse analytics (Postgres + Redshift), S3 Parquet data lake</p>
+        </div>
+        <div class="about-hl">
+          <h4>Security-First Design</h4>
+          <p>Graph-based RBAC with Neo4j, JWT with Redis-backed revocation, permission-scoped Algolia tokens, process-isolated task sandboxing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ JOURNEY ═══════════════════ -->
+<section id="journey" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-label reveal">Career Journey</div>
+    <div class="section-title reveal">Building at Every Layer of the Stack</div>
+    <div class="section-sub reveal">A decade of progressive engineering ownership — from automation frameworks to architecting the data and AI backbone of an enterprise SaaS platform.</div>
+
+    <div class="timeline reveal">
+      <div class="tl-item active">
+        <div class="tl-date">APR 2025 — PRESENT</div>
+        <div class="tl-role">Principal Engineer</div>
+        <div class="tl-company">Gainsight · Hyderabad</div>
+        <div class="tl-desc">Architecting the Search & AI platform — production MCP server for AI assistants, three LLM-powered features with cross-provider fallback, search analytics data lake, and federated search indexing across multiple content sources. Leading the platform's AI-native evolution.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">AUG 2019 — MAR 2025</div>
+        <div class="tl-role">Lead Software Engineer</div>
+        <div class="tl-company">Gainsight · Hyderabad</div>
+        <div class="tl-desc">Led architecture of the Data Highway pipeline engine scaling to billions of records daily across hundreds of enterprise tenants. Built the Usage Data Model analytics platform, community search system, and enterprise webhook delivery with IAM SigV4 signing.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">JUL 2017 — AUG 2019</div>
+        <div class="tl-role">Senior Software Engineer</div>
+        <div class="tl-company">Gainsight · Hyderabad</div>
+        <div class="tl-desc">Built the Usage Data Model (UDM) analytics platform with dual-warehouse abstraction (Postgres + Redshift), Event Processing pub/sub system, and core Data Highway infrastructure.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">JUL 2016 — JUN 2017</div>
+        <div class="tl-role">Software Engineer</div>
+        <div class="tl-company">Gainsight · Hyderabad</div>
+        <div class="tl-desc">Developed the graph-based permission system (Neo4j), centralized Config Server, Audit Service, and contributed to the Data Highway DAG engine with 60+ custom Drill UDFs.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">DEC 2015 — JUN 2016</div>
+        <div class="tl-role">Software Engineer</div>
+        <div class="tl-company">Talentica Software · Pune</div>
+        <div class="tl-desc">Engineered the Intelligence Machine — a big data recommendation engine processing terabytes of social media data daily. Built performance benchmarking infrastructure and data-driven test automation across distributed systems.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">AUG 2014 — DEC 2015</div>
+        <div class="tl-role">Software Analyst</div>
+        <div class="tl-company">Nihilent · Pune</div>
+        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary) — a major media platform serving millions of subscribers. Contributed to open-source technology solutions spanning .NET, Java, PHP, and Oracle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FEATURED PROJECT ═══════════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label reveal">Projects</div>
+    <div class="section-title reveal">Systems I've Built & Architected</div>
+    <div class="section-sub reveal">Production systems powering Gainsight's enterprise platform — from data pipelines to AI-powered search.</div>
+
+    <!-- ── PLATFORM ECOSYSTEM DIAGRAM ── -->
+    <div class="project-card reveal" style="border-color:var(--accent-2);background:linear-gradient(135deg,var(--surface) 0%,rgba(13,21,37,.95) 100%)">
+      <div style="text-align:center;margin-bottom:8px;font-family:var(--font-mono);font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase">Across Two Product Lines</div>
+      <h3 style="text-align:center;margin-bottom:24px">My Contributions to Gainsight's CustomerOS</h3>
+      <div class="arch-container" style="background:transparent;border:none;padding:0">
+        <svg viewBox="0 0 840 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="g2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="840" height="520" fill="#04080f" rx="8"/>
+          <text x="420" y="22" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">Gainsight CustomerOS — 20 repositories, 60+ cross-repo connections</text>
+
+          <!-- ═══ CS PRODUCT LINE (LEFT) ═══ -->
+          <rect x="15" y="38" width="440" height="470" rx="12" fill="none" stroke="#00cc8e" stroke-width="1" stroke-dasharray="6 3" opacity=".25"/>
+          <text x="235" y="60" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="12" font-weight="700">CS — Customer Success</text>
+          <text x="235" y="74" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="7">Data infrastructure · 6 core services</text>
+
+          <!-- Application layer -->
+          <text x="35" y="96" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">APPLICATION LAYER</text>
+          <rect x="30" y="102" width="130" height="40" rx="7" fill="#0a0f1a" stroke="#4d6080" stroke-width=".8"/>
+          <text x="95" y="120" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics Data Store</text>
+          <text x="95" y="132" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="5.5">91 modules · Spring</text>
+
+          <rect x="170" y="102" width="130" height="40" rx="7" fill="#0a1020" stroke="#4d8bff" stroke-width="1"/>
+          <text x="235" y="120" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="8" font-weight="600">Usage Data Model</text>
+          <text x="235" y="132" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="5.5">Vert.x · Redshift</text>
+
+          <rect x="310" y="102" width="130" height="40" rx="7" fill="#0a0f1a" stroke="#4d6080" stroke-width=".8"/>
+          <text x="375" y="120" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Bionic Reporting</text>
+          <text x="375" y="132" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="5.5">Spring · Presto</text>
+
+          <!-- Platform services layer -->
+          <text x="35" y="164" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">PLATFORM SERVICES</text>
+          <rect x="30" y="172" width="180" height="52" rx="9" fill="#051a15" stroke="#00cc8e" stroke-width="1.5" filter="url(#g2)"/>
+          <text x="120" y="194" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Data Highway</text>
+          <text x="120" y="210" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">DAG Engine · Drill · 35 Connectors</text>
+
+          <rect x="230" y="172" width="100" height="52" rx="9" fill="#1a1808" stroke="#ffb344" stroke-width="1"/>
+          <text x="280" y="194" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Permissions</text>
+          <text x="280" y="210" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Neo4j · RBAC</text>
+
+          <rect x="345" y="172" width="100" height="52" rx="9" fill="#0a1520" stroke="#00c2d1" stroke-width="1"/>
+          <text x="395" y="194" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Events</text>
+          <text x="395" y="210" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">SQS · Pub/Sub</text>
+
+          <!-- Cross-cutting layer -->
+          <text x="35" y="248" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">CROSS-CUTTING (used by ALL services)</text>
+          <rect x="30" y="256" width="210" height="36" rx="6" fill="#0a0f1a" stroke="#4d6080" stroke-width="1"/>
+          <text x="135" y="278" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Config Server</text>
+
+          <rect x="250" y="256" width="100" height="36" rx="6" fill="#150a0a" stroke="#ff5c6c" stroke-width="1"/>
+          <text x="300" y="278" text-anchor="middle" fill="#ff8a94" font-family="Sora,sans-serif" font-size="8" font-weight="600">Audit</text>
+
+          <!-- Shared foundation -->
+          <text x="35" y="314" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">SHARED SDK (JAR dependencies in every repo)</text>
+          <rect x="30" y="320" width="415" height="34" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="237" y="341" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Shared SDK: commons · async framework · audit client · config client · query builder · storage · data core</text>
+
+          <!-- Other apps -->
+          <text x="35" y="378" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">ALSO CONTRIBUTED</text>
+          <rect x="30" y="384" width="88" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="74" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">Data Exchange Hub</text>
+          <rect x="126" y="384" width="88" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="170" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">Adoption Tracker</text>
+          <rect x="222" y="384" width="105" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="274" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">CC-to-CS Bridge</text>
+          <rect x="335" y="384" width="88" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="379" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">Query Federation</text>
+
+          <!-- CS CONNECTION ARROWS -->
+          <!-- UDM → Data Highway (submits DAGs) -->
+          <line x1="210" y1="142" x2="150" y2="172" stroke="#4d8bff" stroke-width="1" opacity=".5"/>
+          <text x="195" y="154" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="5" opacity=".7" transform="rotate(30,195,154)">DAGs</text>
+          <!-- UDM → Permissions (SDK) -->
+          <line x1="235" y1="142" x2="270" y2="172" stroke="#ffb344" stroke-width=".7" stroke-dasharray="3 2" opacity=".4"/>
+          <!-- UDM → Data Store (callouts) -->
+          <line x1="195" y1="142" x2="95" y2="142" stroke="#4d6080" stroke-width=".5" stroke-dasharray="2 3" opacity=".3"/>
+          <!-- Bionic → Data Highway -->
+          <line x1="350" y1="142" x2="180" y2="185" stroke="#4d6080" stroke-width=".6" stroke-dasharray="3 2" opacity=".3"/>
+          <text x="280" y="158" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".5">DAGs</text>
+          <!-- Permissions SDK used broadly -->
+          <line x1="280" y1="224" x2="235" y2="142" stroke="#ffb344" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
+          <line x1="280" y1="224" x2="375" y2="142" stroke="#ffb344" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
+          <!-- Config Server upward (to all) -->
+          <line x1="135" y1="256" x2="120" y2="224" stroke="#4d6080" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
+          <line x1="135" y1="256" x2="280" y2="224" stroke="#4d6080" stroke-width=".4" stroke-dasharray="2 3" opacity=".15"/>
+          <line x1="135" y1="256" x2="395" y2="224" stroke="#4d6080" stroke-width=".4" stroke-dasharray="2 3" opacity=".15"/>
+
+          <!-- Animated particles CS -->
+          <circle r="2.5" fill="#4d8bff" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M210,142 L150,172"/></circle>
+          <circle r="2" fill="#00cc8e" opacity=".6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M120,198 L120,172"/></circle>
+          <circle r="1.5" fill="#4d6080" opacity=".4"><animateMotion dur="3s" repeatCount="indefinite" path="M135,256 L120,224"/></circle>
+          <circle r="2" fill="#ff5c6c" opacity=".5"><animateMotion dur="2.8s" repeatCount="indefinite" path="M300,256 L300,224"/></circle>
+
+          <!-- ═══ CC PRODUCT LINE (RIGHT) ═══ -->
+          <rect x="470" y="38" width="355" height="470" rx="12" fill="none" stroke="#9d7aff" stroke-width="1" stroke-dasharray="6 3" opacity=".25"/>
+          <text x="647" y="60" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="12" font-weight="700">CC — Customer Communities</text>
+          <text x="647" y="74" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="7">Search · AI · MCP Protocol</text>
+
+          <!-- MCP Server -->
+          <rect x="490" y="95" width="315" height="50" rx="9" fill="#0f0a25" stroke="#9d7aff" stroke-width="1.5" filter="url(#g2)"/>
+          <text x="647" y="116" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="10" font-weight="700">DCH Search MCP Server</text>
+          <text x="647" y="132" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">MCP Protocol · SSE · JWT · AI Assistants</text>
+
+          <!-- syncsearch -->
+          <rect x="490" y="165" width="315" height="50" rx="9" fill="#051a15" stroke="#00cc8e" stroke-width="1"/>
+          <text x="647" y="186" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search Service</text>
+          <text x="647" y="202" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Indexing · Tokens · Analytics · ReplyBot</text>
+
+          <!-- Algolia + AI -->
+          <rect x="490" y="235" width="140" height="40" rx="7" fill="#1a1005" stroke="#ffb344" stroke-width="1"/>
+          <text x="560" y="252" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Algolia</text>
+          <text x="560" y="265" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">Search · AskAI</text>
+
+          <rect x="645" y="235" width="160" height="40" rx="7" fill="#150a20" stroke="#ff6baa" stroke-width="1"/>
+          <text x="725" y="252" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="8" font-weight="600">AI Features</text>
+          <text x="725" y="265" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="5.5">ReplyBot · Smart Summary</text>
+
+          <!-- Federated Sources -->
+          <rect x="490" y="295" width="315" height="30" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="647" y="314" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Federated: Zendesk · Salesforce · Freshdesk · Skilljar · Community</text>
+
+          <!-- Data Lake -->
+          <rect x="530" y="340" width="235" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="647" y="357" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Analytics: S3 Parquet + Athena · 25M+ records indexed</text>
+
+          <!-- CC infra -->
+          <rect x="490" y="384" width="75" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="527" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">Redis</text>
+          <rect x="573" y="384" width="75" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="610" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">DynamoDB</text>
+          <rect x="656" y="384" width="75" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="693" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">MySQL</text>
+          <rect x="739" y="384" width="66" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="772" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">SNS/SQS</text>
+
+          <!-- CC connections -->
+          <line x1="647" y1="145" x2="647" y2="165" stroke="#9d7aff" stroke-width="1" opacity=".5"/>
+          <line x1="647" y1="215" x2="560" y2="235" stroke="#ffb344" stroke-width=".6" opacity=".4"/>
+          <line x1="647" y1="215" x2="725" y2="235" stroke="#ff6baa" stroke-width=".6" opacity=".4"/>
+          <line x1="647" y1="215" x2="647" y2="295" stroke="var(--border)" stroke-width=".5"/>
+          <line x1="647" y1="325" x2="647" y2="340" stroke="var(--border)" stroke-width=".3"/>
+
+          <!-- CC animated particles -->
+          <circle r="3" fill="#9d7aff" opacity=".9"><animateMotion dur="1.5s" repeatCount="indefinite" path="M647,145 L647,165"/></circle>
+          <circle r="2.5" fill="#ffb344" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M647,215 L560,235"/></circle>
+          <circle r="2.5" fill="#ff6baa" opacity=".8"><animateMotion dur="2.2s" repeatCount="indefinite" path="M647,215 L725,235"/></circle>
+          <circle r="2.5" fill="#00cc8e" opacity=".7"><animateMotion dur="2s" repeatCount="indefinite" path="M647,165 L647,145"/></circle>
+
+          <!-- Footer stats -->
+          <text x="235" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".5">61B+ records/day · 14 TB processed · 600+ tenants</text>
+          <text x="647" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".5">25M+ indexed · 5 federated sources · 3 AI features</text>
+
+          <!-- Legend -->
+          <text x="35" y="475" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5" opacity=".4">━━ primary dependency   ╌╌ SDK/client usage   ● animated data flow</text>
+        </svg>
+      </div>
+    </div>
+
+
+    <!-- ═══ TABBED PROJECT SHOWCASE ═══ -->
+    <div class="proj-tabs reveal">
+      <button class="proj-tab active" onclick="showTab('search-ai')">Search & AI Platform</button>
+      <button class="proj-tab" onclick="showTab('mcp-server')">MCP Server</button>
+      <button class="proj-tab" onclick="showTab('data-highway')">Data Highway</button>
+      <button class="proj-tab" onclick="showTab('permissions')">Permissions</button>
+      <button class="proj-tab" onclick="showTab('udm')">Usage Data Model</button>
+      <button class="proj-tab" onclick="showTab('events')">Event Processing</button>
+      <button class="proj-tab" onclick="showTab('infra')">Audit & Config</button>
+    </div>
+
+    <!-- ── TAB: SEARCH & AI ── -->
+    <div class="proj-panel active" id="tab-search-ai">
+      <span class="project-badge badge-ai">AI · SEARCH · LLM</span>
+      <h3>Community Search & AI Platform</h3>
+      <div class="subtitle">CC (Customer Communities) · Three AI features, federated search, and a provider-agnostic AI orchestration layer</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+          <defs><filter id="gf"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <rect width="760" height="320" fill="var(--bg)" rx="6"/>
+          <!-- Community Platform AI Layer -->
+          <rect x="20" y="12" width="340" height="95" rx="10" fill="#150a20" stroke="#ff6baa" stroke-width="1.5" filter="url(#gf)"/>
+          <text x="190" y="32" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="11" font-weight="700">Community Platform — AI Orchestration Layer</text>
+          <text x="190" y="48" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6.5">Service Layer · Provider Factory · Automatic Failover · Adapters</text>
+          <text x="190" y="62" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6">Composable prompt architecture (model, version, temperature, reasoning)</text>
+          <text x="80" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">OpenAI Provider</text>
+          <text x="190" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">Gemini Provider</text>
+          <text x="300" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">Summary Engine</text>
+          <text x="190" y="98" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Automatic cross-provider failover with error recovery and retry</text>
+          <!-- Three AI features -->
+          <rect x="20" y="125" width="160" height="55" rx="8" fill="#0f0a25" stroke="#9d7aff" stroke-width="1"/>
+          <text x="100" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">ReplyBot</text>
+          <text x="100" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">Messagebus trigger</text>
+          <text x="100" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">OpenAI ↔ Gemini fallback</text>
+          <rect x="195" y="125" width="160" height="55" rx="8" fill="#0f0a25" stroke="#9d7aff" stroke-width="1"/>
+          <text x="275" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">AI Answers Summary</text>
+          <text x="275" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">SSE streaming to client</text>
+          <text x="275" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Algolia AskAI + dedup</text>
+          <rect x="370" y="125" width="160" height="55" rx="8" fill="#0f0a25" stroke="#9d7aff" stroke-width="1"/>
+          <text x="450" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">Smart Search Summary</text>
+          <text x="450" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">Blocking response</text>
+          <text x="450" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Llama 3 70B via Bedrock</text>
+          <!-- syncsearch -->
+          <rect x="555" y="12" width="185" height="75" rx="8" fill="#051a15" stroke="#00cc8e" stroke-width="1"/>
+          <text x="647" y="32" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search</text>
+          <text x="647" y="48" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Index builder · Token issuer</text>
+          <text x="647" y="62" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Analytics data lake</text>
+          <text x="647" y="76" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">25M+ records · 600+ communities</text>
+          <!-- Algolia -->
+          <rect x="555" y="125" width="185" height="55" rx="8" fill="#1a1005" stroke="#ffb344" stroke-width="1"/>
+          <text x="647" y="148" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="10" font-weight="600">Algolia</text>
+          <text x="647" y="163" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Multi-app (APP1/APP2) · AskAI</text>
+          <text x="647" y="175" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">Secured API keys · Scoped tokens</text>
+          <!-- Federated Sources -->
+          <rect x="555" y="200" width="185" height="40" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="647" y="218" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Federated Sources</text>
+          <text x="647" y="232" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Zendesk · Salesforce · Freshdesk · Skilljar</text>
+          <!-- SNS messagebus -->
+          <rect x="20" y="200" width="160" height="40" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="100" y="218" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">SNS Messagebus</text>
+          <text x="100" y="232" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">~95 events · Webhooks · Connectors</text>
+          <!-- Data stores -->
+          <rect x="200" y="200" width="65" height="40" rx="5" fill="var(--surface)" stroke="#4479A1" stroke-width=".8"/>
+          <text x="232" y="223" text-anchor="middle" fill="#6ca0d0" font-size="7.5" font-family="DM Sans">MySQL</text>
+          <rect x="275" y="200" width="55" height="40" rx="5" fill="var(--surface)" stroke="#DC382D" stroke-width=".8"/>
+          <text x="302" y="223" text-anchor="middle" fill="#f08080" font-size="7.5" font-family="DM Sans">Redis</text>
+          <rect x="340" y="200" width="55" height="40" rx="5" fill="var(--surface)" stroke="#569A31" stroke-width=".8"/>
+          <text x="367" y="223" text-anchor="middle" fill="#8cc060" font-size="7.5" font-family="DM Sans">S3</text>
+          <!-- API Gateway -->
+          <rect x="200" y="260" width="340" height="35" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="370" y="282" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">API Gateway — Authentication · OAuth2 · Rate Limiting · Request Routing</text>
+          <!-- Connections -->
+          <line x1="100" y1="107" x2="100" y2="125" stroke="#9d7aff" stroke-width=".6" opacity=".4"/>
+          <line x1="275" y1="107" x2="275" y2="125" stroke="#9d7aff" stroke-width=".6" opacity=".4"/>
+          <line x1="360" y1="60" x2="555" y2="50" stroke="#00cc8e" stroke-width=".6" opacity=".4"/>
+          <line x1="647" y1="87" x2="647" y2="125" stroke="#ffb344" stroke-width=".8" opacity=".4"/>
+          <line x1="647" y1="180" x2="647" y2="200" stroke="var(--border)" stroke-width=".4"/>
+          <line x1="275" y1="180" x2="580" y2="148" stroke="#ffb344" stroke-width=".5" stroke-dasharray="3 2" opacity=".3"/>
+          <line x1="450" y1="180" x2="450" y2="200" stroke="var(--border)" stroke-width=".3" stroke-dasharray="3 2"/>
+          <!-- Particles -->
+          <circle r="2.5" fill="#9d7aff" opacity=".8"><animateMotion dur="1.5s" repeatCount="indefinite" path="M100,107 L100,125"/></circle>
+          <circle r="2.5" fill="#ffb344" opacity=".7"><animateMotion dur="2s" repeatCount="indefinite" path="M647,87 L647,125"/></circle>
+          <circle r="2" fill="#00cc8e" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M360,60 L555,50"/></circle>
+          <circle r="2" fill="#ffb344" opacity=".6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M275,180 L580,148"/></circle>
+        </svg>
+      </div>
+      <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern — primary + fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5 federated sources to Algolia with zero-downtime index swaps.</div>
+      <div class="tech-pills"><span class="tech-pill">PHP (Yii/Symfony)</span><span class="tech-pill">Algolia AskAI</span><span class="tech-pill">OpenAI</span><span class="tech-pill">Gemini</span><span class="tech-pill">Llama 3 70B</span><span class="tech-pill">AWS Bedrock</span><span class="tech-pill">SSE Streaming</span><span class="tech-pill">Python</span><span class="tech-pill">Redis</span><span class="tech-pill">S3 Parquet</span><span class="tech-pill">Athena</span></div>
+      <ul class="highlights-list">
+        <li>Cross-provider LLM fallback — dedicated adapter per provider handles payload asymmetry; automatic retry across providers even on client errors to prevent single-provider outages</li>
+        <li>SSE streaming with thinking-phase deduplication — stateful stream processor filters duplicate reasoning blocks per model family while preserving final output fidelity</li>
+        <li>Domain-driven prompt architecture — composable prompt traits (model, version, temperature, reasoning effort) enable per-feature model versioning and A/B testing without code duplication</li>
+        <li>Dynamic rate limiting with zero-restart retuning — atomic Redis counters (no locks, no races), thresholds configurable at runtime so ops can retune without a deploy</li>
+        <li>Zero-downtime full sync — bulk-index 25M+ records into temp Algolia index, atomic rename over production. No search outage during reindex</li>
+        <li>Analytics data lake on S3 Parquet + Athena with tag expression consolidation reducing Algolia API calls by 90%+</li>
+      </ul>
+    </div>
+
+    <!-- ── TAB: MCP SERVER ── -->
+    <div class="proj-panel" id="tab-mcp-server">
+      <span class="project-badge badge-ai">MCP PROTOCOL · PYTHON · AI INFRASTRUCTURE</span>
+      <h3>DCH Search MCP Server</h3>
+      <div class="subtitle">CC · Production Model Context Protocol server — 21 tools making community knowledge accessible to AI assistants</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg">
+          <defs><filter id="gm"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <rect width="760" height="310" fill="var(--bg)" rx="6"/>
+          <!-- AI Assistants -->
+          <rect x="20" y="12" width="200" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
+          <text x="120" y="34" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="10" font-weight="600">AI Assistants</text>
+          <text x="120" y="50" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Claude · ChatGPT · Cursor</text>
+          <!-- SSE -->
+          <text x="120" y="78" text-anchor="middle" fill="#9d7aff" font-family="JetBrains Mono,monospace" font-size="6">SSE (/{community_id}) or stdio</text>
+          <!-- MCP Server core -->
+          <rect x="20" y="90" width="430" height="100" rx="10" fill="#0f0a25" stroke="#9d7aff" stroke-width="1.5" filter="url(#gm)"/>
+          <text x="235" y="110" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="12" font-weight="700">DCH Search MCP Server (FastMCP · Python 3.11 · ECS Fargate)</text>
+          <!-- Auth box -->
+          <rect x="30" y="120" width="130" height="60" rx="6" fill="rgba(157,122,255,.08)" stroke="#9d7aff" stroke-width=".5"/>
+          <text x="95" y="136" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">Auth Layer</text>
+          <text x="95" y="150" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">JWT token validation</text>
+          <text x="95" y="161" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Redis-backed revocation</text>
+          <text x="95" y="172" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Guest vs Authenticated</text>
+          <!-- Token Manager box -->
+          <rect x="170" y="120" width="130" height="60" rx="6" fill="rgba(0,204,142,.08)" stroke="#00cc8e" stroke-width=".5"/>
+          <text x="235" y="136" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Token Manager</text>
+          <text x="235" y="150" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">Algolia scoped tokens</text>
+          <text x="235" y="161" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">25-min cache, 80% proactive</text>
+          <text x="235" y="172" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">Real-time role from Sync Search</text>
+          <!-- Middleware box -->
+          <rect x="310" y="120" width="130" height="60" rx="6" fill="rgba(0,194,209,.08)" stroke="#00c2d1" stroke-width=".5"/>
+          <text x="375" y="136" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Middleware</text>
+          <text x="375" y="150" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">Rate limiter (token bucket)</text>
+          <text x="375" y="161" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">TTL + LRU cache</text>
+          <text x="375" y="172" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">Exp backoff retry</text>
+          <!-- 21 Tools grouped -->
+          <rect x="475" y="12" width="265" height="178" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="607" y="32" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="10" font-weight="600">21 Read-Only Tools</text>
+          <rect x="485" y="42" width="118" height="28" rx="4" fill="rgba(255,179,68,.08)" stroke="#ffb344" stroke-width=".5"/>
+          <text x="544" y="60" text-anchor="middle" fill="#ffd080" font-family="JetBrains Mono,monospace" font-size="6.5">Algolia Search (2)</text>
+          <rect x="612" y="42" width="118" height="28" rx="4" fill="rgba(157,122,255,.08)" stroke="#9d7aff" stroke-width=".5"/>
+          <text x="671" y="60" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6.5">CC REST API (13)</text>
+          <rect x="485" y="78" width="118" height="28" rx="4" fill="rgba(0,204,142,.08)" stroke="#00cc8e" stroke-width=".5"/>
+          <text x="544" y="96" text-anchor="middle" fill="#6eeac4" font-family="JetBrains Mono,monospace" font-size="6.5">Skilljar (3)</text>
+          <rect x="612" y="78" width="118" height="28" rx="4" fill="rgba(0,194,209,.08)" stroke="#00c2d1" stroke-width=".5"/>
+          <text x="671" y="96" text-anchor="middle" fill="#7ee8e8" font-family="JetBrains Mono,monospace" font-size="6.5">Analytics (1)</text>
+          <text x="607" y="128" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">search_unified · get_discussions · get_topic</text>
+          <text x="607" y="142" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">list_topics · list_ideas · list_categories</text>
+          <text x="607" y="156" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">get_course · get_lesson · list_learning_paths</text>
+          <text x="607" y="170" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">get_search_analytics · get_community_info ...</text>
+          <!-- syncsearch -->
+          <rect x="20" y="210" width="200" height="48" rx="7" fill="#051a15" stroke="#00cc8e" stroke-width="1"/>
+          <text x="120" y="230" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="9" font-weight="600">Synchronized Search — Token API</text>
+          <text x="120" y="246" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Scoped token issuance API</text>
+          <!-- Algolia -->
+          <rect x="240" y="210" width="150" height="48" rx="7" fill="#1a1005" stroke="#ffb344" stroke-width="1"/>
+          <text x="315" y="230" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Algolia</text>
+          <text x="315" y="246" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Scoped token · {communityId}-unified</text>
+          <!-- Redis -->
+          <rect x="410" y="210" width="70" height="48" rx="6" fill="var(--surface)" stroke="#DC382D" stroke-width=".8"/>
+          <text x="445" y="238" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <!-- CC REST -->
+          <rect x="500" y="210" width="120" height="48" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="560" y="230" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">CC REST API</text>
+          <text x="560" y="246" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">OAuth2 client_credentials</text>
+          <!-- Skilljar -->
+          <rect x="640" y="210" width="100" height="48" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="690" y="230" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Skilljar API</text>
+          <text x="690" y="246" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Basic Auth · 50-pg cap</text>
+          <!-- Connections -->
+          <line x1="120" y1="62" x2="120" y2="90" stroke="#9d7aff" stroke-width="1" opacity=".5"/>
+          <line x1="235" y1="180" x2="120" y2="210" stroke="#00cc8e" stroke-width=".8" opacity=".4"/>
+          <line x1="375" y1="180" x2="315" y2="210" stroke="#ffb344" stroke-width=".8" opacity=".4"/>
+          <line x1="95" y1="180" x2="445" y2="210" stroke="#DC382D" stroke-width=".5" stroke-dasharray="3 2" opacity=".3"/>
+          <line x1="450" y1="100" x2="475" y2="80" stroke="var(--border)" stroke-width=".5"/>
+          <!-- Particles -->
+          <circle r="3" fill="#9d7aff" opacity=".9"><animateMotion dur="1.5s" repeatCount="indefinite" path="M120,62 L120,90"/></circle>
+          <circle r="2.5" fill="#00cc8e" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M235,180 L120,210"/></circle>
+          <circle r="2.5" fill="#ffb344" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M375,180 L315,210"/></circle>
+          <circle r="2.5" fill="#9d7aff" opacity=".6"><animateMotion dur="1.8s" repeatCount="indefinite" path="M450,100 L475,80"/></circle>
+          <!-- Footer -->
+          <text x="380" y="285" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">ECS Fargate · Auto-scaling · Structured JSON logging · Correlation IDs · Comprehensive test coverage</text>
+        </svg>
+      </div>
+      <div class="desc">One of the early production MCP deployments integrating Claude, ChatGPT, and Cursor with a real enterprise search backend. 21 read-only tools expose community discussions, knowledge base articles, Skilljar courses, and search analytics — all through permission-scoped Algolia tokens that enforce the same access rules as the frontend UI.</div>
+      <div class="tech-pills"><span class="tech-pill">Python 3.11</span><span class="tech-pill">FastMCP</span><span class="tech-pill">SSE Transport</span><span class="tech-pill">JWT</span><span class="tech-pill">Redis</span><span class="tech-pill">Algolia</span><span class="tech-pill">ECS Fargate</span><span class="tech-pill">asyncio</span><span class="tech-pill">structlog</span><span class="tech-pill">Pydantic</span></div>
+      <ul class="highlights-list">
+        <li>21 read-only tools across 4 backends — unified search, community REST API, education platform, and search analytics — behind a single MCP interface</li>
+        <li>Proactive token refresh before expiry — request-time never pays fetch latency. Role resolved from the search service at token-time, not from cached claims (survives long-lived token lifespans)</li>
+        <li>Permissioned search at the token layer — access control baked into scoped search tokens, not post-filtered. MCP and frontend receive identical security semantics</li>
+        <li>Deliberate availability vs safety tradeoffs per endpoint — revocation checks degrade gracefully while role-based checks remain strict</li>
+        <li>Connection-scoped context propagated to all child tool calls — auth context and tokens travel the entire request lifecycle without threading issues</li>
+      </ul>
+    </div>
+
+    <!-- ── TAB: DATA HIGHWAY ── -->
+    <div class="proj-panel" id="tab-data-highway">
+      <span class="project-badge badge-infra">DISTRIBUTED SYSTEMS · DAG ENGINE</span>
+      <h3>Data Highway — DAG-Based Pipeline Engine</h3>
+      <div class="subtitle">CS (Customer Success) · The compute backbone processing 61B+ records/day</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
+          <rect width="760" height="280" fill="var(--bg)" rx="6"/>
+          <!-- API Interface -->
+          <rect x="20" y="15" width="720" height="35" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
+          <text x="380" y="37" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">API Interface — REST endpoints for DAG submission, monitoring, control</text>
+          <!-- Flow Manager -->
+          <rect x="20" y="70" width="180" height="45" rx="8" fill="#051a15" stroke="#00cc8e" stroke-width="1.5"/>
+          <text x="110" y="90" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Flow Manager</text>
+          <text x="110" y="104" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">DAG orchestration · State machine</text>
+          <!-- Zookeeper -->
+          <rect x="230" y="70" width="140" height="45" rx="8" fill="var(--surface)" stroke="#E95420" stroke-width="1"/>
+          <text x="300" y="90" text-anchor="middle" fill="#f0a070" font-family="Sora,sans-serif" font-size="9" font-weight="600">Zookeeper (×3)</text>
+          <text x="300" y="104" text-anchor="middle" fill="#aa7050" font-family="JetBrains Mono,monospace" font-size="6">Leader election · Locks</text>
+          <!-- Launcher -->
+          <rect x="400" y="70" width="140" height="45" rx="8" fill="var(--surface)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="470" y="90" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Launcher</text>
+          <text x="470" y="104" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="6">Task dispatch · Resource alloc</text>
+          <!-- DB -->
+          <rect x="570" y="70" width="80" height="45" rx="8" fill="var(--surface)" stroke="#4169E1" stroke-width="1"/>
+          <text x="610" y="92" text-anchor="middle" fill="#7aa0e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">PostgreSQL</text>
+          <!-- Redis -->
+          <rect x="665" y="70" width="75" height="45" rx="8" fill="var(--surface)" stroke="#DC382D" stroke-width="1"/>
+          <text x="702" y="92" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <!-- Workers -->
+          <rect x="20" y="140" width="140" height="45" rx="8" fill="#051a15" stroke="#00cc8e" stroke-width="1"/>
+          <text x="90" y="160" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="9" font-weight="600">DAG Workers (×N)</text>
+          <text x="90" y="174" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Java · Vert.x · 60+ UDFs</text>
+          <rect x="180" y="140" width="140" height="45" rx="8" fill="var(--surface)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="250" y="160" text-anchor="middle" fill="var(--accent)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Dynamic Workers</text>
+          <text x="250" y="174" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">35 connector JARs · Isolated</text>
+          <rect x="340" y="140" width="140" height="45" rx="8" fill="var(--surface)" stroke="#3776AB" stroke-width="1"/>
+          <text x="410" y="160" text-anchor="middle" fill="#6ca0d0" font-family="Sora,sans-serif" font-size="9" font-weight="600">Python Workers</text>
+          <text x="410" y="174" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Celery · ML tasks</text>
+          <rect x="500" y="140" width="120" height="45" rx="8" fill="var(--surface)" stroke="#29B5E8" stroke-width="1"/>
+          <text x="560" y="160" text-anchor="middle" fill="#6cc0e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Apache Drill (×2)</text>
+          <text x="560" y="174" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">SQL engine</text>
+          <!-- Consumers -->
+          <rect x="20" y="215" width="720" height="45" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
+          <text x="380" y="235" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">DAG Consumers: Analytics Platform · Reporting Engine · Data Exchange · Platform Services</text>
+          <text x="380" y="250" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Analytics Data Store · S3 · Redshift · SQS · Connection Pooler</text>
+          <!-- Arrows -->
+          <line x1="200" y1="92" x2="230" y2="92" stroke="#00cc8e" stroke-width=".8" opacity=".5"/>
+          <line x1="370" y1="92" x2="400" y2="92" stroke="var(--accent-2)" stroke-width=".8" opacity=".5"/>
+          <line x1="110" y1="115" x2="90" y2="140" stroke="#00cc8e" stroke-width=".6" opacity=".4"/>
+          <line x1="470" y1="115" x2="250" y2="140" stroke="var(--accent)" stroke-width=".6" opacity=".3"/>
+          <line x1="470" y1="115" x2="410" y2="140" stroke="#3776AB" stroke-width=".6" opacity=".3"/>
+          <line x1="470" y1="115" x2="560" y2="140" stroke="#29B5E8" stroke-width=".6" opacity=".3"/>
+          <!-- Particles -->
+          <circle r="2" fill="#00cc8e" opacity=".8"><animateMotion dur="1.5s" repeatCount="indefinite" path="M200,92 L230,92"/></circle>
+          <circle r="2" fill="#00cc8e" opacity=".7"><animateMotion dur="2s" repeatCount="indefinite" path="M110,115 L90,140"/></circle>
+          <circle r="2" fill="var(--accent)" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M470,115 L250,140"/></circle>
+        </svg>
+      </div>
+      <div class="desc">A distributed data pipeline platform for enterprise SaaS. Ingests data from tenant systems via 35+ connectors, runs transformations through a SQL engine, and loads results into analytics data stores and warehouses. A directed-acyclic graph of tasks coordinated by leader election and workflow orchestration across a horizontally-scalable worker cluster.</div>
+      <div class="tech-pills"><span class="tech-pill">Java 8</span><span class="tech-pill">Vert.x</span><span class="tech-pill">Apache Drill</span><span class="tech-pill">Zookeeper</span><span class="tech-pill">Python/Celery</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span><span class="tech-pill">AWS SQS</span><span class="tech-pill">S3</span></div>
+      <ul class="highlights-list">
+        <li>Processes 61B+ records/day across 600+ enterprise tenants at 98.7% job success rate</li>
+        <li>Multi-worker architecture: DAG Workers (Java/Vert.x) + Dynamic Workers (35 isolated connector JARs) + Python/Celery ML Workers + Apache Drill SQL engine</li>
+        <li>60+ custom Apache Drill UDFs for tenant-specific data transformations</li>
+        <li>Horizontally-scalable cluster coordinated by Zookeeper leader election and distributed workflow orchestration</li>
+        <li>Failure-injection tasks (OOM, disk exhaustion, FD leak) as production resilience probes</li>
+      </ul>
+      <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border)">
+        <div style="font-family:var(--font-mono);font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px">35+ Enterprise Connectors</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/salesforce.svg" width="18" height="18" alt="Salesforce" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">Salesforce</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/hubspot.svg" width="18" height="18" alt="HubSpot" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">HubSpot</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/snowflake.svg" width="18" height="18" alt="Snowflake" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">Snowflake</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/bigquery.svg" width="18" height="18" alt="BigQuery" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">BigQuery</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/databricks.svg" width="18" height="18" alt="Databricks" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">Databricks</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/sap.svg" width="18" height="18" alt="SAP" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">SAP</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/zendesk.svg" width="18" height="18" alt="Zendesk" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">Zendesk</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/zoom.svg" width="18" height="18" alt="Zoom" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">Zoom</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/msteams.svg" width="18" height="18" alt="MS Teams" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">MS Teams</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/intercom.svg" width="18" height="18" alt="Intercom" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">Intercom</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/mysql.svg" width="18" height="18" alt="MySQL" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">MySQL</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/postgresql.svg" width="18" height="18" alt="PostgreSQL" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">PostgreSQL</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/mssql.svg" width="18" height="18" alt="MSSQL" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">MSSQL</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px"><img loading="lazy" src="./assets/logos/ga4.svg" width="18" height="18" alt="GA4" style="border-radius:3px"><span style="font-size:.75rem;color:var(--text-dim)">GA4</span></div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 12px;opacity:.7"><span style="font-size:.75rem;color:var(--text-muted)">+ 21 more</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: PERMISSIONS ── -->
+    <div class="proj-panel" id="tab-permissions">
+      <span class="project-badge badge-security">SECURITY · GRAPH DB</span>
+      <h3>User Permissions (RBAC)</h3>
+      <div class="subtitle">CS · Graph-native access control powering authorization across 7+ services</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="760" height="220" fill="var(--bg)" rx="6"/>
+          <!-- API -->
+          <rect x="20" y="15" width="300" height="40" rx="7" fill="#1a1808" stroke="#ffb344" stroke-width="1"/>
+          <text x="170" y="32" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="10" font-weight="600">permissions-api (Vert.x × 4 verticles)</text>
+          <text x="170" y="46" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Auth → CORS → Router → Policy Evaluator</text>
+          <!-- Stores -->
+          <rect x="40" y="80" width="90" height="40" rx="6" fill="var(--surface)" stroke="#4581C3" stroke-width="1"/>
+          <text x="85" y="98" text-anchor="middle" fill="#7aa8d8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Neo4j</text>
+          <text x="85" y="112" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="6">Permission graph</text>
+          <rect x="145" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="#DC382D" stroke-width="1"/>
+          <text x="185" y="98" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Redis</text>
+          <text x="185" y="112" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="6">Eval cache</text>
+          <rect x="240" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="#ffb344" stroke-width="1"/>
+          <text x="280" y="98" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Msg Queue</text>
+          <text x="280" y="112" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="6">Async sync</text>
+          <!-- Workers -->
+          <rect x="20" y="145" width="300" height="40" rx="7" fill="#0a0f1a" stroke="#4d6080" stroke-width="1"/>
+          <text x="170" y="162" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="9" font-weight="600">permissions-worker (N instances)</text>
+          <text x="170" y="176" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="6">Heartbeat leader · Onboarding · Group sync · Scavenger cleanup</text>
+          <!-- SDK consumers -->
+          <rect x="380" y="15" width="360" height="190" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="560" y="38" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Permission SDK Consumers (7+ services)</text>
+          <text x="420" y="62" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">Analytics</text><text x="520" y="62" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Row-level data access control</text>
+          <text x="420" y="82" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">Query Fed.</text><text x="520" y="82" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Query federation access control</text>
+          <text x="420" y="102" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">Reporting</text><text x="520" y="102" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Report-level permission checks</text>
+          <text x="420" y="122" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">API GW</text><text x="520" y="122" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">JWT filter + resource authorization</text>
+          <text x="420" y="142" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">Data Store</text><text x="520" y="142" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Resource-level access enforcement</text>
+          <text x="420" y="162" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">Catalog</text><text x="520" y="162" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Catalog access validation</text>
+          <text x="420" y="182" fill="#4d8bff" font-family="JetBrains Mono,monospace" font-size="8">CC Bridge</text><text x="520" y="182" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Cross-product permission bridge</text>
+          <!-- Arrows -->
+          <line x1="320" y1="35" x2="380" y2="35" stroke="#ffb344" stroke-width="1" stroke-dasharray="4 2" opacity=".5"/>
+          <text x="350" y="28" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">SDK</text>
+          <circle r="2.5" fill="#ffb344" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M320,35 L380,35"/></circle>
+          <circle r="2" fill="#4581C3" opacity=".7"><animateMotion dur="1.8s" repeatCount="indefinite" path="M170,55 L85,80"/></circle>
+        </svg>
+      </div>
+      <div class="desc">Centralized multi-tenant RBAC service. Permissions stored as a graph — a single traversal answers "can user U do action A on resource R?" in milliseconds, with Redis-cached evaluations and expression-based policy conditions. The permission SDK is consumed by 7+ services across the platform.</div>
+      <div class="tech-pills"><span class="tech-pill">Neo4j</span><span class="tech-pill">Vert.x</span><span class="tech-pill">Redis</span><span class="tech-pill">Message Queue</span><span class="tech-pill">PostgreSQL</span></div>
+      <ul class="highlights-list">
+        <li>Graph-native model: resources, policies, groups, and manager chains as traversable edges — single graph traversal resolves access in milliseconds</li>
+        <li>Targeted Redis invalidation — editing a sharing group invalidates only affected members × resources, not the full cache</li>
+        <li>Row-level data enforcement — restricted data never leaves the database, access control enforced at SQL query-build time</li>
+        <li>Permission SDK consumed by 7+ platform services: analytics, query federation, reporting, API gateway, data store, catalog, and cross-product bridge</li>
+        <li>Heartbeat-based leader election for worker coordination with automatic cleanup of orphaned graph nodes</li>
+      </ul>
+    </div>
+
+    <!-- ── TAB: UDM ── -->
+    <div class="proj-panel" id="tab-udm">
+      <span class="project-badge badge-data">ANALYTICS · WAREHOUSING</span>
+      <h3>Usage Data Model (UDM)</h3>
+      <div class="subtitle">CS · Multi-tenant analytics orchestration across dual warehouses</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="760" height="220" fill="var(--bg)" rx="6"/>
+          <!-- API -->
+          <rect x="20" y="15" width="170" height="45" rx="7" fill="#0a1020" stroke="#4d8bff" stroke-width="1"/>
+          <text x="105" y="34" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="10" font-weight="600">UDM API (Vert.x)</text>
+          <text x="105" y="50" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="6">Analyzer · RunNow · Admin · Migration</text>
+          <!-- Message Queue -->
+          <rect x="220" y="15" width="100" height="45" rx="7" fill="var(--surface)" stroke="#ffb344" stroke-width="1"/>
+          <text x="270" y="34" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Message Queue</text>
+          <text x="270" y="50" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Multiple queues · async dispatch</text>
+          <!-- Worker -->
+          <rect x="350" y="15" width="200" height="45" rx="7" fill="#0a1020" stroke="#4d8bff" stroke-width="1"/>
+          <text x="450" y="34" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="10" font-weight="600">UDM Worker (multi-pool)</text>
+          <text x="450" y="50" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="6">Scheduler · Submitter · DataLoad · Archival · QueryBuilder</text>
+          <!-- Data Highway -->
+          <rect x="580" y="15" width="160" height="45" rx="7" fill="#051a15" stroke="#00cc8e" stroke-width="1.5"/>
+          <text x="660" y="34" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="600">Data Highway</text>
+          <text x="660" y="50" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">DAG submission via internal API</text>
+          <!-- Data stores row -->
+          <rect x="20" y="85" width="100" height="38" rx="5" fill="var(--surface)" stroke="#4169E1" stroke-width="1"/>
+          <text x="70" y="103" text-anchor="middle" fill="#7aa0e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">PostgreSQL</text>
+          <text x="70" y="116" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="5.5">Per-tenant DDL</text>
+          <rect x="130" y="85" width="100" height="38" rx="5" fill="var(--surface)" stroke="#8C4FFF" stroke-width="1"/>
+          <text x="180" y="103" text-anchor="middle" fill="#b088ff" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redshift</text>
+          <text x="180" y="116" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="5.5">High-volume OLAP</text>
+          <rect x="240" y="85" width="80" height="38" rx="5" fill="var(--surface)" stroke="#DC382D" stroke-width="1"/>
+          <text x="280" y="103" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <rect x="330" y="85" width="80" height="38" rx="5" fill="var(--surface)" stroke="#ffb344" stroke-width="1"/>
+          <text x="370" y="103" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Conn Pool</text>
+          <rect x="420" y="85" width="100" height="38" rx="5" fill="#1a1808" stroke="#ffb344" stroke-width=".8"/>
+          <text x="470" y="103" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Permissions</text>
+          <text x="470" y="116" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">Row-level RBAC</text>
+          <rect x="530" y="85" width="100" height="38" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="580" y="103" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Data Store</text>
+          <text x="580" y="116" text-anchor="middle" fill="#4a6080" font-family="JetBrains Mono,monospace" font-size="5.5">API callouts</text>
+          <!-- Arrows -->
+          <line x1="190" y1="37" x2="220" y2="37" stroke="#ffb344" stroke-width=".8" opacity=".5"/>
+          <line x1="320" y1="37" x2="350" y2="37" stroke="#ffb344" stroke-width=".8" opacity=".5"/>
+          <line x1="550" y1="37" x2="580" y2="37" stroke="#00cc8e" stroke-width="1" opacity=".5"/>
+          <circle r="2.5" fill="#00cc8e" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M550,37 L580,37"/></circle>
+          <circle r="2" fill="#ffb344" opacity=".7"><animateMotion dur="1.5s" repeatCount="indefinite" path="M190,37 L220,37"/></circle>
+          <!-- Label -->
+          <text x="380" y="155" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".5">~25 pluggable task builders · Dual-warehouse abstraction · Template-driven DDL · Permissions injected at query time</text>
+        </svg>
+      </div>
+      <div class="desc">Full-lifecycle analytics engine — onboarding, schema definition, ingestion from 10+ sources, transformation, and warehouse storage. Powers Gainsight dashboards with per-tenant dynamic DDL and dual-warehouse abstraction (PostgreSQL for small tenants, Redshift for high-volume).</div>
+      <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">Redshift</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Message Queue</span><span class="tech-pill">Redis</span></div>
+      <ul class="highlights-list">
+        <li>~25 pluggable task builders — adding a new data source is a single builder class</li>
+        <li>Dual-warehouse abstraction — PostgreSQL for small tenants, Redshift for high-volume OLAP, switched transparently</li>
+        <li>Permissions injected at query-build time — restricted data never leaves the database</li>
+        <li>Cross-system DAG submission to the pipeline engine with retry and backoff</li>
+        <li>Secure multi-tenant data exchange with per-tenant credential isolation</li>
+      </ul>
+    </div>
+
+    <!-- ── TAB: EVENTS ── -->
+    <div class="proj-panel" id="tab-events">
+      <span class="project-badge badge-infra">PUB/SUB · EVENT-DRIVEN</span>
+      <h3>Event Processing</h3>
+      <div class="subtitle">CS · Four-tier async pub/sub with durable delivery and cross-region failover</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="760" height="230" fill="var(--bg)" rx="6"/>
+          <!-- Tier labels -->
+          <text x="8" y="35" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,35)">TIER 1</text>
+          <text x="8" y="105" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,105)">TIER 2</text>
+          <text x="8" y="175" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,175)">TIER 3-4</text>
+          <!-- Receiver -->
+          <rect x="30" y="15" width="160" height="45" rx="7" fill="#0a1520" stroke="#00c2d1" stroke-width="1.5"/>
+          <text x="110" y="34" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Receiver (×3)</text>
+          <text x="110" y="48" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">Vert.x · Auth · Rate limit · Persist</text>
+          <!-- SQS Queues -->
+          <rect x="230" y="8" width="120" height="28" rx="5" fill="#250a15" stroke="#ff6baa" stroke-width="1"/>
+          <text x="290" y="26" text-anchor="middle" fill="#ff8ac0" font-family="JetBrains Mono,monospace" font-size="7">SQS Primary</text>
+          <rect x="230" y="40" width="120" height="28" rx="5" fill="#250a15" stroke="#ff6baa" stroke-width=".6" opacity=".5"/>
+          <text x="290" y="58" text-anchor="middle" fill="#ff8ac0" font-family="JetBrains Mono,monospace" font-size="7" opacity=".6">SQS Secondary (failover)</text>
+          <!-- Enricher -->
+          <rect x="380" y="15" width="130" height="45" rx="7" fill="#250a15" stroke="#ff6baa" stroke-width="1"/>
+          <text x="445" y="34" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="9" font-weight="600">Enricher Queue</text>
+          <text x="445" y="48" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6">Data lookup · Enrichment</text>
+          <!-- Redis + PG -->
+          <rect x="540" y="15" width="65" height="45" rx="5" fill="var(--surface)" stroke="#DC382D" stroke-width=".8"/>
+          <text x="572" y="40" text-anchor="middle" fill="#f08080" font-size="8" font-family="DM Sans">Redis</text>
+          <rect x="615" y="15" width="80" height="45" rx="5" fill="var(--surface)" stroke="#4169E1" stroke-width=".8"/>
+          <text x="655" y="40" text-anchor="middle" fill="#7aa0e8" font-size="8" font-family="DM Sans">Postgres</text>
+          <!-- Router -->
+          <rect x="30" y="85" width="160" height="45" rx="7" fill="#0a1520" stroke="#00c2d1" stroke-width="1"/>
+          <text x="110" y="104" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Router (×N)</text>
+          <text x="110" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">Fan-out · Broadcast queues · Tenant routing</text>
+          <!-- Relayer -->
+          <rect x="230" y="85" width="160" height="45" rx="7" fill="#0a1520" stroke="#00c2d1" stroke-width=".8"/>
+          <text x="310" y="104" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Relayer (×N)</text>
+          <text x="310" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">Delayed delivery · Retry with backoff</text>
+          <!-- Broadcaster -->
+          <rect x="430" y="85" width="160" height="45" rx="7" fill="#0a1520" stroke="#00c2d1" stroke-width="1"/>
+          <text x="510" y="104" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Broadcaster (×N)</text>
+          <text x="510" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">HTTP delivery · Status tracking</text>
+          <!-- Subscribers -->
+          <rect x="30" y="160" width="660" height="45" rx="7" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="360" y="180" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Subscribers — HTTP webhooks · Internal services · External customer endpoints</text>
+          <text x="360" y="196" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Self-healing delivery recovery · Cross-region queue failover · Persistent routing state</text>
+          <!-- Arrows -->
+          <line x1="190" y1="37" x2="230" y2="22" stroke="#00c2d1" stroke-width=".8" opacity=".5"/>
+          <line x1="190" y1="37" x2="230" y2="54" stroke="#00c2d1" stroke-width=".5" opacity=".3"/>
+          <line x1="350" y1="22" x2="380" y2="30" stroke="#ff6baa" stroke-width=".5" opacity=".4"/>
+          <line x1="350" y1="22" x2="110" y2="85" stroke="#00c2d1" stroke-width=".8" opacity=".4"/>
+          <line x1="190" y1="107" x2="230" y2="107" stroke="#00c2d1" stroke-width=".5" opacity=".4"/>
+          <line x1="390" y1="107" x2="430" y2="107" stroke="#00c2d1" stroke-width=".8" opacity=".4"/>
+          <line x1="510" y1="130" x2="360" y2="160" stroke="#00c2d1" stroke-width=".6" opacity=".4"/>
+          <!-- Particles -->
+          <circle r="2.5" fill="#00c2d1" opacity=".8"><animateMotion dur="1.5s" repeatCount="indefinite" path="M190,37 L230,22"/></circle>
+          <circle r="2.5" fill="#00c2d1" opacity=".7"><animateMotion dur="2.5s" repeatCount="indefinite" path="M350,22 L110,85"/></circle>
+          <circle r="2.5" fill="#00c2d1" opacity=".8"><animateMotion dur="1.8s" repeatCount="indefinite" path="M510,130 L360,160"/></circle>
+        </svg>
+      </div>
+      <div class="desc">Async event fan-out with durable delivery. Publishers emit once; subscribers register for events with optional delayed delivery and data enrichment. Four-tier architecture with purpose-matched runtimes: Receiver → Router → Relayer → Broadcaster.</div>
+      <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">AWS SQS</span><span class="tech-pill">Apache HttpAsync</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span></div>
+      <ul class="highlights-list">
+        <li>Cross-region SQS failover — automatic switch to secondary queues on publish errors</li>
+        <li>Self-healing delivery: dedicated recovery process detects and recovers orphaned delivery rows after worker crashes</li>
+        <li>Blocked-tenant handling isolates noisy tenants from starving other tenants' event delivery</li>
+        <li>Enrichment loop — events decorated with business context from the analytics data store before delivery</li>
+        <li>Tiered architecture: Receiver → Router → Relayer → Broadcaster with purpose-matched runtimes</li>
+      </ul>
+    </div>
+
+    <!-- ── TAB: AUDIT & CONFIG ── -->
+    <div class="proj-panel" id="tab-infra">
+      <div class="about-grid">
+        <div>
+          <span class="project-badge badge-infra">COMPLIANCE · OBSERVABILITY</span>
+          <h3>Audit Service</h3>
+          <div class="subtitle">Centralized event capture & compliance trail</div>
+          <div class="desc">Reactive audit service for compliance trails. Fire-and-forget writes via Vert.x event bus decouple caller latency from Postgres persistence. Per-tenant tables created lazily on first write. Used by every service in the platform via a lightweight audit client SDK.</div>
+          <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span></div>
+          <ul class="highlights-list">
+            <li>Async write via event bus — HTTP 200 returns before DB insert completes</li>
+            <li>Random-tenant retention cleanup with +10 day safety buffer</li>
+            <li>Separate read/write DB pools to prevent analytics from starving ingestion</li>
+          </ul>
+        </div>
+        <div>
+          <span class="project-badge badge-infra">INFRASTRUCTURE · CONFIG</span>
+          <h3>Config Server</h3>
+          <div class="subtitle">Centralized configuration for all CS services</div>
+          <div class="desc">Spring Boot + Vert.x hybrid config service. Every platform service pulls runtime configuration from here — DB strings, feature flags, encrypted secrets — with full audit trail and periodic refresh. The config client SDK is embedded across all Java services.</div>
+          <div class="tech-pills"><span class="tech-pill">Spring Boot</span><span class="tech-pill">Vert.x</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">AES Encryption</span></div>
+          <ul class="highlights-list">
+            <li>Upsert + append-only version history table in single transaction</li>
+            <li>Database-enforced integrity with case-insensitive keys and FK cascades</li>
+            <li>Redis-cached auth lookups with fail-fast startup ping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ SKILLS ═══════════════════ -->
+<section id="skills" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-label reveal">Tech Stack</div>
+    <div class="section-title reveal">Technologies & Tools</div>
+    <div class="section-sub reveal">A decade of hands-on experience across languages, frameworks, cloud services, and data systems.</div>
+
+    <div class="skill-category reveal">
+      <h3>Languages & Frameworks</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/java.svg" alt="Java" width="28" height="28"><div class="name">Java 8+</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/python.svg" alt="Python" width="28" height="28"><div class="name">Python 3.x</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/vertx.svg" alt="Vert.x" width="28" height="28"><div class="name">Vert.x</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/springboot.svg" alt="Spring Boot" width="28" height="28"><div class="name">Spring Boot</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/fastapi.svg" alt="FastAPI" width="28" height="28"><div class="name">FastAPI</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="FastMCP" width="28" height="28"><div class="name">FastMCP</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/php.svg" alt="PHP" width="28" height="28"><div class="name">PHP (Yii)</div></div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <h3>Cloud & Infrastructure</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><div class="brand-icon" style="background:#FF9900">ECS</div><div class="name">AWS ECS Fargate</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#FF9900">λ</div><div class="name">AWS Lambda</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#569A31">S3</div><div class="name">AWS S3</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#FF4F8B">SQ</div><div class="name">AWS SQS / SNS</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#4053D6">DB</div><div class="name">AWS DynamoDB</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#E7157B">CF</div><div class="name">CloudFormation</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/docker.svg" alt="Docker" width="28" height="28"><div class="name">Docker</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#FF4F8B">CW</div><div class="name">CloudWatch</div></div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <h3>Data & Search</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/postgresql.svg" alt="PostgreSQL" width="28" height="28"><div class="name">PostgreSQL</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/redis.svg" alt="Redis" width="28" height="28"><div class="name">Redis</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/neo4j.svg" alt="Neo4j" width="28" height="28"><div class="name">Neo4j</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia" width="28" height="28"><div class="name">Algolia</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/drill.svg" alt="Apache Drill" width="28" height="28"><div class="name">Apache Drill</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#8C4FFF">RS</div><div class="name">Redshift</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/mongodb.svg" alt="MongoDB" width="28" height="28"><div class="name">MongoDB</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#232F3E">At</div><div class="name">Athena</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/mysql.svg" alt="MySQL" width="28" height="28"><div class="name">MySQL</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/zookeeper.svg" alt="Zookeeper" width="28" height="28"><div class="name">Zookeeper</div></div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <h3>AI & Protocols</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="MCP" width="28" height="28"><div class="name">MCP Protocol</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/sse.svg" alt="SSE" width="28" height="28"><div class="name">SSE Transport</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/openai.svg" alt="OpenAI" width="28" height="28"><div class="name">OpenAI / GPT</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/gemini.svg" alt="Gemini" width="28" height="28"><div class="name">Google Gemini</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/llama.svg" alt="Llama" width="28" height="28"><div class="name">Llama 3</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia AskAI" width="28" height="28"><div class="name">Algolia AskAI</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/jwt.svg" alt="JWT" width="28" height="28"><div class="name">JWT / PyJWT</div></div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <h3>DevOps & Quality</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/githubactions.svg" alt="GitHub Actions" width="28" height="28"><div class="name">GitHub Actions</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/bitbucket.svg" alt="Bitbucket" width="28" height="28"><div class="name">Bitbucket Pipelines</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/sonarcloud.svg" alt="SonarCloud" width="28" height="28"><div class="name">SonarCloud</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/maven.svg" alt="Maven" width="28" height="28"><div class="name">Maven</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/pytest.svg" alt="pytest" width="28" height="28"><div class="name">pytest</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/junit.svg" alt="JUnit" width="28" height="28"><div class="name">JUnit</div></div>
+        <div class="skill-card"><img loading="lazy" src="./assets/logos/restassured.svg" alt="REST Assured" width="28" height="28"><div class="name">REST Assured</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ EDUCATION ═══════════════════ -->
+<section id="education">
+  <div class="container">
+    <div class="section-label reveal">Education & Recognition</div>
+    <div class="section-title reveal">Background</div>
+
+    <div class="about-grid" style="margin-top:32px">
+      <div class="reveal">
+        <div class="about-hl" style="margin-bottom:16px">
+          <h4>B.Tech — Computer Science & Engineering</h4>
+          <p>BABU BANARASI DAS Institute of Technology & Management, Lucknow (2010–2014) · 75.16%</p>
+        </div>
+        <div class="about-hl" style="margin-bottom:16px">
+          <h4>Intermediate — Mathematics</h4>
+          <p>Rastriya Inter College (2008–2010) · 73.6%</p>
+        </div>
+        <div class="about-hl">
+          <h4>Languages</h4>
+          <p>English (Full Professional) · Hindi (Native)</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-hl" style="margin-bottom:16px">
+          <h4>Awards & Leadership</h4>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">Vice-Captain, Nihilentia</strong> — Selected to lead Nihilent's annual fest (Dec 2014). Successfully organized events and competitions.</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">IT-FIESTA 2011</strong> — Appreciation Certificate awarded by T. Ashok (Founder & CEO, Stag Software Pvt. Ltd.)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">UTKARSH-13 & 14</strong> — Coordinated Technical Events at BBDGEI (2013 & 2014)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">ENCORE-12</strong> — Honor & Excellence Certificate at IET Lucknow (Oct 2012)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">Techsamagam-11</strong> — Certificate Of Merit, FORCE CIC Education (Nov 2011)</p>
+          <p><strong style="color:var(--accent)">3rd Position, UP Board</strong> — Block-level topper in Jaunpur, High School Examinations (2007)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-label reveal">Testimonials</div>
+    <div class="section-title reveal">What Colleagues Say</div>
+
+    <div class="about-grid" style="margin-top:32px">
+      <div class="testimonial reveal">
+        <blockquote>"Abhishekh is an outstanding person, great to work with and a real self starter. He is very effective in team and testing related activities. He has strong and broad technical and automation expertise. Abhishekh is one of the top people I have met and worked with in my career."</blockquote>
+        <div class="author">Rajesh Chejerla</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Principal Engineer at Salesforce</div>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"Abhishekh is very passionate and has great vision for his work. His focus keeps everything moving smoothly, he makes sure all the deadlines are met, and makes sure that whatever project he is working on meets the highest standards."</blockquote>
+        <div class="author">Anant Agrawal</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Engineering Manager | CyberSecurity | Scale Products</div>
+      </div>
+    </div>
+    <div class="about-grid" style="margin-top:20px">
+      <div class="testimonial reveal">
+        <blockquote>"Abhishekh successfully automated our application and single handedly managed all testing activities. He is extremely enthusiastic about his work which is infectious, makes it fun to learn. He always has a creative, positive outlook and he's good at organizing and bringing people together."</blockquote>
+        <div class="author">Shivesh Verma</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Senior Software Engineer (JL4) at Maersk</div>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"I had the privilege of working with Abhishek on a couple of academic projects during our B.Tech. He is a highly organized, goal oriented, independent and hard working perfectionist. He has very good analytical and interpersonal skills. He is the most motivated and enthusiastic person I have ever met."</blockquote>
+        <div class="author">Kuldeep Kr</div>
+        <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Staff Software Engineer @ ServiceNow | Ex-Microsoft</div>
+      </div>
+    </div>
+    <div class="collapsible-content" id="moreTestimonials">
+      <div style="margin-top:20px;max-width:600px">
+        <div class="testimonial reveal">
+          <blockquote>"Abhishek has tremendous knowledge of Testing, always there to help for problems related to testing. His rational approach of making complex topics very simpler by relating it with day to day examples was amazing. That was the beauty of his approach in System Testing and Integration Testing."</blockquote>
+          <div class="author">Rupender Rana</div>
+          <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Technical Lead, iOS at Nagarro</div>
+        </div>
+      </div>
+    </div>
+    <button class="collapsible-toggle" onclick="toggleCollapse('moreTestimonials', this)">Read more testimonials ↓</button>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal">Get In Touch</div>
+    <div class="section-title reveal">Let's Connect</div>
+    <div class="section-sub reveal">Open to conversations about distributed systems, AI infrastructure, and platform engineering.</div>
+    <div class="contact-links reveal">
+      <a href="mailto:abhishekcp.singh67@gmail.com" class="contact-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        abhishekcp.singh67@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/abhishekh-singh-636ab021/" target="_blank" class="contact-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/abhishekhsingh" target="_blank" class="contact-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Built with precision by Abhishekh Singh · 2026
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const navMobile = document.getElementById('navMobile');
+navToggle.addEventListener('click', () => {
+  navMobile.classList.toggle('open');
+  const isOpen = navMobile.classList.contains('open');
+  navToggle.innerHTML = isOpen
+    ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+});
+function closeMobile() {
+  navMobile.classList.remove('open');
+  navToggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+}
+
+// Project tab switching
+function showTab(id) {
+  document.querySelectorAll('.proj-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Collapsible sections
+function toggleCollapse(id, btn) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? 'Show less ↑' : btn.dataset.label || 'Show more ↓';
+  if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Handle broken images gracefully
+document.querySelectorAll('img').forEach(img => {
+  img.onerror = function() {
+    this.style.display = 'none';
+  };
+});
+</script>
+<script data-goatcounter="https://abhishekhsingh.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
