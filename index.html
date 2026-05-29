@@ -4,23 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-<title>Abhishekh Singh — Principal Engineer | Distributed Systems & AI</title>
-<meta name="description" content="Principal Engineer with 11+ years building production distributed systems, AI infrastructure, and MCP servers. Portfolio showcasing Data Highway, Search & AI Platform, and open-source projects.">
+<title>Abhishekh Singh, Principal Engineer | Distributed Systems & AI</title>
+<meta name="description" content="Principal Engineer with 11+ years building production distributed systems, AI infrastructure, and MCP servers. Portfolio showcasing Data Highway, Search & AI Platform, and open-source developer tools.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://abhishekhsingh.github.io/">
-<meta property="og:title" content="Abhishekh Singh — Principal Engineer">
-<meta property="og:description" content="11+ years building distributed systems, AI infrastructure, and MCP servers at enterprise scale. Data Highway processing 61B+ records/day, AI platform with cross-provider LLM fallback, production MCP server with 21 tools.">
+<meta property="og:title" content="Abhishekh Singh, Principal Engineer">
+<meta property="og:description" content="11+ years building distributed systems, AI infrastructure, and MCP servers at enterprise scale. Data Highway processing 61B+ records/day, AI platform with cross-provider LLM fallback, production MCP server exposing dozens of tools.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://abhishekhsingh.github.io/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abhishekh Singh — Principal Engineer">
+<meta name="twitter:title" content="Abhishekh Singh, Principal Engineer">
 <meta name="twitter:description" content="Distributed systems, AI infrastructure, MCP servers. 11+ years at enterprise scale.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <script>
-// Theme bootstrap — runs before body renders to prevent flash of wrong theme.
+// Theme bootstrap: runs before body renders to prevent flash of wrong theme.
 // Always defaults to dark unless localStorage has 'light'. No system-pref detection.
 (function(){
   try {
@@ -34,14 +34,14 @@
 </script>
 <style>
 :root {
-  /* fonts and layout — theme-agnostic */
+  /* fonts and layout (theme-agnostic) */
   --font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
   --max-w: 1200px;
 }
 
-/* dark theme — the brand default; matches the site's prior look exactly */
+/* dark theme: the brand default; matches the site's prior look exactly */
 :root, :root[data-theme="dark"] {
   --bg: #04080f;
   --bg-2: #0a1019;
@@ -68,7 +68,7 @@
   --code-shadow: 0 4px 30px rgba(0,0,0,.3);
 }
 
-/* light theme — opt-in via toggle, persisted in localStorage */
+/* light theme: opt-in via toggle, persisted in localStorage */
 :root[data-theme="light"] {
   --bg: #f8fafc;
   --bg-2: #ffffff;
@@ -95,7 +95,7 @@
   --code-shadow: 0 4px 20px rgba(15,23,42,.08);
 }
 
-/* SVG diagram tinted backgrounds — overrides only fire in light theme.
+/* SVG diagram tinted backgrounds: overrides only fire in light theme.
    Kept as a single block for easy review/refinement. */
 :root[data-theme="light"] .arch-container svg [fill="#3a8a70"] { fill:#a7f3d0; }
 :root[data-theme="light"] .arch-container svg [fill="#7c6caf"] { fill:#ddd6fe; }
@@ -112,7 +112,7 @@
 :root[data-theme="light"] .arch-container svg [fill="#0a1020"],
 :root[data-theme="light"] .arch-container svg [fill="#0a1520"],
 :root[data-theme="light"] .arch-container svg [fill="#0a0f1a"] { fill:#f1f5f9; }
-/* Light text/strokes inside tinted icon shapes — flip to dark in light theme */
+/* Light text/strokes inside tinted icon shapes: flip to dark in light theme */
 :root[data-theme="light"] .arch-container svg [fill="#6eeac4"] { fill:#065f46; }
 :root[data-theme="light"] .arch-container svg [fill="#c4b5fd"] { fill:#5b21b6; }
 :root[data-theme="light"] .arch-container svg [fill="#ffd080"] { fill:#92400e; }
@@ -133,7 +133,7 @@
   font-weight: 500 !important;
 }
 
-/* Smooth transitions only fire during a theme switch — avoid permanent overhead */
+/* Smooth transitions only fire during a theme switch: avoid permanent overhead */
 html.theme-transitioning, html.theme-transitioning *,
 html.theme-transitioning *::before, html.theme-transitioning *::after {
   transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease, fill .3s ease, stroke .3s ease !important;
@@ -215,6 +215,16 @@ section{padding:100px 32px}
 .highlights-list{list-style:none}
 .highlights-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.85rem;color:var(--text-dim);line-height:1.7}
 .highlights-list li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+.install-box{margin:0 0 22px}
+.install-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.install-badges img{height:20px;display:block;border-radius:4px}
+.code-snippet{position:relative;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-family:var(--font-mono);font-size:.82rem;line-height:1.8;overflow-x:auto}
+.code-snippet .line{white-space:nowrap;color:var(--text)}
+.code-snippet .prompt{color:var(--accent);user-select:none;margin-right:8px}
+.code-snippet .arg{color:var(--text-muted)}
+.copy-btn{position:absolute;top:10px;right:10px;background:var(--surface);border:1px solid var(--border);color:var(--text-dim);font-family:var(--font-mono);font-size:.66rem;padding:4px 10px;border-radius:6px;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.copy-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--hover-soft)}
+.copy-btn.copied{color:var(--accent-3);border-color:var(--accent-3)}
 
 /* ── ARCHITECTURE DIAGRAMS ── */
 .arch-container{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;overflow-x:auto}
@@ -367,6 +377,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <a href="#about">About</a>
     <a href="#journey">Journey</a>
     <a href="#projects">Projects</a>
+    <a href="#open-source">Open Source</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
@@ -381,6 +392,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#journey" onclick="closeMobile()">Journey</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#open-source" onclick="closeMobile()">Open Source</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
@@ -390,7 +402,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
   <div class="container hero-content">
     <div class="hero-tag"><span class="dot"></span> Principal Engineer @ Gainsight</div>
     <h1>Building <span class="gradient">distributed systems</span> that power customer success at scale</h1>
-    <p>I architect the data infrastructure, search platforms, and AI systems behind Gainsight's enterprise SaaS — from pipeline engines processing billions of records daily, to AI-powered search with dual-LLM providers and an MCP server that lets Claude and ChatGPT query community knowledge natively.</p>
+    <p>I architect the data infrastructure, search platforms, and AI systems behind Gainsight's enterprise SaaS, from pipeline engines processing billions of records daily, to AI-powered search with dual-LLM providers and an MCP server that lets Claude and ChatGPT query community knowledge natively.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">11+</div><div class="label">Years Engineering</div></div>
       <div class="hero-stat"><div class="num">10+</div><div class="label">Production Systems</div></div>
@@ -410,7 +422,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <div class="scale-item"><span class="scale-num">25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
     <div class="scale-item"><span class="scale-num">35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
     <div class="scale-item"><span class="scale-num">98.7%</span><span class="scale-label">job success rate</span></div><span class="scale-dot"></span>
-    <!-- duplicate for seamless loop -->
+    <!-- duplicate for continuous loop -->
     <div class="scale-item"><span class="scale-num">61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
     <div class="scale-item"><span class="scale-num">14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
     <div class="scale-item"><span class="scale-num">93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
@@ -428,18 +440,18 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <div class="section-title reveal">Abhishekh Singh</div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Principal Engineer at Gainsight with 11+ years building production distributed systems across two product lines — Customer Success (CS) and Customer Communities (CC). Based in Hyderabad, India. B.Tech in Computer Science from BBDITM, Lucknow.</p>
-        <p>On the CS side, I built the Data Highway pipeline engine, the graph-based permission system used by 7+ services, and the event processing platform with cross-region SQS failover. On the CC side, I architected the AI-native search platform — three LLM-powered features, a production MCP server with 21 tools, and a federated search system indexing records from 5 sources.</p>
-        <p>My work sits at the intersection of distributed systems, data engineering, and AI — building the kind of infrastructure that other teams build their products on.</p>
+        <p>Principal Engineer at Gainsight with 11+ years building production distributed systems across two product lines: Customer Success (CS) and Customer Communities (CC). Based in Hyderabad, India. B.Tech in Computer Science from BBDITM, Lucknow.</p>
+        <p>On the CS side, I built the Data Highway pipeline engine, the graph-based permission system used by 7+ services, and the event processing platform with cross-region SQS failover. On the CC side, I architected the AI-native search platform: three LLM-powered features, a production MCP server exposing dozens of tools, and a federated search system indexing records from 5 sources.</p>
+        <p>My work sits at the intersection of distributed systems, data engineering, and AI, building the kind of infrastructure that other teams build their products on.</p>
       </div>
       <div class="about-highlights reveal">
         <div class="about-hl">
           <h4>Platform Architecture</h4>
-          <p>10+ production services across Java (Vert.x, Spring Boot) and Python — DAG orchestration, event-driven pipelines, graph-based RBAC, and real-time search</p>
+          <p>10+ production services across Java (Vert.x, Spring Boot) and Python: DAG orchestration, event-driven pipelines, graph-based RBAC, and real-time search</p>
         </div>
         <div class="about-hl">
           <h4>AI & MCP Integration</h4>
-          <p>Production MCP server with 21 tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
+          <p>Production MCP server exposing dozens of tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
         </div>
         <div class="about-hl">
           <h4>Data at Scale</h4>
@@ -459,44 +471,44 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
   <div class="container">
     <div class="section-label reveal">Career Journey</div>
     <div class="section-title reveal">Building at Every Layer of the Stack</div>
-    <div class="section-sub reveal">A decade of progressive engineering ownership — from automation frameworks to architecting the data and AI backbone of an enterprise SaaS platform.</div>
+    <div class="section-sub reveal">A decade of progressive engineering ownership, from automation frameworks to architecting the data and AI backbone of an enterprise SaaS platform.</div>
 
     <div class="timeline reveal">
       <div class="tl-item active">
-        <div class="tl-date">APR 2025 — PRESENT</div>
+        <div class="tl-date">APR 2025 - PRESENT</div>
         <div class="tl-role">Principal Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
-        <div class="tl-desc">Architecting the Search & AI platform — production MCP server for AI assistants, three LLM-powered features with cross-provider fallback, search analytics data lake, and federated search indexing across multiple content sources. Leading the platform's AI-native evolution.</div>
+        <div class="tl-desc">Architecting the Search & AI platform: production MCP server for AI assistants, three LLM-powered features with cross-provider fallback, search analytics data lake, and federated search indexing across multiple content sources. Leading the platform's AI-native evolution.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">AUG 2019 — MAR 2025</div>
+        <div class="tl-date">AUG 2019 - MAR 2025</div>
         <div class="tl-role">Lead Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Led architecture of the Data Highway pipeline engine scaling to billions of records daily across hundreds of enterprise tenants. Built the Usage Data Model analytics platform, community search system, and enterprise webhook delivery with IAM SigV4 signing.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">JUL 2017 — AUG 2019</div>
+        <div class="tl-date">JUL 2017 - AUG 2019</div>
         <div class="tl-role">Senior Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Built the Usage Data Model (UDM) analytics platform with dual-warehouse abstraction (Postgres + Redshift), Event Processing pub/sub system, and core Data Highway infrastructure.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">JUL 2016 — JUN 2017</div>
+        <div class="tl-date">JUL 2016 - JUN 2017</div>
         <div class="tl-role">Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Developed the graph-based permission system (Neo4j), centralized Config Server, Audit Service, and contributed to the Data Highway DAG engine with 60+ custom Drill UDFs.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">DEC 2015 — JUN 2016</div>
+        <div class="tl-date">DEC 2015 - JUN 2016</div>
         <div class="tl-role">Software Engineer</div>
         <div class="tl-company">Talentica Software · Pune</div>
-        <div class="tl-desc">Engineered the Intelligence Machine — a big data recommendation engine processing terabytes of social media data daily. Built performance benchmarking infrastructure and data-driven test automation across distributed systems.</div>
+        <div class="tl-desc">Engineered the Intelligence Machine, a big data recommendation engine processing terabytes of social media data daily. Built performance benchmarking infrastructure and data-driven test automation across distributed systems.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-date">AUG 2014 — DEC 2015</div>
+        <div class="tl-date">AUG 2014 - DEC 2015</div>
         <div class="tl-role">Software Analyst</div>
         <div class="tl-company">Nihilent · Pune</div>
-        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary) — a major media platform serving millions of subscribers. Contributed to open-source technology solutions spanning .NET, Java, PHP, and Oracle.</div>
+        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary), a major media platform serving millions of subscribers. Contributed to open-source technology solutions spanning .NET, Java, PHP, and Oracle.</div>
       </div>
     </div>
   </div>
@@ -507,7 +519,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
   <div class="container">
     <div class="section-label reveal">Projects</div>
     <div class="section-title reveal">Systems I've Built & Architected</div>
-    <div class="section-sub reveal">Production systems powering Gainsight's enterprise platform — from data pipelines to AI-powered search.</div>
+    <div class="section-sub reveal">Production systems powering Gainsight's enterprise platform, from data pipelines to AI-powered search.</div>
 
     <!-- ── PLATFORM ECOSYSTEM DIAGRAM ── -->
     <div class="project-card reveal" style="border-color:var(--accent-2);background:linear-gradient(135deg,var(--surface) 0%,rgba(13,21,37,.95) 100%)">
@@ -519,11 +531,11 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
             <filter id="g2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
           <rect width="840" height="520" fill="var(--bg)" rx="8"/>
-          <text x="420" y="22" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">Gainsight CustomerOS — 20 repositories, 60+ cross-repo connections</text>
+          <text x="420" y="22" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">Gainsight CustomerOS · multiple repositories, cross-repo connections across two product lines</text>
 
           <!-- ═══ CS PRODUCT LINE (LEFT) ═══ -->
           <rect x="15" y="38" width="440" height="470" rx="12" fill="none" stroke="var(--accent-3)" stroke-width="1" stroke-dasharray="6 3" opacity=".25"/>
-          <text x="235" y="60" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="12" font-weight="700">CS — Customer Success</text>
+          <text x="235" y="60" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="12" font-weight="700">CS · Customer Success</text>
           <text x="235" y="74" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="7">Data infrastructure · 6 core services</text>
 
           <!-- Application layer -->
@@ -605,15 +617,15 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 
           <!-- ═══ CC PRODUCT LINE (RIGHT) ═══ -->
           <rect x="470" y="38" width="355" height="470" rx="12" fill="none" stroke="var(--purple)" stroke-width="1" stroke-dasharray="6 3" opacity=".25"/>
-          <text x="647" y="60" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="12" font-weight="700">CC — Customer Communities</text>
+          <text x="647" y="60" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="12" font-weight="700">CC · Customer Communities</text>
           <text x="647" y="74" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="7">Search · AI · MCP Protocol</text>
 
           <!-- MCP Server -->
           <rect x="490" y="95" width="315" height="50" rx="9" fill="#0f0a25" stroke="var(--purple)" stroke-width="1.5" filter="url(#g2)"/>
-          <text x="647" y="116" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="10" font-weight="700">DCH Search MCP Server</text>
-          <text x="647" y="132" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">MCP Protocol · SSE · JWT · AI Assistants</text>
+          <text x="647" y="116" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="10" font-weight="700">Community MCP Server</text>
+          <text x="647" y="132" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">MCP Protocol · Streamable HTTP · OAuth2 · AI Assistants</text>
 
-          <!-- syncsearch -->
+          <!-- Synchronized Search -->
           <rect x="490" y="165" width="315" height="50" rx="9" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
           <text x="647" y="186" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search Service</text>
           <text x="647" y="202" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Indexing · Tokens · Analytics · ReplyBot</text>
@@ -691,7 +703,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <rect width="760" height="320" fill="var(--bg)" rx="6"/>
           <!-- Community Platform AI Layer -->
           <rect x="20" y="12" width="340" height="95" rx="10" fill="#150a20" stroke="var(--pink)" stroke-width="1.5" filter="url(#gf)"/>
-          <text x="190" y="32" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="11" font-weight="700">Community Platform — AI Orchestration Layer</text>
+          <text x="190" y="32" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="11" font-weight="700">Community Platform · AI Orchestration Layer</text>
           <text x="190" y="48" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6.5">Service Layer · Provider Factory · Automatic Failover · Adapters</text>
           <text x="190" y="62" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6">Composable prompt architecture (model, version, temperature, reasoning)</text>
           <text x="80" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">OpenAI Provider</text>
@@ -711,7 +723,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <text x="450" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">Smart Search Summary</text>
           <text x="450" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">Blocking response</text>
           <text x="450" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Llama 3 70B via Bedrock</text>
-          <!-- syncsearch -->
+          <!-- Synchronized Search -->
           <rect x="555" y="12" width="185" height="75" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
           <text x="647" y="32" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search</text>
           <text x="647" y="48" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Index builder · Token issuer</text>
@@ -739,7 +751,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <text x="367" y="223" text-anchor="middle" fill="#8cc060" font-size="7.5" font-family="DM Sans">S3</text>
           <!-- API Gateway -->
           <rect x="200" y="260" width="340" height="35" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="370" y="282" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">API Gateway — Authentication · OAuth2 · Rate Limiting · Request Routing</text>
+          <text x="370" y="282" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">API Gateway · Authentication · OAuth2 · Rate Limiting · Request Routing</text>
           <!-- Connections -->
           <line x1="100" y1="107" x2="100" y2="125" stroke="var(--purple)" stroke-width=".6" opacity=".4"/>
           <line x1="275" y1="107" x2="275" y2="125" stroke="var(--purple)" stroke-width=".6" opacity=".4"/>
@@ -755,14 +767,14 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <circle r="2" fill="var(--amber)" opacity=".6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M275,180 L580,148"/></circle>
         </svg>
       </div>
-      <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern — primary + fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5 federated sources to Algolia with zero-downtime index swaps.</div>
+      <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern: primary plus fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5 federated sources to Algolia with zero-downtime index swaps.</div>
       <div class="tech-pills"><span class="tech-pill">PHP (Yii/Symfony)</span><span class="tech-pill">Algolia AskAI</span><span class="tech-pill">OpenAI</span><span class="tech-pill">Gemini</span><span class="tech-pill">Llama 3 70B</span><span class="tech-pill">AWS Bedrock</span><span class="tech-pill">SSE Streaming</span><span class="tech-pill">Python</span><span class="tech-pill">Redis</span><span class="tech-pill">S3 Parquet</span><span class="tech-pill">Athena</span></div>
       <ul class="highlights-list">
-        <li>Cross-provider LLM fallback — dedicated adapter per provider handles payload asymmetry; automatic retry across providers even on client errors to prevent single-provider outages</li>
-        <li>SSE streaming with thinking-phase deduplication — stateful stream processor filters duplicate reasoning blocks per model family while preserving final output fidelity</li>
-        <li>Domain-driven prompt architecture — composable prompt traits (model, version, temperature, reasoning effort) enable per-feature model versioning and A/B testing without code duplication</li>
-        <li>Dynamic rate limiting with zero-restart retuning — atomic Redis counters (no locks, no races), thresholds configurable at runtime so ops can retune without a deploy</li>
-        <li>Zero-downtime full sync — bulk-index 25M+ records into temp Algolia index, atomic rename over production. No search outage during reindex</li>
+        <li>Cross-provider LLM fallback: dedicated adapter per provider handles payload asymmetry, with automatic retry across providers even on client errors to prevent single-provider outages</li>
+        <li>SSE streaming with thinking-phase deduplication: stateful stream processor filters duplicate reasoning blocks per model family while preserving final output fidelity</li>
+        <li>Domain-driven prompt architecture: composable prompt traits (model, version, temperature, reasoning effort) enable per-feature model versioning and A/B testing without code duplication</li>
+        <li>Dynamic rate limiting with zero-restart retuning: atomic Redis counters (no locks, no races), thresholds configurable at runtime so ops can retune without a deploy</li>
+        <li>Zero-downtime full sync: bulk-index 25M+ records into temp Algolia index, atomic rename over production. No search outage during reindex</li>
         <li>Analytics data lake on S3 Parquet + Athena with tag expression consolidation reducing Algolia API calls by 90%+</li>
       </ul>
     </div>
@@ -770,110 +782,125 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <!-- ── TAB: MCP SERVER ── -->
     <div class="proj-panel" id="tab-mcp-server">
       <span class="project-badge badge-ai">MCP PROTOCOL · PYTHON · AI INFRASTRUCTURE</span>
-      <h3>DCH Search MCP Server</h3>
-      <div class="subtitle">CC · Production Model Context Protocol server — 21 tools making community knowledge accessible to AI assistants</div>
+      <h3>Customer Community MCP Server</h3>
+      <div class="subtitle">CC · Production Model Context Protocol server making community knowledge accessible to AI assistants</div>
       <div class="arch-container">
-        <svg viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 760 384" xmlns="http://www.w3.org/2000/svg">
           <defs><filter id="gm"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-          <rect width="760" height="310" fill="var(--bg)" rx="6"/>
-          <!-- AI Assistants -->
-          <rect x="20" y="12" width="200" height="50" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
-          <text x="120" y="34" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="10" font-weight="600">AI Assistants</text>
-          <text x="120" y="50" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Claude · ChatGPT · Cursor</text>
-          <!-- SSE -->
-          <text x="120" y="78" text-anchor="middle" fill="var(--purple)" font-family="JetBrains Mono,monospace" font-size="6">SSE (/{community_id}) or stdio</text>
-          <!-- MCP Server core -->
-          <rect x="20" y="90" width="430" height="100" rx="10" fill="#0f0a25" stroke="var(--purple)" stroke-width="1.5" filter="url(#gm)"/>
-          <text x="235" y="110" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="12" font-weight="700">DCH Search MCP Server (FastMCP · Python 3.11 · ECS Fargate)</text>
-          <!-- Auth box -->
-          <rect x="30" y="120" width="130" height="60" rx="6" fill="rgba(157,122,255,.08)" stroke="var(--purple)" stroke-width=".5"/>
-          <text x="95" y="136" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">Auth Layer</text>
-          <text x="95" y="150" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">JWT token validation</text>
-          <text x="95" y="161" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Redis-backed revocation</text>
-          <text x="95" y="172" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Guest vs Authenticated</text>
-          <!-- Token Manager box -->
-          <rect x="170" y="120" width="130" height="60" rx="6" fill="rgba(0,204,142,.08)" stroke="var(--accent-3)" stroke-width=".5"/>
-          <text x="235" y="136" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Token Manager</text>
-          <text x="235" y="150" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">Algolia scoped tokens</text>
-          <text x="235" y="161" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">25-min cache, 80% proactive</text>
-          <text x="235" y="172" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">Real-time role from Sync Search</text>
-          <!-- Middleware box -->
-          <rect x="310" y="120" width="130" height="60" rx="6" fill="rgba(0,194,209,.08)" stroke="var(--accent)" stroke-width=".5"/>
-          <text x="375" y="136" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Middleware</text>
-          <text x="375" y="150" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">Rate limiter (token bucket)</text>
-          <text x="375" y="161" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">TTL + LRU cache</text>
-          <text x="375" y="172" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">Exp backoff retry</text>
-          <!-- 21 Tools grouped -->
-          <rect x="475" y="12" width="265" height="178" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="607" y="32" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="10" font-weight="600">21 Read-Only Tools</text>
-          <rect x="485" y="42" width="118" height="28" rx="4" fill="rgba(255,179,68,.08)" stroke="var(--amber)" stroke-width=".5"/>
-          <text x="544" y="60" text-anchor="middle" fill="#ffd080" font-family="JetBrains Mono,monospace" font-size="6.5">Algolia Search (2)</text>
-          <rect x="612" y="42" width="118" height="28" rx="4" fill="rgba(157,122,255,.08)" stroke="var(--purple)" stroke-width=".5"/>
-          <text x="671" y="60" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6.5">CC REST API (13)</text>
-          <rect x="485" y="78" width="118" height="28" rx="4" fill="rgba(0,204,142,.08)" stroke="var(--accent-3)" stroke-width=".5"/>
-          <text x="544" y="96" text-anchor="middle" fill="#6eeac4" font-family="JetBrains Mono,monospace" font-size="6.5">Skilljar (3)</text>
-          <rect x="612" y="78" width="118" height="28" rx="4" fill="rgba(0,194,209,.08)" stroke="var(--accent)" stroke-width=".5"/>
-          <text x="671" y="96" text-anchor="middle" fill="#7ee8e8" font-family="JetBrains Mono,monospace" font-size="6.5">Analytics (1)</text>
-          <text x="607" y="128" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">search_unified · get_discussions · get_topic</text>
-          <text x="607" y="142" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">list_topics · list_ideas · list_categories</text>
-          <text x="607" y="156" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">get_course · get_lesson · list_learning_paths</text>
-          <text x="607" y="170" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">get_search_analytics · get_community_info ...</text>
-          <!-- syncsearch -->
-          <rect x="20" y="210" width="200" height="48" rx="7" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="120" y="230" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="9" font-weight="600">Synchronized Search — Token API</text>
-          <text x="120" y="246" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Scoped token issuance API</text>
-          <!-- Algolia -->
-          <rect x="240" y="210" width="150" height="48" rx="7" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="315" y="230" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Algolia</text>
-          <text x="315" y="246" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Scoped token · {communityId}-unified</text>
-          <!-- Redis -->
-          <rect x="410" y="210" width="70" height="48" rx="6" fill="var(--surface)" stroke="#DC382D" stroke-width=".8"/>
-          <text x="445" y="238" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
-          <!-- CC REST -->
-          <rect x="500" y="210" width="120" height="48" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="560" y="230" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">CC REST API</text>
-          <text x="560" y="246" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">OAuth2 client_credentials</text>
-          <!-- Skilljar -->
-          <rect x="640" y="210" width="100" height="48" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="690" y="230" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Skilljar API</text>
-          <text x="690" y="246" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Basic Auth · 50-pg cap</text>
+          <rect width="760" height="384" fill="var(--bg)" rx="6"/>
+          <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">Customer Community MCP Server · request flow</text>
+
+          <!-- Row 1: AI Clients -->
+          <rect x="20" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="102" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Claude</text>
+          <rect x="205" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="287" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">ChatGPT</text>
+          <rect x="390" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="472" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Cursor</text>
+          <rect x="575" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="657" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Custom Clients</text>
+          <text x="380" y="80" text-anchor="middle" fill="var(--text-dim)" font-family="JetBrains Mono,monospace" font-size="6.5">MCP over Streamable HTTP or stdio</text>
+
+          <!-- Row 2: Edge -->
+          <rect x="20" y="90" width="720" height="32" rx="7" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
+          <text x="380" y="110" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">CloudFront + Lambda@Edge · Region Router</text>
+
+          <!-- Row 3: Gateway (highlighted) -->
+          <rect x="20" y="134" width="720" height="74" rx="10" fill="#0a1520" stroke="var(--accent)" stroke-width="1.5" filter="url(#gm)"/>
+          <text x="380" y="152" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="11" font-weight="700">MCP Gateway</text>
+          <rect x="30" y="160" width="170" height="40" rx="6" fill="rgba(157,122,255,.08)" stroke="var(--purple)" stroke-width=".5"/>
+          <text x="115" y="178" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">OAuth2 Proxy</text>
+          <text x="115" y="191" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">PKCE · dynamic client reg</text>
+          <rect x="208" y="160" width="170" height="40" rx="6" fill="rgba(0,194,209,.08)" stroke="var(--accent)" stroke-width=".5"/>
+          <text x="293" y="178" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Tool Router</text>
+          <text x="293" y="191" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">domain dispatch</text>
+          <rect x="386" y="160" width="170" height="40" rx="6" fill="rgba(255,179,68,.08)" stroke="var(--amber)" stroke-width=".5"/>
+          <text x="471" y="178" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Rate Limiter</text>
+          <text x="471" y="191" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">per-tenant</text>
+          <rect x="564" y="160" width="170" height="40" rx="6" fill="rgba(0,204,142,.08)" stroke="var(--accent-3)" stroke-width=".5"/>
+          <text x="649" y="178" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Cache</text>
+          <text x="649" y="191" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">TTL + LRU</text>
+
+          <!-- Tools exposed (category grouped, no counts) -->
+          <text x="380" y="226" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Tools exposed, grouped by domain (read-only + administrative)</text>
+          <rect x="20" y="232" width="136" height="26" rx="5" fill="#1a1005" stroke="var(--amber)" stroke-width=".8"/>
+          <text x="88" y="249" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
+          <rect x="166" y="232" width="136" height="26" rx="5" fill="#0a1520" stroke="var(--accent)" stroke-width=".8"/>
+          <text x="234" y="249" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics</text>
+          <rect x="312" y="232" width="136" height="26" rx="5" fill="#250a15" stroke="var(--pink)" stroke-width=".8"/>
+          <text x="380" y="249" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="8" font-weight="600">Admin</text>
+          <rect x="458" y="232" width="136" height="26" rx="5" fill="#051a15" stroke="var(--accent-3)" stroke-width=".8"/>
+          <text x="526" y="249" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Education</text>
+          <rect x="604" y="232" width="136" height="26" rx="5" fill="#0f0a25" stroke="var(--purple)" stroke-width=".8"/>
+          <text x="672" y="249" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">Community</text>
+
+          <!-- Row 4: Backend services -->
+          <rect x="20" y="274" width="136" height="40" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
+          <text x="88" y="292" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
+          <text x="88" y="305" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">unified index</text>
+          <rect x="166" y="274" width="136" height="40" rx="6" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
+          <text x="234" y="292" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics</text>
+          <text x="234" y="305" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">usage metrics</text>
+          <rect x="312" y="274" width="136" height="40" rx="6" fill="#250a15" stroke="var(--pink)" stroke-width="1"/>
+          <text x="380" y="292" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="8" font-weight="600">Admin</text>
+          <text x="380" y="305" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="5.5">moderation</text>
+          <rect x="458" y="274" width="136" height="40" rx="6" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="526" y="292" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Education</text>
+          <text x="526" y="305" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">courses</text>
+          <rect x="604" y="274" width="136" height="40" rx="6" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
+          <text x="672" y="292" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">Community API</text>
+          <text x="672" y="305" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">discussions</text>
+
+          <!-- Row 5: Data layer -->
+          <rect x="120" y="328" width="160" height="34" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width=".8"/>
+          <text x="200" y="349" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Algolia</text>
+          <rect x="300" y="328" width="160" height="34" rx="6" fill="var(--surface)" stroke="var(--red)" stroke-width=".8"/>
+          <text x="380" y="349" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <rect x="480" y="328" width="160" height="34" rx="6" fill="#0a1020" stroke="var(--accent-2)" stroke-width=".8"/>
+          <text x="560" y="349" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="8" font-weight="600">DynamoDB</text>
+
           <!-- Connections -->
-          <line x1="120" y1="62" x2="120" y2="90" stroke="var(--purple)" stroke-width="1" opacity=".5"/>
-          <line x1="235" y1="180" x2="120" y2="210" stroke="var(--accent-3)" stroke-width=".8" opacity=".4"/>
-          <line x1="375" y1="180" x2="315" y2="210" stroke="var(--amber)" stroke-width=".8" opacity=".4"/>
-          <line x1="95" y1="180" x2="445" y2="210" stroke="#DC382D" stroke-width=".5" stroke-dasharray="3 2" opacity=".3"/>
-          <line x1="450" y1="100" x2="475" y2="80" stroke="var(--border)" stroke-width=".5"/>
+          <line x1="102" y1="62" x2="380" y2="90" stroke="var(--accent-2)" stroke-width=".5" opacity=".3"/>
+          <line x1="287" y1="62" x2="380" y2="90" stroke="var(--accent-2)" stroke-width=".5" opacity=".3"/>
+          <line x1="472" y1="62" x2="380" y2="90" stroke="var(--accent-2)" stroke-width=".5" opacity=".3"/>
+          <line x1="657" y1="62" x2="380" y2="90" stroke="var(--accent-2)" stroke-width=".5" opacity=".3"/>
+          <line x1="380" y1="122" x2="380" y2="134" stroke="var(--accent)" stroke-width="1" opacity=".5"/>
+          <line x1="380" y1="208" x2="380" y2="232" stroke="var(--purple)" stroke-width=".8" opacity=".4"/>
+          <line x1="380" y1="258" x2="380" y2="274" stroke="var(--border)" stroke-width=".6"/>
+          <line x1="380" y1="314" x2="380" y2="328" stroke="var(--border)" stroke-width=".6"/>
+
           <!-- Particles -->
-          <circle r="3" fill="var(--purple)" opacity=".9"><animateMotion dur="1.5s" repeatCount="indefinite" path="M120,62 L120,90"/></circle>
-          <circle r="2.5" fill="var(--accent-3)" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M235,180 L120,210"/></circle>
-          <circle r="2.5" fill="var(--amber)" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M375,180 L315,210"/></circle>
-          <circle r="2.5" fill="var(--purple)" opacity=".6"><animateMotion dur="1.8s" repeatCount="indefinite" path="M450,100 L475,80"/></circle>
+          <circle r="3" fill="var(--accent)" opacity=".9"><animateMotion dur="1.6s" repeatCount="indefinite" path="M380,122 L380,134"/></circle>
+          <circle r="2.5" fill="var(--purple)" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M380,208 L380,232"/></circle>
+          <circle r="2.5" fill="var(--accent)" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M380,258 L380,274"/></circle>
+          <circle r="2" fill="var(--accent-3)" opacity=".7"><animateMotion dur="2.5s" repeatCount="indefinite" path="M380,314 L380,328"/></circle>
+
           <!-- Footer -->
-          <text x="380" y="285" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">ECS Fargate · Auto-scaling · Structured JSON logging · Correlation IDs · Comprehensive test coverage</text>
+          <text x="380" y="378" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">Multi-region deployment · permission-scoped tokens · per-tenant rate limiting · graceful degradation</text>
         </svg>
       </div>
-      <div class="desc">One of the early production MCP deployments integrating Claude, ChatGPT, and Cursor with a real enterprise search backend. 21 read-only tools expose community discussions, knowledge base articles, Skilljar courses, and search analytics — all through permission-scoped Algolia tokens that enforce the same access rules as the frontend UI.</div>
-      <div class="tech-pills"><span class="tech-pill">Python 3.11</span><span class="tech-pill">FastMCP</span><span class="tech-pill">SSE Transport</span><span class="tech-pill">JWT</span><span class="tech-pill">Redis</span><span class="tech-pill">Algolia</span><span class="tech-pill">ECS Fargate</span><span class="tech-pill">asyncio</span><span class="tech-pill">structlog</span><span class="tech-pill">Pydantic</span></div>
+      <div class="desc">Production MCP server powering AI assistant integrations for enterprise community platforms. Handles the full OAuth2.1 authorization lifecycle with PKCE and dynamic client registration. Routes tool invocations to multiple backend services covering search, analytics, administration, and education. Enforces tenant-scoped security at every layer with permission-scoped tokens and per-tenant rate limiting. Deployed across multiple regions with edge-based request routing.</div>
+      <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">FastMCP</span><span class="tech-pill">Streamable HTTP</span><span class="tech-pill">OAuth2.1 PKCE</span><span class="tech-pill">JWT</span><span class="tech-pill">Redis</span><span class="tech-pill">DynamoDB</span><span class="tech-pill">Algolia</span><span class="tech-pill">ECS Fargate</span><span class="tech-pill">CloudFront</span><span class="tech-pill">Lambda@Edge</span></div>
       <ul class="highlights-list">
-        <li>21 read-only tools across 4 backends — unified search, community REST API, education platform, and search analytics — behind a single MCP interface</li>
-        <li>Proactive token refresh before expiry — request-time never pays fetch latency. Role resolved from the search service at token-time, not from cached claims (survives long-lived token lifespans)</li>
-        <li>Permissioned search at the token layer — access control baked into scoped search tokens, not post-filtered. MCP and frontend receive identical security semantics</li>
-        <li>Deliberate availability vs safety tradeoffs per endpoint — revocation checks degrade gracefully while role-based checks remain strict</li>
-        <li>Connection-scoped context propagated to all child tool calls — auth context and tokens travel the entire request lifecycle without threading issues</li>
+        <li>Full OAuth2.1 authorization flow with PKCE and dynamic client registration, listed on major AI assistant connector registries</li>
+        <li>Multi-region deployment with edge-based request routing for geographic locality and failover</li>
+        <li>Permission-scoped search tokens with access control baked at the token layer, not post-filtered</li>
+        <li>Per-tenant rate limiting, connection lifecycle management, and graceful degradation on backend failures</li>
+        <li>Dozens of tools spanning search, analytics, content moderation, user management, and education backends behind a single MCP interface</li>
       </ul>
     </div>
 
     <!-- ── TAB: DATA HIGHWAY ── -->
     <div class="proj-panel" id="tab-data-highway">
       <span class="project-badge badge-infra">DISTRIBUTED SYSTEMS · DAG ENGINE</span>
-      <h3>Data Highway — DAG-Based Pipeline Engine</h3>
+      <h3>Data Highway: DAG-Based Pipeline Engine</h3>
       <div class="subtitle">CS (Customer Success) · The compute backbone processing 61B+ records/day</div>
       <div class="arch-container">
         <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="280" fill="var(--bg)" rx="6"/>
           <!-- API Interface -->
           <rect x="20" y="15" width="720" height="35" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
-          <text x="380" y="37" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">API Interface — REST endpoints for DAG submission, monitoring, control</text>
+          <text x="380" y="37" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">API Interface · REST endpoints for DAG submission, monitoring, control</text>
           <!-- Flow Manager -->
           <rect x="20" y="70" width="180" height="45" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1.5"/>
           <text x="110" y="90" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Flow Manager</text>
@@ -996,12 +1023,12 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <circle r="2" fill="#4581C3" opacity=".7"><animateMotion dur="1.8s" repeatCount="indefinite" path="M170,55 L85,80"/></circle>
         </svg>
       </div>
-      <div class="desc">Centralized multi-tenant RBAC service. Permissions stored as a graph — a single traversal answers "can user U do action A on resource R?" in milliseconds, with Redis-cached evaluations and expression-based policy conditions. The permission SDK is consumed by 7+ services across the platform.</div>
+      <div class="desc">Centralized multi-tenant RBAC service. Permissions stored as a graph: a single traversal answers "can user U do action A on resource R?" in milliseconds, with Redis-cached evaluations and expression-based policy conditions. The permission SDK is consumed by 7+ services across the platform.</div>
       <div class="tech-pills"><span class="tech-pill">Neo4j</span><span class="tech-pill">Vert.x</span><span class="tech-pill">Redis</span><span class="tech-pill">Message Queue</span><span class="tech-pill">PostgreSQL</span></div>
       <ul class="highlights-list">
-        <li>Graph-native model: resources, policies, groups, and manager chains as traversable edges — single graph traversal resolves access in milliseconds</li>
-        <li>Targeted Redis invalidation — editing a sharing group invalidates only affected members × resources, not the full cache</li>
-        <li>Row-level data enforcement — restricted data never leaves the database, access control enforced at SQL query-build time</li>
+        <li>Graph-native model: resources, policies, groups, and manager chains as traversable edges, so a single graph traversal resolves access in milliseconds</li>
+        <li>Targeted Redis invalidation: editing a sharing group invalidates only affected members × resources, not the full cache</li>
+        <li>Row-level data enforcement: restricted data never leaves the database, access control enforced at SQL query-build time</li>
         <li>Permission SDK consumed by 7+ platform services: analytics, query federation, reporting, API gateway, data store, catalog, and cross-product bridge</li>
         <li>Heartbeat-based leader election for worker coordination with automatic cleanup of orphaned graph nodes</li>
       </ul>
@@ -1058,12 +1085,12 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <text x="380" y="155" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".5">~25 pluggable task builders · Dual-warehouse abstraction · Template-driven DDL · Permissions injected at query time</text>
         </svg>
       </div>
-      <div class="desc">Full-lifecycle analytics engine — onboarding, schema definition, ingestion from 10+ sources, transformation, and warehouse storage. Powers Gainsight dashboards with per-tenant dynamic DDL and dual-warehouse abstraction (PostgreSQL for small tenants, Redshift for high-volume).</div>
+      <div class="desc">Full-lifecycle analytics engine: onboarding, schema definition, ingestion from 10+ sources, transformation, and warehouse storage. Powers Gainsight dashboards with per-tenant dynamic DDL and dual-warehouse abstraction (PostgreSQL for small tenants, Redshift for high-volume).</div>
       <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">Redshift</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Message Queue</span><span class="tech-pill">Redis</span></div>
       <ul class="highlights-list">
-        <li>~25 pluggable task builders — adding a new data source is a single builder class</li>
-        <li>Dual-warehouse abstraction — PostgreSQL for small tenants, Redshift for high-volume OLAP, switched transparently</li>
-        <li>Permissions injected at query-build time — restricted data never leaves the database</li>
+        <li>~25 pluggable task builders: adding a new data source is a single builder class</li>
+        <li>Dual-warehouse abstraction: PostgreSQL for small tenants, Redshift for high-volume OLAP, switched transparently</li>
+        <li>Permissions injected at query-build time: restricted data never leaves the database</li>
         <li>Cross-system DAG submission to the pipeline engine with retry and backoff</li>
         <li>Secure multi-tenant data exchange with per-tenant credential isolation</li>
       </ul>
@@ -1113,7 +1140,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <text x="510" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">HTTP delivery · Status tracking</text>
           <!-- Subscribers -->
           <rect x="30" y="160" width="660" height="45" rx="7" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="360" y="180" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Subscribers — HTTP webhooks · Internal services · External customer endpoints</text>
+          <text x="360" y="180" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Subscribers · HTTP webhooks · Internal services · External customer endpoints</text>
           <text x="360" y="196" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Self-healing delivery recovery · Cross-region queue failover · Persistent routing state</text>
           <!-- Arrows -->
           <line x1="190" y1="37" x2="230" y2="22" stroke="var(--accent)" stroke-width=".8" opacity=".5"/>
@@ -1132,10 +1159,10 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
       <div class="desc">Async event fan-out with durable delivery. Publishers emit once; subscribers register for events with optional delayed delivery and data enrichment. Four-tier architecture with purpose-matched runtimes: Receiver → Router → Relayer → Broadcaster.</div>
       <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">AWS SQS</span><span class="tech-pill">Apache HttpAsync</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span></div>
       <ul class="highlights-list">
-        <li>Cross-region SQS failover — automatic switch to secondary queues on publish errors</li>
+        <li>Cross-region SQS failover: automatic switch to secondary queues on publish errors</li>
         <li>Self-healing delivery: dedicated recovery process detects and recovers orphaned delivery rows after worker crashes</li>
         <li>Blocked-tenant handling isolates noisy tenants from starving other tenants' event delivery</li>
-        <li>Enrichment loop — events decorated with business context from the analytics data store before delivery</li>
+        <li>Enrichment loop: events decorated with business context from the analytics data store before delivery</li>
         <li>Tiered architecture: Receiver → Router → Relayer → Broadcaster with purpose-matched runtimes</li>
       </ul>
     </div>
@@ -1150,7 +1177,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <div class="desc">Reactive audit service for compliance trails. Fire-and-forget writes via Vert.x event bus decouple caller latency from Postgres persistence. Per-tenant tables created lazily on first write. Used by every service in the platform via a lightweight audit client SDK.</div>
           <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span></div>
           <ul class="highlights-list">
-            <li>Async write via event bus — HTTP 200 returns before DB insert completes</li>
+            <li>Async write via event bus: HTTP 200 returns before DB insert completes</li>
             <li>Random-tenant retention cleanup with +10 day safety buffer</li>
             <li>Separate read/write DB pools to prevent analytics from starving ingestion</li>
           </ul>
@@ -1159,7 +1186,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <span class="project-badge badge-infra">INFRASTRUCTURE · CONFIG</span>
           <h3>Config Server</h3>
           <div class="subtitle">Centralized configuration for all CS services</div>
-          <div class="desc">Spring Boot + Vert.x hybrid config service. Every platform service pulls runtime configuration from here — DB strings, feature flags, encrypted secrets — with full audit trail and periodic refresh. The config client SDK is embedded across all Java services.</div>
+          <div class="desc">Spring Boot + Vert.x hybrid config service. Every platform service pulls runtime configuration from here (DB strings, feature flags, encrypted secrets) with full audit trail and periodic refresh. The config client SDK is embedded across all Java services.</div>
           <div class="tech-pills"><span class="tech-pill">Spring Boot</span><span class="tech-pill">Vert.x</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">AES Encryption</span></div>
           <ul class="highlights-list">
             <li>Upsert + append-only version history table in single transaction</li>
@@ -1170,6 +1197,199 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ═══════════════════ OPEN SOURCE ═══════════════════ -->
+<section id="open-source" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-label reveal">Open Source</div>
+    <div class="section-title reveal">Projects I Build in the Open</div>
+    <div class="section-sub reveal">Personal projects, open source contributions, and developer tools.</div>
+
+    <!-- ── GoatCounter Dashboard ── -->
+    <div class="project-card reveal">
+      <span class="project-badge badge-data">ANALYTICS · OPEN SOURCE</span>
+      <h3>GoatCounter Dashboard</h3>
+      <div class="subtitle">A modern alternative analytics dashboard for privacy-first web analytics</div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+          <defs><filter id="gc"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <rect width="760" height="320" fill="var(--bg)" rx="6"/>
+          <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">GoatCounter Dashboard · data flow</text>
+
+          <!-- Single HTML file -->
+          <rect x="180" y="24" width="400" height="44" rx="9" fill="#051a15" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#gc)"/>
+          <text x="380" y="44" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="11" font-weight="700">Single HTML File</text>
+          <text x="380" y="59" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">React + Recharts · no server · no build step · host anywhere</text>
+
+          <!-- API -->
+          <text x="380" y="84" text-anchor="middle" fill="var(--amber)" font-family="JetBrains Mono,monospace" font-size="6">GoatCounter API · read-only, token auth</text>
+          <rect x="290" y="92" width="180" height="28" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
+          <text x="380" y="110" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">GoatCounter API</text>
+
+          <!-- Render layer -->
+          <rect x="40" y="140" width="210" height="54" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
+          <text x="145" y="161" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">KPI Cards</text>
+          <text x="145" y="176" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">period-over-period trend</text>
+          <rect x="275" y="140" width="210" height="54" rx="8" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
+          <text x="380" y="161" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Traffic Chart</text>
+          <text x="380" y="176" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">area chart</text>
+          <rect x="510" y="140" width="210" height="54" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="615" y="161" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="9" font-weight="600">World Map</text>
+          <text x="615" y="176" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">choropleth · sqrt scale</text>
+
+          <!-- Drill-down -->
+          <text x="380" y="212" text-anchor="middle" fill="var(--purple)" font-family="JetBrains Mono,monospace" font-size="6.5">click any data point to drill down</text>
+          <rect x="25" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="80" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Referrers</text>
+          <rect x="145" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="200" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Versions</text>
+          <rect x="265" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="320" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Regions</text>
+          <rect x="385" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="440" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Campaigns</text>
+          <rect x="505" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="560" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Devices</text>
+          <rect x="625" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="680" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Languages</text>
+
+          <!-- Cache -->
+          <rect x="280" y="266" width="200" height="30" rx="6" fill="var(--surface)" stroke="var(--accent-3)" stroke-width=".8"/>
+          <text x="380" y="285" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Response Cache · 60s TTL</text>
+
+          <!-- Connections -->
+          <line x1="380" y1="68" x2="380" y2="92" stroke="var(--amber)" stroke-width=".8" opacity=".5"/>
+          <line x1="380" y1="120" x2="145" y2="140" stroke="var(--accent-3)" stroke-width=".6" opacity=".4"/>
+          <line x1="380" y1="120" x2="380" y2="140" stroke="var(--accent)" stroke-width=".6" opacity=".4"/>
+          <line x1="380" y1="120" x2="615" y2="140" stroke="var(--accent-3)" stroke-width=".6" opacity=".4"/>
+          <line x1="380" y1="194" x2="380" y2="220" stroke="var(--purple)" stroke-width=".6" opacity=".4"/>
+          <line x1="380" y1="246" x2="380" y2="266" stroke="var(--border)" stroke-width=".6"/>
+
+          <!-- Particles -->
+          <circle r="2.5" fill="var(--amber)" opacity=".8"><animateMotion dur="1.6s" repeatCount="indefinite" path="M380,68 L380,92"/></circle>
+          <circle r="2.5" fill="var(--accent)" opacity=".7"><animateMotion dur="2s" repeatCount="indefinite" path="M380,120 L380,140"/></circle>
+          <circle r="2" fill="var(--purple)" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M380,194 L380,220"/></circle>
+          <circle r="2" fill="var(--accent-3)" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M380,246 L380,266"/></circle>
+        </svg>
+      </div>
+      <div class="desc">A single HTML file that replaces GoatCounter's default analytics UI with interactive charts, a choropleth world map, drill-down navigation, and period-over-period trend comparison. No server, no build step. Host it anywhere for free.</div>
+      <div class="tech-pills"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">React</span><span class="tech-pill">Recharts</span><span class="tech-pill">GoatCounter API</span><span class="tech-pill">GitHub Pages</span></div>
+      <ul class="highlights-list">
+        <li>Interactive visualizations: area charts for traffic, donut charts for browsers, operating systems, and devices, horizontal bars for countries and languages</li>
+        <li>Choropleth world map with square-root scaling, hover tooltips, and a gradient legend</li>
+        <li>Click any data point to drill down: pages show referrers, browsers show versions, countries show regions, campaigns show source URLs</li>
+        <li>Built-in demo mode with realistic sample data, works without an API key or account</li>
+        <li>Smart loading: primary KPIs render first, secondary panels lazy-fetch on scroll, and a 60-second response cache makes navigation instant</li>
+        <li>Dark and light theme with system preference detection, persisted across sessions</li>
+      </ul>
+      <div class="contact-links" style="margin-top:8px">
+        <a class="contact-link" href="https://github.com/abhishekhsingh/goatcounter-dashboard" target="_blank" rel="noopener">GitHub Repo</a>
+        <a class="contact-link" href="https://abhishekhsingh.github.io/goatcounter-dashboard" target="_blank" rel="noopener">Live Demo</a>
+      </div>
+    </div>
+
+    <!-- ── mcp-halflist ── -->
+    <div class="project-card reveal">
+      <span class="project-badge badge-security">SECURITY · DEVELOPER TOOLS · OPEN SOURCE</span>
+      <h3>mcp-halflist</h3>
+      <div class="subtitle">CI-first conformance, security, and performance testing for MCP servers</div>
+      <div class="install-box">
+        <div class="install-badges">
+          <a href="https://pypi.org/project/mcp-halflist/" target="_blank" rel="noopener"><img src="https://img.shields.io/pypi/v/mcp-halflist?style=flat-square&color=00c2d1&logo=pypi&logoColor=white&label=PyPI" alt="PyPI version" loading="lazy" height="20"></a>
+          <a href="https://pypi.org/project/mcp-halflist/" target="_blank" rel="noopener"><img src="https://img.shields.io/pypi/pyversions/mcp-halflist?style=flat-square&color=4d8bff&logo=python&logoColor=white" alt="Supported Python versions" loading="lazy" height="20"></a>
+        </div>
+        <div class="code-snippet">
+          <button class="copy-btn" onclick="copyCmd(this, 'pip install mcp-halflist\nhalflist check &lt;server-url&gt;')">Copy</button>
+          <div class="line"><span class="prompt">$</span>pip install mcp-halflist</div>
+          <div class="line"><span class="prompt">$</span>halflist check <span class="arg">&lt;server-url&gt;</span></div>
+        </div>
+      </div>
+      <div class="arch-container">
+        <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg">
+          <defs><filter id="gh"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <rect width="760" height="330" fill="var(--bg)" rx="6"/>
+          <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">mcp-halflist · CI test flow</text>
+
+          <!-- CLI -->
+          <rect x="180" y="24" width="400" height="44" rx="9" fill="#0a1520" stroke="var(--accent)" stroke-width="1.5" filter="url(#gh)"/>
+          <text x="380" y="44" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="11" font-weight="700">halflist CLI</text>
+          <text x="380" y="59" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6.5">check · bench · audit · watch · report · pin</text>
+
+          <!-- Transport -->
+          <rect x="40" y="86" width="210" height="38" rx="7" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
+          <text x="145" y="104" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">stdio</text>
+          <text x="145" y="117" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">local process</text>
+          <rect x="275" y="86" width="210" height="38" rx="7" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
+          <text x="380" y="104" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">Streamable HTTP</text>
+          <text x="380" y="117" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">remote server</text>
+          <rect x="510" y="86" width="210" height="38" rx="7" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
+          <text x="615" y="104" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">SSE Fallback</text>
+          <text x="615" y="117" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">legacy transport</text>
+
+          <!-- OAuth -->
+          <rect x="280" y="142" width="200" height="26" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
+          <text x="380" y="159" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">OAuth2 PKCE · auto-discovery</text>
+
+          <!-- Engines -->
+          <rect x="40" y="186" width="210" height="56" rx="8" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
+          <text x="145" y="207" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">5 Test Suites</text>
+          <text x="145" y="222" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">handshake · tools</text>
+          <text x="145" y="232" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">resources · prompts</text>
+          <rect x="275" y="186" width="210" height="56" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
+          <text x="380" y="207" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">Bench Engine</text>
+          <text x="380" y="224" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">p50 · p95 · p99 latency</text>
+          <rect x="510" y="186" width="210" height="56" rx="8" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
+          <text x="615" y="207" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Security Scanner</text>
+          <text x="615" y="222" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">offline · injection</text>
+          <text x="615" y="232" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">exfiltration · rug-pull</text>
+
+          <!-- Outputs -->
+          <rect x="25" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="80" y="279" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Terminal</text>
+          <rect x="145" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="200" y="279" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">JUnit XML</text>
+          <rect x="265" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="320" y="279" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">HTML</text>
+          <rect x="385" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="440" y="279" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">JSON</text>
+          <rect x="505" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="560" y="279" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Markdown</text>
+          <rect x="625" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
+          <text x="680" y="279" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">SVG Badge</text>
+
+          <!-- Connections -->
+          <line x1="380" y1="68" x2="380" y2="86" stroke="var(--accent)" stroke-width=".8" opacity=".5"/>
+          <line x1="380" y1="124" x2="380" y2="142" stroke="var(--purple)" stroke-width=".6" opacity=".4"/>
+          <line x1="380" y1="168" x2="380" y2="186" stroke="var(--amber)" stroke-width=".6" opacity=".4"/>
+          <line x1="380" y1="242" x2="380" y2="262" stroke="var(--border)" stroke-width=".6"/>
+
+          <!-- Particles -->
+          <circle r="2.5" fill="var(--accent)" opacity=".8"><animateMotion dur="1.6s" repeatCount="indefinite" path="M380,68 L380,86"/></circle>
+          <circle r="2.5" fill="var(--purple)" opacity=".7"><animateMotion dur="2s" repeatCount="indefinite" path="M380,124 L380,142"/></circle>
+          <circle r="2.5" fill="var(--amber)" opacity=".7"><animateMotion dur="2.2s" repeatCount="indefinite" path="M380,168 L380,186"/></circle>
+          <circle r="2" fill="var(--accent-3)" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M380,242 L380,262"/></circle>
+
+          <!-- Footer -->
+          <text x="380" y="318" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">offline-first · no API keys · CI-native · official GitHub Action</text>
+        </svg>
+      </div>
+      <div class="desc">A CLI tool that tests MCP servers the way pytest tests code. Five test suites cover the full protocol (handshake, tools, resources, prompts) plus offline security scanning for prompt injection, data exfiltration, and rug-pull attacks. Plugs into any CI pipeline with JUnit XML output and a ready-made GitHub Action.</div>
+      <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">Typer</span><span class="tech-pill">Pydantic</span><span class="tech-pill">httpx</span><span class="tech-pill">MCP SDK</span><span class="tech-pill">OAuth2.1 PKCE</span><span class="tech-pill">PyPI</span></div>
+      <ul class="highlights-list">
+        <li>Five test suites covering the full MCP protocol, plus offline security scanning for prompt injection, data exfiltration, cross-tool manipulation, and supply chain attacks</li>
+        <li>OAuth2 PKCE with auto-discovery: provide the server URL and the tool discovers auth endpoints, opens a browser, then handles token exchange and caching automatically</li>
+        <li>Debug logging with multi-layer request and response tracing (MCP operations, HTTP wire, SDK internals) and credential masking</li>
+        <li>JUnit XML output for CI integration with GitHub Actions, GitLab, and Jenkins</li>
+        <li>Config file (halflist.toml) with environment variable expansion, so CI pipelines and teams share the same testing configuration</li>
+        <li>GitHub Action available: three lines of YAML to add MCP server testing to any workflow</li>
+      </ul>
+      <div class="contact-links" style="margin-top:8px">
+        <a class="contact-link" href="https://pypi.org/project/mcp-halflist/" target="_blank" rel="noopener">PyPI</a>
+        <a class="contact-link" href="https://github.com/abhishekhsingh/mcp-halflist" target="_blank" rel="noopener">GitHub Repo</a>
+        <a class="contact-link" href="https://github.com/abhishekhsingh/halflist-action" target="_blank" rel="noopener">GitHub Action</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1260,11 +1480,11 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <div class="about-grid" style="margin-top:32px">
       <div class="reveal">
         <div class="about-hl" style="margin-bottom:16px">
-          <h4>B.Tech — Computer Science & Engineering</h4>
+          <h4>B.Tech, Computer Science & Engineering</h4>
           <p>BABU BANARASI DAS Institute of Technology & Management, Lucknow (2010–2014) · 75.16%</p>
         </div>
         <div class="about-hl" style="margin-bottom:16px">
-          <h4>Intermediate — Mathematics</h4>
+          <h4>Intermediate, Mathematics</h4>
           <p>Rastriya Inter College (2008–2010) · 73.6%</p>
         </div>
         <div class="about-hl">
@@ -1275,12 +1495,12 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
       <div class="reveal">
         <div class="about-hl" style="margin-bottom:16px">
           <h4>Awards & Leadership</h4>
-          <p style="margin-bottom:10px"><strong style="color:var(--accent)">Vice-Captain, Nihilentia</strong> — Selected to lead Nihilent's annual fest (Dec 2014). Successfully organized events and competitions.</p>
-          <p style="margin-bottom:10px"><strong style="color:var(--accent)">IT-FIESTA 2011</strong> — Appreciation Certificate awarded by T. Ashok (Founder & CEO, Stag Software Pvt. Ltd.)</p>
-          <p style="margin-bottom:10px"><strong style="color:var(--accent)">UTKARSH-13 & 14</strong> — Coordinated Technical Events at BBDGEI (2013 & 2014)</p>
-          <p style="margin-bottom:10px"><strong style="color:var(--accent)">ENCORE-12</strong> — Honor & Excellence Certificate at IET Lucknow (Oct 2012)</p>
-          <p style="margin-bottom:10px"><strong style="color:var(--accent)">Techsamagam-11</strong> — Certificate Of Merit, FORCE CIC Education (Nov 2011)</p>
-          <p><strong style="color:var(--accent)">3rd Position, UP Board</strong> — Block-level topper in Jaunpur, High School Examinations (2007)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">Vice-Captain, Nihilentia</strong>. Selected to lead Nihilent's annual fest (Dec 2014). Successfully organized events and competitions.</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">IT-FIESTA 2011</strong>. Appreciation Certificate awarded by T. Ashok (Founder & CEO, Stag Software Pvt. Ltd.)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">UTKARSH-13 & 14</strong>. Coordinated Technical Events at BBDGEI (2013 & 2014)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">ENCORE-12</strong>. Honor & Excellence Certificate at IET Lucknow (Oct 2012)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">Techsamagam-11</strong>. Certificate Of Merit, FORCE CIC Education (Nov 2011)</p>
+          <p><strong style="color:var(--accent)">3rd Position, UP Board</strong>. Block-level topper in Jaunpur, High School Examinations (2007)</p>
         </div>
       </div>
     </div>
@@ -1379,6 +1599,16 @@ navToggle.addEventListener('click', () => {
 function closeMobile() {
   navMobile.classList.remove('open');
   navToggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+}
+
+// Copy a command snippet to the clipboard
+function copyCmd(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const prev = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = prev; btn.classList.remove('copied'); }, 1500);
+  });
 }
 
 // Project tab switching
