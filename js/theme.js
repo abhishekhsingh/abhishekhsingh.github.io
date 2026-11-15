@@ -2,6 +2,7 @@ const registry = {
   midnight: { label: 'Midnight', css: null },
   terminal: { label: 'Terminal', css: 'css/themes/terminal.css' },
   bento: { label: 'Bento', css: 'css/themes/bento.css' },
+  brutalist: { label: 'Brutalist', css: 'css/themes/brutalist.css' },
 };
 const names = Object.keys(registry);
 const root = document.documentElement;

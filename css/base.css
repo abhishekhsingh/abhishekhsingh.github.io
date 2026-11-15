@@ -310,5 +310,6 @@
   .swatch--midnight{background:linear-gradient(135deg,#04080f 50%,#00c2d1 50%)}
   .swatch--terminal{background:linear-gradient(135deg,#0c1a12 50%,#5dff94 50%)}
   .swatch--bento{background:linear-gradient(135deg,#1c1c24 50%,#8b8bf5 50%)}
+  .swatch--brutalist{background:linear-gradient(135deg,#f5e94a 50%,#ff4fa3 50%)}
   ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 }
