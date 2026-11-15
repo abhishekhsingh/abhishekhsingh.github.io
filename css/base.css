@@ -309,5 +309,6 @@
   .swatch{width:28px;height:18px;border-radius:5px;border:1px solid var(--border-glow);flex:none}
   .swatch--midnight{background:linear-gradient(135deg,#04080f 50%,#00c2d1 50%)}
   .swatch--terminal{background:linear-gradient(135deg,#0c1a12 50%,#5dff94 50%)}
+  .swatch--bento{background:linear-gradient(135deg,#1c1c24 50%,#8b8bf5 50%)}
   ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 }

@@ -58,7 +58,7 @@
     var q = new URLSearchParams(location.search).get('theme');
     t = q || localStorage.getItem('portfolio-style') || 'midnight';
   } catch(e) {}
-  if (['midnight', 'terminal'].indexOf(t) < 0) t = 'midnight';
+  if (['midnight', 'terminal', 'bento'].indexOf(t) < 0) t = 'midnight';
   d.setAttribute('data-theme', t);
   try { if (sessionStorage.getItem('portfolio-typed')) d.setAttribute('data-typed', ''); } catch(e) {}
   if (t !== 'midnight') {
@@ -68,7 +68,7 @@
     var ready = function () { d.removeAttribute('data-theme-pending'); };
     d.setAttribute('data-theme-pending', '');
     l.onload = l.onerror = ready; setTimeout(ready, 1500);
-    var f = { terminal: 'fonts/terminal/jetbrains-mono-latin.woff2' }[t];
+    var f = { terminal: 'fonts/terminal/jetbrains-mono-latin.woff2', bento: 'fonts/bento/geist-latin.woff2' }[t];
     if (f) {
       var pl = document.createElement('link');
       pl.rel = 'preload'; pl.as = 'font'; pl.type = 'font/woff2'; pl.href = f; pl.crossOrigin = 'anonymous';
@@ -352,6 +352,7 @@
   .swatch{width:28px;height:18px;border-radius:5px;border:1px solid var(--border-glow);flex:none}
   .swatch--midnight{background:linear-gradient(135deg,#04080f 50%,#00c2d1 50%)}
   .swatch--terminal{background:linear-gradient(135deg,#0c1a12 50%,#5dff94 50%)}
+  .swatch--bento{background:linear-gradient(135deg,#1c1c24 50%,#8b8bf5 50%)}
   ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 }
 @layer tokens {
@@ -516,6 +517,7 @@
     <legend>Theme</legend>
     <label><input type="radio" name="theme" value="midnight"><span class="swatch swatch--midnight"></span>Midnight</label>
     <label><input type="radio" name="theme" value="terminal"><span class="swatch swatch--terminal"></span>Terminal</label>
+    <label><input type="radio" name="theme" value="bento"><span class="swatch swatch--bento"></span>Bento</label>
   </fieldset>
 </div>
 <p id="theme-status" role="status" class="visually-hidden"></p>
