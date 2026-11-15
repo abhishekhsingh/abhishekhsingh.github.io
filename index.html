@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <title>Abhishekh Singh, Principal Engineer | Distributed Systems & AI</title>
-<meta name="description" content="Principal Engineer with 11+ years building production distributed systems, AI infrastructure, and MCP servers. Portfolio showcasing Data Highway, Search & AI Platform, and open-source developer tools.">
+<meta name="description" content="Principal Engineer with 12+ years building production distributed systems, AI infrastructure, and MCP servers. Portfolio showcasing Data Highway, Search & AI Platform, and open-source developer tools.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://abhishekhsingh.github.io/">
 <meta property="og:title" content="Abhishekh Singh, Principal Engineer">
-<meta property="og:description" content="11+ years building distributed systems, AI infrastructure, and MCP servers at enterprise scale. Data Highway processing 61B+ records/day, AI platform with cross-provider LLM fallback, production MCP server exposing dozens of tools.">
+<meta property="og:description" content="12+ years building distributed systems, AI infrastructure, and MCP servers at enterprise scale. Data Highway processing 61B+ records/day, AI platform with cross-provider LLM fallback, production MCP server exposing dozens of tools.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://abhishekhsingh.github.io/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Abhishekh Singh, Principal Engineer">
-<meta name="twitter:description" content="Distributed systems, AI infrastructure, MCP servers. 11+ years at enterprise scale.">
+<meta name="twitter:description" content="Distributed systems, AI infrastructure, MCP servers. 12+ years at enterprise scale.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -23,6 +23,7 @@
 // Theme bootstrap: runs before body renders to prevent flash of wrong theme.
 // Always defaults to dark unless localStorage has 'light'. No system-pref detection.
 (function(){
+  document.documentElement.classList.add('js');
   try {
     var saved = localStorage.getItem('portfolio-theme');
     var theme = (saved === 'light') ? 'light' : 'dark';
@@ -52,7 +53,7 @@
   --border-glow: #2a4570;
   --text: #e4eaf4;
   --text-dim: #7a90b8;
-  --text-muted: #4a6080;
+  --text-muted: #8396b8;
   --accent: #00c2d1;
   --accent-2: #4d8bff;
   --accent-3: #00cc8e;
@@ -79,14 +80,14 @@
   --border-glow: #cbd5e1;
   --text: #0f172a;
   --text-dim: #475569;
-  --text-muted: #64748b;
-  --accent: #0d9488;
+  --text-muted: #546377;
+  --accent: #0b7a70;
   --accent-2: #2563eb;
-  --accent-3: #059669;
-  --amber: #d97706;
-  --red: #dc2626;
+  --accent-3: #047857;
+  --amber: #b45309;
+  --red: #c81e1e;
   --purple: #7c3aed;
-  --pink: #db2777;
+  --pink: #be185d;
   --teal: #0f766e;
   --glow: 0 1px 3px rgba(15,23,42,0.08), 0 8px 24px rgba(15,23,42,0.06);
   --nav-bg: rgba(255,255,255,0.85);
@@ -147,7 +148,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-he
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px);background:var(--nav-bg);border-bottom:1px solid transparent;transition:all .3s}
 .nav.scrolled{border-image:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent) 1;box-shadow:var(--code-shadow)}
-.nav-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:.85rem;color:#fff;letter-spacing:-.5px;box-shadow:0 0 20px rgba(0,194,209,.2)}
+.nav-logo{position:relative;overflow:hidden;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.5px;box-shadow:0 0 24px rgba(0,194,209,.28);text-decoration:none;transition:transform .25s,box-shadow .25s}
 .nav-links{display:flex;gap:8px}
 .nav-links a{color:var(--text-dim);text-decoration:none;font-size:.88rem;font-weight:600;transition:all .25s;font-family:var(--font-head);padding:8px 14px;border-radius:8px;position:relative}
 .nav-links a:hover{color:var(--accent);background:var(--hover-soft)}
@@ -184,8 +185,8 @@ section{padding:100px 32px}
 .about-highlights{display:grid;gap:16px}
 .about-hl{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;transition:border-color .3s}
 .about-hl:hover{border-color:var(--accent)}
-.about-hl h4{font-family:var(--font-head);font-size:.9rem;font-weight:600;margin-bottom:6px}
-.about-hl p{font-size:.82rem;color:var(--text-dim);margin:0}
+.about-hl h3{font-family:var(--font-head);font-size:.9rem;font-weight:600;margin-bottom:6px}
+.about-hl p{font-size:.88rem;color:var(--text-dim);margin:0}
 
 /* ── TIMELINE ── */
 .timeline{position:relative;padding-left:40px}
@@ -196,7 +197,7 @@ section{padding:100px 32px}
 .tl-date{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);margin-bottom:4px;letter-spacing:1px}
 .tl-role{font-family:var(--font-head);font-size:1.1rem;font-weight:600;margin-bottom:2px}
 .tl-company{font-size:.9rem;color:var(--text-dim);margin-bottom:10px}
-.tl-desc{font-size:.85rem;color:var(--text-muted);max-width:600px}
+.tl-desc{font-size:.9rem;color:var(--text-dim);max-width:760px}
 
 /* ── PROJECTS ── */
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px;margin-bottom:32px;position:relative;overflow:hidden;transition:border-color .3s}
@@ -211,7 +212,7 @@ section{padding:100px 32px}
 .project-card .subtitle{color:var(--text-dim);font-size:.9rem;margin-bottom:20px}
 .project-card .desc{color:var(--text-muted);font-size:.88rem;margin-bottom:20px;line-height:1.8}
 .tech-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.tech-pill{font-family:var(--font-mono);font-size:.68rem;padding:4px 10px;border-radius:6px;background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border)}
+.tech-pill{font-family:var(--font-mono);font-size:.74rem;padding:4px 10px;border-radius:6px;background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border)}
 .highlights-list{list-style:none}
 .highlights-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.85rem;color:var(--text-dim);line-height:1.7}
 .highlights-list li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
@@ -257,8 +258,8 @@ section{padding:100px 32px}
 .contact-link:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ── SCROLL REVEAL ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ── FOOTER ── */
 footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
@@ -366,13 +367,46 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
   .about-hl{padding:16px}
   .tl-desc{font-size:.8rem}
 }
+
+/* ── ACCESSIBILITY AND POLISH ── */
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:.9rem;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:12px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h2.section-title{margin-top:0}
+.nav-logo::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:logoSheen 1.3s ease .5s 1 both}
+.nav-logo:hover{transform:translateY(-1px) scale(1.06);box-shadow:0 0 32px rgba(0,194,209,.45)}
+.nav-logo:hover::after{animation:logoSheen .9s ease 1 both}
+@keyframes logoSheen{from{left:-60%}to{left:130%}}
+.nav-links a.active{color:var(--accent)}
+.nav-links a.active::after{width:50%}
+.nav-links a.nav-resume{border:1px solid var(--border);color:var(--text)}
+.nav-links a.nav-resume:hover{border-color:var(--accent)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 36px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-family:var(--font-head);font-weight:600;font-size:.9rem;text-decoration:none;border:1px solid var(--border);color:var(--text);background:var(--surface);transition:transform .2s,border-color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent;box-shadow:0 4px 18px rgba(0,194,209,.25)}
+.arch-wrap{position:relative}
+.arch-expand{position:absolute;top:10px;right:10px;z-index:3;background:var(--surface);color:var(--text-dim);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-family:var(--font-head);font-size:.75rem;font-weight:600;cursor:pointer}
+.arch-expand:hover{color:var(--accent);border-color:var(--accent)}
+dialog.arch-dialog{width:min(96vw,1600px);max-width:none;height:92vh;background:var(--bg);color:var(--text);border:1px solid var(--border-glow);border-radius:14px;padding:14px}
+dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
+.arch-dialog-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-family:var(--font-head);font-weight:600}
+.arch-dialog .arch-container{height:calc(100% - 46px);margin:0;padding:12px;overflow:auto}
+.arch-dialog .arch-container svg{min-width:1500px}
+.is-paused,.is-paused *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .scale-track{animation:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ═══════════════════ NAV ═══════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-logo">AS</div>
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="nav-logo" href="#hero" aria-label="Abhishekh Singh, back to top">AS</a>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#journey">Journey</a>
@@ -380,31 +414,39 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <a href="#open-source">Open Source</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
+    <a class="nav-resume" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme"></button>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-controls="navMobile" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </nav>
-<div class="nav-mobile" id="navMobile">
+<nav class="nav-mobile" id="navMobile" aria-label="Mobile">
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#journey" onclick="closeMobile()">Journey</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#open-source" onclick="closeMobile()">Open Source</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
-</div>
+  <a href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener" onclick="closeMobile()">Resume</a>
+</nav>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
+<main id="main">
 <section class="hero" id="hero">
   <div class="container hero-content">
     <div class="hero-tag"><span class="dot"></span> Principal Engineer @ Gainsight</div>
     <h1>Building <span class="gradient">distributed systems</span> that power customer success at scale</h1>
     <p>I architect the data infrastructure, search platforms, and AI systems behind Gainsight's enterprise SaaS, from pipeline engines processing billions of records daily, to AI-powered search with dual-LLM providers and an MCP server that lets Claude and ChatGPT query community knowledge natively.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#projects">See the systems</a>
+      <a class="btn" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">11+</div><div class="label">Years Engineering</div></div>
+      <div class="hero-stat"><div class="num"><span data-years>12</span>+</div><div class="label">Years Engineering</div></div>
       <div class="hero-stat"><div class="num">10+</div><div class="label">Production Systems</div></div>
       <div class="hero-stat"><div class="num">35+</div><div class="label">SaaS Connectors</div></div>
       <div class="hero-stat"><div class="num">600+</div><div class="label">Enterprise Tenants</div></div>
@@ -437,28 +479,28 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="about">
   <div class="container">
     <div class="section-label reveal">About</div>
-    <div class="section-title reveal">Abhishekh Singh</div>
+    <h2 class="section-title reveal">Abhishekh Singh</h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Principal Engineer at Gainsight with 11+ years building production distributed systems across two product lines: Customer Success (CS) and Customer Communities (CC). Based in Hyderabad, India. B.Tech in Computer Science from BBDITM, Lucknow.</p>
+        <p>Principal Engineer at Gainsight with <span data-years>12</span>+ years building production distributed systems across two product lines: Customer Success (CS) and Customer Communities (CC). Based in Hyderabad, India. B.Tech in Computer Science from BBD National Institute of Technology &amp; Management, Lucknow.</p>
         <p>On the CS side, I built the Data Highway pipeline engine, the graph-based permission system used by 7+ services, and the event processing platform with cross-region SQS failover. On the CC side, I architected the AI-native search platform: three LLM-powered features, a production MCP server exposing dozens of tools, and a federated search system indexing records from 5 sources.</p>
         <p>My work sits at the intersection of distributed systems, data engineering, and AI, building the kind of infrastructure that other teams build their products on.</p>
       </div>
       <div class="about-highlights reveal">
         <div class="about-hl">
-          <h4>Platform Architecture</h4>
+          <h3>Platform Architecture</h3>
           <p>10+ production services across Java (Vert.x, Spring Boot) and Python: DAG orchestration, event-driven pipelines, graph-based RBAC, and real-time search</p>
         </div>
         <div class="about-hl">
-          <h4>AI & MCP Integration</h4>
+          <h3>AI & MCP Integration</h3>
           <p>Production MCP server exposing dozens of tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
         </div>
         <div class="about-hl">
-          <h4>Data at Scale</h4>
+          <h3>Data at Scale</h3>
           <p>61B+ records processed daily, 25M+ search records indexed, 35+ SaaS connectors, dual-warehouse analytics (Postgres + Redshift), S3 Parquet data lake</p>
         </div>
         <div class="about-hl">
-          <h4>Security-First Design</h4>
+          <h3>Security-First Design</h3>
           <p>Graph-based RBAC with Neo4j, JWT with Redis-backed revocation, permission-scoped Algolia tokens, process-isolated task sandboxing</p>
         </div>
       </div>
@@ -470,7 +512,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="journey" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Career Journey</div>
-    <div class="section-title reveal">Building at Every Layer of the Stack</div>
+    <h2 class="section-title reveal">Building at Every Layer of the Stack</h2>
     <div class="section-sub reveal">A decade of progressive engineering ownership, from automation frameworks to architecting the data and AI backbone of an enterprise SaaS platform.</div>
 
     <div class="timeline reveal">
@@ -508,7 +550,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
         <div class="tl-date">AUG 2014 - DEC 2015</div>
         <div class="tl-role">Software Analyst</div>
         <div class="tl-company">Nihilent · Pune</div>
-        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary), a major media platform serving millions of subscribers. Contributed to open-source technology solutions spanning .NET, Java, PHP, and Oracle.</div>
+        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary), a major media platform serving millions of subscribers. Contributed to technology solutions spanning .NET, Java, PHP, and Oracle, with test automation in Selenium and UFT.</div>
       </div>
     </div>
   </div>
@@ -518,7 +560,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="projects">
   <div class="container">
     <div class="section-label reveal">Projects</div>
-    <div class="section-title reveal">Systems I've Built & Architected</div>
+    <h2 class="section-title reveal">Systems I've Built & Architected</h2>
     <div class="section-sub reveal">Production systems powering Gainsight's enterprise platform, from data pipelines to AI-powered search.</div>
 
     <!-- ── PLATFORM ECOSYSTEM DIAGRAM ── -->
@@ -1204,7 +1246,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="open-source" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Open Source</div>
-    <div class="section-title reveal">Projects I Build in the Open</div>
+    <h2 class="section-title reveal">Projects I Build in the Open</h2>
     <div class="section-sub reveal">Personal projects, open source contributions, and developer tools.</div>
 
     <!-- ── GoatCounter Dashboard ── -->
@@ -1333,7 +1375,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 
           <!-- Engines -->
           <rect x="40" y="186" width="210" height="56" rx="8" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="145" y="207" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">5 Test Suites</text>
+          <text x="145" y="207" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">4 Protocol Suites</text>
           <text x="145" y="222" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">handshake · tools</text>
           <text x="145" y="232" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">resources · prompts</text>
           <rect x="275" y="186" width="210" height="56" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
@@ -1374,10 +1416,10 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
           <text x="380" y="318" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">offline-first · no API keys · CI-native · official GitHub Action</text>
         </svg>
       </div>
-      <div class="desc">A CLI tool that tests MCP servers the way pytest tests code. Five test suites cover the full protocol (handshake, tools, resources, prompts) plus offline security scanning for prompt injection, data exfiltration, and rug-pull attacks. Plugs into any CI pipeline with JUnit XML output and a ready-made GitHub Action.</div>
+      <div class="desc">A CLI tool that tests MCP servers the way pytest tests code. Four protocol suites (handshake, tools, resources, prompts) and a fifth offline security suite that scans for prompt injection, data exfiltration, cross-tool manipulation, suspicious encoding, and rug-pull tool changes. Plugs into any CI pipeline with JUnit XML output and a ready-made GitHub Action.</div>
       <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">Typer</span><span class="tech-pill">Pydantic</span><span class="tech-pill">httpx</span><span class="tech-pill">MCP SDK</span><span class="tech-pill">OAuth2.1 PKCE</span><span class="tech-pill">PyPI</span></div>
       <ul class="highlights-list">
-        <li>Five test suites covering the full MCP protocol, plus offline security scanning for prompt injection, data exfiltration, cross-tool manipulation, and supply chain attacks</li>
+        <li>Five suites: handshake, tools, resources and prompts, plus an offline security scan for prompt injection, data exfiltration, cross-tool manipulation, suspicious encoding, and tool pinning to catch rug-pull changes</li>
         <li>OAuth2 PKCE with auto-discovery: provide the server URL and the tool discovers auth endpoints, opens a browser, then handles token exchange and caching automatically</li>
         <li>Debug logging with multi-layer request and response tracing (MCP operations, HTTP wire, SDK internals) and credential masking</li>
         <li>JUnit XML output for CI integration with GitHub Actions, GitLab, and Jenkins</li>
@@ -1397,7 +1439,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="skills" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Tech Stack</div>
-    <div class="section-title reveal">Technologies & Tools</div>
+    <h2 class="section-title reveal">Technologies & Tools</h2>
     <div class="section-sub reveal">A decade of hands-on experience across languages, frameworks, cloud services, and data systems.</div>
 
     <div class="skill-category reveal">
@@ -1416,14 +1458,14 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
     <div class="skill-category reveal">
       <h3>Cloud & Infrastructure</h3>
       <div class="skills-grid">
-        <div class="skill-card"><div class="brand-icon" style="background:#FF9900">ECS</div><div class="name">AWS ECS Fargate</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#FF9900">λ</div><div class="name">AWS Lambda</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#569A31">S3</div><div class="name">AWS S3</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#FF4F8B">SQ</div><div class="name">AWS SQS / SNS</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#FF9900;color:#1a1a1a">ECS</div><div class="name">AWS ECS Fargate</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#FF9900;color:#1a1a1a">λ</div><div class="name">AWS Lambda</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#3f7a22">S3</div><div class="name">AWS S3</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#c2255c">SQ</div><div class="name">AWS SQS / SNS</div></div>
         <div class="skill-card"><div class="brand-icon" style="background:#4053D6">DB</div><div class="name">AWS DynamoDB</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#E7157B">CF</div><div class="name">CloudFormation</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#d1126d">CF</div><div class="name">CloudFormation</div></div>
         <div class="skill-card"><img loading="lazy" src="./assets/logos/docker.svg" alt="Docker" width="28" height="28"><div class="name">Docker</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#FF4F8B">CW</div><div class="name">CloudWatch</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#c2255c">CW</div><div class="name">CloudWatch</div></div>
       </div>
     </div>
 
@@ -1435,7 +1477,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
         <div class="skill-card"><img loading="lazy" src="./assets/logos/neo4j.svg" alt="Neo4j" width="28" height="28"><div class="name">Neo4j</div></div>
         <div class="skill-card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia" width="28" height="28"><div class="name">Algolia</div></div>
         <div class="skill-card"><img loading="lazy" src="./assets/logos/drill.svg" alt="Apache Drill" width="28" height="28"><div class="name">Apache Drill</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#8C4FFF">RS</div><div class="name">Redshift</div></div>
+        <div class="skill-card"><div class="brand-icon" style="background:#7c3aed">RS</div><div class="name">Redshift</div></div>
         <div class="skill-card"><img loading="lazy" src="./assets/logos/mongodb.svg" alt="MongoDB" width="28" height="28"><div class="name">MongoDB</div></div>
         <div class="skill-card"><div class="brand-icon" style="background:#232F3E">At</div><div class="name">Athena</div></div>
         <div class="skill-card"><img loading="lazy" src="./assets/logos/mysql.svg" alt="MySQL" width="28" height="28"><div class="name">MySQL</div></div>
@@ -1475,29 +1517,29 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="education">
   <div class="container">
     <div class="section-label reveal">Education & Recognition</div>
-    <div class="section-title reveal">Background</div>
+    <h2 class="section-title reveal">Background</h2>
 
     <div class="about-grid" style="margin-top:32px">
       <div class="reveal">
         <div class="about-hl" style="margin-bottom:16px">
-          <h4>B.Tech, Computer Science & Engineering</h4>
-          <p>BABU BANARASI DAS Institute of Technology & Management, Lucknow (2010–2014) · 75.16%</p>
+          <h3>B.Tech, Computer Science & Engineering</h3>
+          <p>BBD National Institute of Technology &amp; Management, Lucknow (2010-2014) · 75.16%</p>
         </div>
         <div class="about-hl" style="margin-bottom:16px">
-          <h4>Intermediate, Mathematics</h4>
-          <p>Rastriya Inter College (2008–2010) · 73.6%</p>
+          <h3>Intermediate, Mathematics</h3>
+          <p>Rastriya Inter College (2008-2010) · 73.6%</p>
         </div>
         <div class="about-hl">
-          <h4>Languages</h4>
+          <h3>Languages</h3>
           <p>English (Full Professional) · Hindi (Native)</p>
         </div>
       </div>
       <div class="reveal">
         <div class="about-hl" style="margin-bottom:16px">
-          <h4>Awards & Leadership</h4>
+          <h3>Awards & Leadership</h3>
           <p style="margin-bottom:10px"><strong style="color:var(--accent)">Vice-Captain, Nihilentia</strong>. Selected to lead Nihilent's annual fest (Dec 2014). Successfully organized events and competitions.</p>
           <p style="margin-bottom:10px"><strong style="color:var(--accent)">IT-FIESTA 2011</strong>. Appreciation Certificate awarded by T. Ashok (Founder & CEO, Stag Software Pvt. Ltd.)</p>
-          <p style="margin-bottom:10px"><strong style="color:var(--accent)">UTKARSH-13 & 14</strong>. Coordinated Technical Events at BBDGEI (2013 & 2014)</p>
+          <p style="margin-bottom:10px"><strong style="color:var(--accent)">UTKARSH-13 & 14</strong>. Coordinated Technical Events at BBDNITM (2013 &amp; 2014)</p>
           <p style="margin-bottom:10px"><strong style="color:var(--accent)">ENCORE-12</strong>. Honor & Excellence Certificate at IET Lucknow (Oct 2012)</p>
           <p style="margin-bottom:10px"><strong style="color:var(--accent)">Techsamagam-11</strong>. Certificate Of Merit, FORCE CIC Education (Nov 2011)</p>
           <p><strong style="color:var(--accent)">3rd Position, UP Board</strong>. Block-level topper in Jaunpur, High School Examinations (2007)</p>
@@ -1511,7 +1553,7 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Testimonials</div>
-    <div class="section-title reveal">What Colleagues Say</div>
+    <h2 class="section-title reveal">What Colleagues Say</h2>
 
     <div class="about-grid" style="margin-top:32px">
       <div class="testimonial reveal">
@@ -1554,24 +1596,25 @@ footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-mut
 <section id="contact">
   <div class="container">
     <div class="section-label reveal">Get In Touch</div>
-    <div class="section-title reveal">Let's Connect</div>
+    <h2 class="section-title reveal">Let's Connect</h2>
     <div class="section-sub reveal">Open to conversations about distributed systems, AI infrastructure, and platform engineering.</div>
     <div class="contact-links reveal">
       <a href="mailto:abhishekcp.singh67@gmail.com" class="contact-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
         abhishekcp.singh67@gmail.com
       </a>
-      <a href="https://www.linkedin.com/in/abhishekh-singh-636ab021/" target="_blank" class="contact-link">
+      <a href="https://www.linkedin.com/in/abhishekh-singh-636ab021/" target="_blank" rel="noopener" class="contact-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="https://github.com/abhishekhsingh" target="_blank" class="contact-link">
+      <a href="https://github.com/abhishekhsingh" target="_blank" rel="noopener" class="contact-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
       </a>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="container">
@@ -1592,12 +1635,14 @@ const navMobile = document.getElementById('navMobile');
 navToggle.addEventListener('click', () => {
   navMobile.classList.toggle('open');
   const isOpen = navMobile.classList.contains('open');
+  navToggle.setAttribute('aria-expanded', isOpen);
   navToggle.innerHTML = isOpen
     ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
     : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
 });
 function closeMobile() {
   navMobile.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
   navToggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
 }
 
@@ -1611,12 +1656,24 @@ function copyCmd(btn, text) {
   });
 }
 
+// Years of engineering experience, counted from Aug 2014
+(function () {
+  var start = new Date(2014, 7, 1), now = new Date();
+  var y = now.getFullYear() - start.getFullYear() - (now < new Date(now.getFullYear(), 7, 1) ? 1 : 0);
+  document.querySelectorAll('[data-years]').forEach(function (e) { e.textContent = y; });
+})();
+
 // Project tab switching
-function showTab(id) {
+function showTab(id, focus) {
   document.querySelectorAll('.proj-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.proj-tab').forEach(t => {
+    const on = t.dataset.tab === id;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-selected', on);
+    t.tabIndex = on ? 0 : -1;
+    if (on && focus) t.focus();
+  });
   document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
 }
 
 // Collapsible sections
@@ -1626,6 +1683,102 @@ function toggleCollapse(id, btn) {
   btn.textContent = el.classList.contains('open') ? 'Show less ↑' : btn.dataset.label || 'Show more ↓';
   if (!btn.dataset.label) btn.dataset.label = btn.textContent;
 }
+
+// Tabs: ARIA roles and arrow-key navigation
+(function () {
+  const list = document.querySelector('.proj-tabs');
+  if (!list) return;
+  list.setAttribute('role', 'tablist');
+  const tabs = [...list.querySelectorAll('.proj-tab')];
+  tabs.forEach(t => {
+    const id = /showTab\('([^']+)'\)/.exec(t.getAttribute('onclick'))[1];
+    t.dataset.tab = id;
+    t.id = 'tabbtn-' + id;
+    t.setAttribute('role', 'tab');
+    t.setAttribute('aria-controls', 'tab-' + id);
+    const panel = document.getElementById('tab-' + id);
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', t.id);
+    t.removeAttribute('onclick');
+    t.addEventListener('click', () => showTab(id));
+    t.addEventListener('keydown', e => {
+      const i = tabs.indexOf(t);
+      const next = e.key === 'ArrowRight' ? (i + 1) % tabs.length : e.key === 'ArrowLeft' ? (i - 1 + tabs.length) % tabs.length : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : -1;
+      if (next < 0) return;
+      e.preventDefault();
+      showTab(tabs[next].dataset.tab, true);
+    });
+  });
+  showTab(list.querySelector('.proj-tab.active').dataset.tab);
+})();
+
+// Diagrams: keyboard-scrollable, labelled, expandable
+(function () {
+  const dlg = document.createElement('dialog');
+  dlg.className = 'arch-dialog';
+  dlg.innerHTML = '<div class="arch-dialog-bar"><span></span><button type="button" class="arch-expand">Close</button></div><div class="arch-container" tabindex="0" role="region"></div>';
+  document.body.appendChild(dlg);
+  const dTitle = dlg.querySelector('span'), dBody = dlg.querySelector('.arch-container');
+  dlg.querySelector('button').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  document.querySelectorAll('.arch-container').forEach(c => {
+    if (c.closest('dialog')) return;
+    const svg = c.querySelector('svg');
+    if (!svg) return;
+    const h = c.closest('.project-card, .proj-panel');
+    const heading = h && h.querySelector('h3');
+    const label = 'Architecture diagram' + (heading ? ': ' + heading.textContent.trim() : '');
+    c.tabIndex = 0;
+    c.setAttribute('role', 'region');
+    c.setAttribute('aria-label', label + ' (scrollable)');
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', label);
+    const wrap = document.createElement('div');
+    wrap.className = 'arch-wrap';
+    c.parentNode.insertBefore(wrap, c);
+    wrap.appendChild(c);
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'arch-expand';
+    b.textContent = 'Expand';
+    b.setAttribute('aria-label', 'Expand ' + label);
+    b.addEventListener('click', () => {
+      dTitle.textContent = label;
+      dBody.setAttribute('aria-label', label + ' (scrollable)');
+      dBody.replaceChildren(svg.cloneNode(true));
+      dlg.showModal();
+    });
+    wrap.appendChild(b);
+  });
+})();
+
+// Pause animation work that is offscreen or in a hidden tab
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = [...document.querySelectorAll('.arch-container svg, .scale-track')].filter(e => !e.closest('dialog'));
+  const set = (el, live) => {
+    el.classList.toggle('is-paused', !live);
+    if (el.pauseAnimations) live ? el.unpauseAnimations() : el.pauseAnimations();
+  };
+  if (reduce) { targets.forEach(el => set(el, false)); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; set(e.target, e.isIntersecting && !document.hidden); }));
+  targets.forEach(el => io.observe(el));
+  document.addEventListener('visibilitychange', () => targets.forEach(el => set(el, !!el._vis && !document.hidden)));
+})();
+
+// Nav: highlight the section in view
+(function () {
+  const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const a = map.get(e.target.id);
+    if (!a || !e.isIntersecting) return;
+    links.forEach(l => { l.classList.remove('active'); l.removeAttribute('aria-current'); });
+    a.classList.add('active');
+    a.setAttribute('aria-current', 'true');
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  map.forEach((a, id) => { const sec = document.getElementById(id); if (sec) io.observe(sec); });
+})();
 
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
