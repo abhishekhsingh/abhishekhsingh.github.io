@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" href="./favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="./assets/seo/apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+<meta name="theme-color" content="#04080f">
 <title>Abhishekh Singh, Principal Engineer | Distributed Systems & AI</title>
 <meta name="description" content="Principal Engineer with 12+ years building production distributed systems, AI infrastructure, and MCP servers. Portfolio showcasing Data Highway, Search & AI Platform, and open-source developer tools.">
 <meta name="robots" content="index, follow">
@@ -12,9 +16,33 @@
 <meta property="og:description" content="12+ years building distributed systems, AI infrastructure, and MCP servers at enterprise scale. Data Highway processing 61B+ records/day, AI platform with cross-provider LLM fallback, production MCP server exposing dozens of tools.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://abhishekhsingh.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Abhishekh Singh">
+<meta property="og:image" content="https://abhishekhsingh.github.io/assets/seo/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Abhishekh Singh, Principal Engineer: distributed systems, AI infrastructure and MCP servers">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Abhishekh Singh, Principal Engineer">
 <meta name="twitter:description" content="Distributed systems, AI infrastructure, MCP servers. 12+ years at enterprise scale.">
+<meta name="twitter:image" content="https://abhishekhsingh.github.io/assets/seo/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abhishekh Singh",
+  "jobTitle": "Principal Engineer",
+  "url": "https://abhishekhsingh.github.io/",
+  "image": "https://abhishekhsingh.github.io/assets/seo/og-image.png",
+  "worksFor": { "@type": "Organization", "name": "Gainsight" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "BBD National Institute of Technology & Management" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN" },
+  "knowsAbout": ["Distributed systems", "AI infrastructure", "Model Context Protocol", "Search platforms", "Data pipelines"],
+  "sameAs": [
+    "https://github.com/abhishekhsingh",
+    "https://www.linkedin.com/in/abhishekh-singh-636ab021/"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -414,7 +442,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     <a href="#open-source">Open Source</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <a class="nav-resume" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a class="nav-resume" data-goatcounter-click="resume-nav" data-goatcounter-title="Resume (nav)" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme"></button>
@@ -430,7 +458,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
   <a href="#open-source" onclick="closeMobile()">Open Source</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener" onclick="closeMobile()">Resume</a>
+  <a data-goatcounter-click="resume-mobile" data-goatcounter-title="Resume (mobile menu)" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener" onclick="closeMobile()">Resume</a>
 </nav>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
@@ -441,9 +469,9 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     <h1>Building <span class="gradient">distributed systems</span> that power customer success at scale</h1>
     <p>I architect the data infrastructure, search platforms, and AI systems behind Gainsight's enterprise SaaS, from pipeline engines processing billions of records daily, to AI-powered search with dual-LLM providers and an MCP server that lets Claude and ChatGPT query community knowledge natively.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#projects">See the systems</a>
-      <a class="btn" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn btn-primary" data-goatcounter-click="hero-systems" data-goatcounter-title="Hero: See the systems" href="#projects">See the systems</a>
+      <a class="btn" data-goatcounter-click="resume-hero" data-goatcounter-title="Resume (hero)" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn" data-goatcounter-click="hero-contact" data-goatcounter-title="Hero: Get in touch" href="#contact">Get in touch</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num"><span data-years>12</span>+</div><div class="label">Years Engineering</div></div>
@@ -1599,15 +1627,15 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     <h2 class="section-title reveal">Let's Connect</h2>
     <div class="section-sub reveal">Open to conversations about distributed systems, AI infrastructure, and platform engineering.</div>
     <div class="contact-links reveal">
-      <a href="mailto:abhishekcp.singh67@gmail.com" class="contact-link">
+      <a href="mailto:abhishekcp.singh67@gmail.com" class="contact-link" data-goatcounter-click="contact-email" data-goatcounter-title="Contact: email">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
         abhishekcp.singh67@gmail.com
       </a>
-      <a href="https://www.linkedin.com/in/abhishekh-singh-636ab021/" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://www.linkedin.com/in/abhishekh-singh-636ab021/" target="_blank" rel="noopener" class="contact-link" data-goatcounter-click="contact-linkedin" data-goatcounter-title="Contact: LinkedIn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="https://github.com/abhishekhsingh" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://github.com/abhishekhsingh" target="_blank" rel="noopener" class="contact-link" data-goatcounter-click="contact-github" data-goatcounter-title="Contact: GitHub">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         GitHub
       </a>
