@@ -125,34 +125,73 @@
   --code-shadow: 0 4px 20px rgba(15,23,42,.08);
 }
 
-/* SVG diagram tinted backgrounds: overrides only fire in light theme.
-   Kept as a single block for easy review/refinement. */
-:root[data-theme="light"] .arch-container svg [fill="#3a8a70"] { fill:#a7f3d0; }
-:root[data-theme="light"] .arch-container svg [fill="#7c6caf"] { fill:#ddd6fe; }
-:root[data-theme="light"] .arch-container svg [fill="#aa8040"] { fill:#fed7aa; }
-:root[data-theme="light"] .arch-container svg [fill="#3a8888"] { fill:#a5f3fc; }
-:root[data-theme="light"] .arch-container svg [fill="#4d6080"] { fill:#cbd5e1; }
-:root[data-theme="light"] .arch-container svg [fill="#aa4a70"] { fill:#fbcfe8; }
-:root[data-theme="light"] .arch-container svg [fill="#051a15"] { fill:#ecfdf5; }
-:root[data-theme="light"] .arch-container svg [fill="#0f0a25"] { fill:#f5f3ff; }
-:root[data-theme="light"] .arch-container svg [fill="#150a20"] { fill:#f5f3ff; }
-:root[data-theme="light"] .arch-container svg [fill="#1a1808"] { fill:#fef3c7; }
-:root[data-theme="light"] .arch-container svg [fill="#1a1005"] { fill:#fef3c7; }
-:root[data-theme="light"] .arch-container svg [fill="#250a15"] { fill:#fdf2f8; }
-:root[data-theme="light"] .arch-container svg [fill="#0a1020"],
-:root[data-theme="light"] .arch-container svg [fill="#0a1520"],
-:root[data-theme="light"] .arch-container svg [fill="#0a0f1a"] { fill:#f1f5f9; }
-/* Light text/strokes inside tinted icon shapes: flip to dark in light theme */
-:root[data-theme="light"] .arch-container svg [fill="#6eeac4"] { fill:#065f46; }
-:root[data-theme="light"] .arch-container svg [fill="#c4b5fd"] { fill:#5b21b6; }
-:root[data-theme="light"] .arch-container svg [fill="#ffd080"] { fill:#92400e; }
-:root[data-theme="light"] .arch-container svg [fill="#7ee8e8"] { fill:#0e7490; }
-:root[data-theme="light"] .arch-container svg [fill="#ff8ac0"] { fill:#9d174d; }
-:root[data-theme="light"] .arch-container svg [fill="#f08080"] { fill:#b91c1c; }
-:root[data-theme="light"] .arch-container svg [fill="#7aa0e8"],
-:root[data-theme="light"] .arch-container svg [fill="#8ab4ff"],
-:root[data-theme="light"] .arch-container svg [fill="#6ca0d0"] { fill:#1e40af; }
-:root[data-theme="light"] .arch-container svg [fill="#8a9ab8"] { fill:#475569; }
+/* diagram colors: dark values here, light overrides in the light block below.
+   Fills and lines are separate tokens because light mode tints fills only. */
+:root {
+  --dg-fill-amber-1: #1a1005;
+  --dg-fill-amber-2: #1a1808;
+  --dg-fill-amber-3: #aa7050;
+  --dg-fill-amber-4: #aa8040;
+  --dg-fill-amber-5: #f0a070;
+  --dg-fill-amber-6: #ffd080;
+  --dg-fill-blue-1: #4a7acc;
+  --dg-fill-blue-2: #6ca0d0;
+  --dg-fill-blue-3: #7aa0e8;
+  --dg-fill-blue-4: #7aa8d8;
+  --dg-fill-blue-5: #8ab4ff;
+  --dg-fill-cyan-1: #3a8888;
+  --dg-fill-cyan-2: #6cc0e8;
+  --dg-fill-cyan-3: #7ee8e8;
+  --dg-fill-green-1: #051a15;
+  --dg-fill-green-2: #3a8a70;
+  --dg-fill-green-3: #8cc060;
+  --dg-fill-green-4: #6eeac4;
+  --dg-fill-pink-1: #250a15;
+  --dg-fill-pink-2: #aa4a70;
+  --dg-fill-pink-3: #ff8ac0;
+  --dg-fill-red-1: #150a0a;
+  --dg-fill-red-2: #f08080;
+  --dg-fill-red-3: #ff8a94;
+  --dg-fill-slate-1: #0a0f1a;
+  --dg-fill-slate-2: #0a1020;
+  --dg-fill-slate-3: #0a1520;
+  --dg-fill-slate-4: #4d6080;
+  --dg-fill-slate-5: #8a9ab8;
+  --dg-fill-violet-1: #0f0a25;
+  --dg-fill-violet-2: #150a20;
+  --dg-fill-violet-3: #7c6caf;
+  --dg-fill-violet-4: #b088ff;
+  --dg-fill-violet-5: #c4b5fd;
+  --dg-line-slate-4: #4d6080;
+}
+:root[data-theme="light"] {
+  --dg-fill-amber-1: #fef3c7;
+  --dg-fill-amber-2: #fef3c7;
+  --dg-fill-amber-4: #fed7aa;
+  --dg-fill-amber-6: #92400e;
+  --dg-fill-blue-2: #1e40af;
+  --dg-fill-blue-3: #1e40af;
+  --dg-fill-blue-5: #1e40af;
+  --dg-fill-cyan-1: #a5f3fc;
+  --dg-fill-cyan-3: #0e7490;
+  --dg-fill-green-1: #ecfdf5;
+  --dg-fill-green-2: #a7f3d0;
+  --dg-fill-green-4: #065f46;
+  --dg-fill-pink-1: #fdf2f8;
+  --dg-fill-pink-2: #fbcfe8;
+  --dg-fill-pink-3: #9d174d;
+  --dg-fill-red-2: #b91c1c;
+  --dg-fill-slate-1: #f1f5f9;
+  --dg-fill-slate-2: #f1f5f9;
+  --dg-fill-slate-3: #f1f5f9;
+  --dg-fill-slate-4: #cbd5e1;
+  --dg-fill-slate-5: #475569;
+  --dg-fill-violet-1: #f5f3ff;
+  --dg-fill-violet-2: #f5f3ff;
+  --dg-fill-violet-3: #ddd6fe;
+  --dg-fill-violet-5: #5b21b6;
+}
+
 /* Small detail text inside diagram boxes uses JetBrains Mono. The same hex
    serves as both box background fill and detail text fill in dark mode, so
    attribute selectors can't disambiguate. Targeting via font-family hits only
@@ -435,7 +474,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ═══════════════════ NAV ═══════════════════ -->
-<nav class="nav" id="nav" aria-label="Primary">
+<nav class="nav" id="nav" aria-label="Primary" data-region="topbar">
   <a class="nav-logo" href="#hero" aria-label="Abhishekh Singh, back to top">AS</a>
   <div class="nav-links">
     <a href="#about">About</a>
@@ -465,7 +504,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <main id="main">
-<section class="hero" id="hero">
+<section class="hero" id="hero" data-section="hero">
   <div class="container hero-content">
     <div class="hero-tag"><span class="dot"></span> Principal Engineer @ Gainsight</div>
     <h1><span class="hero-name">Abhishekh Singh</span>Building <span class="gradient">distributed systems</span> that power customer success at scale</h1>
@@ -476,16 +515,16 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
       <a class="btn" data-goatcounter-click="hero-contact" data-goatcounter-title="Hero: Get in touch" href="#contact">Get in touch</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num"><span data-years>12</span>+</div><div class="label">Years Engineering</div></div>
-      <div class="hero-stat"><div class="num">10+</div><div class="label">Production Systems</div></div>
-      <div class="hero-stat"><div class="num">35+</div><div class="label">SaaS Connectors</div></div>
-      <div class="hero-stat"><div class="num">600+</div><div class="label">Enterprise Tenants</div></div>
+      <div class="hero-stat stat"><div class="num"><span data-years>12</span>+</div><div class="label">Years Engineering</div></div>
+      <div class="hero-stat stat"><div class="num">10+</div><div class="label">Production Systems</div></div>
+      <div class="hero-stat stat"><div class="num">35+</div><div class="label">SaaS Connectors</div></div>
+      <div class="hero-stat stat"><div class="num">600+</div><div class="label">Enterprise Tenants</div></div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════ PLATFORM SCALE TICKER ═══════════════════ -->
-<div class="scale-bar">
+<div class="scale-bar" data-section="scale">
   <div class="scale-track">
     <div class="scale-item"><span class="scale-num">61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
     <div class="scale-item"><span class="scale-num">14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
@@ -506,7 +545,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </div>
 
 <!-- ═══════════════════ ABOUT ═══════════════════ -->
-<section id="about">
+<section id="about" data-section="about">
   <div class="container">
     <div class="section-label reveal">About</div>
     <h2 class="section-title reveal">Abhishekh Singh</h2>
@@ -517,19 +556,19 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         <p>My work sits at the intersection of distributed systems, data engineering, and AI, building the kind of infrastructure that other teams build their products on.</p>
       </div>
       <div class="about-highlights reveal">
-        <div class="about-hl">
+        <div class="about-hl card">
           <h3>Platform Architecture</h3>
           <p>10+ production services across Java (Vert.x, Spring Boot) and Python: DAG orchestration, event-driven pipelines, graph-based RBAC, and real-time search</p>
         </div>
-        <div class="about-hl">
+        <div class="about-hl card">
           <h3>AI & MCP Integration</h3>
           <p>Production MCP server exposing dozens of tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
         </div>
-        <div class="about-hl">
+        <div class="about-hl card">
           <h3>Data at Scale</h3>
           <p>61B+ records processed daily, 25M+ search records indexed, 35+ SaaS connectors, dual-warehouse analytics (Postgres + Redshift), S3 Parquet data lake</p>
         </div>
-        <div class="about-hl">
+        <div class="about-hl card">
           <h3>Security-First Design</h3>
           <p>Graph-based RBAC with Neo4j, JWT with Redis-backed revocation, permission-scoped Algolia tokens, process-isolated task sandboxing</p>
         </div>
@@ -539,44 +578,44 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 
 <!-- ═══════════════════ JOURNEY ═══════════════════ -->
-<section id="journey" style="background:var(--bg-2)">
+<section id="journey" data-section="journey" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Career Journey</div>
     <h2 class="section-title reveal">Building at Every Layer of the Stack</h2>
     <div class="section-sub reveal">A decade of progressive engineering ownership, from automation frameworks to architecting the data and AI backbone of an enterprise SaaS platform.</div>
 
     <div class="timeline reveal">
-      <div class="tl-item active">
+      <div class="tl-item active role">
         <div class="tl-date">APR 2025 - PRESENT</div>
         <div class="tl-role">Principal Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Architecting the Search & AI platform: production MCP server for AI assistants, three LLM-powered features with cross-provider fallback, search analytics data lake, and federated search indexing across multiple content sources. Leading the platform's AI-native evolution.</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item role">
         <div class="tl-date">AUG 2019 - MAR 2025</div>
         <div class="tl-role">Lead Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Led architecture of the Data Highway pipeline engine scaling to billions of records daily across hundreds of enterprise tenants. Built the Usage Data Model analytics platform, community search system, and enterprise webhook delivery with IAM SigV4 signing.</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item role">
         <div class="tl-date">JUL 2017 - AUG 2019</div>
         <div class="tl-role">Senior Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Built the Usage Data Model (UDM) analytics platform with dual-warehouse abstraction (Postgres + Redshift), Event Processing pub/sub system, and core Data Highway infrastructure.</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item role">
         <div class="tl-date">JUL 2016 - JUN 2017</div>
         <div class="tl-role">Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
         <div class="tl-desc">Developed the graph-based permission system (Neo4j), centralized Config Server, Audit Service, and contributed to the Data Highway DAG engine with 60+ custom Drill UDFs.</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item role">
         <div class="tl-date">DEC 2015 - JUN 2016</div>
         <div class="tl-role">Software Engineer</div>
         <div class="tl-company">Talentica Software · Pune</div>
         <div class="tl-desc">Engineered the Intelligence Machine, a big data recommendation engine processing terabytes of social media data daily. Built performance benchmarking infrastructure and data-driven test automation across distributed systems.</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item role">
         <div class="tl-date">AUG 2014 - DEC 2015</div>
         <div class="tl-role">Software Analyst</div>
         <div class="tl-company">Nihilent · Pune</div>
@@ -587,14 +626,14 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 
 <!-- ═══════════════════ FEATURED PROJECT ═══════════════════ -->
-<section id="projects">
+<section id="projects" data-section="systems">
   <div class="container">
     <div class="section-label reveal">Projects</div>
     <h2 class="section-title reveal">Systems I've Built & Architected</h2>
     <div class="section-sub reveal">Production systems powering Gainsight's enterprise platform, from data pipelines to AI-powered search.</div>
 
     <!-- ── PLATFORM ECOSYSTEM DIAGRAM ── -->
-    <div class="project-card reveal" style="border-color:var(--accent-2);background:linear-gradient(135deg,var(--surface) 0%,rgba(13,21,37,.95) 100%)">
+    <div class="project-card reveal card" style="border-color:var(--accent-2);background:linear-gradient(135deg,var(--surface) 0%,rgba(13,21,37,.95) 100%)">
       <div style="text-align:center;margin-bottom:8px;font-family:var(--font-mono);font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase">Across Two Product Lines</div>
       <h3 style="text-align:center;margin-bottom:24px">My Contributions to Gainsight's CustomerOS</h3>
       <div class="arch-container" style="background:transparent;border:none;padding:0">
@@ -607,44 +646,44 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 
           <!-- ═══ CS PRODUCT LINE (LEFT) ═══ -->
           <rect x="15" y="38" width="440" height="470" rx="12" fill="none" stroke="var(--accent-3)" stroke-width="1" stroke-dasharray="6 3" opacity=".25"/>
-          <text x="235" y="60" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="12" font-weight="700">CS · Customer Success</text>
-          <text x="235" y="74" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="7">Data infrastructure · 6 core services</text>
+          <text x="235" y="60" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="12" font-weight="700">CS · Customer Success</text>
+          <text x="235" y="74" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="7">Data infrastructure · 6 core services</text>
 
           <!-- Application layer -->
           <text x="35" y="96" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">APPLICATION LAYER</text>
-          <rect x="30" y="102" width="130" height="40" rx="7" fill="#0a0f1a" stroke="#4d6080" stroke-width=".8"/>
-          <text x="95" y="120" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics Data Store</text>
+          <rect x="30" y="102" width="130" height="40" rx="7" fill="var(--dg-fill-slate-1)" stroke="var(--dg-line-slate-4)" stroke-width=".8"/>
+          <text x="95" y="120" text-anchor="middle" fill="var(--dg-fill-slate-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics Data Store</text>
           <text x="95" y="132" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">91 modules · Spring</text>
 
-          <rect x="170" y="102" width="130" height="40" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="235" y="120" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="8" font-weight="600">Usage Data Model</text>
-          <text x="235" y="132" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="5.5">Vert.x · Redshift</text>
+          <rect x="170" y="102" width="130" height="40" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="235" y="120" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Usage Data Model</text>
+          <text x="235" y="132" text-anchor="middle" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="5.5">Vert.x · Redshift</text>
 
-          <rect x="310" y="102" width="130" height="40" rx="7" fill="#0a0f1a" stroke="#4d6080" stroke-width=".8"/>
-          <text x="375" y="120" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Bionic Reporting</text>
+          <rect x="310" y="102" width="130" height="40" rx="7" fill="var(--dg-fill-slate-1)" stroke="var(--dg-line-slate-4)" stroke-width=".8"/>
+          <text x="375" y="120" text-anchor="middle" fill="var(--dg-fill-slate-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Bionic Reporting</text>
           <text x="375" y="132" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Spring · Presto</text>
 
           <!-- Platform services layer -->
           <text x="35" y="164" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">PLATFORM SERVICES</text>
-          <rect x="30" y="172" width="180" height="52" rx="9" fill="#051a15" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#g2)"/>
-          <text x="120" y="194" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Data Highway</text>
-          <text x="120" y="210" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">DAG Engine · Drill · 35 Connectors</text>
+          <rect x="30" y="172" width="180" height="52" rx="9" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#g2)"/>
+          <text x="120" y="194" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Data Highway</text>
+          <text x="120" y="210" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">DAG Engine · Drill · 35 Connectors</text>
 
-          <rect x="230" y="172" width="100" height="52" rx="9" fill="#1a1808" stroke="var(--amber)" stroke-width="1"/>
-          <text x="280" y="194" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Permissions</text>
-          <text x="280" y="210" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Neo4j · RBAC</text>
+          <rect x="230" y="172" width="100" height="52" rx="9" fill="var(--dg-fill-amber-2)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="280" y="194" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Permissions</text>
+          <text x="280" y="210" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="6">Neo4j · RBAC</text>
 
-          <rect x="345" y="172" width="100" height="52" rx="9" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="395" y="194" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Events</text>
-          <text x="395" y="210" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">SQS · Pub/Sub</text>
+          <rect x="345" y="172" width="100" height="52" rx="9" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="395" y="194" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Events</text>
+          <text x="395" y="210" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">SQS · Pub/Sub</text>
 
           <!-- Cross-cutting layer -->
           <text x="35" y="248" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">CROSS-CUTTING (used by ALL services)</text>
-          <rect x="30" y="256" width="210" height="36" rx="6" fill="#0a0f1a" stroke="#4d6080" stroke-width="1"/>
-          <text x="135" y="278" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Config Server</text>
+          <rect x="30" y="256" width="210" height="36" rx="6" fill="var(--dg-fill-slate-1)" stroke="var(--dg-line-slate-4)" stroke-width="1"/>
+          <text x="135" y="278" text-anchor="middle" fill="var(--dg-fill-slate-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Config Server</text>
 
-          <rect x="250" y="256" width="100" height="36" rx="6" fill="#150a0a" stroke="var(--red)" stroke-width="1"/>
-          <text x="300" y="278" text-anchor="middle" fill="#ff8a94" font-family="Sora,sans-serif" font-size="8" font-weight="600">Audit</text>
+          <rect x="250" y="256" width="100" height="36" rx="6" fill="var(--dg-fill-red-1)" stroke="var(--red)" stroke-width="1"/>
+          <text x="300" y="278" text-anchor="middle" fill="var(--dg-fill-red-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Audit</text>
 
           <!-- Shared foundation -->
           <text x="35" y="314" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">SHARED SDK (JAR dependencies in every repo)</text>
@@ -665,51 +704,51 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <!-- CS CONNECTION ARROWS -->
           <!-- UDM → Data Highway (submits DAGs) -->
           <line x1="210" y1="142" x2="150" y2="172" stroke="var(--accent-2)" stroke-width="1" opacity=".5"/>
-          <text x="195" y="154" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="5" opacity=".7" transform="rotate(30,195,154)">DAGs</text>
+          <text x="195" y="154" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".7" transform="rotate(30,195,154)">DAGs</text>
           <!-- UDM → Permissions (SDK) -->
           <line x1="235" y1="142" x2="270" y2="172" stroke="var(--amber)" stroke-width=".7" stroke-dasharray="3 2" opacity=".4"/>
           <!-- UDM → Data Store (callouts) -->
-          <line x1="195" y1="142" x2="95" y2="142" stroke="#4d6080" stroke-width=".5" stroke-dasharray="2 3" opacity=".3"/>
+          <line x1="195" y1="142" x2="95" y2="142" stroke="var(--dg-line-slate-4)" stroke-width=".5" stroke-dasharray="2 3" opacity=".3"/>
           <!-- Bionic → Data Highway -->
-          <line x1="350" y1="142" x2="180" y2="185" stroke="#4d6080" stroke-width=".6" stroke-dasharray="3 2" opacity=".3"/>
+          <line x1="350" y1="142" x2="180" y2="185" stroke="var(--dg-line-slate-4)" stroke-width=".6" stroke-dasharray="3 2" opacity=".3"/>
           <text x="280" y="158" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".5">DAGs</text>
           <!-- Permissions SDK used broadly -->
           <line x1="280" y1="224" x2="235" y2="142" stroke="var(--amber)" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
           <line x1="280" y1="224" x2="375" y2="142" stroke="var(--amber)" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
           <!-- Config Server upward (to all) -->
-          <line x1="135" y1="256" x2="120" y2="224" stroke="#4d6080" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
-          <line x1="135" y1="256" x2="280" y2="224" stroke="#4d6080" stroke-width=".4" stroke-dasharray="2 3" opacity=".15"/>
-          <line x1="135" y1="256" x2="395" y2="224" stroke="#4d6080" stroke-width=".4" stroke-dasharray="2 3" opacity=".15"/>
+          <line x1="135" y1="256" x2="120" y2="224" stroke="var(--dg-line-slate-4)" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
+          <line x1="135" y1="256" x2="280" y2="224" stroke="var(--dg-line-slate-4)" stroke-width=".4" stroke-dasharray="2 3" opacity=".15"/>
+          <line x1="135" y1="256" x2="395" y2="224" stroke="var(--dg-line-slate-4)" stroke-width=".4" stroke-dasharray="2 3" opacity=".15"/>
 
           <!-- Animated particles CS -->
           <circle r="2.5" fill="var(--accent-2)" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M210,142 L150,172"/></circle>
           <circle r="2" fill="var(--accent-3)" opacity=".6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M120,198 L120,172"/></circle>
-          <circle r="1.5" fill="#4d6080" opacity=".4"><animateMotion dur="3s" repeatCount="indefinite" path="M135,256 L120,224"/></circle>
+          <circle r="1.5" fill="var(--dg-fill-slate-4)" opacity=".4"><animateMotion dur="3s" repeatCount="indefinite" path="M135,256 L120,224"/></circle>
           <circle r="2" fill="var(--red)" opacity=".5"><animateMotion dur="2.8s" repeatCount="indefinite" path="M300,256 L300,224"/></circle>
 
           <!-- ═══ CC PRODUCT LINE (RIGHT) ═══ -->
           <rect x="470" y="38" width="355" height="470" rx="12" fill="none" stroke="var(--purple)" stroke-width="1" stroke-dasharray="6 3" opacity=".25"/>
-          <text x="647" y="60" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="12" font-weight="700">CC · Customer Communities</text>
-          <text x="647" y="74" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="7">Search · AI · MCP Protocol</text>
+          <text x="647" y="60" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="12" font-weight="700">CC · Customer Communities</text>
+          <text x="647" y="74" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="7">Search · AI · MCP Protocol</text>
 
           <!-- MCP Server -->
-          <rect x="490" y="95" width="315" height="50" rx="9" fill="#0f0a25" stroke="var(--purple)" stroke-width="1.5" filter="url(#g2)"/>
-          <text x="647" y="116" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="10" font-weight="700">Community MCP Server</text>
-          <text x="647" y="132" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">MCP Protocol · Streamable HTTP · OAuth2 · AI Assistants</text>
+          <rect x="490" y="95" width="315" height="50" rx="9" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1.5" filter="url(#g2)"/>
+          <text x="647" y="116" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Community MCP Server</text>
+          <text x="647" y="132" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">MCP Protocol · Streamable HTTP · OAuth2 · AI Assistants</text>
 
           <!-- Synchronized Search -->
-          <rect x="490" y="165" width="315" height="50" rx="9" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="647" y="186" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search Service</text>
-          <text x="647" y="202" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Indexing · Tokens · Analytics · ReplyBot</text>
+          <rect x="490" y="165" width="315" height="50" rx="9" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="647" y="186" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search Service</text>
+          <text x="647" y="202" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Indexing · Tokens · Analytics · ReplyBot</text>
 
           <!-- Algolia + AI -->
-          <rect x="490" y="235" width="140" height="40" rx="7" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="560" y="252" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Algolia</text>
-          <text x="560" y="265" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">Search · AskAI</text>
+          <rect x="490" y="235" width="140" height="40" rx="7" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="560" y="252" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Algolia</text>
+          <text x="560" y="265" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">Search · AskAI</text>
 
-          <rect x="645" y="235" width="160" height="40" rx="7" fill="#150a20" stroke="var(--pink)" stroke-width="1"/>
-          <text x="725" y="252" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="8" font-weight="600">AI Features</text>
-          <text x="725" y="265" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="5.5">ReplyBot · Smart Summary</text>
+          <rect x="645" y="235" width="160" height="40" rx="7" fill="var(--dg-fill-violet-2)" stroke="var(--pink)" stroke-width="1"/>
+          <text x="725" y="252" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">AI Features</text>
+          <text x="725" y="265" text-anchor="middle" fill="var(--dg-fill-pink-2)" font-family="JetBrains Mono,monospace" font-size="5.5">ReplyBot · Smart Summary</text>
 
           <!-- Federated Sources -->
           <rect x="490" y="295" width="315" height="30" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
@@ -765,7 +804,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: SEARCH & AI ── -->
-    <div class="proj-panel active" id="tab-search-ai">
+    <div class="proj-panel active system" id="tab-search-ai">
       <span class="project-badge badge-ai">AI · SEARCH · LLM</span>
       <h3>Community Search & AI Platform</h3>
       <div class="subtitle">CC (Customer Communities) · Three AI features, federated search, and a provider-agnostic AI orchestration layer</div>
@@ -774,38 +813,38 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <defs><filter id="gf"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
           <rect width="760" height="320" fill="var(--bg)" rx="6"/>
           <!-- Community Platform AI Layer -->
-          <rect x="20" y="12" width="340" height="95" rx="10" fill="#150a20" stroke="var(--pink)" stroke-width="1.5" filter="url(#gf)"/>
-          <text x="190" y="32" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="11" font-weight="700">Community Platform · AI Orchestration Layer</text>
-          <text x="190" y="48" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6.5">Service Layer · Provider Factory · Automatic Failover · Adapters</text>
-          <text x="190" y="62" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6">Composable prompt architecture (model, version, temperature, reasoning)</text>
-          <text x="80" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">OpenAI Provider</text>
-          <text x="190" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">Gemini Provider</text>
-          <text x="300" y="82" text-anchor="middle" fill="#c4b5fd" font-family="JetBrains Mono,monospace" font-size="6">Summary Engine</text>
-          <text x="190" y="98" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Automatic cross-provider failover with error recovery and retry</text>
+          <rect x="20" y="12" width="340" height="95" rx="10" fill="var(--dg-fill-violet-2)" stroke="var(--pink)" stroke-width="1.5" filter="url(#gf)"/>
+          <text x="190" y="32" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="Sora,sans-serif" font-size="11" font-weight="700">Community Platform · AI Orchestration Layer</text>
+          <text x="190" y="48" text-anchor="middle" fill="var(--dg-fill-pink-2)" font-family="JetBrains Mono,monospace" font-size="6.5">Service Layer · Provider Factory · Automatic Failover · Adapters</text>
+          <text x="190" y="62" text-anchor="middle" fill="var(--dg-fill-pink-2)" font-family="JetBrains Mono,monospace" font-size="6">Composable prompt architecture (model, version, temperature, reasoning)</text>
+          <text x="80" y="82" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="JetBrains Mono,monospace" font-size="6">OpenAI Provider</text>
+          <text x="190" y="82" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="JetBrains Mono,monospace" font-size="6">Gemini Provider</text>
+          <text x="300" y="82" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="JetBrains Mono,monospace" font-size="6">Summary Engine</text>
+          <text x="190" y="98" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">Automatic cross-provider failover with error recovery and retry</text>
           <!-- Three AI features -->
-          <rect x="20" y="125" width="160" height="55" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="100" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">ReplyBot</text>
-          <text x="100" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">Messagebus trigger</text>
-          <text x="100" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">OpenAI ↔ Gemini fallback</text>
-          <rect x="195" y="125" width="160" height="55" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="275" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">AI Answers Summary</text>
-          <text x="275" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">SSE streaming to client</text>
-          <text x="275" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Algolia AskAI + dedup</text>
-          <rect x="370" y="125" width="160" height="55" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="450" y="145" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">Smart Search Summary</text>
-          <text x="450" y="158" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">Blocking response</text>
-          <text x="450" y="170" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">Llama 3 70B via Bedrock</text>
+          <rect x="20" y="125" width="160" height="55" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="100" y="145" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">ReplyBot</text>
+          <text x="100" y="158" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">Messagebus trigger</text>
+          <text x="100" y="170" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">OpenAI ↔ Gemini fallback</text>
+          <rect x="195" y="125" width="160" height="55" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="275" y="145" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">AI Answers Summary</text>
+          <text x="275" y="158" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">SSE streaming to client</text>
+          <text x="275" y="170" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">Algolia AskAI + dedup</text>
+          <rect x="370" y="125" width="160" height="55" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="450" y="145" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Smart Search Summary</text>
+          <text x="450" y="158" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">Blocking response</text>
+          <text x="450" y="170" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">Llama 3 70B via Bedrock</text>
           <!-- Synchronized Search -->
-          <rect x="555" y="12" width="185" height="75" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="647" y="32" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search</text>
-          <text x="647" y="48" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Index builder · Token issuer</text>
-          <text x="647" y="62" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Analytics data lake</text>
-          <text x="647" y="76" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">25M+ records · 600+ communities</text>
+          <rect x="555" y="12" width="185" height="75" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="647" y="32" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search</text>
+          <text x="647" y="48" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Index builder · Token issuer</text>
+          <text x="647" y="62" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Analytics data lake</text>
+          <text x="647" y="76" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="5.5">25M+ records · 600+ communities</text>
           <!-- Algolia -->
-          <rect x="555" y="125" width="185" height="55" rx="8" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="647" y="148" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="10" font-weight="600">Algolia</text>
-          <text x="647" y="163" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Multi-app (APP1/APP2) · AskAI</text>
-          <text x="647" y="175" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">Secured API keys · Scoped tokens</text>
+          <rect x="555" y="125" width="185" height="55" rx="8" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="647" y="148" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Algolia</text>
+          <text x="647" y="163" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="6">Multi-app (APP1/APP2) · AskAI</text>
+          <text x="647" y="175" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">Secured API keys · Scoped tokens</text>
           <!-- Federated Sources -->
           <rect x="555" y="200" width="185" height="40" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
           <text x="647" y="218" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Federated Sources</text>
@@ -816,11 +855,11 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="100" y="232" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">~95 events · Webhooks · Connectors</text>
           <!-- Data stores -->
           <rect x="200" y="200" width="65" height="40" rx="5" fill="var(--surface)" stroke="#4479A1" stroke-width=".8"/>
-          <text x="232" y="223" text-anchor="middle" fill="#6ca0d0" font-size="7.5" font-family="DM Sans">MySQL</text>
+          <text x="232" y="223" text-anchor="middle" fill="var(--dg-fill-blue-2)" font-size="7.5" font-family="DM Sans">MySQL</text>
           <rect x="275" y="200" width="55" height="40" rx="5" fill="var(--surface)" stroke="#DC382D" stroke-width=".8"/>
-          <text x="302" y="223" text-anchor="middle" fill="#f08080" font-size="7.5" font-family="DM Sans">Redis</text>
+          <text x="302" y="223" text-anchor="middle" fill="var(--dg-fill-red-2)" font-size="7.5" font-family="DM Sans">Redis</text>
           <rect x="340" y="200" width="55" height="40" rx="5" fill="var(--surface)" stroke="#569A31" stroke-width=".8"/>
-          <text x="367" y="223" text-anchor="middle" fill="#8cc060" font-size="7.5" font-family="DM Sans">S3</text>
+          <text x="367" y="223" text-anchor="middle" fill="var(--dg-fill-green-3)" font-size="7.5" font-family="DM Sans">S3</text>
           <!-- API Gateway -->
           <rect x="200" y="260" width="340" height="35" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
           <text x="370" y="282" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">API Gateway · Authentication · OAuth2 · Rate Limiting · Request Routing</text>
@@ -840,7 +879,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern: primary plus fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5 federated sources to Algolia with zero-downtime index swaps.</div>
-      <div class="tech-pills"><span class="tech-pill">PHP (Yii/Symfony)</span><span class="tech-pill">Algolia AskAI</span><span class="tech-pill">OpenAI</span><span class="tech-pill">Gemini</span><span class="tech-pill">Llama 3 70B</span><span class="tech-pill">AWS Bedrock</span><span class="tech-pill">SSE Streaming</span><span class="tech-pill">Python</span><span class="tech-pill">Redis</span><span class="tech-pill">S3 Parquet</span><span class="tech-pill">Athena</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">PHP (Yii/Symfony)</span><span class="tech-pill chip">Algolia AskAI</span><span class="tech-pill chip">OpenAI</span><span class="tech-pill chip">Gemini</span><span class="tech-pill chip">Llama 3 70B</span><span class="tech-pill chip">AWS Bedrock</span><span class="tech-pill chip">SSE Streaming</span><span class="tech-pill chip">Python</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">S3 Parquet</span><span class="tech-pill chip">Athena</span></div>
       <ul class="highlights-list">
         <li>Cross-provider LLM fallback: dedicated adapter per provider handles payload asymmetry, with automatic retry across providers even on client errors to prevent single-provider outages</li>
         <li>SSE streaming with thinking-phase deduplication: stateful stream processor filters duplicate reasoning blocks per model family while preserving final output fidelity</li>
@@ -852,7 +891,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: MCP SERVER ── -->
-    <div class="proj-panel" id="tab-mcp-server">
+    <div class="proj-panel system" id="tab-mcp-server">
       <span class="project-badge badge-ai">MCP PROTOCOL · PYTHON · AI INFRASTRUCTURE</span>
       <h3>Customer Community MCP Server</h3>
       <div class="subtitle">CC · Production Model Context Protocol server making community knowledge accessible to AI assistants</div>
@@ -863,14 +902,14 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">Customer Community MCP Server · request flow</text>
 
           <!-- Row 1: AI Clients -->
-          <rect x="20" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="102" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Claude</text>
-          <rect x="205" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="287" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">ChatGPT</text>
-          <rect x="390" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="472" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Cursor</text>
-          <rect x="575" y="24" width="165" height="38" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="657" y="47" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Custom Clients</text>
+          <rect x="20" y="24" width="165" height="38" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="102" y="47" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Claude</text>
+          <rect x="205" y="24" width="165" height="38" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="287" y="47" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">ChatGPT</text>
+          <rect x="390" y="24" width="165" height="38" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="472" y="47" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Cursor</text>
+          <rect x="575" y="24" width="165" height="38" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="657" y="47" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Custom Clients</text>
           <text x="380" y="80" text-anchor="middle" fill="var(--text-dim)" font-family="JetBrains Mono,monospace" font-size="6.5">MCP over Streamable HTTP or stdio</text>
 
           <!-- Row 2: Edge -->
@@ -878,58 +917,58 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="380" y="110" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">CloudFront + Lambda@Edge · Region Router</text>
 
           <!-- Row 3: Gateway (highlighted) -->
-          <rect x="20" y="134" width="720" height="74" rx="10" fill="#0a1520" stroke="var(--accent)" stroke-width="1.5" filter="url(#gm)"/>
-          <text x="380" y="152" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="11" font-weight="700">MCP Gateway</text>
+          <rect x="20" y="134" width="720" height="74" rx="10" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1.5" filter="url(#gm)"/>
+          <text x="380" y="152" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="11" font-weight="700">MCP Gateway</text>
           <rect x="30" y="160" width="170" height="40" rx="6" fill="rgba(157,122,255,.08)" stroke="var(--purple)" stroke-width=".5"/>
-          <text x="115" y="178" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">OAuth2 Proxy</text>
-          <text x="115" y="191" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">PKCE · dynamic client reg</text>
+          <text x="115" y="178" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">OAuth2 Proxy</text>
+          <text x="115" y="191" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">PKCE · dynamic client reg</text>
           <rect x="208" y="160" width="170" height="40" rx="6" fill="rgba(0,194,209,.08)" stroke="var(--accent)" stroke-width=".5"/>
-          <text x="293" y="178" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Tool Router</text>
-          <text x="293" y="191" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">domain dispatch</text>
+          <text x="293" y="178" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Tool Router</text>
+          <text x="293" y="191" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="5.5">domain dispatch</text>
           <rect x="386" y="160" width="170" height="40" rx="6" fill="rgba(255,179,68,.08)" stroke="var(--amber)" stroke-width=".5"/>
-          <text x="471" y="178" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Rate Limiter</text>
-          <text x="471" y="191" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">per-tenant</text>
+          <text x="471" y="178" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Rate Limiter</text>
+          <text x="471" y="191" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">per-tenant</text>
           <rect x="564" y="160" width="170" height="40" rx="6" fill="rgba(0,204,142,.08)" stroke="var(--accent-3)" stroke-width=".5"/>
-          <text x="649" y="178" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Cache</text>
-          <text x="649" y="191" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">TTL + LRU</text>
+          <text x="649" y="178" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Cache</text>
+          <text x="649" y="191" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="5.5">TTL + LRU</text>
 
           <!-- Tools exposed (category grouped, no counts) -->
           <text x="380" y="226" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Tools exposed, grouped by domain (read-only + administrative)</text>
-          <rect x="20" y="232" width="136" height="26" rx="5" fill="#1a1005" stroke="var(--amber)" stroke-width=".8"/>
-          <text x="88" y="249" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
-          <rect x="166" y="232" width="136" height="26" rx="5" fill="#0a1520" stroke="var(--accent)" stroke-width=".8"/>
-          <text x="234" y="249" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics</text>
-          <rect x="312" y="232" width="136" height="26" rx="5" fill="#250a15" stroke="var(--pink)" stroke-width=".8"/>
-          <text x="380" y="249" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="8" font-weight="600">Admin</text>
-          <rect x="458" y="232" width="136" height="26" rx="5" fill="#051a15" stroke="var(--accent-3)" stroke-width=".8"/>
-          <text x="526" y="249" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Education</text>
-          <rect x="604" y="232" width="136" height="26" rx="5" fill="#0f0a25" stroke="var(--purple)" stroke-width=".8"/>
-          <text x="672" y="249" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">Community</text>
+          <rect x="20" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width=".8"/>
+          <text x="88" y="249" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
+          <rect x="166" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width=".8"/>
+          <text x="234" y="249" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics</text>
+          <rect x="312" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width=".8"/>
+          <text x="380" y="249" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Admin</text>
+          <rect x="458" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width=".8"/>
+          <text x="526" y="249" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Education</text>
+          <rect x="604" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width=".8"/>
+          <text x="672" y="249" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Community</text>
 
           <!-- Row 4: Backend services -->
-          <rect x="20" y="274" width="136" height="40" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="88" y="292" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
-          <text x="88" y="305" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">unified index</text>
-          <rect x="166" y="274" width="136" height="40" rx="6" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="234" y="292" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics</text>
-          <text x="234" y="305" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">usage metrics</text>
-          <rect x="312" y="274" width="136" height="40" rx="6" fill="#250a15" stroke="var(--pink)" stroke-width="1"/>
-          <text x="380" y="292" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="8" font-weight="600">Admin</text>
-          <text x="380" y="305" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="5.5">moderation</text>
-          <rect x="458" y="274" width="136" height="40" rx="6" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="526" y="292" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Education</text>
-          <text x="526" y="305" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="5.5">courses</text>
-          <rect x="604" y="274" width="136" height="40" rx="6" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="672" y="292" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8" font-weight="600">Community API</text>
-          <text x="672" y="305" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">discussions</text>
+          <rect x="20" y="274" width="136" height="40" rx="6" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="88" y="292" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
+          <text x="88" y="305" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">unified index</text>
+          <rect x="166" y="274" width="136" height="40" rx="6" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="234" y="292" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics</text>
+          <text x="234" y="305" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="5.5">usage metrics</text>
+          <rect x="312" y="274" width="136" height="40" rx="6" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width="1"/>
+          <text x="380" y="292" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Admin</text>
+          <text x="380" y="305" text-anchor="middle" fill="var(--dg-fill-pink-2)" font-family="JetBrains Mono,monospace" font-size="5.5">moderation</text>
+          <rect x="458" y="274" width="136" height="40" rx="6" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="526" y="292" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Education</text>
+          <text x="526" y="305" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="5.5">courses</text>
+          <rect x="604" y="274" width="136" height="40" rx="6" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="672" y="292" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Community API</text>
+          <text x="672" y="305" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">discussions</text>
 
           <!-- Row 5: Data layer -->
-          <rect x="120" y="328" width="160" height="34" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width=".8"/>
-          <text x="200" y="349" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Algolia</text>
+          <rect x="120" y="328" width="160" height="34" rx="6" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width=".8"/>
+          <text x="200" y="349" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Algolia</text>
           <rect x="300" y="328" width="160" height="34" rx="6" fill="var(--surface)" stroke="var(--red)" stroke-width=".8"/>
-          <text x="380" y="349" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
-          <rect x="480" y="328" width="160" height="34" rx="6" fill="#0a1020" stroke="var(--accent-2)" stroke-width=".8"/>
-          <text x="560" y="349" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="8" font-weight="600">DynamoDB</text>
+          <text x="380" y="349" text-anchor="middle" fill="var(--dg-fill-red-2)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <rect x="480" y="328" width="160" height="34" rx="6" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width=".8"/>
+          <text x="560" y="349" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">DynamoDB</text>
 
           <!-- Connections -->
           <line x1="102" y1="62" x2="380" y2="90" stroke="var(--accent-2)" stroke-width=".5" opacity=".3"/>
@@ -952,7 +991,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">Production MCP server powering AI assistant integrations for enterprise community platforms. Handles the full OAuth2.1 authorization lifecycle with PKCE and dynamic client registration. Routes tool invocations to multiple backend services covering search, analytics, administration, and education. Enforces tenant-scoped security at every layer with permission-scoped tokens and per-tenant rate limiting. Deployed across multiple regions with edge-based request routing.</div>
-      <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">FastMCP</span><span class="tech-pill">Streamable HTTP</span><span class="tech-pill">OAuth2.1 PKCE</span><span class="tech-pill">JWT</span><span class="tech-pill">Redis</span><span class="tech-pill">DynamoDB</span><span class="tech-pill">Algolia</span><span class="tech-pill">ECS Fargate</span><span class="tech-pill">CloudFront</span><span class="tech-pill">Lambda@Edge</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">Python</span><span class="tech-pill chip">FastMCP</span><span class="tech-pill chip">Streamable HTTP</span><span class="tech-pill chip">OAuth2.1 PKCE</span><span class="tech-pill chip">JWT</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">DynamoDB</span><span class="tech-pill chip">Algolia</span><span class="tech-pill chip">ECS Fargate</span><span class="tech-pill chip">CloudFront</span><span class="tech-pill chip">Lambda@Edge</span></div>
       <ul class="highlights-list">
         <li>Full OAuth2.1 authorization flow with PKCE and dynamic client registration, listed on major AI assistant connector registries</li>
         <li>Multi-region deployment with edge-based request routing for geographic locality and failover</li>
@@ -963,7 +1002,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: DATA HIGHWAY ── -->
-    <div class="proj-panel" id="tab-data-highway">
+    <div class="proj-panel system" id="tab-data-highway">
       <span class="project-badge badge-infra">DISTRIBUTED SYSTEMS · DAG ENGINE</span>
       <h3>Data Highway: DAG-Based Pipeline Engine</h3>
       <div class="subtitle">CS (Customer Success) · The compute backbone processing 61B+ records/day</div>
@@ -974,35 +1013,35 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <rect x="20" y="15" width="720" height="35" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/>
           <text x="380" y="37" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">API Interface · REST endpoints for DAG submission, monitoring, control</text>
           <!-- Flow Manager -->
-          <rect x="20" y="70" width="180" height="45" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1.5"/>
-          <text x="110" y="90" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="700">Flow Manager</text>
-          <text x="110" y="104" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">DAG orchestration · State machine</text>
+          <rect x="20" y="70" width="180" height="45" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5"/>
+          <text x="110" y="90" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Flow Manager</text>
+          <text x="110" y="104" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">DAG orchestration · State machine</text>
           <!-- Zookeeper -->
           <rect x="230" y="70" width="140" height="45" rx="8" fill="var(--surface)" stroke="#E95420" stroke-width="1"/>
-          <text x="300" y="90" text-anchor="middle" fill="#f0a070" font-family="Sora,sans-serif" font-size="9" font-weight="600">Zookeeper (×3)</text>
-          <text x="300" y="104" text-anchor="middle" fill="#aa7050" font-family="JetBrains Mono,monospace" font-size="6">Leader election · Locks</text>
+          <text x="300" y="90" text-anchor="middle" fill="var(--dg-fill-amber-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Zookeeper (×3)</text>
+          <text x="300" y="104" text-anchor="middle" fill="var(--dg-fill-amber-3)" font-family="JetBrains Mono,monospace" font-size="6">Leader election · Locks</text>
           <!-- Launcher -->
           <rect x="400" y="70" width="140" height="45" rx="8" fill="var(--surface)" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="470" y="90" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="9" font-weight="600">Launcher</text>
-          <text x="470" y="104" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="6">Task dispatch · Resource alloc</text>
+          <text x="470" y="90" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Launcher</text>
+          <text x="470" y="104" text-anchor="middle" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="6">Task dispatch · Resource alloc</text>
           <!-- DB -->
           <rect x="570" y="70" width="80" height="45" rx="8" fill="var(--surface)" stroke="#4169E1" stroke-width="1"/>
-          <text x="610" y="92" text-anchor="middle" fill="#7aa0e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">PostgreSQL</text>
+          <text x="610" y="92" text-anchor="middle" fill="var(--dg-fill-blue-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">PostgreSQL</text>
           <!-- Redis -->
           <rect x="665" y="70" width="75" height="45" rx="8" fill="var(--surface)" stroke="#DC382D" stroke-width="1"/>
-          <text x="702" y="92" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <text x="702" y="92" text-anchor="middle" fill="var(--dg-fill-red-2)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
           <!-- Workers -->
-          <rect x="20" y="140" width="140" height="45" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="90" y="160" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="9" font-weight="600">DAG Workers (×N)</text>
-          <text x="90" y="174" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">Java · Vert.x · 60+ UDFs</text>
+          <rect x="20" y="140" width="140" height="45" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="90" y="160" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="9" font-weight="600">DAG Workers (×N)</text>
+          <text x="90" y="174" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Java · Vert.x · 60+ UDFs</text>
           <rect x="180" y="140" width="140" height="45" rx="8" fill="var(--surface)" stroke="var(--accent)" stroke-width="1"/>
           <text x="250" y="160" text-anchor="middle" fill="var(--accent)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Dynamic Workers</text>
           <text x="250" y="174" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">35 connector JARs · Isolated</text>
           <rect x="340" y="140" width="140" height="45" rx="8" fill="var(--surface)" stroke="#3776AB" stroke-width="1"/>
-          <text x="410" y="160" text-anchor="middle" fill="#6ca0d0" font-family="Sora,sans-serif" font-size="9" font-weight="600">Python Workers</text>
+          <text x="410" y="160" text-anchor="middle" fill="var(--dg-fill-blue-2)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Python Workers</text>
           <text x="410" y="174" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Celery · ML tasks</text>
           <rect x="500" y="140" width="120" height="45" rx="8" fill="var(--surface)" stroke="#29B5E8" stroke-width="1"/>
-          <text x="560" y="160" text-anchor="middle" fill="#6cc0e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Apache Drill (×2)</text>
+          <text x="560" y="160" text-anchor="middle" fill="var(--dg-fill-cyan-2)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Apache Drill (×2)</text>
           <text x="560" y="174" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">SQL engine</text>
           <!-- Consumers -->
           <rect x="20" y="215" width="720" height="45" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
@@ -1022,7 +1061,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">A distributed data pipeline platform for enterprise SaaS. Ingests data from tenant systems via 35+ connectors, runs transformations through a SQL engine, and loads results into analytics data stores and warehouses. A directed-acyclic graph of tasks coordinated by leader election and workflow orchestration across a horizontally-scalable worker cluster.</div>
-      <div class="tech-pills"><span class="tech-pill">Java 8</span><span class="tech-pill">Vert.x</span><span class="tech-pill">Apache Drill</span><span class="tech-pill">Zookeeper</span><span class="tech-pill">Python/Celery</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span><span class="tech-pill">AWS SQS</span><span class="tech-pill">S3</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">Java 8</span><span class="tech-pill chip">Vert.x</span><span class="tech-pill chip">Apache Drill</span><span class="tech-pill chip">Zookeeper</span><span class="tech-pill chip">Python/Celery</span><span class="tech-pill chip">PostgreSQL</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">AWS SQS</span><span class="tech-pill chip">S3</span></div>
       <ul class="highlights-list">
         <li>Processes 61B+ records/day across 600+ enterprise tenants at 98.7% job success rate</li>
         <li>Multi-worker architecture: DAG Workers (Java/Vert.x) + Dynamic Workers (35 isolated connector JARs) + Python/Celery ML Workers + Apache Drill SQL engine</li>
@@ -1053,7 +1092,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: PERMISSIONS ── -->
-    <div class="proj-panel" id="tab-permissions">
+    <div class="proj-panel system" id="tab-permissions">
       <span class="project-badge badge-security">SECURITY · GRAPH DB</span>
       <h3>User Permissions (RBAC)</h3>
       <div class="subtitle">CS · Graph-native access control powering authorization across 7+ services</div>
@@ -1061,22 +1100,22 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="220" fill="var(--bg)" rx="6"/>
           <!-- API -->
-          <rect x="20" y="15" width="300" height="40" rx="7" fill="#1a1808" stroke="var(--amber)" stroke-width="1"/>
-          <text x="170" y="32" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="10" font-weight="600">permissions-api (Vert.x × 4 verticles)</text>
-          <text x="170" y="46" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">Auth → CORS → Router → Policy Evaluator</text>
+          <rect x="20" y="15" width="300" height="40" rx="7" fill="var(--dg-fill-amber-2)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="170" y="32" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="10" font-weight="600">permissions-api (Vert.x × 4 verticles)</text>
+          <text x="170" y="46" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="6">Auth → CORS → Router → Policy Evaluator</text>
           <!-- Stores -->
           <rect x="40" y="80" width="90" height="40" rx="6" fill="var(--surface)" stroke="#4581C3" stroke-width="1"/>
-          <text x="85" y="98" text-anchor="middle" fill="#7aa8d8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Neo4j</text>
+          <text x="85" y="98" text-anchor="middle" fill="var(--dg-fill-blue-4)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Neo4j</text>
           <text x="85" y="112" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Permission graph</text>
           <rect x="145" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="#DC382D" stroke-width="1"/>
-          <text x="185" y="98" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Redis</text>
+          <text x="185" y="98" text-anchor="middle" fill="var(--dg-fill-red-2)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Redis</text>
           <text x="185" y="112" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Eval cache</text>
           <rect x="240" y="80" width="80" height="40" rx="6" fill="var(--surface)" stroke="var(--amber)" stroke-width="1"/>
-          <text x="280" y="98" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Msg Queue</text>
+          <text x="280" y="98" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Msg Queue</text>
           <text x="280" y="112" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Async sync</text>
           <!-- Workers -->
-          <rect x="20" y="145" width="300" height="40" rx="7" fill="#0a0f1a" stroke="#4d6080" stroke-width="1"/>
-          <text x="170" y="162" text-anchor="middle" fill="#8a9ab8" font-family="Sora,sans-serif" font-size="9" font-weight="600">permissions-worker (N instances)</text>
+          <rect x="20" y="145" width="300" height="40" rx="7" fill="var(--dg-fill-slate-1)" stroke="var(--dg-line-slate-4)" stroke-width="1"/>
+          <text x="170" y="162" text-anchor="middle" fill="var(--dg-fill-slate-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">permissions-worker (N instances)</text>
           <text x="170" y="176" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Heartbeat leader · Onboarding · Group sync · Scavenger cleanup</text>
           <!-- SDK consumers -->
           <rect x="380" y="15" width="360" height="190" rx="10" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
@@ -1090,13 +1129,13 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="420" y="182" fill="var(--accent-2)" font-family="JetBrains Mono,monospace" font-size="8">CC Bridge</text><text x="520" y="182" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7">Cross-product permission bridge</text>
           <!-- Arrows -->
           <line x1="320" y1="35" x2="380" y2="35" stroke="var(--amber)" stroke-width="1" stroke-dasharray="4 2" opacity=".5"/>
-          <text x="350" y="28" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="6">SDK</text>
+          <text x="350" y="28" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="6">SDK</text>
           <circle r="2.5" fill="var(--amber)" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M320,35 L380,35"/></circle>
           <circle r="2" fill="#4581C3" opacity=".7"><animateMotion dur="1.8s" repeatCount="indefinite" path="M170,55 L85,80"/></circle>
         </svg>
       </div>
       <div class="desc">Centralized multi-tenant RBAC service. Permissions stored as a graph: a single traversal answers "can user U do action A on resource R?" in milliseconds, with Redis-cached evaluations and expression-based policy conditions. The permission SDK is consumed by 7+ services across the platform.</div>
-      <div class="tech-pills"><span class="tech-pill">Neo4j</span><span class="tech-pill">Vert.x</span><span class="tech-pill">Redis</span><span class="tech-pill">Message Queue</span><span class="tech-pill">PostgreSQL</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">Neo4j</span><span class="tech-pill chip">Vert.x</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">Message Queue</span><span class="tech-pill chip">PostgreSQL</span></div>
       <ul class="highlights-list">
         <li>Graph-native model: resources, policies, groups, and manager chains as traversable edges, so a single graph traversal resolves access in milliseconds</li>
         <li>Targeted Redis invalidation: editing a sharing group invalidates only affected members × resources, not the full cache</li>
@@ -1107,7 +1146,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: UDM ── -->
-    <div class="proj-panel" id="tab-udm">
+    <div class="proj-panel system" id="tab-udm">
       <span class="project-badge badge-data">ANALYTICS · WAREHOUSING</span>
       <h3>Usage Data Model (UDM)</h3>
       <div class="subtitle">CS · Multi-tenant analytics orchestration across dual warehouses</div>
@@ -1115,35 +1154,35 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="220" fill="var(--bg)" rx="6"/>
           <!-- API -->
-          <rect x="20" y="15" width="170" height="45" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="105" y="34" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="10" font-weight="600">UDM API (Vert.x)</text>
-          <text x="105" y="50" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="6">Analyzer · RunNow · Admin · Migration</text>
+          <rect x="20" y="15" width="170" height="45" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="105" y="34" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="10" font-weight="600">UDM API (Vert.x)</text>
+          <text x="105" y="50" text-anchor="middle" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="6">Analyzer · RunNow · Admin · Migration</text>
           <!-- Message Queue -->
           <rect x="220" y="15" width="100" height="45" rx="7" fill="var(--surface)" stroke="var(--amber)" stroke-width="1"/>
-          <text x="270" y="34" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Message Queue</text>
-          <text x="270" y="50" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5">Multiple queues · async dispatch</text>
+          <text x="270" y="34" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Message Queue</text>
+          <text x="270" y="50" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5">Multiple queues · async dispatch</text>
           <!-- Worker -->
-          <rect x="350" y="15" width="200" height="45" rx="7" fill="#0a1020" stroke="var(--accent-2)" stroke-width="1"/>
-          <text x="450" y="34" text-anchor="middle" fill="#8ab4ff" font-family="Sora,sans-serif" font-size="10" font-weight="600">UDM Worker (multi-pool)</text>
-          <text x="450" y="50" text-anchor="middle" fill="#4a7acc" font-family="JetBrains Mono,monospace" font-size="5">Scheduler · Submitter · DataLoad · Archival · QueryBuilder</text>
+          <rect x="350" y="15" width="200" height="45" rx="7" fill="var(--dg-fill-slate-2)" stroke="var(--accent-2)" stroke-width="1"/>
+          <text x="450" y="34" text-anchor="middle" fill="var(--dg-fill-blue-5)" font-family="Sora,sans-serif" font-size="10" font-weight="600">UDM Worker (multi-pool)</text>
+          <text x="450" y="50" text-anchor="middle" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="5">Scheduler · Submitter · DataLoad · Archival · QueryBuilder</text>
           <!-- Data Highway -->
-          <rect x="580" y="15" width="160" height="45" rx="7" fill="#051a15" stroke="var(--accent-3)" stroke-width="1.5"/>
-          <text x="660" y="34" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="10" font-weight="600">Data Highway</text>
-          <text x="660" y="50" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">DAG submission via internal API</text>
+          <rect x="580" y="15" width="160" height="45" rx="7" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5"/>
+          <text x="660" y="34" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Data Highway</text>
+          <text x="660" y="50" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">DAG submission via internal API</text>
           <!-- Data stores row -->
           <rect x="20" y="85" width="100" height="38" rx="5" fill="var(--surface)" stroke="#4169E1" stroke-width="1"/>
-          <text x="70" y="103" text-anchor="middle" fill="#7aa0e8" font-family="Sora,sans-serif" font-size="8" font-weight="600">PostgreSQL</text>
+          <text x="70" y="103" text-anchor="middle" fill="var(--dg-fill-blue-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">PostgreSQL</text>
           <text x="70" y="116" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Per-tenant DDL</text>
           <rect x="130" y="85" width="100" height="38" rx="5" fill="var(--surface)" stroke="#8C4FFF" stroke-width="1"/>
-          <text x="180" y="103" text-anchor="middle" fill="#b088ff" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redshift</text>
+          <text x="180" y="103" text-anchor="middle" fill="var(--dg-fill-violet-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redshift</text>
           <text x="180" y="116" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">High-volume OLAP</text>
           <rect x="240" y="85" width="80" height="38" rx="5" fill="var(--surface)" stroke="#DC382D" stroke-width="1"/>
-          <text x="280" y="103" text-anchor="middle" fill="#f08080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
+          <text x="280" y="103" text-anchor="middle" fill="var(--dg-fill-red-2)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Redis</text>
           <rect x="330" y="85" width="80" height="38" rx="5" fill="var(--surface)" stroke="var(--amber)" stroke-width="1"/>
-          <text x="370" y="103" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Conn Pool</text>
-          <rect x="420" y="85" width="100" height="38" rx="5" fill="#1a1808" stroke="var(--amber)" stroke-width=".8"/>
-          <text x="470" y="103" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">Permissions</text>
-          <text x="470" y="116" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">Row-level RBAC</text>
+          <text x="370" y="103" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Conn Pool</text>
+          <rect x="420" y="85" width="100" height="38" rx="5" fill="var(--dg-fill-amber-2)" stroke="var(--amber)" stroke-width=".8"/>
+          <text x="470" y="103" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Permissions</text>
+          <text x="470" y="116" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">Row-level RBAC</text>
           <rect x="530" y="85" width="100" height="38" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
           <text x="580" y="103" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Data Store</text>
           <text x="580" y="116" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">API callouts</text>
@@ -1158,7 +1197,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">Full-lifecycle analytics engine: onboarding, schema definition, ingestion from 10+ sources, transformation, and warehouse storage. Powers Gainsight dashboards with per-tenant dynamic DDL and dual-warehouse abstraction (PostgreSQL for small tenants, Redshift for high-volume).</div>
-      <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">Redshift</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Message Queue</span><span class="tech-pill">Redis</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">Vert.x</span><span class="tech-pill chip">Redshift</span><span class="tech-pill chip">PostgreSQL</span><span class="tech-pill chip">Message Queue</span><span class="tech-pill chip">Redis</span></div>
       <ul class="highlights-list">
         <li>~25 pluggable task builders: adding a new data source is a single builder class</li>
         <li>Dual-warehouse abstraction: PostgreSQL for small tenants, Redshift for high-volume OLAP, switched transparently</li>
@@ -1169,7 +1208,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: EVENTS ── -->
-    <div class="proj-panel" id="tab-events">
+    <div class="proj-panel system" id="tab-events">
       <span class="project-badge badge-infra">PUB/SUB · EVENT-DRIVEN</span>
       <h3>Event Processing</h3>
       <div class="subtitle">CS · Four-tier async pub/sub with durable delivery and cross-region failover</div>
@@ -1181,35 +1220,35 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="8" y="105" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,105)">TIER 2</text>
           <text x="8" y="175" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,175)">TIER 3-4</text>
           <!-- Receiver -->
-          <rect x="30" y="15" width="160" height="45" rx="7" fill="#0a1520" stroke="var(--accent)" stroke-width="1.5"/>
-          <text x="110" y="34" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Receiver (×3)</text>
-          <text x="110" y="48" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">Vert.x · Auth · Rate limit · Persist</text>
+          <rect x="30" y="15" width="160" height="45" rx="7" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1.5"/>
+          <text x="110" y="34" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Receiver (×3)</text>
+          <text x="110" y="48" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">Vert.x · Auth · Rate limit · Persist</text>
           <!-- SQS Queues -->
-          <rect x="230" y="8" width="120" height="28" rx="5" fill="#250a15" stroke="var(--pink)" stroke-width="1"/>
-          <text x="290" y="26" text-anchor="middle" fill="#ff8ac0" font-family="JetBrains Mono,monospace" font-size="7">SQS Primary</text>
-          <rect x="230" y="40" width="120" height="28" rx="5" fill="#250a15" stroke="var(--pink)" stroke-width=".6" opacity=".5"/>
-          <text x="290" y="58" text-anchor="middle" fill="#ff8ac0" font-family="JetBrains Mono,monospace" font-size="7" opacity=".6">SQS Secondary (failover)</text>
+          <rect x="230" y="8" width="120" height="28" rx="5" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width="1"/>
+          <text x="290" y="26" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="JetBrains Mono,monospace" font-size="7">SQS Primary</text>
+          <rect x="230" y="40" width="120" height="28" rx="5" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width=".6" opacity=".5"/>
+          <text x="290" y="58" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".6">SQS Secondary (failover)</text>
           <!-- Enricher -->
-          <rect x="380" y="15" width="130" height="45" rx="7" fill="#250a15" stroke="var(--pink)" stroke-width="1"/>
-          <text x="445" y="34" text-anchor="middle" fill="#ff8ac0" font-family="Sora,sans-serif" font-size="9" font-weight="600">Enricher Queue</text>
-          <text x="445" y="48" text-anchor="middle" fill="#aa4a70" font-family="JetBrains Mono,monospace" font-size="6">Data lookup · Enrichment</text>
+          <rect x="380" y="15" width="130" height="45" rx="7" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width="1"/>
+          <text x="445" y="34" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Enricher Queue</text>
+          <text x="445" y="48" text-anchor="middle" fill="var(--dg-fill-pink-2)" font-family="JetBrains Mono,monospace" font-size="6">Data lookup · Enrichment</text>
           <!-- Redis + PG -->
           <rect x="540" y="15" width="65" height="45" rx="5" fill="var(--surface)" stroke="#DC382D" stroke-width=".8"/>
-          <text x="572" y="40" text-anchor="middle" fill="#f08080" font-size="8" font-family="DM Sans">Redis</text>
+          <text x="572" y="40" text-anchor="middle" fill="var(--dg-fill-red-2)" font-size="8" font-family="DM Sans">Redis</text>
           <rect x="615" y="15" width="80" height="45" rx="5" fill="var(--surface)" stroke="#4169E1" stroke-width=".8"/>
-          <text x="655" y="40" text-anchor="middle" fill="#7aa0e8" font-size="8" font-family="DM Sans">Postgres</text>
+          <text x="655" y="40" text-anchor="middle" fill="var(--dg-fill-blue-3)" font-size="8" font-family="DM Sans">Postgres</text>
           <!-- Router -->
-          <rect x="30" y="85" width="160" height="45" rx="7" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="110" y="104" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Router (×N)</text>
-          <text x="110" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">Fan-out · Broadcast queues · Tenant routing</text>
+          <rect x="30" y="85" width="160" height="45" rx="7" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="110" y="104" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Router (×N)</text>
+          <text x="110" y="118" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">Fan-out · Broadcast queues · Tenant routing</text>
           <!-- Relayer -->
-          <rect x="230" y="85" width="160" height="45" rx="7" fill="#0a1520" stroke="var(--accent)" stroke-width=".8"/>
-          <text x="310" y="104" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Relayer (×N)</text>
-          <text x="310" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">Delayed delivery · Retry with backoff</text>
+          <rect x="230" y="85" width="160" height="45" rx="7" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width=".8"/>
+          <text x="310" y="104" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Relayer (×N)</text>
+          <text x="310" y="118" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">Delayed delivery · Retry with backoff</text>
           <!-- Broadcaster -->
-          <rect x="430" y="85" width="160" height="45" rx="7" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="510" y="104" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="10" font-weight="600">Broadcaster (×N)</text>
-          <text x="510" y="118" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">HTTP delivery · Status tracking</text>
+          <rect x="430" y="85" width="160" height="45" rx="7" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="510" y="104" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Broadcaster (×N)</text>
+          <text x="510" y="118" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">HTTP delivery · Status tracking</text>
           <!-- Subscribers -->
           <rect x="30" y="160" width="660" height="45" rx="7" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
           <text x="360" y="180" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Subscribers · HTTP webhooks · Internal services · External customer endpoints</text>
@@ -1229,7 +1268,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">Async event fan-out with durable delivery. Publishers emit once; subscribers register for events with optional delayed delivery and data enrichment. Four-tier architecture with purpose-matched runtimes: Receiver → Router → Relayer → Broadcaster.</div>
-      <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">AWS SQS</span><span class="tech-pill">Apache HttpAsync</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">Vert.x</span><span class="tech-pill chip">AWS SQS</span><span class="tech-pill chip">Apache HttpAsync</span><span class="tech-pill chip">PostgreSQL</span><span class="tech-pill chip">Redis</span></div>
       <ul class="highlights-list">
         <li>Cross-region SQS failover: automatic switch to secondary queues on publish errors</li>
         <li>Self-healing delivery: dedicated recovery process detects and recovers orphaned delivery rows after worker crashes</li>
@@ -1240,14 +1279,14 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── TAB: AUDIT & CONFIG ── -->
-    <div class="proj-panel" id="tab-infra">
+    <div class="proj-panel system" id="tab-infra">
       <div class="about-grid">
         <div>
           <span class="project-badge badge-infra">COMPLIANCE · OBSERVABILITY</span>
           <h3>Audit Service</h3>
           <div class="subtitle">Centralized event capture & compliance trail</div>
           <div class="desc">Reactive audit service for compliance trails. Fire-and-forget writes via Vert.x event bus decouple caller latency from Postgres persistence. Per-tenant tables created lazily on first write. Used by every service in the platform via a lightweight audit client SDK.</div>
-          <div class="tech-pills"><span class="tech-pill">Vert.x</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Redis</span></div>
+          <div class="tech-pills"><span class="tech-pill chip">Vert.x</span><span class="tech-pill chip">PostgreSQL</span><span class="tech-pill chip">Redis</span></div>
           <ul class="highlights-list">
             <li>Async write via event bus: HTTP 200 returns before DB insert completes</li>
             <li>Random-tenant retention cleanup with +10 day safety buffer</li>
@@ -1259,7 +1298,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <h3>Config Server</h3>
           <div class="subtitle">Centralized configuration for all CS services</div>
           <div class="desc">Spring Boot + Vert.x hybrid config service. Every platform service pulls runtime configuration from here (DB strings, feature flags, encrypted secrets) with full audit trail and periodic refresh. The config client SDK is embedded across all Java services.</div>
-          <div class="tech-pills"><span class="tech-pill">Spring Boot</span><span class="tech-pill">Vert.x</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">AES Encryption</span></div>
+          <div class="tech-pills"><span class="tech-pill chip">Spring Boot</span><span class="tech-pill chip">Vert.x</span><span class="tech-pill chip">PostgreSQL</span><span class="tech-pill chip">AES Encryption</span></div>
           <ul class="highlights-list">
             <li>Upsert + append-only version history table in single transaction</li>
             <li>Database-enforced integrity with case-insensitive keys and FK cascades</li>
@@ -1273,14 +1312,14 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 
 <!-- ═══════════════════ OPEN SOURCE ═══════════════════ -->
-<section id="open-source" style="background:var(--bg-2)">
+<section id="open-source" data-section="open-source" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Open Source</div>
     <h2 class="section-title reveal">Projects I Build in the Open</h2>
     <div class="section-sub reveal">Personal projects, open source contributions, and developer tools.</div>
 
     <!-- ── GoatCounter Dashboard ── -->
-    <div class="project-card reveal">
+    <div class="project-card reveal card">
       <span class="project-badge badge-data">ANALYTICS · OPEN SOURCE</span>
       <h3>GoatCounter Dashboard</h3>
       <div class="subtitle">A modern alternative analytics dashboard for privacy-first web analytics</div>
@@ -1291,25 +1330,25 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">GoatCounter Dashboard · data flow</text>
 
           <!-- Single HTML file -->
-          <rect x="180" y="24" width="400" height="44" rx="9" fill="#051a15" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#gc)"/>
-          <text x="380" y="44" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="11" font-weight="700">Single HTML File</text>
-          <text x="380" y="59" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">React + Recharts · no server · no build step · host anywhere</text>
+          <rect x="180" y="24" width="400" height="44" rx="9" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#gc)"/>
+          <text x="380" y="44" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="11" font-weight="700">Single HTML File</text>
+          <text x="380" y="59" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">React + Recharts · no server · no build step · host anywhere</text>
 
           <!-- API -->
           <text x="380" y="84" text-anchor="middle" fill="var(--amber)" font-family="JetBrains Mono,monospace" font-size="6">GoatCounter API · read-only, token auth</text>
-          <rect x="290" y="92" width="180" height="28" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="380" y="110" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">GoatCounter API</text>
+          <rect x="290" y="92" width="180" height="28" rx="6" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="380" y="110" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="9" font-weight="600">GoatCounter API</text>
 
           <!-- Render layer -->
-          <rect x="40" y="140" width="210" height="54" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="145" y="161" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">KPI Cards</text>
-          <text x="145" y="176" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="6">period-over-period trend</text>
-          <rect x="275" y="140" width="210" height="54" rx="8" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="380" y="161" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">Traffic Chart</text>
-          <text x="380" y="176" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6">area chart</text>
-          <rect x="510" y="140" width="210" height="54" rx="8" fill="#051a15" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="615" y="161" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="9" font-weight="600">World Map</text>
-          <text x="615" y="176" text-anchor="middle" fill="#3a8a70" font-family="JetBrains Mono,monospace" font-size="6">choropleth · sqrt scale</text>
+          <rect x="40" y="140" width="210" height="54" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="145" y="161" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">KPI Cards</text>
+          <text x="145" y="176" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">period-over-period trend</text>
+          <rect x="275" y="140" width="210" height="54" rx="8" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="380" y="161" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Traffic Chart</text>
+          <text x="380" y="176" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">area chart</text>
+          <rect x="510" y="140" width="210" height="54" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
+          <text x="615" y="161" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="9" font-weight="600">World Map</text>
+          <text x="615" y="176" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">choropleth · sqrt scale</text>
 
           <!-- Drill-down -->
           <text x="380" y="212" text-anchor="middle" fill="var(--purple)" font-family="JetBrains Mono,monospace" font-size="6.5">click any data point to drill down</text>
@@ -1328,7 +1367,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 
           <!-- Cache -->
           <rect x="280" y="266" width="200" height="30" rx="6" fill="var(--surface)" stroke="var(--accent-3)" stroke-width=".8"/>
-          <text x="380" y="285" text-anchor="middle" fill="#6eeac4" font-family="Sora,sans-serif" font-size="8" font-weight="600">Response Cache · 60s TTL</text>
+          <text x="380" y="285" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Response Cache · 60s TTL</text>
 
           <!-- Connections -->
           <line x1="380" y1="68" x2="380" y2="92" stroke="var(--amber)" stroke-width=".8" opacity=".5"/>
@@ -1346,7 +1385,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">A single HTML file that replaces GoatCounter's default analytics UI with interactive charts, a choropleth world map, drill-down navigation, and period-over-period trend comparison. No server, no build step. Host it anywhere for free.</div>
-      <div class="tech-pills"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">React</span><span class="tech-pill">Recharts</span><span class="tech-pill">GoatCounter API</span><span class="tech-pill">GitHub Pages</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">HTML</span><span class="tech-pill chip">CSS</span><span class="tech-pill chip">JavaScript</span><span class="tech-pill chip">React</span><span class="tech-pill chip">Recharts</span><span class="tech-pill chip">GoatCounter API</span><span class="tech-pill chip">GitHub Pages</span></div>
       <ul class="highlights-list">
         <li>Interactive visualizations: area charts for traffic, donut charts for browsers, operating systems, and devices, horizontal bars for countries and languages</li>
         <li>Choropleth world map with square-root scaling, hover tooltips, and a gradient legend</li>
@@ -1362,7 +1401,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
 
     <!-- ── mcp-halflist ── -->
-    <div class="project-card reveal">
+    <div class="project-card reveal card">
       <span class="project-badge badge-security">SECURITY · DEVELOPER TOOLS · OPEN SOURCE</span>
       <h3>mcp-halflist</h3>
       <div class="subtitle">CI-first conformance, security, and performance testing for MCP servers</div>
@@ -1384,37 +1423,37 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
           <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">mcp-halflist · CI test flow</text>
 
           <!-- CLI -->
-          <rect x="180" y="24" width="400" height="44" rx="9" fill="#0a1520" stroke="var(--accent)" stroke-width="1.5" filter="url(#gh)"/>
-          <text x="380" y="44" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="11" font-weight="700">halflist CLI</text>
-          <text x="380" y="59" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="6.5">check · bench · audit · watch · report · pin</text>
+          <rect x="180" y="24" width="400" height="44" rx="9" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1.5" filter="url(#gh)"/>
+          <text x="380" y="44" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="11" font-weight="700">halflist CLI</text>
+          <text x="380" y="59" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6.5">check · bench · audit · watch · report · pin</text>
 
           <!-- Transport -->
-          <rect x="40" y="86" width="210" height="38" rx="7" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="145" y="104" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">stdio</text>
-          <text x="145" y="117" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">local process</text>
-          <rect x="275" y="86" width="210" height="38" rx="7" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="380" y="104" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">Streamable HTTP</text>
-          <text x="380" y="117" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">remote server</text>
-          <rect x="510" y="86" width="210" height="38" rx="7" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="615" y="104" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">SSE Fallback</text>
-          <text x="615" y="117" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">legacy transport</text>
+          <rect x="40" y="86" width="210" height="38" rx="7" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="145" y="104" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">stdio</text>
+          <text x="145" y="117" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">local process</text>
+          <rect x="275" y="86" width="210" height="38" rx="7" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="380" y="104" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">Streamable HTTP</text>
+          <text x="380" y="117" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">remote server</text>
+          <rect x="510" y="86" width="210" height="38" rx="7" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="615" y="104" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="8.5" font-weight="600">SSE Fallback</text>
+          <text x="615" y="117" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">legacy transport</text>
 
           <!-- OAuth -->
-          <rect x="280" y="142" width="200" height="26" rx="6" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="380" y="159" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="8" font-weight="600">OAuth2 PKCE · auto-discovery</text>
+          <rect x="280" y="142" width="200" height="26" rx="6" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="380" y="159" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">OAuth2 PKCE · auto-discovery</text>
 
           <!-- Engines -->
-          <rect x="40" y="186" width="210" height="56" rx="8" fill="#0a1520" stroke="var(--accent)" stroke-width="1"/>
-          <text x="145" y="207" text-anchor="middle" fill="#7ee8e8" font-family="Sora,sans-serif" font-size="9" font-weight="600">4 Protocol Suites</text>
-          <text x="145" y="222" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">handshake · tools</text>
-          <text x="145" y="232" text-anchor="middle" fill="#3a8888" font-family="JetBrains Mono,monospace" font-size="5.5">resources · prompts</text>
-          <rect x="275" y="186" width="210" height="56" rx="8" fill="#0f0a25" stroke="var(--purple)" stroke-width="1"/>
-          <text x="380" y="207" text-anchor="middle" fill="#c4b5fd" font-family="Sora,sans-serif" font-size="9" font-weight="600">Bench Engine</text>
-          <text x="380" y="224" text-anchor="middle" fill="#7c6caf" font-family="JetBrains Mono,monospace" font-size="5.5">p50 · p95 · p99 latency</text>
-          <rect x="510" y="186" width="210" height="56" rx="8" fill="#1a1005" stroke="var(--amber)" stroke-width="1"/>
-          <text x="615" y="207" text-anchor="middle" fill="#ffd080" font-family="Sora,sans-serif" font-size="9" font-weight="600">Security Scanner</text>
-          <text x="615" y="222" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">offline · injection</text>
-          <text x="615" y="232" text-anchor="middle" fill="#aa8040" font-family="JetBrains Mono,monospace" font-size="5.5">exfiltration · rug-pull</text>
+          <rect x="40" y="186" width="210" height="56" rx="8" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
+          <text x="145" y="207" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="9" font-weight="600">4 Protocol Suites</text>
+          <text x="145" y="222" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="5.5">handshake · tools</text>
+          <text x="145" y="232" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="5.5">resources · prompts</text>
+          <rect x="275" y="186" width="210" height="56" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
+          <text x="380" y="207" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Bench Engine</text>
+          <text x="380" y="224" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">p50 · p95 · p99 latency</text>
+          <rect x="510" y="186" width="210" height="56" rx="8" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
+          <text x="615" y="207" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Security Scanner</text>
+          <text x="615" y="222" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">offline · injection</text>
+          <text x="615" y="232" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">exfiltration · rug-pull</text>
 
           <!-- Outputs -->
           <rect x="25" y="262" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
@@ -1447,7 +1486,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
         </svg>
       </div>
       <div class="desc">A CLI tool that tests MCP servers the way pytest tests code. Four protocol suites (handshake, tools, resources, prompts) and a fifth offline security suite that scans for prompt injection, data exfiltration, cross-tool manipulation, suspicious encoding, and rug-pull tool changes. Plugs into any CI pipeline with JUnit XML output and a ready-made GitHub Action.</div>
-      <div class="tech-pills"><span class="tech-pill">Python</span><span class="tech-pill">Typer</span><span class="tech-pill">Pydantic</span><span class="tech-pill">httpx</span><span class="tech-pill">MCP SDK</span><span class="tech-pill">OAuth2.1 PKCE</span><span class="tech-pill">PyPI</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">Python</span><span class="tech-pill chip">Typer</span><span class="tech-pill chip">Pydantic</span><span class="tech-pill chip">httpx</span><span class="tech-pill chip">MCP SDK</span><span class="tech-pill chip">OAuth2.1 PKCE</span><span class="tech-pill chip">PyPI</span></div>
       <ul class="highlights-list">
         <li>Five suites: handshake, tools, resources and prompts, plus an offline security scan for prompt injection, data exfiltration, cross-tool manipulation, suspicious encoding, and tool pinning to catch rug-pull changes</li>
         <li>OAuth2 PKCE with auto-discovery: provide the server URL and the tool discovers auth endpoints, opens a browser, then handles token exchange and caching automatically</li>
@@ -1466,7 +1505,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 
 <!-- ═══════════════════ SKILLS ═══════════════════ -->
-<section id="skills" style="background:var(--bg-2)">
+<section id="skills" data-section="stack" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Tech Stack</div>
     <h2 class="section-title reveal">Technologies & Tools</h2>
@@ -1475,97 +1514,97 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     <div class="skill-category reveal">
       <h3>Languages & Frameworks</h3>
       <div class="skills-grid">
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/java.svg" alt="Java" width="28" height="28"><div class="name">Java 8+</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/python.svg" alt="Python" width="28" height="28"><div class="name">Python 3.x</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/vertx.svg" alt="Vert.x" width="28" height="28"><div class="name">Vert.x</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/springboot.svg" alt="Spring Boot" width="28" height="28"><div class="name">Spring Boot</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/fastapi.svg" alt="FastAPI" width="28" height="28"><div class="name">FastAPI</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="FastMCP" width="28" height="28"><div class="name">FastMCP</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/php.svg" alt="PHP" width="28" height="28"><div class="name">PHP (Yii)</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/java.svg" alt="Java" width="28" height="28"><div class="name">Java 8+</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/python.svg" alt="Python" width="28" height="28"><div class="name">Python 3.x</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/vertx.svg" alt="Vert.x" width="28" height="28"><div class="name">Vert.x</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/springboot.svg" alt="Spring Boot" width="28" height="28"><div class="name">Spring Boot</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/fastapi.svg" alt="FastAPI" width="28" height="28"><div class="name">FastAPI</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="FastMCP" width="28" height="28"><div class="name">FastMCP</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/php.svg" alt="PHP" width="28" height="28"><div class="name">PHP (Yii)</div></div>
       </div>
     </div>
 
     <div class="skill-category reveal">
       <h3>Cloud & Infrastructure</h3>
       <div class="skills-grid">
-        <div class="skill-card"><div class="brand-icon" style="background:#FF9900;color:#1a1a1a">ECS</div><div class="name">AWS ECS Fargate</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#FF9900;color:#1a1a1a">λ</div><div class="name">AWS Lambda</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#3f7a22">S3</div><div class="name">AWS S3</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#c2255c">SQ</div><div class="name">AWS SQS / SNS</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#4053D6">DB</div><div class="name">AWS DynamoDB</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#d1126d">CF</div><div class="name">CloudFormation</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/docker.svg" alt="Docker" width="28" height="28"><div class="name">Docker</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#c2255c">CW</div><div class="name">CloudWatch</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#FF9900;color:#1a1a1a">ECS</div><div class="name">AWS ECS Fargate</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#FF9900;color:#1a1a1a">λ</div><div class="name">AWS Lambda</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#3f7a22">S3</div><div class="name">AWS S3</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#c2255c">SQ</div><div class="name">AWS SQS / SNS</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#4053D6">DB</div><div class="name">AWS DynamoDB</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#d1126d">CF</div><div class="name">CloudFormation</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/docker.svg" alt="Docker" width="28" height="28"><div class="name">Docker</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#c2255c">CW</div><div class="name">CloudWatch</div></div>
       </div>
     </div>
 
     <div class="skill-category reveal">
       <h3>Data & Search</h3>
       <div class="skills-grid">
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/postgresql.svg" alt="PostgreSQL" width="28" height="28"><div class="name">PostgreSQL</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/redis.svg" alt="Redis" width="28" height="28"><div class="name">Redis</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/neo4j.svg" alt="Neo4j" width="28" height="28"><div class="name">Neo4j</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia" width="28" height="28"><div class="name">Algolia</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/drill.svg" alt="Apache Drill" width="28" height="28"><div class="name">Apache Drill</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#7c3aed">RS</div><div class="name">Redshift</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/mongodb.svg" alt="MongoDB" width="28" height="28"><div class="name">MongoDB</div></div>
-        <div class="skill-card"><div class="brand-icon" style="background:#232F3E">At</div><div class="name">Athena</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/mysql.svg" alt="MySQL" width="28" height="28"><div class="name">MySQL</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/zookeeper.svg" alt="Zookeeper" width="28" height="28"><div class="name">Zookeeper</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/postgresql.svg" alt="PostgreSQL" width="28" height="28"><div class="name">PostgreSQL</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/redis.svg" alt="Redis" width="28" height="28"><div class="name">Redis</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/neo4j.svg" alt="Neo4j" width="28" height="28"><div class="name">Neo4j</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia" width="28" height="28"><div class="name">Algolia</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/drill.svg" alt="Apache Drill" width="28" height="28"><div class="name">Apache Drill</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#7c3aed">RS</div><div class="name">Redshift</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/mongodb.svg" alt="MongoDB" width="28" height="28"><div class="name">MongoDB</div></div>
+        <div class="skill-card card"><div class="brand-icon" style="background:#232F3E">At</div><div class="name">Athena</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/mysql.svg" alt="MySQL" width="28" height="28"><div class="name">MySQL</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/zookeeper.svg" alt="Zookeeper" width="28" height="28"><div class="name">Zookeeper</div></div>
       </div>
     </div>
 
     <div class="skill-category reveal">
       <h3>AI & Protocols</h3>
       <div class="skills-grid">
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="MCP" width="28" height="28"><div class="name">MCP Protocol</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/sse.svg" alt="SSE" width="28" height="28"><div class="name">SSE Transport</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/openai.svg" alt="OpenAI" width="28" height="28"><div class="name">OpenAI / GPT</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/gemini.svg" alt="Gemini" width="28" height="28"><div class="name">Google Gemini</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/llama.svg" alt="Llama" width="28" height="28"><div class="name">Llama 3</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia AskAI" width="28" height="28"><div class="name">Algolia AskAI</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/jwt.svg" alt="JWT" width="28" height="28"><div class="name">JWT / PyJWT</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="MCP" width="28" height="28"><div class="name">MCP Protocol</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/sse.svg" alt="SSE" width="28" height="28"><div class="name">SSE Transport</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/openai.svg" alt="OpenAI" width="28" height="28"><div class="name">OpenAI / GPT</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/gemini.svg" alt="Gemini" width="28" height="28"><div class="name">Google Gemini</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/llama.svg" alt="Llama" width="28" height="28"><div class="name">Llama 3</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia AskAI" width="28" height="28"><div class="name">Algolia AskAI</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/jwt.svg" alt="JWT" width="28" height="28"><div class="name">JWT / PyJWT</div></div>
       </div>
     </div>
 
     <div class="skill-category reveal">
       <h3>DevOps & Quality</h3>
       <div class="skills-grid">
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/githubactions.svg" alt="GitHub Actions" width="28" height="28"><div class="name">GitHub Actions</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/bitbucket.svg" alt="Bitbucket" width="28" height="28"><div class="name">Bitbucket Pipelines</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/sonarcloud.svg" alt="SonarCloud" width="28" height="28"><div class="name">SonarCloud</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/maven.svg" alt="Maven" width="28" height="28"><div class="name">Maven</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/pytest.svg" alt="pytest" width="28" height="28"><div class="name">pytest</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/junit.svg" alt="JUnit" width="28" height="28"><div class="name">JUnit</div></div>
-        <div class="skill-card"><img loading="lazy" src="./assets/logos/restassured.svg" alt="REST Assured" width="28" height="28"><div class="name">REST Assured</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/githubactions.svg" alt="GitHub Actions" width="28" height="28"><div class="name">GitHub Actions</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/bitbucket.svg" alt="Bitbucket" width="28" height="28"><div class="name">Bitbucket Pipelines</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/sonarcloud.svg" alt="SonarCloud" width="28" height="28"><div class="name">SonarCloud</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/maven.svg" alt="Maven" width="28" height="28"><div class="name">Maven</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/pytest.svg" alt="pytest" width="28" height="28"><div class="name">pytest</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/junit.svg" alt="JUnit" width="28" height="28"><div class="name">JUnit</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/restassured.svg" alt="REST Assured" width="28" height="28"><div class="name">REST Assured</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════ EDUCATION ═══════════════════ -->
-<section id="education">
+<section id="education" data-section="background">
   <div class="container">
     <div class="section-label reveal">Education & Recognition</div>
     <h2 class="section-title reveal">Background</h2>
 
     <div class="about-grid" style="margin-top:32px">
       <div class="reveal">
-        <div class="about-hl" style="margin-bottom:16px">
+        <div class="about-hl card" style="margin-bottom:16px">
           <h3>B.Tech, Computer Science & Engineering</h3>
           <p>BBD National Institute of Technology &amp; Management, Lucknow (2010-2014) · 75.16%</p>
         </div>
-        <div class="about-hl" style="margin-bottom:16px">
+        <div class="about-hl card" style="margin-bottom:16px">
           <h3>Intermediate, Mathematics</h3>
           <p>Rastriya Inter College (2008-2010) · 73.6%</p>
         </div>
-        <div class="about-hl">
+        <div class="about-hl card">
           <h3>Languages</h3>
           <p>English (Full Professional) · Hindi (Native)</p>
         </div>
       </div>
       <div class="reveal">
-        <div class="about-hl" style="margin-bottom:16px">
+        <div class="about-hl card" style="margin-bottom:16px">
           <h3>Awards & Leadership</h3>
           <p style="margin-bottom:10px"><strong style="color:var(--accent)">Vice-Captain, Nihilentia</strong>. Selected to lead Nihilent's annual fest (Dec 2014). Successfully organized events and competitions.</p>
           <p style="margin-bottom:10px"><strong style="color:var(--accent)">IT-FIESTA 2011</strong>. Appreciation Certificate awarded by T. Ashok (Founder & CEO, Stag Software Pvt. Ltd.)</p>
@@ -1580,30 +1619,30 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 
 <!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
-<section style="background:var(--bg-2)">
+<section data-section="testimonials" style="background:var(--bg-2)">
   <div class="container">
     <div class="section-label reveal">Testimonials</div>
     <h2 class="section-title reveal">What Colleagues Say</h2>
 
     <div class="about-grid" style="margin-top:32px">
-      <div class="testimonial reveal">
+      <div class="testimonial reveal quote">
         <blockquote>"Abhishekh is an outstanding person, great to work with and a real self starter. He is very effective in team and testing related activities. He has strong and broad technical and automation expertise. Abhishekh is one of the top people I have met and worked with in my career."</blockquote>
         <div class="author">Rajesh Chejerla</div>
         <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Principal Engineer at Salesforce</div>
       </div>
-      <div class="testimonial reveal">
+      <div class="testimonial reveal quote">
         <blockquote>"Abhishekh is very passionate and has great vision for his work. His focus keeps everything moving smoothly, he makes sure all the deadlines are met, and makes sure that whatever project he is working on meets the highest standards."</blockquote>
         <div class="author">Anant Agrawal</div>
         <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Engineering Manager | CyberSecurity | Scale Products</div>
       </div>
     </div>
     <div class="about-grid" style="margin-top:20px">
-      <div class="testimonial reveal">
+      <div class="testimonial reveal quote">
         <blockquote>"Abhishekh successfully automated our application and single handedly managed all testing activities. He is extremely enthusiastic about his work which is infectious, makes it fun to learn. He always has a creative, positive outlook and he's good at organizing and bringing people together."</blockquote>
         <div class="author">Shivesh Verma</div>
         <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Senior Software Engineer (JL4) at Maersk</div>
       </div>
-      <div class="testimonial reveal">
+      <div class="testimonial reveal quote">
         <blockquote>"I had the privilege of working with Abhishek on a couple of academic projects during our B.Tech. He is a highly organized, goal oriented, independent and hard working perfectionist. He has very good analytical and interpersonal skills. He is the most motivated and enthusiastic person I have ever met."</blockquote>
         <div class="author">Kuldeep Kr</div>
         <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Staff Software Engineer @ ServiceNow | Ex-Microsoft</div>
@@ -1611,7 +1650,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
     </div>
     <div class="collapsible-content" id="moreTestimonials">
       <div style="margin-top:20px;max-width:600px">
-        <div class="testimonial reveal">
+        <div class="testimonial reveal quote">
           <blockquote>"Abhishek has tremendous knowledge of Testing, always there to help for problems related to testing. His rational approach of making complex topics very simpler by relating it with day to day examples was amazing. That was the beauty of his approach in System Testing and Integration Testing."</blockquote>
           <div class="author">Rupender Rana</div>
           <div style="font-size:.75rem;color:var(--text-muted);margin-top:2px">Technical Lead, iOS at Nagarro</div>
@@ -1623,7 +1662,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
-<section id="contact">
+<section id="contact" data-section="contact">
   <div class="container">
     <div class="section-label reveal">Get In Touch</div>
     <h2 class="section-title reveal">Let's Connect</h2>
@@ -1646,7 +1685,7 @@ dialog.arch-dialog::backdrop{background:rgba(0,0,0,.7)}
 </section>
 </main>
 
-<footer>
+<footer data-region="footer">
   <div class="container">
     Built with precision by Abhishekh Singh · 2026
   </div>
@@ -1764,7 +1803,7 @@ function toggleCollapse(id, btn) {
     svg.setAttribute('role', 'img');
     svg.setAttribute('aria-label', label);
     const wrap = document.createElement('div');
-    wrap.className = 'arch-wrap';
+    wrap.className = 'arch-wrap diagram';
     c.parentNode.insertBefore(wrap, c);
     wrap.appendChild(c);
     const b = document.createElement('button');
