@@ -1,0 +1,143 @@
+/* Midnight: the default theme. Token values for dark and light modes. */
+@layer tokens {
+  :root {
+    /* fonts and layout (theme-agnostic) */
+    --font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    --max-w: 1200px;
+  }
+
+  /* dark theme: the brand default; matches the site's prior look exactly */
+  :root, :root[data-mode="dark"] {
+    --bg: #04080f;
+    --bg-2: #0a1019;
+    --surface: #0d1525;
+    --surface-2: #131f35;
+    --surface-3: #192845;
+    --border: #1e3050;
+    --border-glow: #2a4570;
+    --text: #e4eaf4;
+    --text-dim: #7a90b8;
+    --text-muted: #8396b8;
+    --accent: #00c2d1;
+    --accent-2: #4d8bff;
+    --accent-3: #00cc8e;
+    --amber: #ffb344;
+    --red: #ff5c6c;
+    --purple: #9d7aff;
+    --pink: #ff6baa;
+    --teal: #00b8a9;
+    --glow: 0 0 40px rgba(0,194,209,0.08);
+    --nav-bg: rgba(4,8,15,0.85);
+    --nav-bg-mobile: rgba(4,8,15,0.95);
+    --hover-soft: rgba(0,194,209,.06);
+    --code-shadow: 0 4px 30px rgba(0,0,0,.3);
+  }
+
+  /* light theme: opt-in via toggle, persisted in localStorage */
+  :root[data-mode="light"] {
+    --bg: #f8fafc;
+    --bg-2: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --surface-3: #e2e8f0;
+    --border: #e2e8f0;
+    --border-glow: #cbd5e1;
+    --text: #0f172a;
+    --text-dim: #475569;
+    --text-muted: #546377;
+    --accent: #0b7a70;
+    --accent-2: #2563eb;
+    --accent-3: #047857;
+    --amber: #b45309;
+    --red: #c81e1e;
+    --purple: #7c3aed;
+    --pink: #be185d;
+    --teal: #0f766e;
+    --glow: 0 1px 3px rgba(15,23,42,0.08), 0 8px 24px rgba(15,23,42,0.06);
+    --nav-bg: rgba(255,255,255,0.85);
+    --nav-bg-mobile: rgba(255,255,255,0.95);
+    --hover-soft: rgba(13,148,136,.08);
+    --code-shadow: 0 4px 20px rgba(15,23,42,.08);
+  }
+
+  /* diagram colors: dark values here, light overrides in the light block below.
+     Fills and lines are separate tokens because light mode tints fills only. */
+  :root {
+    --dg-fill-amber-1: #1a1005;
+    --dg-fill-amber-2: #1a1808;
+    --dg-fill-amber-3: #aa7050;
+    --dg-fill-amber-4: #aa8040;
+    --dg-fill-amber-5: #f0a070;
+    --dg-fill-amber-6: #ffd080;
+    --dg-fill-blue-1: #4a7acc;
+    --dg-fill-blue-2: #6ca0d0;
+    --dg-fill-blue-3: #7aa0e8;
+    --dg-fill-blue-4: #7aa8d8;
+    --dg-fill-blue-5: #8ab4ff;
+    --dg-fill-cyan-1: #3a8888;
+    --dg-fill-cyan-2: #6cc0e8;
+    --dg-fill-cyan-3: #7ee8e8;
+    --dg-fill-green-1: #051a15;
+    --dg-fill-green-2: #3a8a70;
+    --dg-fill-green-3: #8cc060;
+    --dg-fill-green-4: #6eeac4;
+    --dg-fill-pink-1: #250a15;
+    --dg-fill-pink-2: #aa4a70;
+    --dg-fill-pink-3: #ff8ac0;
+    --dg-fill-red-1: #150a0a;
+    --dg-fill-red-2: #f08080;
+    --dg-fill-red-3: #ff8a94;
+    --dg-fill-slate-1: #0a0f1a;
+    --dg-fill-slate-2: #0a1020;
+    --dg-fill-slate-3: #0a1520;
+    --dg-fill-slate-4: #4d6080;
+    --dg-fill-slate-5: #8a9ab8;
+    --dg-fill-violet-1: #0f0a25;
+    --dg-fill-violet-2: #150a20;
+    --dg-fill-violet-3: #7c6caf;
+    --dg-fill-violet-4: #b088ff;
+    --dg-fill-violet-5: #c4b5fd;
+    --dg-line-slate-4: #4d6080;
+  }
+  :root[data-mode="light"] {
+    --dg-fill-amber-1: #fef3c7;
+    --dg-fill-amber-2: #fef3c7;
+    --dg-fill-amber-4: #fed7aa;
+    --dg-fill-amber-6: #92400e;
+    --dg-fill-blue-2: #1e40af;
+    --dg-fill-blue-3: #1e40af;
+    --dg-fill-blue-5: #1e40af;
+    --dg-fill-cyan-1: #a5f3fc;
+    --dg-fill-cyan-3: #0e7490;
+    --dg-fill-green-1: #ecfdf5;
+    --dg-fill-green-2: #a7f3d0;
+    --dg-fill-green-4: #065f46;
+    --dg-fill-pink-1: #fdf2f8;
+    --dg-fill-pink-2: #fbcfe8;
+    --dg-fill-pink-3: #9d174d;
+    --dg-fill-red-2: #b91c1c;
+    --dg-fill-slate-1: #f1f5f9;
+    --dg-fill-slate-2: #f1f5f9;
+    --dg-fill-slate-3: #f1f5f9;
+    --dg-fill-slate-4: #cbd5e1;
+    --dg-fill-slate-5: #475569;
+    --dg-fill-violet-1: #f5f3ff;
+    --dg-fill-violet-2: #f5f3ff;
+    --dg-fill-violet-3: #ddd6fe;
+    --dg-fill-violet-5: #5b21b6;
+  }
+}
+
+@layer theme {
+  /* Small detail text inside diagram boxes uses JetBrains Mono. The same hex
+     serves as both box background fill and detail text fill in dark mode, so
+     attribute selectors can't disambiguate. Targeting via font-family hits only
+     the small mono labels and forces high-contrast slate on any tinted bg. */
+  :root[data-mode="light"] .arch-container svg text[font-family*="Mono"] {
+    fill: #1e293b !important;
+    opacity: 1 !important;
+    font-weight: 500 !important;
+  }
+}
