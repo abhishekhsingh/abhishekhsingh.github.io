@@ -135,7 +135,7 @@
      serves as both box background fill and detail text fill in dark mode, so
      attribute selectors can't disambiguate. Targeting via font-family hits only
      the small mono labels and forces high-contrast slate on any tinted bg. */
-  :root[data-mode="light"] .arch-container svg text[font-family*="Mono"] {
+  :root[data-theme="midnight"][data-mode="light"] .arch-container svg text[font-family*="Mono"] {
     fill: #1e293b !important;
     opacity: 1 !important;
     font-weight: 500 !important;
