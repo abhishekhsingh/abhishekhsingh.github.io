@@ -58,8 +58,14 @@
     var q = new URLSearchParams(location.search).get('theme');
     t = q || localStorage.getItem('portfolio-style') || 'midnight';
   } catch(e) {}
-  if (['midnight', 'terminal', 'bento', 'brutalist'].indexOf(t) < 0) t = 'midnight';
+  if (['midnight', 'signal', 'terminal', 'bento', 'brutalist'].indexOf(t) < 0) t = 'midnight';
   d.setAttribute('data-theme', t);
+  try {
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      d.classList.add('fx-count');
+      setTimeout(function () { d.classList.add('fx-timeout'); }, 3000);
+    }
+  } catch(e) {}
   try { if (sessionStorage.getItem('portfolio-typed')) d.setAttribute('data-typed', ''); } catch(e) {}
   if (t !== 'midnight') {
     var l = document.createElement('link');
@@ -68,7 +74,7 @@
     var ready = function () { d.removeAttribute('data-theme-pending'); };
     d.setAttribute('data-theme-pending', '');
     l.onload = l.onerror = ready; setTimeout(ready, 1500);
-    var f = { terminal: 'fonts/terminal/jetbrains-mono-latin.woff2', bento: 'fonts/bento/geist-latin.woff2', brutalist: 'fonts/brutalist/archivo-latin.woff2' }[t];
+    var f = { signal: 'fonts/bento/geist-latin.woff2', terminal: 'fonts/terminal/jetbrains-mono-latin.woff2', bento: 'fonts/bento/geist-latin.woff2', brutalist: 'fonts/brutalist/archivo-latin.woff2' }[t];
     if (f) {
       var pl = document.createElement('link');
       pl.rel = 'preload'; pl.as = 'font'; pl.type = 'font/woff2'; pl.href = f; pl.crossOrigin = 'anonymous';
@@ -342,6 +348,11 @@
 @layer components {
   html[data-theme-pending]{opacity:0}
   .hero-prompt{display:none}
+  .hero-visual,.hero-estimate,.fx-toggle{display:none}
+  html.fx-count [data-count]:not(.is-counting):not(.is-counted){visibility:hidden}
+  html.fx-timeout [data-count]{visibility:visible!important}
+  html.fx-paused .scale-track,html.fx-paused .hero-tag .dot{animation-play-state:paused!important}
+  html.fx-paused .arch-container *{animation-play-state:paused!important}
   .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
   #theme-pop{margin:0;inset:auto;position:fixed;top:64px;right:20px;background:var(--surface);color:var(--text);border:1px solid var(--border-glow);border-radius:12px;padding:12px;box-shadow:var(--code-shadow);min-width:200px}
   #theme-pop fieldset{border:0;padding:0;margin:0;display:grid;gap:4px}
@@ -351,6 +362,7 @@
   #theme-pop input{accent-color:var(--accent)}
   .swatch{width:28px;height:18px;border-radius:5px;border:1px solid var(--border-glow);flex:none}
   .swatch--midnight{background:linear-gradient(135deg,#04080f 50%,#00c2d1 50%)}
+  .swatch--signal{background:linear-gradient(135deg,#070b16 50%,#2dd4a7 50%)}
   .swatch--terminal{background:linear-gradient(135deg,#0c1a12 50%,#5dff94 50%)}
   .swatch--bento{background:linear-gradient(135deg,#1c1c24 50%,#8b8bf5 50%)}
   .swatch--brutalist{background:linear-gradient(135deg,#f5e94a 50%,#ff4fa3 50%)}
@@ -517,6 +529,7 @@
   <fieldset>
     <legend>Theme</legend>
     <label><input type="radio" name="theme" value="midnight"><span class="swatch swatch--midnight"></span>Midnight</label>
+    <label><input type="radio" name="theme" value="signal"><span class="swatch swatch--signal"></span>Signal</label>
     <label><input type="radio" name="theme" value="terminal"><span class="swatch swatch--terminal"></span>Terminal</label>
     <label><input type="radio" name="theme" value="bento"><span class="swatch swatch--bento"></span>Bento</label>
     <label><input type="radio" name="theme" value="brutalist"><span class="swatch swatch--brutalist"></span>Brutalist</label>
@@ -536,6 +549,7 @@
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <main id="main">
 <section class="hero" id="hero" data-section="hero">
+  <div class="hero-visual" aria-hidden="true"><canvas class="hero-canvas"></canvas></div>
   <div class="container hero-content">
     <div class="hero-tag"><span class="dot"></span> Principal Engineer @ Gainsight</div>
     <div class="hero-prompt" aria-hidden="true"><span class="ps">$</span> <span class="cmd">whoami</span></div>
@@ -547,32 +561,41 @@
       <a class="btn" data-goatcounter-click="hero-contact" data-goatcounter-title="Hero: Get in touch" href="#contact">Get in touch</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat stat"><div class="num"><span data-years>12</span>+</div><div class="label">Years Engineering</div></div>
-      <div class="hero-stat stat"><div class="num">10+</div><div class="label">Production Systems</div></div>
-      <div class="hero-stat stat"><div class="num">35+</div><div class="label">SaaS Connectors</div></div>
-      <div class="hero-stat stat"><div class="num">600+</div><div class="label">Enterprise Tenants</div></div>
+      <div class="hero-stat stat"><div class="num" data-count><span data-years>12</span>+</div><div class="label">Years Engineering</div></div>
+      <div class="hero-stat stat"><div class="num" data-count>10+</div><div class="label">Production Systems</div></div>
+      <div class="hero-stat stat"><div class="num" data-count>35+</div><div class="label">SaaS Connectors</div></div>
+      <div class="hero-stat stat"><div class="num" data-count>600+</div><div class="label">Enterprise Tenants</div></div>
+    </div>
+    <div class="hero-estimate" data-per-second="706018">
+      <span class="est-label">Since you opened this page</span>
+      <span class="est-num" aria-hidden="true">0</span>
+      <span class="est-text" aria-hidden="true">records processed</span>
+      <span class="visually-hidden">Estimate: about 706,000 records are processed every second, on average.</span>
+      <button class="est-pause" type="button" aria-pressed="false">Pause</button>
+      <span class="est-note">Estimated from the 61B+ per day average. Not a live measurement.</span>
     </div>
   </div>
+  <button class="fx-toggle" type="button" aria-pressed="false">Pause motion</button>
 </section>
 
 <!-- ═══════════════════ PLATFORM SCALE TICKER ═══════════════════ -->
 <div class="scale-bar" data-section="scale">
   <div class="scale-track">
-    <div class="scale-item"><span class="scale-num">61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">540K+</span><span class="scale-label">tasks executed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">98.7%</span><span class="scale-label">job success rate</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>540K+</span><span class="scale-label">tasks executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>98.7%</span><span class="scale-label">job success rate</span></div><span class="scale-dot"></span>
     <!-- duplicate for continuous loop -->
-    <div class="scale-item"><span class="scale-num">61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">540K+</span><span class="scale-label">tasks executed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
-    <div class="scale-item"><span class="scale-num">98.7%</span><span class="scale-label">job success rate</span></div>
+    <div class="scale-item"><span class="scale-num" data-count>61B+</span><span class="scale-label">records processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>14 TB</span><span class="scale-label">data processed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>93K+</span><span class="scale-label">jobs completed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>540K+</span><span class="scale-label">tasks executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>25M+</span><span class="scale-label">community records indexed</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>35K+</span><span class="scale-label">rules executed / day</span></div><span class="scale-dot"></span>
+    <div class="scale-item"><span class="scale-num" data-count>98.7%</span><span class="scale-label">job success rate</span></div>
   </div>
 </div>
 
@@ -1856,7 +1879,7 @@ function toggleCollapse(id, btn) {
 // Pause animation work that is offscreen or in a hidden tab
 (function () {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const targets = [...document.querySelectorAll('.arch-container svg, .scale-track')].filter(e => !e.closest('dialog'));
+  const targets = [...document.querySelectorAll('.arch-container svg, .scale-track, .hero-tag .dot')].filter(e => !e.closest('dialog'));
   const set = (el, live) => {
     el.classList.toggle('is-paused', !live);
     if (el.pauseAnimations) live ? el.unpauseAnimations() : el.pauseAnimations();
@@ -1931,6 +1954,7 @@ window.toggleTheme = function() {
 })();
 </script>
 <script type="module" src="js/theme.js"></script>
+<script type="module" src="js/fx.js"></script>
 <script data-goatcounter="https://abhishekhsingh.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -299,6 +299,11 @@
 @layer components {
   html[data-theme-pending]{opacity:0}
   .hero-prompt{display:none}
+  .hero-visual,.hero-estimate,.fx-toggle{display:none}
+  html.fx-count [data-count]:not(.is-counting):not(.is-counted){visibility:hidden}
+  html.fx-timeout [data-count]{visibility:visible!important}
+  html.fx-paused .scale-track,html.fx-paused .hero-tag .dot{animation-play-state:paused!important}
+  html.fx-paused .arch-container *{animation-play-state:paused!important}
   .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
   #theme-pop{margin:0;inset:auto;position:fixed;top:64px;right:20px;background:var(--surface);color:var(--text);border:1px solid var(--border-glow);border-radius:12px;padding:12px;box-shadow:var(--code-shadow);min-width:200px}
   #theme-pop fieldset{border:0;padding:0;margin:0;display:grid;gap:4px}
@@ -308,6 +313,7 @@
   #theme-pop input{accent-color:var(--accent)}
   .swatch{width:28px;height:18px;border-radius:5px;border:1px solid var(--border-glow);flex:none}
   .swatch--midnight{background:linear-gradient(135deg,#04080f 50%,#00c2d1 50%)}
+  .swatch--signal{background:linear-gradient(135deg,#070b16 50%,#2dd4a7 50%)}
   .swatch--terminal{background:linear-gradient(135deg,#0c1a12 50%,#5dff94 50%)}
   .swatch--bento{background:linear-gradient(135deg,#1c1c24 50%,#8b8bf5 50%)}
   .swatch--brutalist{background:linear-gradient(135deg,#f5e94a 50%,#ff4fa3 50%)}
