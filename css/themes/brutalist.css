@@ -1,0 +1,246 @@
+/* Brutalist: thick borders, hard shadows, loud patches, Archivo type. */
+@layer reset, tokens, base, layout, components, theme, utilities;
+
+@font-face {
+  font-family: "Brutal Sans";
+  src: url("../../fonts/brutalist/archivo-latin.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Brutal Mono";
+  src: url("../../fonts/terminal/jetbrains-mono-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  [data-theme="brutalist"] {
+    --font-head: "Brutal Sans", "Arial Black", system-ui, sans-serif;
+    --font-body: "Brutal Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "Brutal Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --ink: oklch(0.15 0 0);
+    --patch: oklch(0.88 0.18 100);
+    --patch-2: oklch(0.72 0.21 350);
+    --patch-3: oklch(0.62 0.20 255);
+    --bw: 3px;
+    --max-w: 1160px;
+    --dg-fill-amber-1: oklch(0.97 0.03 95);
+    --dg-fill-amber-2: oklch(0.97 0.03 95);
+    --dg-fill-amber-3: oklch(0.89 0.17 95);
+    --dg-fill-amber-4: oklch(0.89 0.17 95);
+    --dg-fill-amber-5: oklch(0.15 0 0);
+    --dg-fill-amber-6: oklch(0.15 0 0);
+    --dg-fill-blue-1: oklch(0.80 0.12 255);
+    --dg-fill-blue-2: oklch(0.15 0 0);
+    --dg-fill-blue-3: oklch(0.15 0 0);
+    --dg-fill-blue-4: oklch(0.15 0 0);
+    --dg-fill-blue-5: oklch(0.15 0 0);
+    --dg-fill-cyan-1: oklch(0.86 0.10 205);
+    --dg-fill-cyan-2: oklch(0.15 0 0);
+    --dg-fill-cyan-3: oklch(0.15 0 0);
+    --dg-fill-green-1: oklch(0.97 0.03 95);
+    --dg-fill-green-2: oklch(0.86 0.17 150);
+    --dg-fill-green-3: oklch(0.15 0 0);
+    --dg-fill-green-4: oklch(0.15 0 0);
+    --dg-fill-pink-1: oklch(0.97 0.03 95);
+    --dg-fill-pink-2: oklch(0.80 0.15 350);
+    --dg-fill-pink-3: oklch(0.15 0 0);
+    --dg-fill-red-1: oklch(0.97 0.03 95);
+    --dg-fill-red-2: oklch(0.15 0 0);
+    --dg-fill-red-3: oklch(0.15 0 0);
+    --dg-fill-slate-1: oklch(0.97 0.03 95);
+    --dg-fill-slate-2: oklch(0.97 0.03 95);
+    --dg-fill-slate-3: oklch(0.97 0.03 95);
+    --dg-fill-slate-4: oklch(0.86 0.02 260);
+    --dg-fill-slate-5: oklch(0.15 0 0);
+    --dg-fill-violet-1: oklch(0.97 0.03 95);
+    --dg-fill-violet-2: oklch(0.97 0.03 95);
+    --dg-fill-violet-3: oklch(0.78 0.14 300);
+    --dg-fill-violet-4: oklch(0.15 0 0);
+    --dg-fill-violet-5: oklch(0.15 0 0);
+    --dg-line-slate-4: oklch(0.15 0 0);
+  }
+
+  [data-theme="brutalist"][data-mode="dark"] {
+    --bg: oklch(0.18 0.01 90);
+    --bg-2: oklch(0.18 0.01 90);
+    --surface: oklch(0.23 0.012 90);
+    --surface-2: oklch(0.27 0.014 90);
+    --surface-3: oklch(0.31 0.016 90);
+    --border: oklch(0.96 0.03 95);
+    --border-glow: oklch(0.96 0.03 95);
+    --text: oklch(0.96 0.03 95);
+    --text-dim: oklch(0.86 0.03 95);
+    --text-muted: oklch(0.78 0.03 95);
+    --accent: oklch(0.88 0.18 100);
+    --accent-2: oklch(0.78 0.19 350);
+    --accent-3: oklch(0.82 0.17 150);
+    --amber: oklch(0.86 0.15 80);
+    --red: oklch(0.76 0.18 25);
+    --purple: oklch(0.78 0.15 310);
+    --pink: oklch(0.78 0.19 350);
+    --teal: oklch(0.82 0.11 190);
+    --glow: none;
+    --shadow: oklch(0.96 0.03 95);
+    --nav-bg: oklch(0.18 0.01 90);
+    --nav-bg-mobile: oklch(0.18 0.01 90);
+    --hover-soft: oklch(0.88 0.18 100 / 0.16);
+    --code-shadow: none;
+  }
+
+  [data-theme="brutalist"][data-mode="light"] {
+    --bg: oklch(0.97 0.03 95);
+    --bg-2: oklch(0.97 0.03 95);
+    --surface: oklch(1 0 0);
+    --surface-2: oklch(0.95 0.03 95);
+    --surface-3: oklch(0.91 0.03 95);
+    --border: oklch(0.15 0 0);
+    --border-glow: oklch(0.15 0 0);
+    --text: oklch(0.15 0 0);
+    --text-dim: oklch(0.28 0 0);
+    --text-muted: oklch(0.38 0 0);
+    --accent: oklch(0.45 0.20 255);
+    --accent-2: oklch(0.46 0.22 350);
+    --accent-3: oklch(0.42 0.14 150);
+    --amber: oklch(0.46 0.12 65);
+    --red: oklch(0.46 0.20 25);
+    --purple: oklch(0.42 0.20 305);
+    --pink: oklch(0.46 0.22 350);
+    --teal: oklch(0.42 0.09 190);
+    --glow: none;
+    --shadow: oklch(0.15 0 0);
+    --nav-bg: oklch(0.97 0.03 95);
+    --nav-bg-mobile: oklch(0.97 0.03 95);
+    --hover-soft: oklch(0.88 0.18 100 / 0.5);
+    --code-shadow: none;
+  }
+
+  /* diagrams keep an ink-on-paper scheme in both modes */
+  [data-theme="brutalist"] .arch-container,
+  [data-theme="brutalist"] .arch-dialog .arch-container {
+    --bg: oklch(0.97 0.03 95);
+    --surface: oklch(1 0 0);
+    --surface-2: oklch(0.95 0.03 95);
+    --text: oklch(0.15 0 0);
+    --text-dim: oklch(0.28 0 0);
+    --text-muted: oklch(0.38 0 0);
+    --border: oklch(0.15 0 0);
+    --accent: oklch(0.45 0.20 255);
+    --accent-2: oklch(0.46 0.22 350);
+    --accent-3: oklch(0.42 0.14 150);
+    --amber: oklch(0.46 0.12 65);
+    --red: oklch(0.46 0.20 25);
+    --purple: oklch(0.42 0.20 305);
+    --pink: oklch(0.46 0.22 350);
+    --teal: oklch(0.42 0.09 190);
+    background: oklch(0.97 0.03 95);
+    color: oklch(0.15 0 0);
+  }
+
+  [data-theme="brutalist"] * { border-radius: 0 !important; }
+  [data-theme="brutalist"] body { counter-reset: sec; }
+  [data-theme="brutalist"] section { padding: 88px 32px; border-top: var(--bw) solid var(--text); position: relative; }
+  [data-theme="brutalist"] .hero { border-top: 0; padding-top: 112px; }
+  [data-theme="brutalist"] .section-alt { background: var(--bg); }
+  [data-theme="brutalist"] .hero::before,
+  [data-theme="brutalist"] .hero::after { display: none; }
+
+  /* section numbers */
+  [data-theme="brutalist"] section[data-section]:not(.hero) { counter-increment: sec; }
+  [data-theme="brutalist"] section[data-section]:not(.hero) > .container { position: relative; }
+  [data-theme="brutalist"] section[data-section]:not(.hero) > .container::before { content: counter(sec, decimal-leading-zero) / ""; position: absolute; right: 0; top: -56px; font-family: var(--font-head); font-weight: 900; font-size: clamp(5rem, 14vw, 11rem); line-height: 1; color: transparent; -webkit-text-stroke: 3px var(--text); opacity: .16; pointer-events: none; }
+  [data-theme="brutalist"] .section-label { display: inline-block; background: var(--patch); color: var(--ink); padding: 2px 10px; border: var(--bw) solid var(--ink); letter-spacing: 1px; margin-bottom: 18px; transform: rotate(-1.5deg); }
+  [data-theme="brutalist"] .section-title { font-family: var(--font-head); font-size: clamp(2.2rem, 5.5vw, 4.2rem); font-weight: 900; text-transform: uppercase; line-height: .98; letter-spacing: -.02em; max-width: 14ch; }
+  [data-theme="brutalist"] .section-sub { color: var(--text-dim); max-width: 60ch; font-size: 1.05rem; }
+
+  /* hero */
+  [data-theme="brutalist"] .hero h1 { font-size: clamp(2.6rem, 7vw, 5.6rem); font-weight: 900; text-transform: uppercase; line-height: .98; letter-spacing: -.03em; }
+  [data-theme="brutalist"] .hero h1 .hero-name { display: block; width: max-content; background: var(--patch-2); color: var(--ink); padding: 4px 14px; border: var(--bw) solid var(--ink); font-family: var(--font-mono); font-size: .95rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 22px; transform: rotate(-2deg); box-shadow: 4px 4px 0 var(--ink); }
+  [data-theme="brutalist"] .hero h1 .gradient { background: var(--patch); color: var(--ink); -webkit-text-fill-color: currentColor; padding: 0 .12em; }
+  [data-theme="brutalist"] .hero p { font-size: 1.15rem; color: var(--text); }
+  [data-theme="brutalist"] .hero-tag { background: var(--surface); border: var(--bw) solid var(--text); color: var(--text); box-shadow: 4px 4px 0 var(--shadow); }
+  [data-theme="brutalist"] .hero-stats { gap: 20px; }
+  [data-theme="brutalist"] .hero-stat { padding: 12px 18px; background: var(--surface); border: var(--bw) solid var(--text); box-shadow: 5px 5px 0 var(--shadow); transition: transform .15s; }
+  [data-theme="brutalist"] .hero-stat:nth-child(1) { background: var(--patch); transform: rotate(-2deg); }
+  [data-theme="brutalist"] .hero-stat:nth-child(2) { background: var(--patch-2); transform: rotate(1.5deg); }
+  [data-theme="brutalist"] .hero-stat:nth-child(3) { background: var(--patch-3); transform: rotate(-1deg); }
+  [data-theme="brutalist"] .hero-stat:nth-child(-n+3) .num,
+  [data-theme="brutalist"] .hero-stat:nth-child(-n+3) .label { color: var(--ink); }
+  [data-theme="brutalist"] .hero-stat .num { font-weight: 900; }
+  [data-theme="brutalist"] .hero-stat:hover { animation: brut-wiggle .35s ease-in-out; }
+
+  /* buttons press */
+  [data-theme="brutalist"] .btn { background: var(--surface); color: var(--text); border: var(--bw) solid var(--text); box-shadow: 5px 5px 0 var(--shadow); text-transform: uppercase; font-weight: 800; letter-spacing: .5px; transition: transform .08s, box-shadow .08s; }
+  [data-theme="brutalist"] .btn-primary { background: var(--patch); color: var(--ink); border-color: var(--ink); box-shadow: 5px 5px 0 var(--shadow); }
+  [data-theme="brutalist"] .btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--shadow); }
+  [data-theme="brutalist"] .btn:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--shadow); }
+
+  /* marquee strip */
+  [data-theme="brutalist"] .scale-bar { background: var(--patch); border: 0; border-top: var(--bw) solid var(--ink); border-bottom: var(--bw) solid var(--ink); }
+  [data-theme="brutalist"] .scale-bar::before,
+  [data-theme="brutalist"] .scale-bar::after { display: none; }
+  [data-theme="brutalist"] .scale-num { background: none; -webkit-text-fill-color: currentColor; color: var(--ink); font-weight: 900; }
+  [data-theme="brutalist"] .scale-label { color: var(--ink); font-weight: 700; }
+  [data-theme="brutalist"] .scale-dot { background: var(--ink); }
+
+  /* blocks */
+  [data-theme="brutalist"] .card,
+  [data-theme="brutalist"] .testimonial,
+  [data-theme="brutalist"] .contact-link,
+  [data-theme="brutalist"] .connector { background: var(--surface); border: var(--bw) solid var(--text); box-shadow: 6px 6px 0 var(--shadow); transition: transform .12s, box-shadow .12s; }
+  [data-theme="brutalist"] .skill-card { box-shadow: 3px 3px 0 var(--shadow); }
+  [data-theme="brutalist"] .card:hover,
+  [data-theme="brutalist"] .contact-link:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--shadow); border-color: var(--text); }
+  [data-theme="brutalist"] .skill-card:hover { box-shadow: 5px 5px 0 var(--shadow); }
+  [data-theme="brutalist"] .card--flagship { background: var(--surface); border-color: var(--text); }
+  [data-theme="brutalist"] .chip { border: 2px solid var(--text); background: var(--surface); }
+  [data-theme="brutalist"] .project-card h3,
+  [data-theme="brutalist"] .about-hl h3 { text-transform: uppercase; font-weight: 800; }
+
+  /* journey: stacked blocks with a date tab */
+  [data-theme="brutalist"] .timeline { padding-left: 0; }
+  [data-theme="brutalist"] .timeline::before,
+  [data-theme="brutalist"] .role::before { display: none; }
+  [data-theme="brutalist"] .role { background: var(--surface); border: var(--bw) solid var(--text); box-shadow: 6px 6px 0 var(--shadow); padding: 22px 26px; margin-bottom: 28px; }
+  [data-theme="brutalist"] .tl-date { display: inline-block; background: var(--patch); color: var(--ink); border: 2px solid var(--ink); padding: 2px 10px; font-weight: 700; margin-bottom: 10px; }
+  [data-theme="brutalist"] .tl-role { font-weight: 900; text-transform: uppercase; }
+
+  /* tabs */
+  [data-theme="brutalist"] .proj-tabs { gap: 0; padding: 0; background: var(--surface); border: var(--bw) solid var(--text); box-shadow: 5px 5px 0 var(--shadow); }
+  [data-theme="brutalist"] .proj-tab { color: var(--text); text-transform: uppercase; font-weight: 800; border-right: var(--bw) solid var(--text); }
+  [data-theme="brutalist"] .proj-tab:hover { background: var(--hover-soft); color: var(--text); }
+  [data-theme="brutalist"] .proj-tab.active { background: var(--patch); color: var(--ink); box-shadow: none; }
+
+  /* diagrams */
+  [data-theme="brutalist"] .arch-container { border: var(--bw) solid var(--text); }
+  [data-theme="brutalist"] :is(.diagram, .arch-dialog) svg text[font-family*="Mono"] { fill: oklch(0.15 0 0) !important; opacity: 1 !important; }
+  [data-theme="brutalist"] :is(.diagram, .arch-dialog) svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 2.5px; }
+  [data-theme="brutalist"] .arch-expand { border: var(--bw) solid var(--text); box-shadow: 3px 3px 0 var(--shadow); color: var(--text); font-weight: 800; }
+
+  /* navigation */
+  [data-theme="brutalist"] .nav { background: var(--bg); backdrop-filter: none; border-bottom: var(--bw) solid var(--text); padding: 10px 24px; }
+  [data-theme="brutalist"] .nav.scrolled { border-image: none; box-shadow: none; }
+  [data-theme="brutalist"] .nav-logo { background: var(--patch); color: var(--ink); border: var(--bw) solid var(--ink); box-shadow: 3px 3px 0 var(--shadow); width: 44px; height: 44px; font-weight: 900; }
+  [data-theme="brutalist"] .nav-logo::after { display: none; }
+  [data-theme="brutalist"] .nav-links a { text-transform: uppercase; font-weight: 800; color: var(--text); }
+  [data-theme="brutalist"] .nav-links a::after { display: none; }
+  [data-theme="brutalist"] .nav-links a:hover,
+  [data-theme="brutalist"] .nav-links a.active { background: var(--patch); color: var(--ink); }
+  [data-theme="brutalist"] .theme-toggle { border: var(--bw) solid var(--text); color: var(--text); }
+  [data-theme="brutalist"] #theme-pop { border: var(--bw) solid var(--text); box-shadow: 6px 6px 0 var(--shadow); top: 70px; }
+  [data-theme="brutalist"] footer { border-top: var(--bw) solid var(--text); color: var(--text); }
+
+  @media (max-width: 768px) {
+    [data-theme="brutalist"] section { padding: 60px 20px; }
+    [data-theme="brutalist"] section[data-section]:not(.hero) > .container::before { top: -44px; }
+    [data-theme="brutalist"] .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    [data-theme="brutalist"] .proj-tab { border-bottom: var(--bw) solid var(--text); }
+    [data-theme="brutalist"] .card,
+    [data-theme="brutalist"] .testimonial { box-shadow: 4px 4px 0 var(--shadow); }
+  }
+}
+
+@keyframes brut-wiggle { 25% { rotate: -3deg; } 75% { rotate: 3deg; } }

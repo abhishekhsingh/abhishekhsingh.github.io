@@ -1,0 +1,241 @@
+/* Bento: rounded tiles on a quiet background, Geist type, indigo accent. */
+@layer reset, tokens, base, layout, components, theme, utilities;
+
+@font-face {
+  font-family: "Bento Sans";
+  src: url("../../fonts/bento/geist-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bento Mono";
+  src: url("../../fonts/bento/geist-mono-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  [data-theme="bento"] {
+    --font-head: "Bento Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: var(--font-head);
+    --font-mono: "Bento Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius: 1.25rem;
+  }
+
+  [data-theme="bento"][data-mode="dark"] {
+    --bg: oklch(0.145 0.005 270);
+    --bg-2: oklch(0.145 0.005 270);
+    --surface: oklch(0.20 0.008 270);
+    --surface-2: oklch(0.24 0.01 270);
+    --surface-3: oklch(0.28 0.012 270);
+    --border: oklch(0.28 0.01 270);
+    --border-glow: oklch(0.40 0.03 275);
+    --text: oklch(0.96 0.005 270);
+    --text-dim: oklch(0.80 0.01 270);
+    --text-muted: oklch(0.72 0.012 270);
+    --accent: oklch(0.74 0.17 275);
+    --accent-2: oklch(0.76 0.14 230);
+    --accent-3: oklch(0.78 0.16 165);
+    --amber: oklch(0.84 0.14 80);
+    --red: oklch(0.74 0.17 20);
+    --purple: oklch(0.76 0.15 310);
+    --pink: oklch(0.78 0.15 350);
+    --teal: oklch(0.78 0.11 190);
+    --on-accent: oklch(0.15 0.02 275);
+    --glow: none;
+    --nav-bg: oklch(0.145 0.005 270 / 0.82);
+    --nav-bg-mobile: oklch(0.145 0.005 270 / 0.97);
+    --hover-soft: oklch(0.74 0.17 275 / 0.12);
+    --code-shadow: 0 8px 30px rgb(0 0 0 / .35);
+    --dg-fill-amber-1: oklch(0.22 0.02 275);
+    --dg-fill-amber-2: oklch(0.22 0.02 275);
+    --dg-fill-amber-3: oklch(0.34 0.07 275);
+    --dg-fill-amber-4: oklch(0.34 0.07 275);
+    --dg-fill-amber-5: oklch(0.90 0.06 275);
+    --dg-fill-amber-6: oklch(0.90 0.06 275);
+    --dg-fill-blue-1: oklch(0.34 0.07 275);
+    --dg-fill-blue-2: oklch(0.90 0.06 275);
+    --dg-fill-blue-3: oklch(0.90 0.06 275);
+    --dg-fill-blue-4: oklch(0.90 0.06 275);
+    --dg-fill-blue-5: oklch(0.90 0.06 275);
+    --dg-fill-cyan-1: oklch(0.34 0.07 275);
+    --dg-fill-cyan-2: oklch(0.90 0.06 275);
+    --dg-fill-cyan-3: oklch(0.90 0.06 275);
+    --dg-fill-green-1: oklch(0.22 0.02 275);
+    --dg-fill-green-2: oklch(0.34 0.07 275);
+    --dg-fill-green-3: oklch(0.90 0.06 275);
+    --dg-fill-green-4: oklch(0.90 0.06 275);
+    --dg-fill-pink-1: oklch(0.22 0.02 275);
+    --dg-fill-pink-2: oklch(0.34 0.07 275);
+    --dg-fill-pink-3: oklch(0.90 0.06 275);
+    --dg-fill-red-1: oklch(0.22 0.02 275);
+    --dg-fill-red-2: oklch(0.90 0.06 275);
+    --dg-fill-red-3: oklch(0.90 0.06 275);
+    --dg-fill-slate-1: oklch(0.22 0.02 275);
+    --dg-fill-slate-2: oklch(0.22 0.02 275);
+    --dg-fill-slate-3: oklch(0.22 0.02 275);
+    --dg-fill-slate-4: oklch(0.34 0.07 275);
+    --dg-fill-slate-5: oklch(0.90 0.06 275);
+    --dg-fill-violet-1: oklch(0.22 0.02 275);
+    --dg-fill-violet-2: oklch(0.22 0.02 275);
+    --dg-fill-violet-3: oklch(0.34 0.07 275);
+    --dg-fill-violet-4: oklch(0.90 0.06 275);
+    --dg-fill-violet-5: oklch(0.90 0.06 275);
+    --dg-line-slate-4: oklch(0.60 0.14 275);
+  }
+
+  [data-theme="bento"][data-mode="light"] {
+    --bg: oklch(0.975 0.003 260);
+    --bg-2: oklch(0.975 0.003 260);
+    --surface: oklch(1 0 0);
+    --surface-2: oklch(0.965 0.004 265);
+    --surface-3: oklch(0.93 0.006 265);
+    --border: oklch(0.91 0.006 270);
+    --border-glow: oklch(0.80 0.03 275);
+    --text: oklch(0.20 0.01 270);
+    --text-dim: oklch(0.38 0.014 270);
+    --text-muted: oklch(0.47 0.015 270);
+    --accent: oklch(0.50 0.22 275);
+    --accent-2: oklch(0.48 0.16 240);
+    --accent-3: oklch(0.46 0.13 165);
+    --amber: oklch(0.50 0.13 65);
+    --red: oklch(0.50 0.20 25);
+    --purple: oklch(0.46 0.20 305);
+    --pink: oklch(0.50 0.19 350);
+    --teal: oklch(0.45 0.09 190);
+    --on-accent: #fff;
+    --glow: none;
+    --nav-bg: oklch(0.975 0.003 260 / 0.82);
+    --nav-bg-mobile: oklch(0.975 0.003 260 / 0.97);
+    --hover-soft: oklch(0.50 0.22 275 / 0.08);
+    --code-shadow: 0 8px 30px rgb(20 20 60 / .10);
+    --dg-fill-amber-1: oklch(0.97 0.01 275);
+    --dg-fill-amber-2: oklch(0.97 0.01 275);
+    --dg-fill-amber-3: oklch(0.90 0.05 275);
+    --dg-fill-amber-4: oklch(0.90 0.05 275);
+    --dg-fill-amber-5: oklch(0.36 0.12 275);
+    --dg-fill-amber-6: oklch(0.36 0.12 275);
+    --dg-fill-blue-1: oklch(0.90 0.05 275);
+    --dg-fill-blue-2: oklch(0.36 0.12 275);
+    --dg-fill-blue-3: oklch(0.36 0.12 275);
+    --dg-fill-blue-4: oklch(0.36 0.12 275);
+    --dg-fill-blue-5: oklch(0.36 0.12 275);
+    --dg-fill-cyan-1: oklch(0.90 0.05 275);
+    --dg-fill-cyan-2: oklch(0.36 0.12 275);
+    --dg-fill-cyan-3: oklch(0.36 0.12 275);
+    --dg-fill-green-1: oklch(0.97 0.01 275);
+    --dg-fill-green-2: oklch(0.90 0.05 275);
+    --dg-fill-green-3: oklch(0.36 0.12 275);
+    --dg-fill-green-4: oklch(0.36 0.12 275);
+    --dg-fill-pink-1: oklch(0.97 0.01 275);
+    --dg-fill-pink-2: oklch(0.90 0.05 275);
+    --dg-fill-pink-3: oklch(0.36 0.12 275);
+    --dg-fill-red-1: oklch(0.97 0.01 275);
+    --dg-fill-red-2: oklch(0.36 0.12 275);
+    --dg-fill-red-3: oklch(0.36 0.12 275);
+    --dg-fill-slate-1: oklch(0.97 0.01 275);
+    --dg-fill-slate-2: oklch(0.97 0.01 275);
+    --dg-fill-slate-3: oklch(0.97 0.01 275);
+    --dg-fill-slate-4: oklch(0.90 0.05 275);
+    --dg-fill-slate-5: oklch(0.36 0.12 275);
+    --dg-fill-violet-1: oklch(0.97 0.01 275);
+    --dg-fill-violet-2: oklch(0.97 0.01 275);
+    --dg-fill-violet-3: oklch(0.90 0.05 275);
+    --dg-fill-violet-4: oklch(0.36 0.12 275);
+    --dg-fill-violet-5: oklch(0.36 0.12 275);
+    --dg-line-slate-4: oklch(0.55 0.15 275);
+  }
+
+  [data-theme="bento"] section { padding: 64px 32px; }
+  [data-theme="bento"] .section-alt { background: transparent; }
+  [data-theme="bento"] .section-label { letter-spacing: 2px; }
+  [data-theme="bento"] .section-title { font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -.03em; }
+  [data-theme="bento"] .hero { padding-top: 104px; }
+  [data-theme="bento"] .hero::before,
+  [data-theme="bento"] .hero::after { display: none; }
+
+  /* tiles */
+  [data-theme="bento"] .card,
+  [data-theme="bento"] .testimonial,
+  [data-theme="bento"] .contact-link,
+  [data-theme="bento"] .connector { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: none; position: relative; }
+  [data-theme="bento"] .card,
+  [data-theme="bento"] .testimonial { overflow: hidden; }
+  [data-theme="bento"] .skill-card { border-radius: 1rem; }
+  [data-theme="bento"] .project-card { padding: 32px; }
+  [data-theme="bento"] .card--flagship { background: linear-gradient(160deg, var(--surface-2), var(--surface)); border-color: var(--border-glow); }
+  [data-theme="bento"] .chip { border-radius: 999px; }
+  [data-theme="bento"] .card:hover { border-color: var(--border-glow); }
+
+  /* pointer spotlight */
+  [data-theme="bento"] .card::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0; transition: opacity .25s; background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), oklch(0.8 0.1 275 / .14), transparent 65%); }
+  [data-theme="bento"] .card:hover::before { opacity: 1; }
+
+  /* hero as a tile cluster */
+  [data-theme="bento"] .hero-content { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  [data-theme="bento"] .hero-content > * { margin: 0; }
+  [data-theme="bento"] .hero-tag { grid-column: 1 / -1; justify-self: start; }
+  [data-theme="bento"] .hero h1 { grid-column: 1 / 9; grid-row: 2; padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.04em; }
+  [data-theme="bento"] .hero p { grid-column: 1 / 9; grid-row: 3; max-width: none; padding: 24px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  [data-theme="bento"] .hero-stats { grid-column: 9 / -1; grid-row: 2 / 4; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  [data-theme="bento"] .hero-stat { display: flex; flex-direction: column; justify-content: center; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  [data-theme="bento"] .hero-stat:nth-child(1) { background: var(--accent); border-color: transparent; }
+  [data-theme="bento"] .hero-stat:nth-child(1) .num,
+  [data-theme="bento"] .hero-stat:nth-child(1) .label { color: var(--on-accent); }
+  [data-theme="bento"] .hero-cta { grid-column: 1 / -1; grid-row: 4; margin: 0; }
+  [data-theme="bento"] .btn { border-radius: 999px; }
+  [data-theme="bento"] .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: none; }
+
+  /* about as a bio tile and four small tiles */
+  [data-theme="bento"] #about .about-grid { grid-template-columns: 7fr 5fr; gap: 16px; }
+  [data-theme="bento"] #about .about-text { padding: 28px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  [data-theme="bento"] .about-highlights { grid-template-columns: 1fr 1fr; gap: 16px; }
+  [data-theme="bento"] .about-highlights .card { padding: 20px; }
+
+  /* journey tiles on a thin rail */
+  [data-theme="bento"] .timeline::before { width: 2px; background: var(--border); }
+  [data-theme="bento"] .role { padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; }
+  [data-theme="bento"] .role::before { left: -33px; top: 24px; border-color: var(--accent); }
+
+  /* systems tabs as a segmented control */
+  [data-theme="bento"] .proj-tabs { border-radius: 999px; background: var(--surface); border: 1px solid var(--border); }
+  [data-theme="bento"] .proj-tab { border-radius: 999px; }
+  [data-theme="bento"] .proj-tab.active { background: var(--accent); color: var(--on-accent); box-shadow: none; }
+
+  /* skills as compact tiles */
+  [data-theme="bento"] .skills-grid { gap: 12px; }
+  [data-theme="bento"] .skill-card { padding: 18px 12px; }
+
+  /* diagrams: soft nodes */
+  [data-theme="bento"] :is(.diagram, .arch-dialog) svg text[font-family*="Mono"] { fill: var(--text-dim) !important; opacity: 1 !important; }
+  [data-theme="bento"] :is(.diagram, .arch-dialog) svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 1.5px; }
+  [data-theme="bento"] :is(.diagram, .arch-dialog) svg rect { rx: 8px; ry: 8px; }
+
+  /* navigation as a floating bar */
+  [data-theme="bento"] .nav { top: 12px; left: 16px; right: 16px; border-radius: 999px; border: 1px solid var(--border); padding: 8px 12px 8px 14px; }
+  [data-theme="bento"] .nav.scrolled { border-image: none; box-shadow: var(--code-shadow); }
+  [data-theme="bento"] .nav-logo { border-radius: 50%; width: 38px; height: 38px; font-size: .85rem; box-shadow: none; }
+  [data-theme="bento"] .nav-links a::after { display: none; }
+  [data-theme="bento"] .nav-links a,
+  [data-theme="bento"] .nav-links a:hover { border-radius: 999px; }
+  [data-theme="bento"] #theme-pop { top: 72px; }
+  html[data-theme="bento"] { scroll-padding-top: 96px; }
+
+  @media (max-width: 900px) {
+    [data-theme="bento"] .hero h1,
+    [data-theme="bento"] .hero p,
+    [data-theme="bento"] .hero-stats { grid-column: 1 / -1; grid-row: auto; }
+    [data-theme="bento"] #about .about-grid { grid-template-columns: 1fr; }
+    [data-theme="bento"] .about-highlights { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    [data-theme="bento"] section { padding: 48px 20px; }
+    [data-theme="bento"] .nav { top: 8px; left: 8px; right: 8px; }
+    [data-theme="bento"] .project-card { padding: 22px; }
+    [data-theme="bento"] #about .about-text { padding: 20px; }
+    [data-theme="bento"] .hero h1 { padding: 22px; }
+    [data-theme="bento"] .hero p { padding: 18px 22px; }
+  }
+}
