@@ -682,7 +682,7 @@
           <text x="235" y="74" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="7">Data infrastructure · 6 core services</text>
 
           <!-- Application layer -->
-          <text x="35" y="96" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">APPLICATION LAYER</text>
+          <text x="35" y="96" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">APPLICATION LAYER</text>
           <rect x="30" y="102" width="130" height="40" rx="7" fill="var(--dg-fill-slate-1)" stroke="var(--dg-line-slate-4)" stroke-width=".8"/>
           <text x="95" y="120" text-anchor="middle" fill="var(--dg-fill-slate-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Analytics Data Store</text>
           <text x="95" y="132" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">91 modules · Spring</text>
@@ -696,7 +696,7 @@
           <text x="375" y="132" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Spring · Presto</text>
 
           <!-- Platform services layer -->
-          <text x="35" y="164" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">PLATFORM SERVICES</text>
+          <text x="35" y="164" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">PLATFORM SERVICES</text>
           <rect x="30" y="172" width="180" height="52" rx="9" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#g2)"/>
           <text x="120" y="194" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Data Highway</text>
           <text x="120" y="210" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">DAG Engine · Drill · 35 Connectors</text>
@@ -710,7 +710,7 @@
           <text x="395" y="210" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">SQS · Pub/Sub</text>
 
           <!-- Cross-cutting layer -->
-          <text x="35" y="248" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">CROSS-CUTTING (used by ALL services)</text>
+          <text x="35" y="248" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">CROSS-CUTTING (used by ALL services)</text>
           <rect x="30" y="256" width="210" height="36" rx="6" fill="var(--dg-fill-slate-1)" stroke="var(--dg-line-slate-4)" stroke-width="1"/>
           <text x="135" y="278" text-anchor="middle" fill="var(--dg-fill-slate-5)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Config Server</text>
 
@@ -718,12 +718,12 @@
           <text x="300" y="278" text-anchor="middle" fill="var(--dg-fill-red-3)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Audit</text>
 
           <!-- Shared foundation -->
-          <text x="35" y="314" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">SHARED SDK (JAR dependencies in every repo)</text>
+          <text x="35" y="314" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">SHARED SDK (JAR dependencies in every repo)</text>
           <rect x="30" y="320" width="415" height="34" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
           <text x="237" y="341" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Shared SDK: commons · async framework · audit client · config client · query builder · storage · data core</text>
 
           <!-- Other apps -->
-          <text x="35" y="378" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">ALSO CONTRIBUTED</text>
+          <text x="35" y="378" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">ALSO CONTRIBUTED</text>
           <rect x="30" y="384" width="88" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
           <text x="74" y="402" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-family="DM Sans">Data Exchange Hub</text>
           <rect x="126" y="384" width="88" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
@@ -736,14 +736,14 @@
           <!-- CS CONNECTION ARROWS -->
           <!-- UDM → Data Highway (submits DAGs) -->
           <line x1="210" y1="142" x2="150" y2="172" stroke="var(--accent-2)" stroke-width="1" opacity=".5"/>
-          <text x="195" y="154" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".7" transform="rotate(30,195,154)">DAGs</text>
+          <text x="195" y="154" fill="var(--dg-fill-blue-1)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".9" transform="rotate(30,195,154)">DAGs</text>
           <!-- UDM → Permissions (SDK) -->
           <line x1="235" y1="142" x2="270" y2="172" stroke="var(--amber)" stroke-width=".7" stroke-dasharray="3 2" opacity=".4"/>
           <!-- UDM → Data Store (callouts) -->
           <line x1="195" y1="142" x2="95" y2="142" stroke="var(--dg-line-slate-4)" stroke-width=".5" stroke-dasharray="2 3" opacity=".3"/>
           <!-- Bionic → Data Highway -->
           <line x1="350" y1="142" x2="180" y2="185" stroke="var(--dg-line-slate-4)" stroke-width=".6" stroke-dasharray="3 2" opacity=".3"/>
-          <text x="280" y="158" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".5">DAGs</text>
+          <text x="280" y="158" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5" opacity=".9">DAGs</text>
           <!-- Permissions SDK used broadly -->
           <line x1="280" y1="224" x2="235" y2="142" stroke="var(--amber)" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
           <line x1="280" y1="224" x2="375" y2="142" stroke="var(--amber)" stroke-width=".4" stroke-dasharray="2 3" opacity=".2"/>
@@ -814,11 +814,11 @@
           <circle r="2.5" fill="var(--accent-3)" opacity=".7"><animateMotion dur="2s" repeatCount="indefinite" path="M647,165 L647,145"/></circle>
 
           <!-- Footer stats -->
-          <text x="235" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".5">61B+ records/day · 14 TB processed · 600+ tenants</text>
-          <text x="647" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".5">25M+ indexed · 5 federated sources · 3 AI features</text>
+          <text x="235" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".9">61B+ records/day · 14 TB processed · 600+ tenants</text>
+          <text x="647" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".9">25M+ indexed · 5 federated sources · 3 AI features</text>
 
           <!-- Legend -->
-          <text x="35" y="475" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5" opacity=".4">━━ primary dependency   ╌╌ SDK/client usage   ● animated data flow</text>
+          <text x="35" y="475" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5" opacity=".9">━━ primary dependency   ╌╌ SDK/client usage   ● animated data flow</text>
         </svg>
       </div>
     </div>
@@ -1019,7 +1019,7 @@
           <circle r="2" fill="var(--accent-3)" opacity=".7"><animateMotion dur="2.5s" repeatCount="indefinite" path="M380,314 L380,328"/></circle>
 
           <!-- Footer -->
-          <text x="380" y="378" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">Multi-region deployment · permission-scoped tokens · per-tenant rate limiting · graceful degradation</text>
+          <text x="380" y="378" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">Multi-region deployment · permission-scoped tokens · per-tenant rate limiting · graceful degradation</text>
         </svg>
       </div>
       <div class="desc">Production MCP server powering AI assistant integrations for enterprise community platforms. Handles the full OAuth2.1 authorization lifecycle with PKCE and dynamic client registration. Routes tool invocations to multiple backend services covering search, analytics, administration, and education. Enforces tenant-scoped security at every layer with permission-scoped tokens and per-tenant rate limiting. Deployed across multiple regions with edge-based request routing.</div>
@@ -1225,7 +1225,7 @@
           <circle r="2.5" fill="var(--accent-3)" opacity=".8"><animateMotion dur="2s" repeatCount="indefinite" path="M550,37 L580,37"/></circle>
           <circle r="2" fill="var(--amber)" opacity=".7"><animateMotion dur="1.5s" repeatCount="indefinite" path="M190,37 L220,37"/></circle>
           <!-- Label -->
-          <text x="380" y="155" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".5">~25 pluggable task builders · Dual-warehouse abstraction · Template-driven DDL · Permissions injected at query time</text>
+          <text x="380" y="155" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".9">~25 pluggable task builders · Dual-warehouse abstraction · Template-driven DDL · Permissions injected at query time</text>
         </svg>
       </div>
       <div class="desc">Full-lifecycle analytics engine: onboarding, schema definition, ingestion from 10+ sources, transformation, and warehouse storage. Powers Gainsight dashboards with per-tenant dynamic DDL and dual-warehouse abstraction (PostgreSQL for small tenants, Redshift for high-volume).</div>
@@ -1248,9 +1248,9 @@
         <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="230" fill="var(--bg)" rx="6"/>
           <!-- Tier labels -->
-          <text x="8" y="35" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,35)">TIER 1</text>
-          <text x="8" y="105" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,105)">TIER 2</text>
-          <text x="8" y="175" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5" transform="rotate(-90,8,175)">TIER 3-4</text>
+          <text x="8" y="35" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9" transform="rotate(-90,8,35)">TIER 1</text>
+          <text x="8" y="105" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9" transform="rotate(-90,8,105)">TIER 2</text>
+          <text x="8" y="175" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9" transform="rotate(-90,8,175)">TIER 3-4</text>
           <!-- Receiver -->
           <rect x="30" y="15" width="160" height="45" rx="7" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1.5"/>
           <text x="110" y="34" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Receiver (×3)</text>
@@ -1259,7 +1259,7 @@
           <rect x="230" y="8" width="120" height="28" rx="5" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width="1"/>
           <text x="290" y="26" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="JetBrains Mono,monospace" font-size="7">SQS Primary</text>
           <rect x="230" y="40" width="120" height="28" rx="5" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width=".6" opacity=".5"/>
-          <text x="290" y="58" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".6">SQS Secondary (failover)</text>
+          <text x="290" y="58" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="JetBrains Mono,monospace" font-size="7" opacity=".9">SQS Secondary (failover)</text>
           <!-- Enricher -->
           <rect x="380" y="15" width="130" height="45" rx="7" fill="var(--dg-fill-pink-1)" stroke="var(--pink)" stroke-width="1"/>
           <text x="445" y="34" text-anchor="middle" fill="var(--dg-fill-pink-3)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Enricher Queue</text>
@@ -1514,7 +1514,7 @@
           <circle r="2" fill="var(--accent-3)" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M380,242 L380,262"/></circle>
 
           <!-- Footer -->
-          <text x="380" y="318" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".5">offline-first · no API keys · CI-native · official GitHub Action</text>
+          <text x="380" y="318" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">offline-first · no API keys · CI-native · official GitHub Action</text>
         </svg>
       </div>
       <div class="desc">A CLI tool that tests MCP servers the way pytest tests code. Four protocol suites (handshake, tools, resources, prompts) and a fifth offline security suite that scans for prompt injection, data exfiltration, cross-tool manipulation, suspicious encoding, and rug-pull tool changes. Plugs into any CI pipeline with JUnit XML output and a ready-made GitHub Action.</div>

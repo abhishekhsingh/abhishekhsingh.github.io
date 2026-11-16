@@ -187,9 +187,9 @@
   [data-theme="terminal"] .proj-tab.active { background: var(--accent); color: var(--bg); box-shadow: none; border-style: solid; border-color: var(--accent); }
 
   /* diagrams: monospace, one accent, thin lines */
-  [data-theme="terminal"] .diagram svg text[font-family*="Mono"] { fill: var(--text-dim) !important; opacity: 1 !important; }
-  [data-theme="terminal"] .diagram svg text { font-family: var(--font-mono); }
-  [data-theme="terminal"] .diagram svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 1px; }
+  [data-theme="terminal"] :is(.diagram, .arch-dialog) svg text[font-family*="Mono"] { fill: var(--text-dim) !important; opacity: 1 !important; }
+  [data-theme="terminal"] :is(.diagram, .arch-dialog) svg text { font-family: var(--font-mono); }
+  [data-theme="terminal"] :is(.diagram, .arch-dialog) svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 1px; }
 
   /* navigation becomes a status bar on wide screens */
   [data-theme="terminal"] .nav-logo { background: none; color: var(--accent); border: 1px solid var(--accent); box-shadow: none; }

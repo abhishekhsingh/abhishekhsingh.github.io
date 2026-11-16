@@ -209,9 +209,9 @@
   [data-theme="bento"] .skill-card { padding: 18px 12px; }
 
   /* diagrams: soft nodes */
-  [data-theme="bento"] .diagram svg text[font-family*="Mono"] { fill: var(--text-dim) !important; opacity: 1 !important; }
-  [data-theme="bento"] .diagram svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 1.5px; }
-  [data-theme="bento"] .diagram svg rect { rx: 8px; ry: 8px; }
+  [data-theme="bento"] :is(.diagram, .arch-dialog) svg text[font-family*="Mono"] { fill: var(--text-dim) !important; opacity: 1 !important; }
+  [data-theme="bento"] :is(.diagram, .arch-dialog) svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 1.5px; }
+  [data-theme="bento"] :is(.diagram, .arch-dialog) svg rect { rx: 8px; ry: 8px; }
 
   /* navigation as a floating bar */
   [data-theme="bento"] .nav { top: 12px; left: 16px; right: 16px; border-radius: 999px; border: 1px solid var(--border); padding: 8px 12px 8px 14px; }

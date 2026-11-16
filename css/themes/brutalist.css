@@ -216,8 +216,8 @@
 
   /* diagrams */
   [data-theme="brutalist"] .arch-container { border: var(--bw) solid var(--text); }
-  [data-theme="brutalist"] .diagram svg text[font-family*="Mono"] { fill: oklch(0.15 0 0) !important; opacity: 1 !important; }
-  [data-theme="brutalist"] .diagram svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 2.5px; }
+  [data-theme="brutalist"] :is(.diagram, .arch-dialog) svg text[font-family*="Mono"] { fill: oklch(0.15 0 0) !important; opacity: 1 !important; }
+  [data-theme="brutalist"] :is(.diagram, .arch-dialog) svg :where(rect, path, line, circle, polygon, ellipse) { stroke-width: 2.5px; }
   [data-theme="brutalist"] .arch-expand { border: var(--bw) solid var(--text); box-shadow: 3px 3px 0 var(--shadow); color: var(--text); font-weight: 800; }
 
   /* navigation */
