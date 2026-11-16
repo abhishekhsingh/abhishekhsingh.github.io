@@ -1,8 +1,9 @@
 const registry = {
-  midnight: { label: 'Midnight', css: null },
+  signal: { label: 'Signal', css: null },
+  brutalist: { label: 'Brutalist', css: 'css/themes/brutalist.css' },
   terminal: { label: 'Terminal', css: 'css/themes/terminal.css' },
   bento: { label: 'Bento', css: 'css/themes/bento.css' },
-  brutalist: { label: 'Brutalist', css: 'css/themes/brutalist.css' },
+  midnight: { label: 'Midnight', css: 'css/themes/midnight.css' },
 };
 const names = Object.keys(registry);
 const root = document.documentElement;
@@ -91,20 +92,3 @@ if (root.dataset.theme === 'terminal') {
   try { sessionStorage.setItem('portfolio-typed', '1'); } catch (e) {}
 }
 
-// Bento: pointer spotlight on tiles
-if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  let raf = 0, el = null, px = 0, py = 0;
-  addEventListener('pointermove', (e) => {
-    if (root.dataset.theme !== 'bento') return;
-    const card = e.target.closest('.card');
-    if (!card) return;
-    el = card; px = e.clientX; py = e.clientY;
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty('--x', (px - r.left) + 'px');
-      el.style.setProperty('--y', (py - r.top) + 'px');
-    });
-  }, { passive: true });
-}

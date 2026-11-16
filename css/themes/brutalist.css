@@ -65,6 +65,7 @@
   }
 
   [data-theme="brutalist"][data-mode="dark"] {
+    --on-accent: oklch(0.15 0 0);
     --bg: oklch(0.18 0.01 90);
     --bg-2: oklch(0.18 0.01 90);
     --surface: oklch(0.23 0.012 90);
@@ -92,6 +93,7 @@
   }
 
   [data-theme="brutalist"][data-mode="light"] {
+    --on-accent: #ffffff;
     --bg: oklch(0.97 0.03 95);
     --bg-2: oklch(0.97 0.03 95);
     --surface: oklch(1 0 0);
@@ -171,6 +173,14 @@
   [data-theme="brutalist"] .hero-stat:nth-child(-n+3) .label { color: var(--ink); }
   [data-theme="brutalist"] .hero-stat .num { font-weight: 900; }
   [data-theme="brutalist"] .hero-stat:hover { animation: brut-wiggle .35s ease-in-out; }
+
+  /* hero extras: estimate as a sticker strip, motion switch */
+  [data-theme="brutalist"] .hero-estimate { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 28px; padding: 12px 16px; background: var(--surface); border: var(--bw) solid var(--text); box-shadow: 5px 5px 0 var(--shadow); font-family: var(--font-mono); font-size: .78rem; color: var(--text-dim); max-width: 640px; }
+  [data-theme="brutalist"] .hero-estimate .est-label { text-transform: uppercase; font-weight: 700; color: var(--text); }
+  [data-theme="brutalist"] .hero-estimate .est-num { color: var(--ink); background: var(--patch); padding: 0 8px; font-weight: 700; font-size: 1.05rem; font-variant-numeric: tabular-nums; min-width: 9ch; }
+  [data-theme="brutalist"] .hero-estimate .est-pause { font: inherit; font-weight: 700; text-transform: uppercase; color: var(--text); background: var(--surface); border: 2px solid var(--text); padding: 1px 10px; cursor: pointer; }
+  [data-theme="brutalist"] .hero-estimate .est-note { flex-basis: 100%; font-size: .68rem; }
+  [data-theme="brutalist"] .fx-toggle { display: inline-flex; position: absolute; right: 24px; bottom: 18px; z-index: 5; font-family: var(--font-mono); font-size: .7rem; font-weight: 700; text-transform: uppercase; color: var(--text); background: var(--surface); border: 2px solid var(--text); padding: 4px 12px; cursor: pointer; }
 
   /* buttons press */
   [data-theme="brutalist"] .btn { background: var(--surface); color: var(--text); border: var(--bw) solid var(--text); box-shadow: 5px 5px 0 var(--shadow); text-transform: uppercase; font-weight: 800; letter-spacing: .5px; transition: transform .08s, box-shadow .08s; }

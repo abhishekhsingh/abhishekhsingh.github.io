@@ -1,0 +1,37 @@
+ ╦ ╦╔═╗╦  ╔═╗╦  ╦╔═╗╔╦╗
+ ╠═╣╠═╣║  ╠╣ ║  ║╚═╗ ║
+ ╩ ╩╩ ╩╩═╝╚  ╩═╝╩╚═╝ ╩
+ MCP Server Conformance · v1.1.1
+
+  ✓ Connected to sample-server v · 3 tools · 0 resources · 0 prompts discovered
+
+╭──────────────────────────────────── mcp-halflist v1.1.1 ─────────────────────────────────────╮
+│   Server:     sample-server v                                                                │
+│   Transport:  stdio                                                                          │
+│   Score:      90/100  ██████████████████░░  90%                                              │
+╰───────────────────────── Lint your MCP server before your users do. ─────────────────────────╯
+
+  ━━ HANDSHAKE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/6 ✗
+    ✓✓✓✗✓✓
+    ✗ Server info has name and version ···················· Missing or incomplete serverInfo
+
+  ━━ TOOLS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11/11 ✓
+    ✓✓✓✓✓✓✓✓✓✓✓
+
+  ━━ RESOURCES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/2 ⚠
+    ✓⚠
+    ⚠ At least 1 resource exists ·························· No resources found
+
+  ━━ PROMPTS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/2 ⚠
+    ✓⚠
+    ⚠ At least 1 prompt exists ···························· No prompts found
+
+  ━━ SECURITY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/5 ✓
+    ✓✓✓✓—
+    — Tool pin verification ······························· NOT REQUESTED
+
+  ────────────────────────────────────────────────────────
+  22 passed · 1 failed · 2 warnings · 0.1s
+╭───────────────────────────╮
+│   ✗  FAIL   Score: 90/100 │
+╰───────────────────────────╯

@@ -1,0 +1,21 @@
+ ╦ ╦╔═╗╦  ╔═╗╦  ╦╔═╗╔╦╗
+ ╠═╣╠═╣║  ╠╣ ║  ║╚═╗ ║
+ ╩ ╩╩ ╩╩═╝╚  ╩═╝╩╚═╝ ╩
+ MCP Server Conformance · v1.1.1
+
+  ✓ Connected to sample-server v · 3 tools discovered
+
+╭──────────────────────────────────── mcp-halflist v1.1.1 ─────────────────────────────────────╮
+│   Server:     sample-server v                                                                │
+│   Transport:  stdio                                                                          │
+│   Tools:      3 of 3 benchmarked · 20 iterations each · 60 total calls                       │
+╰───────────────────────── Lint your MCP server before your users do. ─────────────────────────╯
+
+  Tool                         p50         p95         p99         min         max
+  add                         <1ms        <1ms        <1ms        <1ms        <1ms    ● fast
+  echo                        <1ms        <1ms        <1ms        <1ms        <1ms    ● fast
+  utc_time                    <1ms        <1ms        <1ms        <1ms        <1ms    ● fast
+
+  ────────────────────────────────────────────────────────
+  3 benchmarked · 0.5s
+  Connection: 403ms · Discovery: 1ms

@@ -18,6 +18,7 @@
   }
 
   [data-theme="terminal"][data-mode="dark"] {
+    --on-accent: oklch(0.16 0.015 160);
     --bg: oklch(0.16 0.015 160);
     --bg-2: oklch(0.18 0.016 160);
     --surface: oklch(0.20 0.02 160);
@@ -80,6 +81,7 @@
   }
 
   [data-theme="terminal"][data-mode="light"] {
+    --on-accent: oklch(0.97 0.012 100);
     --bg: oklch(0.96 0.012 100);
     --bg-2: oklch(0.94 0.014 100);
     --surface: oklch(0.93 0.015 100);
@@ -202,6 +204,17 @@
     [data-theme="terminal"] #theme-pop { top: auto; bottom: 64px; }
     html[data-theme="terminal"] { scroll-padding-top: 16px; }
   }
+
+  /* hero extras: estimate as a shell line, motion switch */
+  [data-theme="terminal"] .hero-estimate { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 26px; font-size: .8rem; color: var(--text-muted); }
+  [data-theme="terminal"] .hero-estimate::before { content: "$"; color: var(--text-muted); }
+  [data-theme="terminal"] .hero-estimate .est-label { color: var(--text-dim); }
+  [data-theme="terminal"] .hero-estimate .est-num { color: var(--accent); font-size: 1rem; font-variant-numeric: tabular-nums; min-width: 9ch; }
+  [data-theme="terminal"] .hero-estimate .est-pause { font: inherit; color: var(--text-dim); background: none; border: 1px dashed var(--border); padding: 0 8px; cursor: pointer; }
+  [data-theme="terminal"] .hero-estimate .est-pause:hover { color: var(--accent); border-color: var(--accent); }
+  [data-theme="terminal"] .hero-estimate .est-note { flex-basis: 100%; font-size: .7rem; padding-left: 2ch; }
+  [data-theme="terminal"] .fx-toggle { display: inline-flex; position: absolute; right: 24px; bottom: 18px; z-index: 5; font: inherit; font-size: .7rem; color: var(--text-muted); background: none; border: 1px dashed var(--border); padding: 3px 10px; cursor: pointer; }
+  [data-theme="terminal"] .fx-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
   /* scanlines, dark mode only, static */
   [data-theme="terminal"][data-mode="dark"] body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 150; background: repeating-linear-gradient(0deg, transparent 0 2px, rgb(0 0 0 / .08) 2px 3px); }

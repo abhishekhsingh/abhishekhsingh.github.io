@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Inline the default theme's CSS into index.html.
 
-Source of truth is css/base.css and css/themes/midnight.css. Run this after
+Source of truth is css/base.css and css/themes/signal.css. Run this after
 editing either file. Use --check to verify index.html is up to date.
 """
 import re
@@ -9,13 +9,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FILES = ["css/base.css", "css/themes/midnight.css"]
+FILES = ["css/base.css", "css/themes/signal.css"]
 START, END = "<!-- css:start -->", "<!-- css:end -->"
 
 
 def squeeze(css):
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
-    css = re.sub(r"[ \t]+\n", "\n", css)
+    css = re.sub(r"(?m)^[ \t]+|[ \t]+$", "", css)
     return re.sub(r"\n{2,}", "\n", css).strip()
 
 
