@@ -1,7 +1,10 @@
-/* Midnight: the default theme. Token values for dark and light modes. */
-@layer tokens {
-  :root {
-    /* fonts and layout (theme-agnostic) */
+/* Midnight: the original look. Loaded on demand, with its own fonts. */
+@layer reset, tokens, base, layout, components, theme, utilities;
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@layer theme {
+  [data-theme="midnight"] {
+    /* fonts and layout */
     --font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
@@ -9,7 +12,7 @@
   }
 
   /* dark theme: the brand default; matches the site's prior look exactly */
-  :root, :root[data-mode="dark"] {
+  [data-theme="midnight"][data-mode="dark"] {
     --on-accent: #04080f;
     --bg: #04080f;
     --bg-2: #0a1019;
@@ -37,7 +40,7 @@
   }
 
   /* light theme: opt-in via toggle, persisted in localStorage */
-  :root[data-mode="light"] {
+  [data-theme="midnight"][data-mode="light"] {
     --on-accent: #ffffff;
     --bg: #f8fafc;
     --bg-2: #ffffff;
@@ -66,7 +69,7 @@
 
   /* diagram colors: dark values here, light overrides in the light block below.
      Fills and lines are separate tokens because light mode tints fills only. */
-  :root {
+  [data-theme="midnight"] {
     --dg-fill-amber-1: #1a1005;
     --dg-fill-amber-2: #1a1808;
     --dg-fill-amber-3: #aa7050;
@@ -103,7 +106,7 @@
     --dg-fill-violet-5: #c4b5fd;
     --dg-line-slate-4: #4d6080;
   }
-  :root[data-mode="light"] {
+  [data-theme="midnight"][data-mode="light"] {
     --dg-fill-amber-1: #fef3c7;
     --dg-fill-amber-2: #fef3c7;
     --dg-fill-amber-4: #fed7aa;
@@ -130,14 +133,12 @@
     --dg-fill-violet-3: #ddd6fe;
     --dg-fill-violet-5: #5b21b6;
   }
-}
 
-@layer theme {
   /* Small detail text inside diagram boxes uses JetBrains Mono. The same hex
      serves as both box background fill and detail text fill in dark mode, so
      attribute selectors can't disambiguate. Targeting via font-family hits only
      the small mono labels and forces high-contrast slate on any tinted bg. */
-  :root[data-theme="midnight"][data-mode="light"] .arch-container svg text[font-family*="Mono"] {
+   [data-theme="midnight"][data-mode="light"] .arch-container svg text[font-family*="Mono"] {
     fill: #1e293b !important;
     opacity: 1 !important;
     font-weight: 500 !important;

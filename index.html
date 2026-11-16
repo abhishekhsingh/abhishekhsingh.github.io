@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="signal" data-mode="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,21 +44,17 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <script>
 // Theme bootstrap: runs before body renders to prevent flash of wrong theme.
 // Always defaults to dark unless localStorage has 'light'. No system-pref detection.
 (function(){
   document.documentElement.classList.add('js');
-  var d = document.documentElement, t = 'midnight';
+  var d = document.documentElement, t = 'signal';
   try {
     var q = new URLSearchParams(location.search).get('theme');
-    t = q || localStorage.getItem('portfolio-style') || 'midnight';
+    t = q || localStorage.getItem('portfolio-style') || 'signal';
   } catch(e) {}
-  if (['midnight', 'signal', 'terminal', 'bento', 'brutalist'].indexOf(t) < 0) t = 'midnight';
+  if (['midnight', 'signal', 'terminal', 'bento', 'brutalist'].indexOf(t) < 0) t = 'signal';
   d.setAttribute('data-theme', t);
   try {
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -67,14 +63,14 @@
     }
   } catch(e) {}
   try { if (sessionStorage.getItem('portfolio-typed')) d.setAttribute('data-typed', ''); } catch(e) {}
-  if (t !== 'midnight') {
+  if (t !== 'signal') {
     var l = document.createElement('link');
     l.rel = 'stylesheet'; l.href = 'css/themes/' + t + '.css'; l.id = 'theme-css-' + t;
     l.setAttribute('blocking', 'render');
     var ready = function () { d.removeAttribute('data-theme-pending'); };
     d.setAttribute('data-theme-pending', '');
     l.onload = l.onerror = ready; setTimeout(ready, 1500);
-    var f = { signal: 'fonts/bento/geist-latin.woff2', terminal: 'fonts/terminal/jetbrains-mono-latin.woff2', bento: 'fonts/bento/geist-latin.woff2', brutalist: 'fonts/brutalist/archivo-latin.woff2' }[t];
+    var f = { terminal: 'fonts/terminal/jetbrains-mono-latin.woff2', bento: 'fonts/bento/geist-latin.woff2', brutalist: 'fonts/brutalist/archivo-latin.woff2' }[t];
     if (f) {
       var pl = document.createElement('link');
       pl.rel = 'preload'; pl.as = 'font'; pl.type = 'font/woff2'; pl.href = f; pl.crossOrigin = 'anonymous';
@@ -94,6 +90,9 @@
 <!-- css:start -->
 <style>
 @layer reset, tokens, base, layout, components, theme, utilities;
+@layer tokens {
+:root { --max-w: 1200px; }
+}
 @layer base {
 html.theme-transitioning, html.theme-transitioning *,
 html.theme-transitioning *::before, html.theme-transitioning *::after {
@@ -101,14 +100,15 @@ transition: background-color .3s ease, color .3s ease, border-color .3s ease, bo
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;animation:fadeIn .8s ease}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
 ::selection{background:var(--accent);color:var(--bg)}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px);background:var(--nav-bg);border-bottom:1px solid transparent;transition:all .3s}
 .nav.scrolled{border-image:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent) 1;box-shadow:var(--code-shadow)}
 .nav-logo{position:relative;overflow:hidden;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.5px;box-shadow:0 0 24px rgba(0,194,209,.28);text-decoration:none;transition:transform .25s,box-shadow .25s}
 .nav-links{display:flex;gap:8px}
 .nav-links a{color:var(--text-dim);text-decoration:none;font-size:.88rem;font-weight:600;transition:all .25s;font-family:var(--font-head);padding:8px 14px;border-radius:8px;position:relative}
+.nav-links a{white-space:nowrap}
+@media(max-width:1000px){.nav-links{gap:0}.nav-links a{padding:8px 10px}}
 .nav-links a:hover{color:var(--accent);background:var(--hover-soft)}
 .nav-links a::after{content:'';position:absolute;bottom:2px;left:50%;width:0;height:2px;background:var(--accent);transition:all .25s;transform:translateX(-50%);border-radius:2px}
 .nav-links a:hover::after{width:50%}
@@ -274,6 +274,11 @@ section{padding:60px 16px}
 .scale-item .scale-label{font-size:.7rem}
 .scale-track{gap:32px}
 }
+@media(max-width:340px){
+.nav{padding:10px 10px}
+.nav-right{gap:2px}
+.contact-link{max-width:100%;padding:12px 14px;gap:8px;font-size:.8rem;overflow-wrap:anywhere}
+}
 @media(max-width:480px){
 .hero h1{font-size:1.5rem}
 .hero-stats{gap:12px}
@@ -405,66 +410,93 @@ html.fx-paused .arch-container *{animation-play-state:paused!important}
 @layer components {
 .repo-stats{margin:0 0 18px;font-family:var(--font-mono);font-size:.74rem;color:var(--text-muted)}
 }
-@layer tokens {
-:root {
---font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
---font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
---font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
---max-w: 1200px;
+@layer reset, tokens, base, layout, components, theme, utilities;
+@font-face {
+font-family: "Signal Sans";
+src: url("/fonts/bento/geist-latin.woff2") format("woff2");
+font-weight: 400 700;
+font-style: normal;
+font-display: swap;
 }
-:root, :root[data-mode="dark"] {
---on-accent: #04080f;
---bg: #04080f;
---bg-2: #0a1019;
---surface: #0d1525;
---surface-2: #131f35;
---surface-3: #192845;
---border: #1e3050;
---border-glow: #2a4570;
---text: #e4eaf4;
---text-dim: #7a90b8;
---text-muted: #8396b8;
---accent: #00c2d1;
---accent-2: #4d8bff;
---accent-3: #00cc8e;
---amber: #ffb344;
---red: #ff5c6c;
---purple: #9d7aff;
---pink: #ff6baa;
---teal: #00b8a9;
---glow: 0 0 40px rgba(0,194,209,0.08);
---nav-bg: rgba(4,8,15,0.85);
---nav-bg-mobile: rgba(4,8,15,0.95);
---hover-soft: rgba(0,194,209,.06);
---code-shadow: 0 4px 30px rgba(0,0,0,.3);
+@font-face {
+font-family: "Signal Mono";
+src: url("/fonts/bento/geist-mono-latin.woff2") format("woff2");
+font-weight: 400 600;
+font-style: normal;
+font-display: swap;
 }
-:root[data-mode="light"] {
---on-accent: #ffffff;
---bg: #f8fafc;
---bg-2: #ffffff;
+@font-face {
+font-family: "Signal Serif";
+src: url("/fonts/signal/instrument-serif-italic-latin.woff2") format("woff2");
+font-weight: 400;
+font-style: italic;
+font-display: swap;
+}
+@layer theme {
+[data-theme="signal"] {
+--font-head: "Signal Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+--font-body: var(--font-head);
+--font-mono: "Signal Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+--font-serif: "Signal Serif", "Iowan Old Style", Georgia, serif;
+--max-w: 1180px;
+}
+[data-theme="signal"][data-mode="dark"] {
+--bg: #05070d;
+--bg-2: #070a12;
+--surface: #0b1020;
+--surface-2: #101830;
+--surface-3: #16203f;
+--border: #1a2440;
+--border-glow: #2c3d6b;
+--text: #e8edf5;
+--text-dim: #b4bed0;
+--text-muted: #8a94a8;
+--accent: #2dd4a7;
+--accent-2: #7aa2ff;
+--accent-3: #2dd4bf;
+--amber: #fbbf24;
+--red: #fb7185;
+--purple: #a78bfa;
+--pink: #f472b6;
+--teal: #2dd4bf;
+--on-accent: #04110d;
+--glow: none;
+--nav-bg: rgb(5 7 13 / .72);
+--nav-bg-mobile: rgb(5 7 13 / .97);
+--hover-soft: rgb(45 212 167 / .1);
+--code-shadow: 0 10px 40px rgb(0 0 0 / .45);
+--grid-line: rgb(138 148 168 / .075);
+--mesh: rgb(45 212 167 / .5);
+}
+[data-theme="signal"][data-mode="light"] {
+--bg: #f5f7fa;
+--bg-2: #eef2f7;
 --surface: #ffffff;
---surface-2: #f1f5f9;
---surface-3: #e2e8f0;
---border: #e2e8f0;
---border-glow: #cbd5e1;
---text: #0f172a;
---text-dim: #475569;
---text-muted: #546377;
---accent: #0b7a70;
---accent-2: #2563eb;
---accent-3: #047857;
---amber: #b45309;
---red: #c81e1e;
---purple: #7c3aed;
+--surface-2: #f1f4f9;
+--surface-3: #e6ebf3;
+--border: #dde3ee;
+--border-glow: #bcc8de;
+--text: #0b1220;
+--text-dim: #3b475c;
+--text-muted: #566178;
+--accent: #066b55;
+--accent-2: #2f55c8;
+--accent-3: #0f766e;
+--amber: #9a4408;
+--red: #be123c;
+--purple: #5b3fd8;
 --pink: #be185d;
 --teal: #0f766e;
---glow: 0 1px 3px rgba(15,23,42,0.08), 0 8px 24px rgba(15,23,42,0.06);
---nav-bg: rgba(255,255,255,0.85);
---nav-bg-mobile: rgba(255,255,255,0.95);
---hover-soft: rgba(13,148,136,.08);
---code-shadow: 0 4px 20px rgba(15,23,42,.08);
+--on-accent: #ffffff;
+--glow: none;
+--nav-bg: rgb(245 247 250 / .78);
+--nav-bg-mobile: rgb(245 247 250 / .98);
+--hover-soft: rgb(6 107 85 / .08);
+--code-shadow: 0 10px 40px rgb(20 30 60 / .12);
+--grid-line: rgb(11 18 32 / .06);
+--mesh: rgb(6 107 85 / .55);
 }
-:root {
+[data-theme="signal"] {
 --dg-fill-amber-1: #1a1005;
 --dg-fill-amber-2: #1a1808;
 --dg-fill-amber-3: #aa7050;
@@ -501,7 +533,7 @@ html.fx-paused .arch-container *{animation-play-state:paused!important}
 --dg-fill-violet-5: #c4b5fd;
 --dg-line-slate-4: #4d6080;
 }
-:root[data-mode="light"] {
+[data-theme="signal"][data-mode="light"] {
 --dg-fill-amber-1: #fef3c7;
 --dg-fill-amber-2: #fef3c7;
 --dg-fill-amber-4: #fed7aa;
@@ -528,12 +560,126 @@ html.fx-paused .arch-container *{animation-play-state:paused!important}
 --dg-fill-violet-3: #ddd6fe;
 --dg-fill-violet-5: #5b21b6;
 }
+[data-theme="signal"][data-mode="light"] .arch-container svg text[font-family*="Mono"] { fill: #1e293b !important; opacity: 1 !important; font-weight: 500 !important; }
+[data-theme="signal"] body { font-feature-settings: "ss01", "cv11"; }
+[data-theme="signal"] .section-alt { background: transparent; }
+[data-theme="signal"] .nav { border-bottom: 1px solid var(--border); }
+[data-theme="signal"] .nav.scrolled { border-image: none; box-shadow: none; background: var(--nav-bg); }
+[data-theme="signal"] .nav-logo { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--on-accent); box-shadow: 0 0 28px rgb(45 212 167 / .25); }
+[data-theme="signal"] .nav-links a { font-weight: 500; }
+[data-theme="signal"] .hero { min-height: min(100svh, 900px); padding: 112px 32px 56px; }
+[data-theme="signal"] .hero::before { inset: 0; width: auto; height: auto; top: 0; right: 0; background: linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 56px 56px, linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 56px 56px; -webkit-mask-image: radial-gradient(ellipse 85% 75% at 72% 35%, #000 0, transparent 78%); mask-image: radial-gradient(ellipse 85% 75% at 72% 35%, #000 0, transparent 78%); }
+[data-theme="signal"] .hero::after { display: none; }
+[data-theme="signal"] .hero-visual { display: block; position: absolute; inset: 0; z-index: 0; pointer-events: none; -webkit-mask-image: radial-gradient(ellipse 90% 85% at 76% 42%, #000 20%, transparent 80%); mask-image: radial-gradient(ellipse 90% 85% at 76% 42%, #000 20%, transparent 80%); }
+[data-theme="signal"] .hero-visual::before { content: ""; position: absolute; inset: 0; background: var(--mesh); opacity: .55; -webkit-mask: url("/assets/signal/mesh.svg") right center / cover no-repeat; mask: url("/assets/signal/mesh.svg") right center / cover no-repeat; transition: opacity .9s ease; }
+[data-theme="signal"] .hero-visual.is-live::before { opacity: 0; }
+[data-theme="signal"] .hero-gl { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.4s ease; }
+[data-theme="signal"] .hero-gl.is-on { opacity: 1; }
+[data-theme="signal"] .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .9s ease; }
+[data-theme="signal"] .hero-visual.is-live .hero-canvas { opacity: 1; }
+[data-theme="signal"] .hero-content { z-index: 2; }
+[data-theme="signal"] .hero-tag { background: rgb(11 16 32 / .6); border-color: var(--border-glow); color: var(--text-dim); backdrop-filter: blur(8px); }
+[data-theme="signal"][data-mode="light"] .hero-tag { background: rgb(255 255 255 / .7); }
+[data-theme="signal"] .hero-tag .dot { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+[data-theme="signal"] .hero h1 { font-size: clamp(2.6rem, 5.3vw, 4.7rem); line-height: .98; letter-spacing: -.045em; font-weight: 600; max-width: 14ch; margin-bottom: 24px; text-wrap: balance; }
+[data-theme="signal"] .hero h1 .hero-name { display: flex; align-items: center; gap: 14px; font-size: .74rem; font-weight: 500; letter-spacing: .2em; margin-bottom: 22px; color: var(--accent); }
+[data-theme="signal"] .hero h1 .hero-name::before { content: ""; width: 34px; height: 1px; background: var(--accent); }
+[data-theme="signal"] .hero h1 .gradient { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.1em; letter-spacing: -.02em; color: var(--accent); background: none; -webkit-text-fill-color: currentColor; }
+[data-theme="signal"] .hero p { max-width: 50ch; font-size: 1.1rem; color: var(--text-dim); margin-bottom: 30px; }
+[data-theme="signal"] .btn { border-radius: 10px; background: transparent; border-color: var(--border-glow); color: var(--text); }
+[data-theme="signal"] .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 4px rgb(45 212 167 / .12); }
+[data-theme="signal"] .btn-primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); box-shadow: 0 8px 28px rgb(45 212 167 / .25); }
+[data-theme="signal"][data-mode="light"] .btn-primary { box-shadow: 0 8px 24px rgb(6 107 85 / .22); }
+[data-theme="signal"] .hero-cta { margin-bottom: 0; }
+[data-theme="signal"] .hero-content { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; align-items: center; }
+[data-theme="signal"] .hero-content > .hero-tag,
+[data-theme="signal"] .hero-content > h1,
+[data-theme="signal"] .hero-content > p,
+[data-theme="signal"] .hero-content > .hero-cta { grid-column: 1; }
+[data-theme="signal"] .hero-content > .hero-tag { justify-self: start; }
+[data-theme="signal"] .hero-content > .hero-stats { grid-column: 2; grid-row: 1 / span 3; align-self: end; }
+[data-theme="signal"] .hero-content > .hero-estimate { grid-column: 2; grid-row: 4; align-self: start; }
+[data-theme="signal"] .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 0; padding: 0; border: 1px solid var(--border-glow); border-radius: 18px; background: rgb(11 16 32 / .5); backdrop-filter: blur(10px); overflow: hidden; }
+[data-theme="signal"][data-mode="light"] .hero-stats { background: rgb(255 255 255 / .6); }
+[data-theme="signal"] .hero-stat { padding: 26px 28px 24px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 0; }
+[data-theme="signal"] .hero-stat:nth-child(2n) { border-right: 0; }
+[data-theme="signal"] .hero-stat:nth-child(n+3) { border-bottom: 0; }
+[data-theme="signal"] .hero-stat .num { font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 500; letter-spacing: -.045em; line-height: 1; font-variant-numeric: tabular-nums; color: var(--text); }
+[data-theme="signal"] .hero-stat .num .c-sfx { color: var(--accent); }
+[data-theme="signal"] .hero-stat .label { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; margin-top: 12px; color: var(--text-muted); }
+[data-theme="signal"] body { counter-reset: sec; }
+[data-theme="signal"] section { padding: 112px 32px; }
+[data-theme="signal"] section[data-section] { position: relative; }
+[data-theme="signal"] section[data-section]:not(.hero) { counter-increment: sec; }
+[data-theme="signal"] .section-label { font-size: .7rem; letter-spacing: .22em; color: var(--accent); }
+[data-theme="signal"] .section-label::before { content: counter(sec, decimal-leading-zero) " / "; color: var(--text-muted); }
+[data-theme="signal"] .section-title { font-size: clamp(2rem, 4.4vw, 3.5rem); font-weight: 600; letter-spacing: -.045em; line-height: 1; text-wrap: balance; }
+[data-theme="signal"] .section-sub { font-size: 1.05rem; }
+[data-theme="signal"] .card,
+[data-theme="signal"] .testimonial,
+[data-theme="signal"] .contact-link,
+[data-theme="signal"] .connector { position: relative; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 1px solid var(--border); border-radius: 16px; box-shadow: inset 0 1px 0 rgb(255 255 255 / .04); }
+[data-theme="signal"][data-mode="light"] .card,
+[data-theme="signal"][data-mode="light"] .testimonial,
+[data-theme="signal"][data-mode="light"] .contact-link,
+[data-theme="signal"][data-mode="light"] .connector { background: var(--surface); box-shadow: 0 1px 2px rgb(20 30 60 / .05); }
+[data-theme="signal"] .skill-card { border-radius: 12px; }
+[data-theme="signal"] .card--flagship { background: linear-gradient(160deg, var(--surface-3), var(--surface)); border-color: var(--border-glow); }
+[data-theme="signal"] .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none; opacity: 0; transition: opacity .25s; background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), var(--accent), transparent 62%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+[data-theme="signal"] .card:hover::before { opacity: .9; }
+[data-theme="signal"] .chip { border-radius: 999px; }
+[data-theme="signal"] .proj-tabs { border-radius: 14px; }
+[data-theme="signal"] .proj-tab { border-radius: 10px; }
+[data-theme="signal"] .proj-tab.active { background: var(--accent); color: var(--on-accent); box-shadow: 0 6px 20px rgb(45 212 167 / .22); }
+[data-theme="signal"] .timeline::before { width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border-glow) 40%, transparent); }
+[data-theme="signal"] .role::before { border-color: var(--accent); box-shadow: 0 0 0 4px var(--bg), 0 0 14px rgb(45 212 167 / .5); }
+[data-theme="signal"] .proj-panel { position: relative; isolation: isolate; }
+[data-theme="signal"] .proj-panel > * { position: relative; z-index: 1; }
+[data-theme="signal"] .proj-panel::before { content: ""; position: absolute; top: -6px; right: -6px; width: min(74%, 840px); aspect-ratio: 2 / 1; z-index: 0; pointer-events: none; background: var(--accent); opacity: .17; -webkit-mask: var(--art) right top / contain no-repeat, linear-gradient(to bottom, #000 25%, transparent 92%); -webkit-mask-composite: source-in; mask: var(--art) right top / contain no-repeat, linear-gradient(to bottom, #000 25%, transparent 92%); mask-composite: intersect; }
+[data-theme="signal"][data-mode="light"] .proj-panel::before { opacity: .2; }
+[data-theme="signal"] #tab-data-highway,
+[data-theme="signal"] #tab-mcp-server { --art: url("/assets/signal/art/map.svg"); }
+[data-theme="signal"] #tab-search-ai { --art: url("/assets/signal/art/cloud.svg"); }
+[data-theme="signal"] #tab-events,
+[data-theme="signal"] #tab-udm,
+[data-theme="signal"] #tab-infra { --art: url("/assets/signal/art/flow.svg"); }
+[data-theme="signal"] #tab-permissions { --art: url("/assets/signal/mesh.svg"); }
+[data-theme="signal"] .scale-bar { background: transparent; border-color: var(--border); }
+[data-theme="signal"] .scale-bar::before { background: linear-gradient(90deg, var(--bg), transparent); }
+[data-theme="signal"] .scale-bar::after { background: linear-gradient(90deg, transparent, var(--bg)); }
+[data-theme="signal"] .scale-num { font-family: var(--font-mono); font-weight: 500; background: none; -webkit-text-fill-color: currentColor; color: var(--accent); font-variant-numeric: tabular-nums; }
+[data-theme="signal"] .scale-label { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+[data-theme="signal"] section[data-section]:not(.hero)::before { content: ""; position: absolute; top: -3px; left: 0; right: 0; height: 7px; pointer-events: none; background: radial-gradient(closest-side, var(--accent), transparent) -90px 50% / 90px 7px no-repeat, linear-gradient(transparent 3px, var(--border-glow) 3px 4px, transparent 4px) 0 0 / 100% 7px no-repeat; -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+[data-theme="signal"] .hero-estimate { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-top: 18px; font-family: var(--font-mono); font-size: .76rem; color: var(--text-muted); }
+[data-theme="signal"] .hero-estimate .est-label { letter-spacing: .12em; text-transform: uppercase; }
+[data-theme="signal"] .hero-estimate .est-num { color: var(--accent); font-size: 1.05rem; font-weight: 500; font-variant-numeric: tabular-nums; min-width: 9ch; }
+[data-theme="signal"] .hero-estimate .est-text { color: var(--text-dim); }
+[data-theme="signal"] .hero-estimate .est-pause { font: inherit; color: var(--text-dim); background: transparent; border: 1px solid var(--border-glow); border-radius: 6px; padding: 2px 10px; cursor: pointer; }
+[data-theme="signal"] .hero-estimate .est-pause:hover { color: var(--accent); border-color: var(--accent); }
+[data-theme="signal"] .hero-estimate .est-note { flex-basis: 100%; font-size: .68rem; opacity: .9; }
+[data-theme="signal"] .fx-toggle { display: inline-flex; position: absolute; right: 24px; bottom: 18px; z-index: 5; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); background: transparent; border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+[data-theme="signal"] .fx-toggle:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 980px) {
+[data-theme="signal"] .hero-content { display: block; }
+[data-theme="signal"] .hero-stats { margin-top: 40px; }
+[data-theme="signal"] .hero-estimate { margin-top: 18px; }
 }
+@media (max-width: 768px) {
+[data-theme="signal"] .hero { padding: 104px 20px 56px; }
+[data-theme="signal"] section { padding: 72px 20px; }
+[data-theme="signal"] .hero h1 { max-width: none; }
+}
+}
+@supports (animation-timeline: view()) {
+@media (prefers-reduced-motion: no-preference) {
+@keyframes sig-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes sig-packet { from { background-position: -90px 50%, 0 0; } to { background-position: calc(100vw + 90px) 50%, 0 0; } }
+@keyframes sig-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @layer theme {
-:root[data-theme="midnight"][data-mode="light"] .arch-container svg text[font-family*="Mono"] {
-fill: #1e293b !important;
-opacity: 1 !important;
-font-weight: 500 !important;
+[data-theme="signal"] .reveal { transition: none; animation: sig-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 42%; }
+[data-theme="signal"] section[data-section]:not(.hero)::before { animation: sig-packet linear both; animation-timeline: view(); animation-range: entry 0% cover 55%; }
+html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 300; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform-origin: 0 50%; transform: scaleX(0); animation: sig-progress linear both; animation-timeline: scroll(root); pointer-events: none; }
+}
 }
 }
 </style>
@@ -571,11 +717,11 @@ font-weight: 500 !important;
 <div id="theme-pop" popover>
   <fieldset>
     <legend>Theme</legend>
-    <label><input type="radio" name="theme" value="midnight"><span class="swatch swatch--midnight"></span>Midnight</label>
     <label><input type="radio" name="theme" value="signal"><span class="swatch swatch--signal"></span>Signal</label>
+    <label><input type="radio" name="theme" value="brutalist"><span class="swatch swatch--brutalist"></span>Brutalist</label>
     <label><input type="radio" name="theme" value="terminal"><span class="swatch swatch--terminal"></span>Terminal</label>
     <label><input type="radio" name="theme" value="bento"><span class="swatch swatch--bento"></span>Bento</label>
-    <label><input type="radio" name="theme" value="brutalist"><span class="swatch swatch--brutalist"></span>Brutalist</label>
+    <label><input type="radio" name="theme" value="midnight"><span class="swatch swatch--midnight"></span>Midnight</label>
   </fieldset>
 </div>
 <p id="theme-status" role="status" class="visually-hidden"></p>
@@ -988,7 +1134,7 @@ font-weight: 500 !important;
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Customer Communities needed AI features (auto-replies, answer summaries, search summaries) without depending on one model provider, and one search experience across several content sources.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>25M+ records from 5 federated sources, and three AI features in production.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>A provider-agnostic orchestration layer: a factory picks a primary and fallback model chain, with one adapter per provider to handle payload differences.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More adapter code to maintain, in exchange for retries across providers (even on client errors) so a single provider outage does not take a feature down.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Search stays up during a full reindex (bulk index into a temporary index, then an atomic rename). Tag expression consolidation cut Algolia API calls by 90%+.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Communities needed AI features such as suggested replies and summaries without being tied to one model vendor, plus a single search experience across several content sources.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Tens of millions of records across multiple content sources, with three AI features in production.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Keep the AI layer provider-agnostic: every feature talks to a common interface, with a fallback model ready if the primary has trouble.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>A little more integration work for each provider, in exchange for resilience to any single vendor outage or change.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Features keep working through provider hiccups, and search stays available while content is re-indexed. Smarter query handling also cut search API usage substantially.</p></div></div>
       </div>
     </div>
 
@@ -1103,7 +1249,7 @@ font-weight: 500 !important;
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>AI assistants needed a safe, standard way to query community knowledge for enterprise customers.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Dozens of tools behind one MCP interface, deployed across multiple regions, and listed on major AI assistant connector registries.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Put access control in the token: permission-scoped search tokens instead of filtering results afterwards, with OAuth2.1 PKCE and dynamic client registration.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Tokens are issued per permission scope, which adds moving parts at the auth layer, in exchange for never fetching data a user may not see.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>One interface for Claude, ChatGPT, Cursor and custom clients, with per-tenant rate limiting and graceful degradation when a backend fails.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>AI assistants needed a safe, standard way to query community knowledge for enterprise customers.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>A large set of tools behind one standard interface, available across regions.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Treat security as a design input from the start: access rules apply at every layer instead of being added at the end.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More up-front design and testing for each tool, in exchange for customer-safe results by default.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>One interface that the major AI assistants can connect to, with fair-use controls and graceful behaviour when a dependency is slow or unavailable.</p></div></div>
       </div>
     </div>
 
@@ -1177,7 +1323,7 @@ font-weight: 500 !important;
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Enterprise customers keep their data in many systems. Each tenant needs it ingested, transformed and loaded into analytics stores reliably.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>61B+ records a day across 600+ enterprise tenants, with 35+ connectors.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>A DAG of tasks coordinated by Zookeeper leader election, with separate worker types: Java DAG workers, isolated connector workers, Python workers for ML, and an Apache Drill SQL engine.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Connectors run as isolated JARs, which is more to deploy, so that one connector failing cannot take the others down.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>98.7% job success at that volume. 60+ custom Drill UDFs handle tenant-specific transformations, and failure-injection tasks (OOM, disk exhaustion, FD leak) act as production resilience probes.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Enterprise customers keep their data in many different systems. Each one needs it brought together, transformed and loaded reliably.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Billions of records a day across hundreds of enterprise customers, with dozens of source connectors.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Model the work as a graph of tasks run by a pool of specialised workers, coordinated centrally so scheduling stays safe at scale.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Keeping connectors isolated from each other means more to package and deploy, in exchange for stopping one source’s problems from spreading.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>High job success at that volume, flexible per-customer transformations, and regular resilience drills so failure handling is tested before it is needed.</p></div></div>
       </div>
       <div class="divider-top">
         <div class="eyebrow eyebrow--spaced">35+ Enterprise Connectors</div>
@@ -1255,7 +1401,7 @@ font-weight: 500 !important;
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Every service on the platform needed one consistent answer to: can this user do this to that resource?</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Consumed by 7+ services: analytics, query federation, reporting, API gateway, data store, catalog and the cross-product bridge.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Store permissions as a graph, with resources, policies, groups and manager chains as edges, so a single traversal answers an access check in milliseconds.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Cached answers must be invalidated when sharing changes. Targeted Redis invalidation clears only the affected members and resources, not the whole cache.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Row-level enforcement at SQL build time, so restricted data never leaves the database.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Every service on the platform needed one consistent answer to the question: can this person do this?</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Used by many services across the platform.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Model permissions as relationships instead of flat rules, so an access question can be answered quickly with a single lookup.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Answers are cached for speed, so a change to sharing must refresh only what it actually affects.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Fast, consistent access decisions, and sensitive data filtered at the data layer before it is returned.</p></div></div>
       </div>
     </div>
 
@@ -1321,7 +1467,7 @@ font-weight: 500 !important;
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Dashboards needed per-tenant analytics across many data sources, for tenants from small to very high volume.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Ingestion from 10+ sources, about 25 pluggable task builders and two warehouses.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>A dual-warehouse abstraction: PostgreSQL for small tenants and Redshift for high-volume OLAP, switched transparently, with per-tenant dynamic DDL.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Two warehouses to operate and keep consistent, in exchange for the right cost and speed for each tenant.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Adding a data source is a single builder class. Permissions are injected at query-build time, and per-tenant credentials stay isolated.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Dashboards needed per-customer analytics across many data sources, for customers from small to very large.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Many data sources feeding per-customer analytics, with a pluggable way to add more.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Right-size storage for each customer: smaller and very large customers use different storage engines behind one interface.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Two storage paths to maintain, in exchange for the right cost and speed for each customer.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Adding a data source is a small, contained change, with access rules applied when queries are built and each customer’s data kept separate.</p></div></div>
       </div>
     </div>
 
@@ -1396,7 +1542,7 @@ font-weight: 500 !important;
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Platform services needed to publish an event once and have many subscribers receive it reliably, even when queues or workers fail.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Four tiers (Receiver, Router, Relayer, Broadcaster), each scaled independently.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Purpose-matched runtimes per tier, durable queues, cross-region queue failover, and a dedicated recovery process for orphaned deliveries.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More moving parts than a single dispatcher, in exchange for isolating failures to one stage.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Automatic switch to secondary queues on publish errors, self-healing delivery after worker crashes, and blocked-tenant handling so one noisy tenant cannot starve the rest.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Platform services needed to publish an event once and have many subscribers receive it reliably, even when parts of the system fail.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>A staged pipeline in which each stage scales independently.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Split delivery into small stages with the right tool for each, and make every stage safe to retry.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More moving parts than a single dispatcher, in exchange for keeping a failure contained to one stage.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Reliable delivery that recovers on its own after failures, and one busy customer cannot slow the rest down.</p></div></div>
       </div>
     </div>
 

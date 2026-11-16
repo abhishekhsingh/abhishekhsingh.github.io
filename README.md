@@ -12,7 +12,7 @@ Five themes (Midnight, Signal, Terminal, Bento, Brutalist), each in dark and lig
 
 ## Editing styles
 
-The CSS source is in `css/`. The default theme is inlined into `index.html`, so after editing `css/base.css` or `css/themes/midnight.css` run `python3 scripts/build.py`.
+The CSS source is in `css/`. The default theme is inlined into `index.html`, so after editing `css/base.css` or `css/themes/signal.css` run `python3 scripts/build.py`.
 
 ## Other pieces
 

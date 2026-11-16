@@ -1,9 +1,9 @@
 const registry = {
-  midnight: { label: 'Midnight', css: null },
-  signal: { label: 'Signal', css: 'css/themes/signal.css' },
+  signal: { label: 'Signal', css: null },
+  brutalist: { label: 'Brutalist', css: 'css/themes/brutalist.css' },
   terminal: { label: 'Terminal', css: 'css/themes/terminal.css' },
   bento: { label: 'Bento', css: 'css/themes/bento.css' },
-  brutalist: { label: 'Brutalist', css: 'css/themes/brutalist.css' },
+  midnight: { label: 'Midnight', css: 'css/themes/midnight.css' },
 };
 const names = Object.keys(registry);
 const root = document.documentElement;

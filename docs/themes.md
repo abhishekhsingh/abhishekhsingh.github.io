@@ -4,11 +4,11 @@ The site has five themes. Each one changes the look and the layout. The content,
 
 | Theme | Idea | Fonts |
 |---|---|---|
-| Midnight | The original look, cleaned up. Default. | Sora, DM Sans, JetBrains Mono (Google Fonts) |
-| Signal | Mission control: a live service-mesh hero, huge numerals, one mint accent. | Geist, Geist Mono, Instrument Serif italic |
+| Signal | Default. Mission control: a live service-mesh hero, huge numerals, one mint accent. | Geist, Geist Mono, Instrument Serif italic |
+| Brutalist | Thick borders, hard shadows, loud patches. | Archivo, JetBrains Mono |
 | Terminal | Shell output: prompts, windows, a status bar. | JetBrains Mono |
 | Bento | Rounded tiles on a quiet background. | Geist, Geist Mono |
-| Brutalist | Thick borders, hard shadows, loud patches. | Archivo, JetBrains Mono |
+| Midnight | The original look, cleaned up. | Sora, DM Sans, JetBrains Mono (Google Fonts) |
 
 Each theme works in dark and light mode, so there are 10 combinations. Screenshots: `docs/screenshots/themes-dark.jpg` and `docs/screenshots/themes-light.jpg`.
 
@@ -27,14 +27,14 @@ A script in the `<head>` sets both before first paint, so there is no flash of t
 - `css/themes/midnight.css`: Midnight's token values for both modes, plus the diagram color tokens.
 - `css/themes/<name>.css`: one file per other theme. Everything sits in `@layer theme` and is scoped under `[data-theme="<name>"]`, so a loaded but inactive theme does nothing.
 
-Only `js/theme.js` and `js/fx.js` load with the page. The trace, demo, stats and palette code load when the browser is idle. Midnight and the base are **inlined** into `index.html` so the default page paints as fast as before. Edit the two CSS files, then run:
+Only `js/theme.js` and `js/fx.js` load with the page. The trace, demo, stats and palette code load when the browser is idle. Signal (the default) and the base are **inlined** into `index.html` so the default page paints without waiting for a stylesheet. Edit the two CSS files, then run:
 
 ```
 python3 scripts/build.py          # inline the CSS into index.html
 python3 scripts/build.py --check  # fail if index.html is out of date
 ```
 
-Other themes are plain stylesheets, loaded on demand when someone picks them. For a returning visitor whose saved theme is not Midnight, the head script adds the stylesheet with `blocking="render"` and preloads that theme's font. A fallback hides the page until the stylesheet loads, or for 1.5 seconds at most.
+Other themes are plain stylesheets, loaded on demand when someone picks them. For a returning visitor whose saved theme is not Signal, the head script adds the stylesheet with `blocking="render"`. A fallback hides the page until the stylesheet loads, or for 1.5 seconds at most.
 
 ### JavaScript
 
@@ -89,21 +89,22 @@ Diagram colors use `--dg-fill-<family>-<n>` and `--dg-line-<family>-<n>`. Fills 
 1. Copy the closest file in `css/themes/` and rename it. Keep the `@layer` order line at the top, because the file can load before the base.
 2. Define tokens for both `[data-mode="dark"]` and `[data-mode="light"]`, including all diagram tokens.
 3. Put fonts in `fonts/<name>/` (OFL only, Latin subset, under 50 KB each) with the license text, and declare them with `@font-face` inside the theme file.
-4. Register the theme in three places: the `registry` in `js/theme.js`, the allowed list and font preload map in the head script of `index.html`, and a radio plus a `.swatch--<name>` rule for the switcher. To show the hero graph, also add the theme to the lists in `js/fx.js` and `css/base.css`.
+4. Register the theme in three places: the `registry` in `js/theme.js`, the allowed list in the head script of `index.html`, and a radio plus a `.swatch--<name>` rule for the switcher. To show the hero graph, also add the theme to the lists in `js/fx.js` and `css/base.css`.
 5. Run the checks below in both modes.
 
 ## Measured on 16 Nov 2026
 
-Mobile numbers use 4x CPU slowdown and 1.6 Mbps with 150 ms round trip, cold cache, from a local server without compression.
+Mobile numbers use 4x CPU slowdown and 1.6 Mbps with 150 ms round trip, cold cache, from a local server with gzip (as GitHub Pages serves it). Median of 3 runs.
 
-| Theme | Theme CSS (gzip) | Font files | First paint, mobile | Largest paint, mobile |
-|---|---|---|---|---|
-| Midnight | inlined | none extra | 360 ms | 376 ms |
-| Terminal | 2.5 KB | 31 KB | 756 ms | 820 ms |
-| Bento | 2.6 KB | 29 KB + 23 KB | 776 ms | 776 ms |
-| Brutalist | 2.9 KB | 35 KB + 31 KB (shared) | 772 ms | 840 ms |
+| Page | First paint | Largest paint | Transferred |
+|---|---|---|---|
+| Previous site (Midnight, `main`) | 264 ms | 404 ms | 132 KB |
+| Default (Signal) | 252 ms | 252 ms | 137 KB |
+| Midnight chosen on a visit (loads its CSS and Google Fonts on demand) | 804 ms | 804 ms | 151 KB |
 
-Before the theme work the default page painted at 344 ms. Layout shift is under 0.01 and total blocking time is 0 in every theme.
+Layout shift is under 0.01 and total blocking time is 0 for the default page. Terminal, Bento and Brutalist were not re-measured after the Signal default change.
+
+Two things held back the first paint and were removed: font preloads that competed with the HTML for bandwidth, and a 0.8 s fade-in on `<body>`. Without them the default page paints about 330 ms sooner in the same test. `content-visibility` on the diagrams was tried and dropped: it saved nothing once those two were gone and made jumps to lower sections land off target.
 
 Checks that pass for all 8 combinations: axe-core with no violations at 375 and 1440 px, no horizontal overflow at 320, 375, 768 and 1440 px, no looping animation under reduced motion, a visible keyboard focus ring, readable borders and text under forced colors, and no console errors.
 
