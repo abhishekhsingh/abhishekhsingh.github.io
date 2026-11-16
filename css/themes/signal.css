@@ -298,3 +298,53 @@
     }
   }
 }
+
+/* ---------- Signal-only extras: accents, entrance, grain, outro styling, magnetic buttons, odometer ---------- */
+@layer theme {
+  [data-theme="signal"] .section-title .ital { display: inline-block; font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.08em; letter-spacing: -.02em; color: var(--accent); }
+
+  /* faint grain over the hero */
+  [data-theme="signal"] .hero::after { display: block; content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); opacity: .07; -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
+  [data-theme="signal"][data-mode="light"] .hero::after { opacity: .05; }
+
+  /* closing call to action: mesh behind it and a serif italic accent */
+  [data-theme="signal"] .outro { position: relative; padding-top: clamp(36px, 6vw, 72px); border-top-color: var(--border-glow); isolation: isolate; }
+  [data-theme="signal"] .outro::before { content: ""; position: absolute; inset: 0 0 -40px; z-index: -1; pointer-events: none; background: var(--accent); opacity: .1; -webkit-mask: url("/assets/signal/mesh.svg") right center / cover no-repeat; mask: url("/assets/signal/mesh.svg") right center / cover no-repeat; }
+  [data-theme="signal"] .outro-line { font-size: clamp(2.2rem, 6.4vw, 5.2rem); font-weight: 600; letter-spacing: -.05em; line-height: 1; text-wrap: balance; }
+  [data-theme="signal"] .outro-line em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -.02em; }
+
+  /* magnetic pull on primary actions (set by js/wow.js) */
+  [data-theme="signal"] .btn-primary, [data-theme="signal"] .contact-link { translate: var(--mx, 0) var(--my, 0); transition: translate .25s cubic-bezier(.2,.7,.2,1), background .25s, color .25s, border-color .25s, box-shadow .25s, transform .25s; }
+
+  /* rolling digits for the throughput estimate */
+  [data-theme="signal"] .est-num.odo { display: inline-flex; line-height: 1.25; }
+  [data-theme="signal"] .od { display: inline-block; height: 1.25em; overflow: hidden; vertical-align: bottom; }
+  [data-theme="signal"] .od-s { display: flex; flex-direction: column; }
+  [data-theme="signal"] .od-s i { font-style: normal; height: 1.25em; line-height: 1.25em; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes sig-in { from { opacity: 0; transform: translateY(14px); } }
+  @keyframes sig-show { to { opacity: 1; } }
+  @layer theme {
+    /* hero entrance: the headline and paragraph are never hidden, so first paint is unaffected */
+    [data-theme="signal"] .hero-cta, [data-theme="signal"] .hero-stats .stat, [data-theme="signal"] .hero-estimate { animation: sig-in .8s cubic-bezier(.2,.7,.2,1) backwards; }
+    [data-theme="signal"] .hero-cta { animation-delay: .15s; }
+    [data-theme="signal"] .hero-stats .stat:nth-child(1) { animation-delay: .3s; }
+    [data-theme="signal"] .hero-stats .stat:nth-child(2) { animation-delay: .38s; }
+    [data-theme="signal"] .hero-stats .stat:nth-child(3) { animation-delay: .46s; }
+    [data-theme="signal"] .hero-stats .stat:nth-child(4) { animation-delay: .54s; }
+    [data-theme="signal"] .hero-estimate { animation-delay: .7s; }
+    .js[data-theme="signal"] .hero-name:not(.is-in) { opacity: 0; animation: sig-show .01s 1.3s forwards; }
+    .od-s { transition: transform .38s cubic-bezier(.2,.8,.2,1); }
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes sig-word { from { opacity: 0; transform: translateY(.4em); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+    @layer theme {
+      [data-theme="signal"] .section-title .ital { animation: sig-word linear both; animation-timeline: view(); animation-range: entry 25% entry 100%; }
+    }
+  }
+}

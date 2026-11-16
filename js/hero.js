@@ -1,6 +1,8 @@
 // Animated service-mesh graph for the Signal hero.
 // The graph itself comes from assets/signal/mesh.svg, so it always matches the static poster.
 const VB_W = 1200, VB_H = 720;
+// Generic role names shown when the pointer is near a node. They describe the idea of a node, not any real system.
+const LABELS = ['gateway', 'ingest', 'router', 'queue', 'index', 'cache', 'search', 'stream', 'scheduler', 'store', 'api', 'worker', 'sync', 'events', 'model', 'batch'];
 
 async function loadGraph() {
   const svg = new DOMParser().parseFromString(await (await fetch('assets/signal/mesh.svg')).text(), 'image/svg+xml');
@@ -35,6 +37,7 @@ export async function start(visual, canvas, { onMotion }) {
   const dprCap = small ? 1 : 1.5;
   let W = 0, H = 0, dpr = 1, s = 1, ox = 0, oy = 0;
   let colAccent = '#2dd4a7', colMuted = '#8a94a8', colAccent2 = '#7aa2ff';
+  let fontMono = 'ui-monospace, monospace', hot = -1, hotA = 0;
   const pulses = [], rings = [];
   let ptr = null, running = true, userOn = true, inView = true, tabOn = true, raf = 0;
   let fpsCap = small ? 24 : 30, lastDraw = 0, nextSpawn = 0, frames = 0, cost = 0, calm = false;
@@ -44,6 +47,7 @@ export async function start(visual, canvas, { onMotion }) {
     colAccent = cs.getPropertyValue('--accent').trim() || colAccent;
     colAccent2 = cs.getPropertyValue('--accent-2').trim() || colAccent2;
     colMuted = cs.getPropertyValue('--text-muted').trim() || colMuted;
+    fontMono = cs.getPropertyValue('--font-mono').trim() || fontMono;
   };
   const resize = () => {
     W = visual.clientWidth; H = visual.clientHeight;
@@ -104,6 +108,30 @@ export async function start(visual, canvas, { onMotion }) {
       }
       n.flash = Math.max(0, n.flash - 0.03);
     });
+    // hover label: the nearest node under the pointer names itself
+    let near = -1;
+    if (ptr && !calm) {
+      let best = 30;
+      g.nodes.forEach((n, i) => { const [x, y] = pos(n, t); const d = Math.hypot(x - ptr.x, y - ptr.y); if (d < best) { best = d; near = i; } });
+    }
+    if (near >= 0) hot = near;
+    hotA += ((near >= 0 ? 1 : 0) - hotA) * 0.22;
+    if (hot >= 0 && hotA > 0.03) {
+      const n = g.nodes[hot], [x, y] = pos(n, t), text = LABELS[hot % LABELS.length];
+      ctx.save();
+      ctx.globalAlpha = hotA;
+      ctx.strokeStyle = colAccent; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(x, y, n.r * s * 1.9 + 3, 0, 6.283); ctx.stroke();
+      ctx.font = '500 11px ' + fontMono;
+      const w = ctx.measureText(text).width + 14, flip = x + 16 + w > W;
+      const bx = flip ? x - 16 - w : x + 16, by = y - 11;
+      ctx.fillStyle = 'rgba(8,12,20,.78)';
+      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(bx, by, w, 22, 6) : ctx.rect(bx, by, w, 22); ctx.fill();
+      ctx.strokeStyle = alpha(colAccent, 0.5); ctx.stroke();
+      ctx.fillStyle = colAccent; ctx.textBaseline = 'middle';
+      ctx.fillText(text, bx + 7, by + 11.5);
+      ctx.restore();
+    } else if (hotA <= 0.03) hot = -1;
     for (let k = rings.length - 1; k >= 0; k--) {
       const rg = rings[k]; rg.t += 0.022;
       if (rg.t >= 1) { rings.splice(k, 1); continue; }

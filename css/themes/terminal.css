@@ -222,3 +222,23 @@
 
 @keyframes term-type { from { width: 0; } }
 @keyframes term-blink { 50% { opacity: 0; } }
+
+/* ---------- shared extras, restyled for Terminal: closing prompt, bracketed chapter rail, block-cursor timeline pulse ---------- */
+@layer theme {
+  [data-theme="terminal"] .outro { border-top: 1px dashed var(--border); }
+  [data-theme="terminal"] .outro-kicker { text-transform: none; letter-spacing: 0; color: var(--text-muted); font-size: .8rem; }
+  [data-theme="terminal"] .outro-kicker::before { content: "$ "; color: var(--accent); }
+  [data-theme="terminal"] .outro-kicker::after { content: " --next"; }
+  [data-theme="terminal"] .outro-line { font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.4rem, 3.6vw, 2.6rem); letter-spacing: -.02em; line-height: 1.2; max-width: 26ch; }
+  [data-theme="terminal"] .outro-line::before { content: "> "; color: var(--accent); }
+  [data-theme="terminal"] .outro-line::after { content: "_"; color: var(--accent); }
+  [data-theme="terminal"] .chapter-rail a { border-radius: 0; letter-spacing: 0; font-size: .7rem; }
+  [data-theme="terminal"] .chapter-rail .t { text-transform: none; }
+  [data-theme="terminal"] .chapter-rail .n::before { content: "["; }
+  [data-theme="terminal"] .chapter-rail .n::after,
+  [data-theme="terminal"] .chapter-rail a.is-active .n::after { content: "]"; display: inline; width: auto; height: auto; margin: 0; background: none; opacity: 1; }
+  [data-theme="terminal"] .timeline::after { border-radius: 0; width: 8px; height: 14px; left: 11.5px; box-shadow: 0 0 10px 2px var(--accent); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @layer theme { [data-theme="terminal"] .outro-line::after { animation: term-blink 1.1s steps(1) infinite; } }
+}

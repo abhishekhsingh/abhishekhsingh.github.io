@@ -130,6 +130,31 @@ function initEstimate() {
     btn.hidden = true;
     return;
   }
+  // Signal shows the number as rolling digits; other themes keep plain text
+  const paintEst = (v) => {
+    const text = nfI.format(v);
+    if (root.dataset.theme !== 'signal') {
+      if (num._od) { num._od = null; num.classList.remove('odo'); }
+      num.textContent = text;
+      return;
+    }
+    if (!num._od || num._od.len !== text.length) {
+      num.textContent = ''; num.classList.add('odo');
+      const cols = [];
+      [...text].forEach((ch, i) => {
+        const fromRight = text.length - 1 - i;
+        if (/\d/.test(ch)) {
+          const od = document.createElement('span'); od.className = 'od';
+          const st = document.createElement('span'); st.className = 'od-s';
+          if (fromRight < 5) st.style.transition = 'none'; // the fastest digits just change
+          st.innerHTML = '0123456789'.replace(/\d/g, (d) => '<i>' + d + '</i>');
+          od.append(st); num.append(od); cols.push(st);
+        } else { const sep = document.createElement('span'); sep.textContent = ch; num.append(sep); cols.push(null); }
+      });
+      num._od = { len: text.length, cols };
+    }
+    [...text].forEach((ch, i) => { const st = num._od.cols[i]; if (st) st.style.transform = 'translateY(-' + (+ch * 1.25) + 'em)'; });
+  };
   const CAP = 18000; // stop after this much running time
   let active = 0, last = 0, running = false, started = false, userPaused = false, shown = 0, raf = 0;
   const frame = (now) => {
@@ -137,7 +162,7 @@ function initEstimate() {
     if (!running) return;
     active += Math.min(100, now - last); last = now;
     const v = Math.min(active, CAP) / 1000 * perSec;
-    if (now - shown > 90 || active >= CAP) { shown = now; num.textContent = nfI.format(v); } // about 10 updates a second
+    if (now - shown > 90 || active >= CAP) { shown = now; paintEst(v); } // about 10 updates a second
     if (active >= CAP) { running = false; btn.textContent = 'Restart'; btn.dataset.state = 'done'; return; }
     raf = requestAnimationFrame(frame);
   };
@@ -234,7 +259,40 @@ function initLater() {
   if (document.readyState === 'complete') idle(); else addEventListener('load', idle, { once: true });
 }
 
+/* ---------- name "decode" on load (Signal, motion allowed) ---------- */
+function decodeName() {
+  const el = document.querySelector('.hero-name');
+  if (!el || el.classList.contains('is-in')) return;
+  if (root.dataset.theme !== 'signal' || reduced || !motionOn()) { el.classList.add('is-in'); return; }
+  const real = el.textContent.trim();
+  const glyphs = 'abcdefghijklmnopqrstuvwxyz0123456789<>/_-';
+  const vh = document.createElement('span'); vh.className = 'visually-hidden'; vh.textContent = real;
+  const vis = document.createElement('span'); vis.setAttribute('aria-hidden', 'true');
+  el.textContent = ''; el.append(vh, vis); el.classList.add('is-in');
+  const DUR = 750, t0 = performance.now();
+  const tick = (now) => {
+    const p = Math.min(1, (now - t0) / DUR), keep = Math.floor(p * real.length * 1.25);
+    vis.textContent = [...real].map((c, i) => (c === ' ' || i < keep ? c : glyphs[(Math.random() * glyphs.length) | 0])).join('').toUpperCase();
+    if (p < 1) requestAnimationFrame(tick); else { el.textContent = real; }
+  };
+  requestAnimationFrame(tick);
+}
+
+/* ---------- chapter rail (all themes) and magnetic buttons (Signal) load when idle ---------- */
+let wow = null;
+function syncWow() {
+  if (wow) { wow.sync(); return; }
+  if (syncWow.pending) return;
+  syncWow.pending = true;
+  const go = () => import('./wow.js').then((m) => { wow = m; m.sync(); }).catch(() => { syncWow.pending = false; });
+  const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 1200));
+  if (document.readyState === 'complete') idle(); else addEventListener('load', idle, { once: true });
+}
+
 export function init() {
+  decodeName();
+  syncWow();
+  new MutationObserver(syncWow).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   initLater();
   applyMotion();
   initCounters();

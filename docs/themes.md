@@ -92,6 +92,36 @@ Diagram colors use `--dg-fill-<family>-<n>` and `--dg-line-<family>-<n>`. Fills 
 4. Register the theme in three places: the `registry` in `js/theme.js`, the allowed list in the head script of `index.html`, and a radio plus a `.swatch--<name>` rule for the switcher. To show the hero graph, also add the theme to the lists in `js/fx.js` and `css/base.css`.
 5. Run the checks below in both modes.
 
+## Signal extras
+
+All of these are Signal only, respect the Pause control and reduced motion, and stay off the critical path.
+
+| Feature | Where |
+|---|---|
+| One serif italic accent word in each section title, rising in on scroll | `.ital` spans in `index.html`, rules in `css/themes/signal.css` |
+| Hero entrance: buttons, stats and estimate settle in, the name decodes. The headline and paragraph are never hidden | `signal.css`, `decodeName()` in `js/fx.js` |
+| Rolling-digit throughput counter | `paintEst()` in `js/fx.js`, `.od` rules in `signal.css` |
+| Hover labels on the hero graph (generic role names) | `LABELS` in `js/hero.js` |
+| Faint grain over the hero | `.hero::after` in `signal.css` |
+| Mesh and serif styling of the closing block | `.outro` rules in `signal.css` |
+| Magnetic buttons | `js/wow.js`, loaded when the browser is idle |
+
+## Shared extras (every theme)
+
+Some features are about what the page does, not how Signal looks, so all five themes have them. The structure is in `css/base.css` (`@layer components`) and each theme restyles it.
+
+| Feature | Behaviour | Per-theme look |
+|---|---|---|
+| Closing call to action above the contact block | One big line and a mailto link | Signal: mesh and serif italic. Terminal: `$ next` prompt and `>` line. Bento: a tile. Brutalist: loud block with a patch. Midnight: gradient accent |
+| Chapter rail (screens 1360px and wider) | Numbered links, current section highlighted, appears after the hero. Built by `js/wow.js` | Terminal: `[01]`. Bento: pills. Brutalist: boxed numbers. Others: numbers with a short line |
+| Journey line that draws itself with a travelling pulse | CSS scroll timeline (plain line in browsers without it) | Terminal: block cursor. Brutalist: none, it has no line. Others: glowing dot |
+
+## Remembering a choice
+
+A new visit always opens in Signal dark. A theme or mode choice lasts for the tab (`sessionStorage`, key `portfolio-session`). Only if the visitor turns on **Remember my choice** in the theme popover is it kept for later visits (`localStorage`, key `portfolio-pref`). The logic is in the head script of `index.html` (`window.portfolioPref`) and the end of `js/theme.js`. Older saved choices from before this change are ignored.
+
+The theme popover markup sits after the footer on purpose. Putting it before the hero pushed the hero paragraph into a later network chunk and delayed the largest paint by about 150 ms on a slow connection.
+
 ## Measured on 16 Nov 2026
 
 Mobile numbers use 4x CPU slowdown and 1.6 Mbps with 150 ms round trip, cold cache, from a local server with gzip (as GitHub Pages serves it). Median of 3 runs.
@@ -99,7 +129,7 @@ Mobile numbers use 4x CPU slowdown and 1.6 Mbps with 150 ms round trip, cold cac
 | Page | First paint | Largest paint | Transferred |
 |---|---|---|---|
 | Previous site (Midnight, `main`) | 264 ms | 404 ms | 132 KB |
-| Default (Signal) | 252 ms | 252 ms | 137 KB |
+| Default (Signal) | 264 ms | 264 ms | 143 KB |
 | Midnight chosen on a visit (loads its CSS and Google Fonts on demand) | 804 ms | 804 ms | 151 KB |
 
 Layout shift is under 0.01 and total blocking time is 0 for the default page. Terminal, Bento and Brutalist were not re-measured after the Signal default change.

@@ -6,7 +6,7 @@
     html[data-theme][data-mode]{--bg:#fff;--bg-2:#fff;--surface:#fff;--surface-2:#fff;--surface-3:#f3f3f3;--border:#c9c9c9;--border-glow:#c9c9c9;--text:#111;--text-dim:#2b2b2b;--text-muted:#4a4a4a;--accent:#0a5c4a;--accent-2:#1d4ed8;--accent-3:#0a5c4a;--amber:#8a4a06;--red:#b00020;--purple:#4c1d95;--pink:#9d174d;--teal:#0f5f59;--on-accent:#fff;--glow:none;--code-shadow:none;--font-head:system-ui,-apple-system,"Segoe UI",sans-serif;--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--font-mono:ui-monospace,Menlo,Consolas,monospace}
     body{background:#fff!important;color:#111!important;font-size:11pt;padding-bottom:0!important;animation:none!important}
     body::after,html::before,.hero::before,.hero::after,section::before{display:none!important}
-    .nav,.nav-mobile,.hero-visual,.hero-estimate,.hero-cta,.fx-toggle,.scale-bar,.proj-tabs,.trace-bar,.demo,.arch-expand,.copy-btn,#theme-pop,#theme-status,.skip-link,dialog,.hero-prompt{display:none!important}
+    .nav,.nav-mobile,.chapter-rail,.outro-kicker,.hero-visual,.hero-estimate,.hero-cta,.fx-toggle,.scale-bar,.proj-tabs,.trace-bar,.demo,.arch-expand,.copy-btn,#theme-pop,#theme-status,.skip-link,dialog,.hero-prompt{display:none!important}
     .js .reveal,.reveal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
     section,.hero{padding:18pt 0!important;min-height:0!important;background:#fff!important;border:0!important}
     .container{max-width:none!important}
