@@ -39,7 +39,7 @@ async function setTheme(name, origin) {
   await loadTheme(name);
   const swap = () => {
     root.dataset.theme = name;
-    try { localStorage.setItem('portfolio-style', name); } catch (e) {}
+    if (window.portfolioPref) window.portfolioPref.save();
     syncRadios(name);
     announce(name);
     if (name === 'terminal') {
@@ -92,3 +92,19 @@ if (root.dataset.theme === 'terminal') {
   try { sessionStorage.setItem('portfolio-typed', '1'); } catch (e) {}
 }
 
+// "Remember my choice": only then do theme and mode carry over to the next visit
+const pin = document.getElementById('prefPin');
+if (pin && window.portfolioPref) {
+  const paint = () => {
+    const on = window.portfolioPref.pinned();
+    pin.setAttribute('aria-pressed', String(on));
+    pin.querySelector('span').textContent = on ? 'Remembered on this device' : 'Remember my choice';
+  };
+  paint();
+  pin.addEventListener('click', () => {
+    window.portfolioPref.pin(!window.portfolioPref.pinned());
+    paint();
+    const el = document.getElementById('theme-status');
+    if (el) el.textContent = window.portfolioPref.pinned() ? 'Your theme and mode will be remembered' : 'Your choice will not be remembered';
+  });
+}

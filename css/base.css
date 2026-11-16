@@ -320,6 +320,11 @@
   #theme-pop label{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;font-family:var(--font-head);font-size:.85rem;font-weight:600}
   #theme-pop label:hover,#theme-pop label:has(input:checked){background:var(--hover-soft)}
   #theme-pop input{accent-color:var(--accent)}
+  #theme-pop .pref-pin{display:flex;align-items:center;gap:8px;width:100%;margin-top:8px;padding:8px 10px;border:1px dashed var(--border-glow);border-radius:8px;background:none;color:var(--text-dim);font:600 .78rem var(--font-head);cursor:pointer;text-align:left}
+  #theme-pop .pref-pin:hover{color:var(--accent);border-color:var(--accent)}
+  #theme-pop .pref-pin[aria-pressed="true"]{color:var(--accent);border-style:solid;border-color:var(--accent);background:var(--hover-soft)}
+  #theme-pop .pref-pin svg{flex:none}
+  #theme-pop .pref-note{margin:6px 2px 0;font-size:.68rem;color:var(--text-muted);line-height:1.4}
   .swatch{width:28px;height:18px;border-radius:5px;border:1px solid var(--border-glow);flex:none}
   .swatch--midnight{background:linear-gradient(135deg,#04080f 50%,#00c2d1 50%)}
   .swatch--signal{background:linear-gradient(135deg,#070b16 50%,#2dd4a7 50%)}
