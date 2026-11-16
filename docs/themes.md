@@ -27,7 +27,7 @@ A script in the `<head>` sets both before first paint, so there is no flash of t
 - `css/themes/midnight.css`: Midnight's token values for both modes, plus the diagram color tokens.
 - `css/themes/<name>.css`: one file per other theme. Everything sits in `@layer theme` and is scoped under `[data-theme="<name>"]`, so a loaded but inactive theme does nothing.
 
-Midnight and the base are **inlined** into `index.html` so the default page paints as fast as before. Edit the two CSS files, then run:
+Only `js/theme.js` and `js/fx.js` load with the page. The trace, demo, stats and palette code load when the browser is idle. Midnight and the base are **inlined** into `index.html` so the default page paints as fast as before. Edit the two CSS files, then run:
 
 ```
 python3 scripts/build.py          # inline the CSS into index.html
@@ -64,11 +64,11 @@ These work in every theme and are styled with the theme's tokens.
 | WebGL glow | `js/hero-gl.js` | Signal only. Loaded after the page is idle, on desktops with more than 4 cores, never on Save-Data, reduced motion or software renderers. Removes itself if frames are slow. |
 | Request step-through | `js/trace.js` | Matches nodes by the label text in each diagram SVG, so diagrams stay plain SVG. Steps live in `STEPS` at the top of the file. |
 | Case studies | `index.html`, `.case-study` | Context, scale, decision, trade-off and outcome under each system. |
-| Command palette | `js/palette.js` | Ctrl or Cmd+K, or the search button in the nav. Commands are built from the page, so new sections and themes appear automatically. |
+| Command palette | `js/palette.js`, `css/palette.css` | Ctrl or Cmd+K, or the search button in the nav. Commands are built from the page, so new sections and themes appear automatically. |
 | Recorded demo | `js/demo.js`, `assets/demo/` | Replays real `mcp-halflist` output. See `assets/demo/README.md` for how it was recorded. |
 | Background art | `assets/signal/art/`, `scripts/make_art.py` | Signal only. Faint dotted world map, embedding cloud and flow lines behind each system, applied as CSS masks. The map is built from Natural Earth land data (public domain). Regenerate with `python3 scripts/make_art.py`. The map markers are decorative and do not name real regions. |
 | Weekly stats | `scripts/update_stats.py`, `.github/workflows/stats.yml`, `data/stats.json` | A scheduled job refreshes PyPI downloads and release tags. The page reads the file, because browsers cannot read PyPI download counts directly. |
-| Print styles | `css/base.css`, last block | Black on white, all systems shown, no interactive controls. |
+| Print styles | `css/print.css` (linked with `media="print"`, so it never delays rendering) | Black on white, all systems shown, no interactive controls. |
 
 ## Tokens
 
