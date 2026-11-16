@@ -15,7 +15,7 @@ START, END = "<!-- css:start -->", "<!-- css:end -->"
 
 def squeeze(css):
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
-    css = re.sub(r"[ \t]+\n", "\n", css)
+    css = re.sub(r"(?m)^[ \t]+|[ \t]+$", "", css)
     return re.sub(r"\n{2,}", "\n", css).strip()
 
 

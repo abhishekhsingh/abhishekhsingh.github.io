@@ -1,0 +1,34 @@
+/* Print styles: black on white, every system shown, no interactive controls. Loaded with media="print". */
+@layer reset, tokens, base, layout, components, theme, utilities;
+
+@layer utilities {
+  @media print {
+    html[data-theme][data-mode]{--bg:#fff;--bg-2:#fff;--surface:#fff;--surface-2:#fff;--surface-3:#f3f3f3;--border:#c9c9c9;--border-glow:#c9c9c9;--text:#111;--text-dim:#2b2b2b;--text-muted:#4a4a4a;--accent:#0a5c4a;--accent-2:#1d4ed8;--accent-3:#0a5c4a;--amber:#8a4a06;--red:#b00020;--purple:#4c1d95;--pink:#9d174d;--teal:#0f5f59;--on-accent:#fff;--glow:none;--code-shadow:none;--font-head:system-ui,-apple-system,"Segoe UI",sans-serif;--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--font-mono:ui-monospace,Menlo,Consolas,monospace}
+    body{background:#fff!important;color:#111!important;font-size:11pt;padding-bottom:0!important;animation:none!important}
+    body::after,html::before,.hero::before,.hero::after,section::before{display:none!important}
+    .nav,.nav-mobile,.hero-visual,.hero-estimate,.hero-cta,.fx-toggle,.scale-bar,.proj-tabs,.trace-bar,.demo,.arch-expand,.copy-btn,#theme-pop,#theme-status,.skip-link,dialog,.hero-prompt{display:none!important}
+    .js .reveal,.reveal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+    section,.hero{padding:18pt 0!important;min-height:0!important;background:#fff!important;border:0!important}
+    .container{max-width:none!important}
+    .proj-panel{display:block!important;animation:none!important;margin-bottom:22pt;break-inside:avoid-page}
+    .card,.testimonial,.role,.project-card,.cs-item{break-inside:avoid;background:#fff!important;box-shadow:none!important;border:1px solid #c9c9c9!important;transform:none!important}
+    .arch-container{overflow:visible!important;border:1px solid #c9c9c9!important;background:#fff!important}
+    .arch-container svg{min-width:0!important;width:100%!important;max-width:100%!important;filter:none!important}
+    h2.section-title,.section-title{break-after:avoid;color:#111!important;-webkit-text-fill-color:#111!important}
+    .hero h1 .gradient,.scale-num,.hero-stat .num{background:none!important;-webkit-text-fill-color:currentColor!important;color:#0a5c4a!important}
+    a{color:#0a5c4a!important;text-decoration:underline}
+    a[href^="http"]:not(.contact-link):not(.logo-sm)::after{content:" (" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+    .logo-sm,.skill-card img{filter:none!important}
+    footer{border-top:1px solid #c9c9c9!important;color:#444!important}
+  }
+}
+
+@layer components {
+  [data-theme="terminal"] .hero-visual,
+  [data-theme="bento"] .hero-visual{display:block;position:absolute;inset:0;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 90% 85% at 78% 40%,#000 15%,transparent 78%);mask-image:radial-gradient(ellipse 90% 85% at 78% 40%,#000 15%,transparent 78%)}
+  [data-theme="terminal"] .hero-visual::before,
+  [data-theme="bento"] .hero-visual::before{content:"";position:absolute;inset:0;background:var(--accent);opacity:.32;-webkit-mask:url("/assets/signal/mesh.svg") right center/cover no-repeat;mask:url("/assets/signal/mesh.svg") right center/cover no-repeat;transition:opacity .9s ease}
+  .hero-visual.is-live::before{opacity:0!important}
+  .hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .9s ease}
+  .hero-visual.is-live .hero-canvas{opacity:1}
+}

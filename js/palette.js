@@ -1,5 +1,4 @@
 // Command palette: Ctrl/Cmd+K or the search button in the nav. Never the only way to navigate.
-const btn = document.getElementById('paletteBtn');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let dlg = null, input, list, status, items = [], shown = [], active = 0;
 
@@ -55,6 +54,18 @@ function render() {
   if (cur) cur.scrollIntoView({ block: 'nearest' });
 }
 
+let cssReady = null;
+function loadCss() {
+  if (!cssReady) {
+    cssReady = new Promise((resolve) => {
+      const l = Object.assign(document.createElement('link'), { rel: 'stylesheet', href: 'css/palette.css' });
+      l.onload = l.onerror = resolve;
+      document.head.append(l);
+    });
+  }
+  return cssReady;
+}
+
 function build() {
   dlg = document.createElement('dialog');
   dlg.className = 'palette';
@@ -85,7 +96,8 @@ function run(i) {
   setTimeout(c.run, 60);
 }
 
-function toggle() {
+export async function toggle() {
+  await loadCss();
   if (!dlg) build();
   if (dlg.open) { dlg.close(); return; }
   items = commands(); active = 0; input.value = ''; render();
@@ -93,7 +105,3 @@ function toggle() {
   if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'palette-open', title: 'Command palette', event: true });
 }
 
-if (btn) btn.addEventListener('click', toggle);
-addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'k') { e.preventDefault(); toggle(); }
-});

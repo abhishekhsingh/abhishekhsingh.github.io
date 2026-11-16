@@ -204,7 +204,24 @@ async function syncHero() {
   } catch (e) { hero = null; }
 }
 
+/* ---------- secondary features load after the page is idle ---------- */
+let palette = null;
+function openPalette() {
+  return (palette ? Promise.resolve(palette) : import('./palette.js').then((m) => (palette = m))).then((m) => m.toggle());
+}
+function initLater() {
+  const btn = document.getElementById('paletteBtn');
+  if (btn) btn.addEventListener('click', openPalette);
+  addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'k') { e.preventDefault(); openPalette(); }
+  });
+  const load = () => ['./trace.js', './demo.js', './stats.js'].forEach((m) => import(m).catch(() => {}));
+  const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(load, { timeout: 2500 }) : setTimeout(load, 1200));
+  if (document.readyState === 'complete') idle(); else addEventListener('load', idle, { once: true });
+}
+
 export function init() {
+  initLater();
   applyMotion();
   initCounters();
   initEstimate();
