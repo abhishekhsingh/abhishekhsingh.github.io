@@ -197,7 +197,7 @@
   .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
   .js .reveal.visible{opacity:1;transform:translateY(0)}
   footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
-  .logo-note{margin-top:10px;font-size:.7rem;opacity:.85;max-width:70ch;margin-left:auto;margin-right:auto}
+  .logo-note{margin-top:10px;font-size:.7rem;max-width:70ch;margin-left:auto;margin-right:auto}
   .proj-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;padding:4px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}
   .proj-tab{padding:10px 18px;border-radius:10px;border:none;background:transparent;color:var(--text-muted);font-family:var(--font-head);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
   .proj-tab:hover{color:var(--text);background:var(--surface-2)}
@@ -367,6 +367,26 @@
   .swatch--brutalist{background:linear-gradient(135deg,#f5e94a 50%,#ff4fa3 50%)}
   ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 }
+@layer components {
+  .trace-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:-6px 0 22px}
+  .trace-btn{font-family:var(--font-head);font-size:.8rem;font-weight:600;color:var(--text);background:var(--surface);border:1px solid var(--border-glow);border-radius:10px;padding:8px 16px;cursor:pointer;transition:border-color .2s,color .2s}
+  .trace-btn:hover{color:var(--accent);border-color:var(--accent)}
+  .trace-btn[data-act="prev"],.trace-btn[data-act="next"]{padding:8px 13px;font-size:1rem;line-height:1}
+  .trace-play{background:var(--accent);color:var(--on-accent,#fff);border-color:var(--accent)}
+  .trace-play:hover{color:var(--on-accent,#fff);filter:brightness(1.1)}
+  .trace-count{font-family:var(--font-mono);font-size:.74rem;color:var(--text-muted);letter-spacing:.06em}
+  .trace-caption{flex-basis:100%;min-height:3.1em;margin:0;font-size:.92rem;line-height:1.55;color:var(--text-dim);max-width:78ch}
+  .arch-container svg.is-tracing > *:not(.tr-on):not(defs):not(title):not(style){opacity:.16!important;transition:opacity .35s}
+  .arch-container svg.is-tracing > .tr-on{transition:opacity .35s}
+  .arch-container svg.is-tracing > rect.tr-on{filter:drop-shadow(0 0 5px var(--accent))}
+  .arch-container svg > *{transition:opacity .35s}
+  .arch-container svg.is-tracing > rect:not([x]){opacity:1!important}
+  .case-study{margin-top:26px}
+  .cs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+  .cs-item{padding:16px 18px 18px;font-size:.85rem}
+  .cs-item p{color:var(--text-dim);line-height:1.6;margin:0}
+  .cs-label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+}
 @layer tokens {
   :root {
     --font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -375,6 +395,7 @@
     --max-w: 1200px;
   }
   :root, :root[data-mode="dark"] {
+    --on-accent: #04080f;
     --bg: #04080f;
     --bg-2: #0a1019;
     --surface: #0d1525;
@@ -400,6 +421,7 @@
     --code-shadow: 0 4px 30px rgba(0,0,0,.3);
   }
   :root[data-mode="light"] {
+    --on-accent: #ffffff;
     --bg: #f8fafc;
     --bg-2: #ffffff;
     --surface: #ffffff;
@@ -862,7 +884,7 @@
       <span class="project-badge badge-ai">AI · SEARCH · LLM</span>
       <h3>Community Search & AI Platform</h3>
       <div class="subtitle">CC (Customer Communities) · Three AI features, federated search, and a provider-agnostic AI orchestration layer</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="search-ai">
         <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
           <defs><filter id="gf"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
           <rect width="760" height="320" fill="var(--bg)" rx="6"/>
@@ -942,6 +964,10 @@
         <li>Zero-downtime full sync: bulk-index 25M+ records into temp Algolia index, atomic rename over production. No search outage during reindex</li>
         <li>Analytics data lake on S3 Parquet + Athena with tag expression consolidation reducing Algolia API calls by 90%+</li>
       </ul>
+      <div class="case-study">
+        <div class="eyebrow eyebrow--spaced">Case study</div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Customer Communities needed AI features (auto-replies, answer summaries, search summaries) without depending on one model provider, and one search experience across several content sources.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>25M+ records from 5 federated sources, and three AI features in production.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>A provider-agnostic orchestration layer: a factory picks a primary and fallback model chain, with one adapter per provider to handle payload differences.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More adapter code to maintain, in exchange for retries across providers (even on client errors) so a single provider outage does not take a feature down.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Search stays up during a full reindex (bulk index into a temporary index, then an atomic rename). Tag expression consolidation cut Algolia API calls by 90%+.</p></div></div>
+      </div>
     </div>
 
     <!-- ── TAB: MCP SERVER ── -->
@@ -949,7 +975,7 @@
       <span class="project-badge badge-ai">MCP PROTOCOL · PYTHON · AI INFRASTRUCTURE</span>
       <h3>Customer Community MCP Server</h3>
       <div class="subtitle">CC · Production Model Context Protocol server making community knowledge accessible to AI assistants</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="mcp-server">
         <svg viewBox="0 0 760 384" xmlns="http://www.w3.org/2000/svg">
           <defs><filter id="gm"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
           <rect width="760" height="384" fill="var(--bg)" rx="6"/>
@@ -1053,6 +1079,10 @@
         <li>Per-tenant rate limiting, connection lifecycle management, and graceful degradation on backend failures</li>
         <li>Dozens of tools spanning search, analytics, content moderation, user management, and education backends behind a single MCP interface</li>
       </ul>
+      <div class="case-study">
+        <div class="eyebrow eyebrow--spaced">Case study</div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>AI assistants needed a safe, standard way to query community knowledge for enterprise customers.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Dozens of tools behind one MCP interface, deployed across multiple regions, and listed on major AI assistant connector registries.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Put access control in the token: permission-scoped search tokens instead of filtering results afterwards, with OAuth2.1 PKCE and dynamic client registration.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Tokens are issued per permission scope, which adds moving parts at the auth layer, in exchange for never fetching data a user may not see.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>One interface for Claude, ChatGPT, Cursor and custom clients, with per-tenant rate limiting and graceful degradation when a backend fails.</p></div></div>
+      </div>
     </div>
 
     <!-- ── TAB: DATA HIGHWAY ── -->
@@ -1060,7 +1090,7 @@
       <span class="project-badge badge-infra">DISTRIBUTED SYSTEMS · DAG ENGINE</span>
       <h3>Data Highway: DAG-Based Pipeline Engine</h3>
       <div class="subtitle">CS (Customer Success) · The compute backbone processing 61B+ records/day</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="data-highway">
         <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="280" fill="var(--bg)" rx="6"/>
           <!-- API Interface -->
@@ -1123,6 +1153,10 @@
         <li>Horizontally-scalable cluster coordinated by Zookeeper leader election and distributed workflow orchestration</li>
         <li>Failure-injection tasks (OOM, disk exhaustion, FD leak) as production resilience probes</li>
       </ul>
+      <div class="case-study">
+        <div class="eyebrow eyebrow--spaced">Case study</div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Enterprise customers keep their data in many systems. Each tenant needs it ingested, transformed and loaded into analytics stores reliably.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>61B+ records a day across 600+ enterprise tenants, with 35+ connectors.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>A DAG of tasks coordinated by Zookeeper leader election, with separate worker types: Java DAG workers, isolated connector workers, Python workers for ML, and an Apache Drill SQL engine.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Connectors run as isolated JARs, which is more to deploy, so that one connector failing cannot take the others down.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>98.7% job success at that volume. 60+ custom Drill UDFs handle tenant-specific transformations, and failure-injection tasks (OOM, disk exhaustion, FD leak) act as production resilience probes.</p></div></div>
+      </div>
       <div class="divider-top">
         <div class="eyebrow eyebrow--spaced">35+ Enterprise Connectors</div>
         <div class="connector-row">
@@ -1150,7 +1184,7 @@
       <span class="project-badge badge-security">SECURITY · GRAPH DB</span>
       <h3>User Permissions (RBAC)</h3>
       <div class="subtitle">CS · Graph-native access control powering authorization across 7+ services</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="permissions">
         <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="220" fill="var(--bg)" rx="6"/>
           <!-- API -->
@@ -1197,6 +1231,10 @@
         <li>Permission SDK consumed by 7+ platform services: analytics, query federation, reporting, API gateway, data store, catalog, and cross-product bridge</li>
         <li>Heartbeat-based leader election for worker coordination with automatic cleanup of orphaned graph nodes</li>
       </ul>
+      <div class="case-study">
+        <div class="eyebrow eyebrow--spaced">Case study</div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Every service on the platform needed one consistent answer to: can this user do this to that resource?</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Consumed by 7+ services: analytics, query federation, reporting, API gateway, data store, catalog and the cross-product bridge.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Store permissions as a graph, with resources, policies, groups and manager chains as edges, so a single traversal answers an access check in milliseconds.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Cached answers must be invalidated when sharing changes. Targeted Redis invalidation clears only the affected members and resources, not the whole cache.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Row-level enforcement at SQL build time, so restricted data never leaves the database.</p></div></div>
+      </div>
     </div>
 
     <!-- ── TAB: UDM ── -->
@@ -1204,7 +1242,7 @@
       <span class="project-badge badge-data">ANALYTICS · WAREHOUSING</span>
       <h3>Usage Data Model (UDM)</h3>
       <div class="subtitle">CS · Multi-tenant analytics orchestration across dual warehouses</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="udm">
         <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="220" fill="var(--bg)" rx="6"/>
           <!-- API -->
@@ -1259,6 +1297,10 @@
         <li>Cross-system DAG submission to the pipeline engine with retry and backoff</li>
         <li>Secure multi-tenant data exchange with per-tenant credential isolation</li>
       </ul>
+      <div class="case-study">
+        <div class="eyebrow eyebrow--spaced">Case study</div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Dashboards needed per-tenant analytics across many data sources, for tenants from small to very high volume.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Ingestion from 10+ sources, about 25 pluggable task builders and two warehouses.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>A dual-warehouse abstraction: PostgreSQL for small tenants and Redshift for high-volume OLAP, switched transparently, with per-tenant dynamic DDL.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Two warehouses to operate and keep consistent, in exchange for the right cost and speed for each tenant.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Adding a data source is a single builder class. Permissions are injected at query-build time, and per-tenant credentials stay isolated.</p></div></div>
+      </div>
     </div>
 
     <!-- ── TAB: EVENTS ── -->
@@ -1266,7 +1308,7 @@
       <span class="project-badge badge-infra">PUB/SUB · EVENT-DRIVEN</span>
       <h3>Event Processing</h3>
       <div class="subtitle">CS · Four-tier async pub/sub with durable delivery and cross-region failover</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="events">
         <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
           <rect width="760" height="230" fill="var(--bg)" rx="6"/>
           <!-- Tier labels -->
@@ -1330,6 +1372,10 @@
         <li>Enrichment loop: events decorated with business context from the analytics data store before delivery</li>
         <li>Tiered architecture: Receiver → Router → Relayer → Broadcaster with purpose-matched runtimes</li>
       </ul>
+      <div class="case-study">
+        <div class="eyebrow eyebrow--spaced">Case study</div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Platform services needed to publish an event once and have many subscribers receive it reliably, even when queues or workers fail.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Four tiers (Receiver, Router, Relayer, Broadcaster), each scaled independently.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Purpose-matched runtimes per tier, durable queues, cross-region queue failover, and a dedicated recovery process for orphaned deliveries.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More moving parts than a single dispatcher, in exchange for isolating failures to one stage.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>Automatic switch to secondary queues on publish errors, self-healing delivery after worker crashes, and blocked-tenant handling so one noisy tenant cannot starve the rest.</p></div></div>
+      </div>
     </div>
 
     <!-- ── TAB: AUDIT & CONFIG ── -->
@@ -1377,7 +1423,7 @@
       <span class="project-badge badge-data">ANALYTICS · OPEN SOURCE</span>
       <h3>GoatCounter Dashboard</h3>
       <div class="subtitle">A modern alternative analytics dashboard for privacy-first web analytics</div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="goatcounter">
         <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
           <defs><filter id="gc"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
           <rect width="760" height="320" fill="var(--bg)" rx="6"/>
@@ -1470,7 +1516,7 @@
           <div class="line"><span class="prompt">$</span>halflist check <span class="arg">&lt;server-url&gt;</span></div>
         </div>
       </div>
-      <div class="arch-container">
+      <div class="arch-container" data-trace="halflist">
         <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg">
           <defs><filter id="gh"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
           <rect width="760" height="330" fill="var(--bg)" rx="6"/>
@@ -1955,6 +2001,7 @@ window.toggleTheme = function() {
 </script>
 <script type="module" src="js/theme.js"></script>
 <script type="module" src="js/fx.js"></script>
+<script type="module" src="js/trace.js"></script>
 <script data-goatcounter="https://abhishekhsingh.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

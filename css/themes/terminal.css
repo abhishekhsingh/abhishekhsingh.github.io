@@ -18,6 +18,7 @@
   }
 
   [data-theme="terminal"][data-mode="dark"] {
+    --on-accent: oklch(0.16 0.015 160);
     --bg: oklch(0.16 0.015 160);
     --bg-2: oklch(0.18 0.016 160);
     --surface: oklch(0.20 0.02 160);
@@ -80,6 +81,7 @@
   }
 
   [data-theme="terminal"][data-mode="light"] {
+    --on-accent: oklch(0.97 0.012 100);
     --bg: oklch(0.96 0.012 100);
     --bg-2: oklch(0.94 0.014 100);
     --surface: oklch(0.93 0.015 100);

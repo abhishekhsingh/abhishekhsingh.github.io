@@ -10,6 +10,7 @@
 
   /* dark theme: the brand default; matches the site's prior look exactly */
   :root, :root[data-mode="dark"] {
+    --on-accent: #04080f;
     --bg: #04080f;
     --bg-2: #0a1019;
     --surface: #0d1525;
@@ -37,6 +38,7 @@
 
   /* light theme: opt-in via toggle, persisted in localStorage */
   :root[data-mode="light"] {
+    --on-accent: #ffffff;
     --bg: #f8fafc;
     --bg-2: #ffffff;
     --surface: #ffffff;

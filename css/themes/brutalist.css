@@ -65,6 +65,7 @@
   }
 
   [data-theme="brutalist"][data-mode="dark"] {
+    --on-accent: oklch(0.15 0 0);
     --bg: oklch(0.18 0.01 90);
     --bg-2: oklch(0.18 0.01 90);
     --surface: oklch(0.23 0.012 90);
@@ -92,6 +93,7 @@
   }
 
   [data-theme="brutalist"][data-mode="light"] {
+    --on-accent: #ffffff;
     --bg: oklch(0.97 0.03 95);
     --bg-2: oklch(0.97 0.03 95);
     --surface: oklch(1 0 0);
