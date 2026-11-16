@@ -181,26 +181,40 @@ function initSpotlight() {
 }
 
 /* ---------- hero graph (Signal theme) ---------- */
-let hero = null;
+// The mesh graph runs in themes that show it. The WebGL glow belongs to Signal only:
+// it is stopped when you leave Signal and built fresh when you come back.
+let hero = null, glLayer = null, glToken = 0;
+const heroThemes = ['signal', 'terminal', 'bento'];
+
+function stopGL() {
+  glToken++;
+  if (glLayer) { glLayer.stop(); glLayer = null; }
+}
+function startGL(visual) {
+  if (glLayer || reduced) return;
+  const token = ++glToken;
+  const late = () => import('./hero-gl.js').then((gl) => {
+    if (token !== glToken || !hero || root.dataset.theme !== 'signal' || glLayer) return;
+    glLayer = gl.start(visual, { onMotion });
+  }).catch(() => {});
+  const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(late, { timeout: 2500 }) : setTimeout(late, 1200));
+  if (document.readyState === 'complete') idle(); else addEventListener('load', idle, { once: true });
+}
 async function syncHero() {
   const visual = document.querySelector('.hero-visual');
-  const wantsHero = ['signal', 'terminal', 'bento'].includes(root.dataset.theme) && visual && !reduced;
-  if (!wantsHero) { if (hero) { hero.stop(); hero = null; visual && visual.classList.remove('is-live'); } return; }
-  if (hero) return;
+  const theme = root.dataset.theme;
+  if (theme !== 'signal') stopGL();
+  const wantsHero = heroThemes.includes(theme) && visual && !reduced;
+  if (!wantsHero) { if (hero && hero.stop) hero.stop(); hero = null; visual && visual.classList.remove('is-live'); return; }
+  if (hero) { if (theme === 'signal' && hero.stop) startGL(visual); return; }
   const token = (hero = {});
   try {
     const mod = await import('./hero.js');
-    if (hero !== token || !['signal', 'terminal', 'bento'].includes(root.dataset.theme)) return;
-    hero = await mod.start(visual, visual.querySelector('canvas'), { onMotion, motionOn });
-    // WebGL glow: only after the page has loaded and the browser is idle
-    if (root.dataset.theme !== 'signal') return;
-    const late = () => import('./hero-gl.js').then((gl) => {
-      if (!hero || root.dataset.theme !== 'signal') return;
-      const layer = gl.start(visual, { onMotion });
-      if (layer) { const stopHero = hero.stop; hero.stop = () => { layer.stop(); stopHero(); }; }
-    }).catch(() => {});
-    const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(late, { timeout: 2500 }) : setTimeout(late, 1200));
-    if (document.readyState === 'complete') idle(); else addEventListener('load', idle, { once: true });
+    if (hero !== token || !heroThemes.includes(root.dataset.theme)) return;
+    const h = await mod.start(visual, visual.querySelector('canvas'), { onMotion, motionOn });
+    if (hero !== token || !heroThemes.includes(root.dataset.theme)) { h.stop(); return; }
+    hero = h;
+    if (root.dataset.theme === 'signal') startGL(visual);
   } catch (e) { hero = null; }
 }
 
