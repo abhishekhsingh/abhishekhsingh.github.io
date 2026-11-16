@@ -1,12 +1,14 @@
-// Signal extras that are not needed for the first paint: chapter rail and magnetic buttons.
-// start() builds them, stop() removes them again (used when another theme is chosen).
+// Extras that are not needed for the first paint.
+// The chapter rail is shared by every theme; the magnetic buttons belong to Signal only.
+// sync() is called on load and on every theme change.
 const SECTIONS = [
   ['about', 'About'], ['journey', 'Journey'], ['projects', 'Systems'], ['open-source', 'Open source'],
   ['skills', 'Stack'], ['education', 'Background'], ['testimonials', 'Voices'], ['contact', 'Contact'],
 ];
 const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-let undo = [];
+const root = document.documentElement;
+let railUndo = null, magUndo = null;
 
 function chapterRail() {
   if (!matchMedia('(min-width: 1360px)').matches) return;
@@ -41,7 +43,7 @@ function chapterRail() {
   };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-  undo.push(() => { io.disconnect(); removeEventListener('scroll', onScroll); nav.remove(); });
+  railUndo = () => { io.disconnect(); removeEventListener('scroll', onScroll); nav.remove(); };
 }
 
 function magnetic() {
@@ -66,8 +68,13 @@ function magnetic() {
   const leave = () => targets.forEach((el) => { el.style.removeProperty('--mx'); el.style.removeProperty('--my'); });
   addEventListener('pointermove', move, { passive: true });
   document.addEventListener('pointerleave', leave);
-  undo.push(() => { removeEventListener('pointermove', move); document.removeEventListener('pointerleave', leave); leave(); });
+  magUndo = () => { removeEventListener('pointermove', move); document.removeEventListener('pointerleave', leave); leave(); };
 }
 
-export function start() { if (undo.length) return; chapterRail(); magnetic(); if (!undo.length) undo.push(() => {}); }
-export function stop() { undo.forEach((f) => f()); undo = []; }
+export function sync() {
+  if (!railUndo) chapterRail();
+  const wantMag = root.dataset.theme === 'signal';
+  if (wantMag && !magUndo) magnetic();
+  if (!wantMag && magUndo) { magUndo(); magUndo = null; }
+}
+export function stop() { if (railUndo) railUndo(); if (magUndo) magUndo(); railUndo = magUndo = null; }

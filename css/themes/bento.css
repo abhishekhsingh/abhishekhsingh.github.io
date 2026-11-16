@@ -252,3 +252,12 @@
     [data-theme="bento"] .hero p { padding: 18px 22px; }
   }
 }
+
+/* ---------- shared extras, restyled for Bento: closing tile, pill chapter rail ---------- */
+@layer theme {
+  [data-theme="bento"] .outro { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: clamp(28px, 5vw, 56px); }
+  [data-theme="bento"] .outro-line { font-size: clamp(1.9rem, 4.6vw, 3.6rem); font-weight: 600; }
+  [data-theme="bento"] .chapter-rail a { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+  [data-theme="bento"] .chapter-rail a.is-active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  [data-theme="bento"] .chapter-rail .n::after { display: none; }
+}

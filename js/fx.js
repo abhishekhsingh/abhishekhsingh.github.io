@@ -278,12 +278,13 @@ function decodeName() {
   requestAnimationFrame(tick);
 }
 
-/* ---------- Signal extras (chapter rail, magnetic buttons) load when idle ---------- */
+/* ---------- chapter rail (all themes) and magnetic buttons (Signal) load when idle ---------- */
 let wow = null;
 function syncWow() {
-  if (root.dataset.theme !== 'signal') { if (wow) wow.stop(); return; }
-  const go = () => import('./wow.js').then((m) => { wow = m; if (root.dataset.theme === 'signal') m.start(); }).catch(() => {});
-  if (wow) { wow.start(); return; }
+  if (wow) { wow.sync(); return; }
+  if (syncWow.pending) return;
+  syncWow.pending = true;
+  const go = () => import('./wow.js').then((m) => { wow = m; m.sync(); }).catch(() => { syncWow.pending = false; });
   const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 1200));
   if (document.readyState === 'complete') idle(); else addEventListener('load', idle, { once: true });
 }
