@@ -110,7 +110,6 @@
   .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 14px;text-align:center;transition:all .3s}
   .skill-card:hover{border-color:var(--accent);transform:translateY(-2px)}
   .skill-card img,.skill-card svg{width:28px;height:28px;margin-bottom:8px;opacity:.85;display:block;margin-left:auto;margin-right:auto}
-  .skill-card .brand-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-family:var(--font-head);font-weight:700;font-size:.85rem;background:var(--brand);color:var(--brand-fg,#fff)}
   .skill-card .name{font-size:.78rem;font-weight:500;color:var(--text-dim)}
   .skill-category{margin-bottom:36px}
   .skill-category h3{font-family:var(--font-head);font-size:1rem;font-weight:600;margin-bottom:16px;color:var(--text)}
@@ -131,6 +130,7 @@
 
   /* ── FOOTER ── */
   footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
+  .logo-note{margin-top:10px;font-size:.7rem;opacity:.85;max-width:70ch;margin-left:auto;margin-right:auto}
 
   /* ── TABBED PROJECTS ── */
   .proj-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;padding:4px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}
@@ -212,7 +212,6 @@
     .proj-tab{padding:8px 12px;font-size:.7rem}
     .proj-panel .arch-container svg{min-width:650px}
     .skill-card{padding:12px 10px}
-    .skill-card .brand-icon{width:30px;height:30px;font-size:.75rem}
     .skill-card .name{font-size:.72rem}
     .contact-links{flex-direction:column}
     .contact-link{justify-content:center}

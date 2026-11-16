@@ -185,7 +185,6 @@
   .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 14px;text-align:center;transition:all .3s}
   .skill-card:hover{border-color:var(--accent);transform:translateY(-2px)}
   .skill-card img,.skill-card svg{width:28px;height:28px;margin-bottom:8px;opacity:.85;display:block;margin-left:auto;margin-right:auto}
-  .skill-card .brand-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-family:var(--font-head);font-weight:700;font-size:.85rem;background:var(--brand);color:var(--brand-fg,#fff)}
   .skill-card .name{font-size:.78rem;font-weight:500;color:var(--text-dim)}
   .skill-category{margin-bottom:36px}
   .skill-category h3{font-family:var(--font-head);font-size:1rem;font-weight:600;margin-bottom:16px;color:var(--text)}
@@ -198,6 +197,7 @@
   .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
   .js .reveal.visible{opacity:1;transform:translateY(0)}
   footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
+  .logo-note{margin-top:10px;font-size:.7rem;opacity:.85;max-width:70ch;margin-left:auto;margin-right:auto}
   .proj-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;padding:4px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}
   .proj-tab{padding:10px 18px;border-radius:10px;border:none;background:transparent;color:var(--text-muted);font-family:var(--font-head);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
   .proj-tab:hover{color:var(--text);background:var(--surface-2)}
@@ -265,7 +265,6 @@
     .proj-tab{padding:8px 12px;font-size:.7rem}
     .proj-panel .arch-container svg{min-width:650px}
     .skill-card{padding:12px 10px}
-    .skill-card .brand-icon{width:30px;height:30px;font-size:.75rem}
     .skill-card .name{font-size:.72rem}
     .contact-links{flex-direction:column}
     .contact-link{justify-content:center}
@@ -1582,14 +1581,14 @@
     <div class="skill-category reveal">
       <h3>Cloud & Infrastructure</h3>
       <div class="skills-grid">
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#FF9900;--brand-fg:#1a1a1a">ECS</div><div class="name">AWS ECS Fargate</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#FF9900;--brand-fg:#1a1a1a">λ</div><div class="name">AWS Lambda</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#3f7a22">S3</div><div class="name">AWS S3</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#c2255c">SQ</div><div class="name">AWS SQS / SNS</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#4053D6">DB</div><div class="name">AWS DynamoDB</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#d1126d">CF</div><div class="name">CloudFormation</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-ecs.svg" alt="AWS ECS Fargate" width="28" height="28"><div class="name">AWS ECS Fargate</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-lambda.svg" alt="AWS Lambda" width="28" height="28"><div class="name">AWS Lambda</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-s3.svg" alt="AWS S3" width="28" height="28"><div class="name">AWS S3</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-sqs.svg" alt="AWS SQS / SNS" width="28" height="28"><div class="name">AWS SQS / SNS</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-dynamodb.svg" alt="AWS DynamoDB" width="28" height="28"><div class="name">AWS DynamoDB</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-cloudformation.svg" alt="CloudFormation" width="28" height="28"><div class="name">CloudFormation</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/docker.svg" alt="Docker" width="28" height="28"><div class="name">Docker</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#c2255c">CW</div><div class="name">CloudWatch</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-cloudwatch.svg" alt="CloudWatch" width="28" height="28"><div class="name">CloudWatch</div></div>
       </div>
     </div>
 
@@ -1601,9 +1600,9 @@
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/neo4j.svg" alt="Neo4j" width="28" height="28"><div class="name">Neo4j</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/algolia.svg" alt="Algolia" width="28" height="28"><div class="name">Algolia</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/drill.svg" alt="Apache Drill" width="28" height="28"><div class="name">Apache Drill</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#7c3aed">RS</div><div class="name">Redshift</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-redshift.svg" alt="Redshift" width="28" height="28"><div class="name">Redshift</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/mongodb.svg" alt="MongoDB" width="28" height="28"><div class="name">MongoDB</div></div>
-        <div class="skill-card card"><div class="brand-icon" style="--brand:#232F3E">At</div><div class="name">Athena</div></div>
+        <div class="skill-card card"><img class="logo-sm" loading="lazy" src="./assets/logos/aws-athena.svg" alt="Athena" width="28" height="28"><div class="name">Athena</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/mysql.svg" alt="MySQL" width="28" height="28"><div class="name">MySQL</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/zookeeper.svg" alt="Zookeeper" width="28" height="28"><div class="name">Zookeeper</div></div>
       </div>
@@ -1743,6 +1742,7 @@
 <footer data-region="footer">
   <div class="container">
     Built with precision by Abhishekh Singh · 2026
+    <p class="logo-note">Logos are trademarks of their respective owners. They are shown only to indicate technologies I work with, and imply no endorsement.</p>
   </div>
 </footer>
 
