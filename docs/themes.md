@@ -102,10 +102,19 @@ All of these are Signal only, respect the Pause control and reduced motion, and 
 | Hero entrance: buttons, stats and estimate settle in, the name decodes. The headline and paragraph are never hidden | `signal.css`, `decodeName()` in `js/fx.js` |
 | Rolling-digit throughput counter | `paintEst()` in `js/fx.js`, `.od` rules in `signal.css` |
 | Hover labels on the hero graph (generic role names) | `LABELS` in `js/hero.js` |
-| Journey line that draws itself with a travelling pulse | CSS scroll timeline in `signal.css` (static line in browsers without it) |
 | Faint grain over the hero | `.hero::after` in `signal.css` |
-| Closing call to action above the contact block | `.outro` in `index.html` and `signal.css` |
-| Chapter rail (wide screens only) and magnetic buttons | `js/wow.js`, loaded when the browser is idle |
+| Mesh and serif styling of the closing block | `.outro` rules in `signal.css` |
+| Magnetic buttons | `js/wow.js`, loaded when the browser is idle |
+
+## Shared extras (every theme)
+
+Some features are about what the page does, not how Signal looks, so all five themes have them. The structure is in `css/base.css` (`@layer components`) and each theme restyles it.
+
+| Feature | Behaviour | Per-theme look |
+|---|---|---|
+| Closing call to action above the contact block | One big line and a mailto link | Signal: mesh and serif italic. Terminal: `$ next` prompt and `>` line. Bento: a tile. Brutalist: loud block with a patch. Midnight: gradient accent |
+| Chapter rail (screens 1360px and wider) | Numbered links, current section highlighted, appears after the hero. Built by `js/wow.js` | Terminal: `[01]`. Bento: pills. Brutalist: boxed numbers. Others: numbers with a short line |
+| Journey line that draws itself with a travelling pulse | CSS scroll timeline (plain line in browsers without it) | Terminal: block cursor. Brutalist: none, it has no line. Others: glowing dot |
 
 ## Remembering a choice
 
@@ -120,7 +129,7 @@ Mobile numbers use 4x CPU slowdown and 1.6 Mbps with 150 ms round trip, cold cac
 | Page | First paint | Largest paint | Transferred |
 |---|---|---|---|
 | Previous site (Midnight, `main`) | 264 ms | 404 ms | 132 KB |
-| Default (Signal) | 276 ms | 276 ms | 143 KB |
+| Default (Signal) | 264 ms | 264 ms | 143 KB |
 | Midnight chosen on a visit (loads its CSS and Google Fonts on demand) | 804 ms | 804 ms | 151 KB |
 
 Layout shift is under 0.01 and total blocking time is 0 for the default page. Terminal, Bento and Brutalist were not re-measured after the Signal default change.
