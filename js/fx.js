@@ -85,12 +85,16 @@ function initCounters() {
   const els = [...document.querySelectorAll('[data-count]')];
   if (reduced || !els.length) { els.forEach((e) => { e.classList.add('is-counted'); styleFinal(e); }); watchTheme(); return; }
   const prepared = new Map();
+  // Only numbers that are on screen (or just below it) when the page loads are counted.
+  // Anything else keeps its real value, so nothing ever shows a placeholder zero.
+  const near = (el) => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight * 1.4 && r.right > 0 && r.left < innerWidth; };
   els.forEach((el) => {
     const track = el.closest('.scale-track');
     if (track) { // the marquee repeats its items: count only the first copy
       const all = [...track.querySelectorAll('[data-count]')];
       if (all.indexOf(el) >= all.length / 2) { el.classList.add('is-counted'); styleFinal(el); return; }
     }
+    if (!near(el)) { el.classList.add('is-counted'); styleFinal(el); return; }
     const c = setup(el);
     if (c) prepared.set(el, c);
   });
@@ -103,7 +107,7 @@ function initCounters() {
       io.unobserve(e.target);
       run(prepared.get(e.target), 200 + batch++ * 110);
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.15 });
   prepared.forEach((_, el) => io.observe(el));
   watchTheme();
 }
@@ -180,15 +184,16 @@ function initSpotlight() {
 let hero = null;
 async function syncHero() {
   const visual = document.querySelector('.hero-visual');
-  const wantsHero = root.dataset.theme === 'signal' && visual && !reduced;
+  const wantsHero = ['signal', 'terminal', 'bento'].includes(root.dataset.theme) && visual && !reduced;
   if (!wantsHero) { if (hero) { hero.stop(); hero = null; visual && visual.classList.remove('is-live'); } return; }
   if (hero) return;
   const token = (hero = {});
   try {
     const mod = await import('./hero.js');
-    if (hero !== token || root.dataset.theme !== 'signal') return;
+    if (hero !== token || !['signal', 'terminal', 'bento'].includes(root.dataset.theme)) return;
     hero = await mod.start(visual, visual.querySelector('canvas'), { onMotion, motionOn });
     // WebGL glow: only after the page has loaded and the browser is idle
+    if (root.dataset.theme !== 'signal') return;
     const late = () => import('./hero-gl.js').then((gl) => {
       if (!hero || root.dataset.theme !== 'signal') return;
       const layer = gl.start(visual, { onMotion });

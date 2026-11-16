@@ -188,6 +188,17 @@
   [data-theme="bento"] .btn { border-radius: 999px; }
   [data-theme="bento"] .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: none; }
 
+  /* hero extras: estimate as a tile, motion switch */
+  [data-theme="bento"] .hero-content > .hero-cta { grid-column: 1 / 9; }
+  [data-theme="bento"] .hero-estimate { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; grid-column: 9 / -1; grid-row: 4; align-self: stretch; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--font-mono); font-size: .74rem; color: var(--text-muted); margin: 0; }
+  [data-theme="bento"] .hero-estimate .est-label { letter-spacing: .1em; text-transform: uppercase; font-size: .66rem; flex-basis: 100%; }
+  [data-theme="bento"] .hero-estimate .est-num { color: var(--accent); font-size: 1.25rem; font-weight: 600; font-variant-numeric: tabular-nums; min-width: 9ch; }
+  [data-theme="bento"] .hero-estimate .est-text { color: var(--text-dim); }
+  [data-theme="bento"] .hero-estimate .est-pause { font: inherit; color: var(--text-dim); background: none; border: 1px solid var(--border); border-radius: 999px; padding: 1px 10px; cursor: pointer; margin-left: auto; }
+  [data-theme="bento"] .hero-estimate .est-note { flex-basis: 100%; font-size: .66rem; }
+  [data-theme="bento"] .fx-toggle { display: inline-flex; position: absolute; right: 24px; bottom: 18px; z-index: 5; font-family: var(--font-mono); font-size: .68rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  [data-theme="bento"] .fx-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
   /* about as a bio tile and four small tiles */
   [data-theme="bento"] #about .about-grid { grid-template-columns: 7fr 5fr; gap: 16px; }
   [data-theme="bento"] #about .about-text { padding: 28px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
@@ -226,7 +237,9 @@
   @media (max-width: 900px) {
     [data-theme="bento"] .hero h1,
     [data-theme="bento"] .hero p,
-    [data-theme="bento"] .hero-stats { grid-column: 1 / -1; grid-row: auto; }
+    [data-theme="bento"] .hero-stats,
+    [data-theme="bento"] .hero-estimate,
+    [data-theme="bento"] .hero-content > .hero-cta { grid-column: 1 / -1; grid-row: auto; }
     [data-theme="bento"] #about .about-grid { grid-template-columns: 1fr; }
     [data-theme="bento"] .about-highlights { grid-template-columns: 1fr; }
   }

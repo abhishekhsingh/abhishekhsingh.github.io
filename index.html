@@ -387,6 +387,69 @@
   .cs-item p{color:var(--text-dim);line-height:1.6;margin:0}
   .cs-label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 }
+@layer components {
+  .demo{margin-top:22px}
+  .demo-note{margin:4px 0 12px;font-size:.8rem;color:var(--text-muted)}
+  .demo-cmds{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .demo-cmd{font-family:var(--font-mono);font-size:.78rem;color:var(--text);background:var(--surface);border:1px solid var(--border-glow);border-radius:8px;padding:8px 14px;cursor:pointer;transition:border-color .2s,color .2s}
+  .demo-cmd:hover{color:var(--accent);border-color:var(--accent)}
+  .demo-cmd[aria-pressed="true"]{color:var(--on-accent,#fff);background:var(--accent);border-color:var(--accent)}
+  .demo-term{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px 18px;max-height:420px;overflow:auto}
+  .demo-term pre{margin:0;font-family:var(--font-mono);font-size:.74rem;line-height:1.5;color:var(--text-dim);white-space:pre;tab-size:4}
+  .demo-term .t-prompt{color:var(--accent)}
+  .demo-term .t-head{color:var(--text)}
+  .demo-term .t-ok{color:var(--accent-3)}
+  .demo-term .t-bad{color:var(--red)}
+  .demo-term .t-warn{color:var(--amber)}
+}
+@layer components {
+  dialog.palette{margin:14vh auto 0;width:min(640px,92vw);max-width:none;padding:0;background:var(--surface);color:var(--text);border:1px solid var(--border-glow);border-radius:16px;box-shadow:var(--code-shadow);overflow:hidden}
+  dialog.palette::backdrop{background:rgb(0 0 0 / .55);backdrop-filter:blur(3px)}
+  .pal-input{display:block;width:100%;padding:18px 22px;font:inherit;font-size:1.05rem;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--border);outline:0}
+  .pal-input::placeholder{color:var(--text-muted)}
+  .pal-input:focus-visible{outline:0}
+  .pal-list{list-style:none;margin:0;padding:8px;max-height:min(50vh,420px);overflow:auto}
+  .pal-group{padding:12px 14px 4px;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted)}
+  .pal-item{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:.92rem;color:var(--text-dim)}
+  .pal-item[aria-selected="true"]{background:var(--hover-soft);color:var(--text);box-shadow:inset 2px 0 0 var(--accent)}
+  .pal-tag{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+  .pal-empty{padding:18px 14px;color:var(--text-muted)}
+  .pal-foot{display:flex;gap:18px;padding:10px 18px;border-top:1px solid var(--border);font-size:.72rem;color:var(--text-muted)}
+  .pal-foot kbd{font-family:var(--font-mono);font-size:.68rem;padding:1px 6px;margin-right:4px;border:1px solid var(--border-glow);border-radius:5px;color:var(--text-dim)}
+}
+@layer components {
+  .repo-stats{margin:0 0 18px;font-family:var(--font-mono);font-size:.74rem;color:var(--text-muted)}
+}
+@layer utilities {
+  @media print {
+    html[data-theme][data-mode]{--bg:#fff;--bg-2:#fff;--surface:#fff;--surface-2:#fff;--surface-3:#f3f3f3;--border:#c9c9c9;--border-glow:#c9c9c9;--text:#111;--text-dim:#2b2b2b;--text-muted:#4a4a4a;--accent:#0a5c4a;--accent-2:#1d4ed8;--accent-3:#0a5c4a;--amber:#8a4a06;--red:#b00020;--purple:#4c1d95;--pink:#9d174d;--teal:#0f5f59;--on-accent:#fff;--glow:none;--code-shadow:none;--font-head:system-ui,-apple-system,"Segoe UI",sans-serif;--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--font-mono:ui-monospace,Menlo,Consolas,monospace}
+    body{background:#fff!important;color:#111!important;font-size:11pt;padding-bottom:0!important;animation:none!important}
+    body::after,html::before,.hero::before,.hero::after,section::before{display:none!important}
+    .nav,.nav-mobile,.hero-visual,.hero-estimate,.hero-cta,.fx-toggle,.scale-bar,.proj-tabs,.trace-bar,.demo,.arch-expand,.copy-btn,#theme-pop,#theme-status,.skip-link,dialog,.hero-prompt{display:none!important}
+    .js .reveal,.reveal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+    section,.hero{padding:18pt 0!important;min-height:0!important;background:#fff!important;border:0!important}
+    .container{max-width:none!important}
+    .proj-panel{display:block!important;animation:none!important;margin-bottom:22pt;break-inside:avoid-page}
+    .card,.testimonial,.role,.project-card,.cs-item{break-inside:avoid;background:#fff!important;box-shadow:none!important;border:1px solid #c9c9c9!important;transform:none!important}
+    .arch-container{overflow:visible!important;border:1px solid #c9c9c9!important;background:#fff!important}
+    .arch-container svg{min-width:0!important;width:100%!important;max-width:100%!important;filter:none!important}
+    h2.section-title,.section-title{break-after:avoid;color:#111!important;-webkit-text-fill-color:#111!important}
+    .hero h1 .gradient,.scale-num,.hero-stat .num{background:none!important;-webkit-text-fill-color:currentColor!important;color:#0a5c4a!important}
+    a{color:#0a5c4a!important;text-decoration:underline}
+    a[href^="http"]:not(.contact-link):not(.logo-sm)::after{content:" (" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+    .logo-sm,.skill-card img{filter:none!important}
+    footer{border-top:1px solid #c9c9c9!important;color:#444!important}
+  }
+}
+@layer components {
+  [data-theme="terminal"] .hero-visual,
+  [data-theme="bento"] .hero-visual{display:block;position:absolute;inset:0;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 90% 85% at 78% 40%,#000 15%,transparent 78%);mask-image:radial-gradient(ellipse 90% 85% at 78% 40%,#000 15%,transparent 78%)}
+  [data-theme="terminal"] .hero-visual::before,
+  [data-theme="bento"] .hero-visual::before{content:"";position:absolute;inset:0;background:var(--accent);opacity:.32;-webkit-mask:url("/assets/signal/mesh.svg") right center/cover no-repeat;mask:url("/assets/signal/mesh.svg") right center/cover no-repeat;transition:opacity .9s ease}
+  .hero-visual.is-live::before{opacity:0!important}
+  .hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .9s ease}
+  .hero-visual.is-live .hero-canvas{opacity:1}
+}
 @layer tokens {
   :root {
     --font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -537,6 +600,9 @@
     <a class="nav-resume" data-goatcounter-click="resume-nav" data-goatcounter-title="Resume (nav)" href="assets/resume/Abhishekh_Singh_Resume.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
   <div class="nav-right">
+    <button class="theme-toggle palette-btn" id="paletteBtn" type="button" aria-label="Open command palette" aria-haspopup="dialog" title="Command palette (Ctrl or Cmd+K)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
     <button class="theme-toggle theme-btn" id="themeBtn" popovertarget="theme-pop" aria-label="Choose theme" title="Choose theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.9-4.5-8.8-10-8.8z"/></svg>
     </button>
@@ -1510,6 +1576,7 @@
           <a href="https://pypi.org/project/mcp-halflist/" target="_blank" rel="noopener"><img src="https://img.shields.io/pypi/v/mcp-halflist?style=flat-square&color=00c2d1&logo=pypi&logoColor=white&label=PyPI" alt="PyPI version" loading="lazy" height="20"></a>
           <a href="https://pypi.org/project/mcp-halflist/" target="_blank" rel="noopener"><img src="https://img.shields.io/pypi/pyversions/mcp-halflist?style=flat-square&color=4d8bff&logo=python&logoColor=white" alt="Supported Python versions" loading="lazy" height="20"></a>
         </div>
+        <p class="repo-stats" data-stats hidden></p>
         <div class="code-snippet">
           <button class="copy-btn" onclick="copyCmd(this, 'pip install mcp-halflist\nhalflist check &lt;server-url&gt;')">Copy</button>
           <div class="line"><span class="prompt">$</span>pip install mcp-halflist</div>
@@ -1584,6 +1651,17 @@
           <!-- Footer -->
           <text x="380" y="318" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6" opacity=".9">offline-first · no API keys · CI-native · official GitHub Action</text>
         </svg>
+      </div>
+      <div class="demo" data-demo>
+        <div class="demo-head">
+          <div class="eyebrow">Try it</div>
+          <p class="demo-note">A recorded run of the real tool against a small sample server. Not a live connection.</p>
+        </div>
+        <div class="demo-cmds" role="group" aria-label="Choose a recorded run to replay">
+          <button type="button" class="demo-cmd" data-cmd="check" aria-pressed="false" data-goatcounter-click="demo-check" data-goatcounter-title="Demo: halflist check">halflist check</button>
+          <button type="button" class="demo-cmd" data-cmd="bench" aria-pressed="false" data-goatcounter-click="demo-bench" data-goatcounter-title="Demo: halflist bench">halflist bench</button>
+        </div>
+        <div class="demo-term" role="region" aria-label="Recorded terminal output" tabindex="0"><pre>Choose a command above to replay a recorded run.</pre></div>
       </div>
       <div class="desc">A CLI tool that tests MCP servers the way pytest tests code. Four protocol suites (handshake, tools, resources, prompts) and a fifth offline security suite that scans for prompt injection, data exfiltration, cross-tool manipulation, suspicious encoding, and rug-pull tool changes. Plugs into any CI pipeline with JUnit XML output and a ready-made GitHub Action.</div>
       <div class="tech-pills"><span class="tech-pill chip">Python</span><span class="tech-pill chip">Typer</span><span class="tech-pill chip">Pydantic</span><span class="tech-pill chip">httpx</span><span class="tech-pill chip">MCP SDK</span><span class="tech-pill chip">OAuth2.1 PKCE</span><span class="tech-pill chip">PyPI</span></div>
@@ -2002,6 +2080,9 @@ window.toggleTheme = function() {
 <script type="module" src="js/theme.js"></script>
 <script type="module" src="js/fx.js"></script>
 <script type="module" src="js/trace.js"></script>
+<script type="module" src="js/demo.js"></script>
+<script type="module" src="js/palette.js"></script>
+<script type="module" src="js/stats.js"></script>
 <script data-goatcounter="https://abhishekhsingh.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
