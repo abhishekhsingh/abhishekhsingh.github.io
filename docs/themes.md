@@ -66,6 +66,7 @@ These work in every theme and are styled with the theme's tokens.
 | Case studies | `index.html`, `.case-study` | Context, scale, decision, trade-off and outcome under each system. |
 | Command palette | `js/palette.js` | Ctrl or Cmd+K, or the search button in the nav. Commands are built from the page, so new sections and themes appear automatically. |
 | Recorded demo | `js/demo.js`, `assets/demo/` | Replays real `mcp-halflist` output. See `assets/demo/README.md` for how it was recorded. |
+| Background art | `assets/signal/art/`, `scripts/make_art.py` | Signal only. Faint dotted world map, embedding cloud and flow lines behind each system, applied as CSS masks. The map is built from Natural Earth land data (public domain). Regenerate with `python3 scripts/make_art.py`. The map markers are decorative and do not name real regions. |
 | Weekly stats | `scripts/update_stats.py`, `.github/workflows/stats.yml`, `data/stats.json` | A scheduled job refreshes PyPI downloads and release tags. The page reads the file, because browsers cannot read PyPI download counts directly. |
 | Print styles | `css/base.css`, last block | Black on white, all systems shown, no interactive controls. |
 

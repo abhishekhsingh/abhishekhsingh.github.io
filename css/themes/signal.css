@@ -173,6 +173,19 @@
   [data-theme="signal"] .timeline::before { width: 1px; background: linear-gradient(to bottom, var(--accent), var(--border-glow) 40%, transparent); }
   [data-theme="signal"] .role::before { border-color: var(--accent); box-shadow: 0 0 0 4px var(--bg), 0 0 14px rgb(45 212 167 / .5); }
 
+  /* faint background art behind each system, drawn from small SVG masks */
+  [data-theme="signal"] .proj-panel { position: relative; isolation: isolate; }
+  [data-theme="signal"] .proj-panel > * { position: relative; z-index: 1; }
+  [data-theme="signal"] .proj-panel::before { content: ""; position: absolute; top: -6px; right: -6px; width: min(74%, 840px); aspect-ratio: 2 / 1; z-index: 0; pointer-events: none; background: var(--accent); opacity: .17; -webkit-mask: var(--art) right top / contain no-repeat, linear-gradient(to bottom, #000 25%, transparent 92%); -webkit-mask-composite: source-in; mask: var(--art) right top / contain no-repeat, linear-gradient(to bottom, #000 25%, transparent 92%); mask-composite: intersect; }
+  [data-theme="signal"][data-mode="light"] .proj-panel::before { opacity: .2; }
+  [data-theme="signal"] #tab-data-highway,
+  [data-theme="signal"] #tab-mcp-server { --art: url("../../assets/signal/art/map.svg"); }
+  [data-theme="signal"] #tab-search-ai { --art: url("../../assets/signal/art/cloud.svg"); }
+  [data-theme="signal"] #tab-events,
+  [data-theme="signal"] #tab-udm,
+  [data-theme="signal"] #tab-infra { --art: url("../../assets/signal/art/flow.svg"); }
+  [data-theme="signal"] #tab-permissions { --art: url("../../assets/signal/mesh.svg"); }
+
   /* ticker */
   [data-theme="signal"] .scale-bar { background: transparent; border-color: var(--border); }
   [data-theme="signal"] .scale-bar::before { background: linear-gradient(90deg, var(--bg), transparent); }
