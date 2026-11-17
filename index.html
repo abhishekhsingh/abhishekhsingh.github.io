@@ -1657,36 +1657,36 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
     <div class="project-card reveal card">
       <span class="project-badge badge-data">ANALYTICS · OPEN SOURCE</span>
       <h3>GoatCounter Dashboard</h3>
-      <div class="subtitle">A modern alternative analytics dashboard for privacy-first web analytics</div>
+      <div class="subtitle">A fast, beautiful alternative dashboard for privacy-first web analytics</div>
       <div class="arch-container" data-trace="goatcounter">
         <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
           <defs><filter id="gc"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
           <rect width="760" height="320" fill="var(--bg)" rx="6"/>
           <text x="380" y="14" text-anchor="middle" fill="var(--text-muted)" font-family="Sora,sans-serif" font-size="9" font-weight="500">GoatCounter Dashboard · data flow</text>
 
-          <!-- Single HTML file -->
+          <!-- Static files -->
           <rect x="180" y="24" width="400" height="44" rx="9" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#gc)"/>
-          <text x="380" y="44" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="11" font-weight="700">Single HTML File</text>
-          <text x="380" y="59" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">React + Recharts · no server · no build step · host anywhere</text>
+          <text x="380" y="44" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="11" font-weight="700">Static Files</text>
+          <text x="380" y="59" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Preact + htm · native ES modules · no server · no build step · host anywhere</text>
 
           <!-- API -->
-          <text x="380" y="84" text-anchor="middle" fill="var(--amber)" font-family="JetBrains Mono,monospace" font-size="6">GoatCounter API · read-only, token auth</text>
+          <text x="380" y="84" text-anchor="middle" fill="var(--amber)" font-family="JetBrains Mono,monospace" font-size="6">GoatCounter API · read-only, your key stays in the browser</text>
           <rect x="290" y="92" width="180" height="28" rx="6" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
           <text x="380" y="110" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="9" font-weight="600">GoatCounter API</text>
 
           <!-- Render layer -->
           <rect x="40" y="140" width="210" height="54" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
-          <text x="145" y="161" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">KPI Cards</text>
-          <text x="145" y="176" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">period-over-period trend</text>
+          <text x="145" y="161" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Two Designs</text>
+          <text x="145" y="176" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">Nova glass · Classic flat · dark and light</text>
           <rect x="275" y="140" width="210" height="54" rx="8" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width="1"/>
           <text x="380" y="161" text-anchor="middle" fill="var(--dg-fill-cyan-3)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Traffic Chart</text>
-          <text x="380" y="176" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">area chart</text>
+          <text x="380" y="176" text-anchor="middle" fill="var(--dg-fill-cyan-1)" font-family="JetBrains Mono,monospace" font-size="6">line draws itself · ghost of the last period</text>
           <rect x="510" y="140" width="210" height="54" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
-          <text x="615" y="161" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="9" font-weight="600">World Map</text>
-          <text x="615" y="176" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">choropleth · sqrt scale</text>
+          <text x="615" y="161" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Globe and Skyline</text>
+          <text x="615" y="176" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">WebGL globe · 3D weekday and hour skyline</text>
 
           <!-- Drill-down -->
-          <text x="380" y="212" text-anchor="middle" fill="var(--purple)" font-family="JetBrains Mono,monospace" font-size="6.5">click any data point to drill down</text>
+          <text x="380" y="212" text-anchor="middle" fill="var(--purple)" font-family="JetBrains Mono,monospace" font-size="6.5">drill down, switch sites, narrow to one page</text>
           <rect x="25" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
           <text x="80" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Referrers</text>
           <rect x="145" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
@@ -1694,15 +1694,15 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <rect x="265" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
           <text x="320" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Regions</text>
           <rect x="385" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="440" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Campaigns</text>
+          <text x="440" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Sites</text>
           <rect x="505" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="560" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Devices</text>
+          <text x="560" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">One page</text>
           <rect x="625" y="220" width="110" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".8"/>
-          <text x="680" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Languages</text>
+          <text x="680" y="237" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="7.5" font-weight="500">Recap image</text>
 
           <!-- Cache -->
           <rect x="280" y="266" width="200" height="30" rx="6" fill="var(--surface)" stroke="var(--accent-3)" stroke-width=".8"/>
-          <text x="380" y="285" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Response Cache · 60s TTL</text>
+          <text x="380" y="285" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="8" font-weight="600">IndexedDB Cache · shown instantly</text>
 
           <!-- Connections -->
           <line x1="380" y1="68" x2="380" y2="92" stroke="var(--amber)" stroke-width=".8" opacity=".5"/>
@@ -1719,15 +1719,15 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <circle r="2" fill="var(--accent-3)" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M380,246 L380,266"/></circle>
         </svg>
       </div>
-      <div class="desc">A single HTML file that replaces GoatCounter's default analytics UI with interactive charts, a choropleth world map, drill-down navigation, and period-over-period trend comparison. No server, no build step. Host it anywhere for free.</div>
-      <div class="tech-pills"><span class="tech-pill chip">HTML</span><span class="tech-pill chip">CSS</span><span class="tech-pill chip">JavaScript</span><span class="tech-pill chip">React</span><span class="tech-pill chip">Recharts</span><span class="tech-pill chip">GoatCounter API</span><span class="tech-pill chip">GitHub Pages</span></div>
+      <div class="desc">A folder of static files that replaces GoatCounter's default analytics UI. Two designs, a WebGL globe, a 3D skyline of when readers show up, a calendar year with streaks, a referrer-to-page Sankey, a site switcher and a shareable recap image. No server, no build step, and a built-in demo that needs no key.</div>
+      <div class="tech-pills"><span class="tech-pill chip">HTML</span><span class="tech-pill chip">CSS</span><span class="tech-pill chip">JavaScript</span><span class="tech-pill chip">Preact</span><span class="tech-pill chip">WebGL</span><span class="tech-pill chip">GoatCounter API</span><span class="tech-pill chip">GitHub Pages</span></div>
       <ul class="highlights-list">
-        <li>Interactive visualizations: area charts for traffic, donut charts for browsers, operating systems, and devices, horizontal bars for countries and languages</li>
-        <li>Choropleth world map with square-root scaling, hover tooltips, and a gradient legend</li>
-        <li>Click any data point to drill down: pages show referrers, browsers show versions, countries show regions, campaigns show source URLs</li>
-        <li>Built-in demo mode with realistic sample data, works without an API key or account</li>
-        <li>Smart loading: primary KPIs render first, secondary panels lazy-fetch on scroll, and a 60-second response cache makes navigation instant</li>
-        <li>Dark and light theme with system preference detection, persisted across sessions</li>
+        <li>Two complete designs on one set of components: Nova (glass, aurora, tilting cards) and Classic (the original flat look), each in dark and light. A new visit opens in Nova dark, and remembering a choice is opt-in</li>
+        <li>A visitors chart that draws itself, with a ghost line for the previous period, annotated spikes, a crosshair, and click-to-zoom into a day's 24 hours</li>
+        <li>Countries on a WebGL globe (with a flat map fallback), browsers, systems and devices as donuts with real logos, and drill-down from referrers to pages, browsers to versions, and countries to regions</li>
+        <li>When readers show up as a 3D skyline by weekday and hour, plus a calendar year with streaks and goal rings</li>
+        <li>All your sites in one place: switch between the sites of a GoatCounter account, or narrow every card to a single page. A command palette, keyboard shortcuts and a refresh that clears the cache</li>
+        <li>Rebuilt for speed and privacy: about 130 KB on first load instead of 970 KB, and usable in about 1 second instead of 6.4 on a throttled phone. No CDN, no analytics, and the key goes only to your own GoatCounter site</li>
       </ul>
       <div class="contact-links mt-8">
         <a class="contact-link" href="https://github.com/abhishekhsingh/goatcounter-dashboard" target="_blank" rel="noopener">GitHub Repo</a>

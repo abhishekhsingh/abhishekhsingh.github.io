@@ -131,7 +131,9 @@ function initEstimate() {
     return;
   }
   // Signal shows the number as rolling digits; other themes keep plain text
+  let lastV = 0;
   const paintEst = (v) => {
+    lastV = v;
     const text = nfI.format(v);
     if (root.dataset.theme !== 'signal') {
       if (num._od) { num._od = null; num.classList.remove('odo'); }
@@ -155,6 +157,9 @@ function initEstimate() {
     }
     [...text].forEach((ch, i) => { const st = num._od.cols[i]; if (st) st.style.transform = 'translateY(-' + (+ch * 1.25) + 'em)'; });
   };
+  // The rolling digits belong to Signal only. When the theme changes while the count is paused or finished, repaint at once,
+  // otherwise the reels stay in the page and show every digit in a theme that does not clip them.
+  new MutationObserver(() => paintEst(lastV)).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   const CAP = 18000; // stop after this much running time
   let active = 0, last = 0, running = false, started = false, userPaused = false, shown = 0, raf = 0;
   const frame = (now) => {

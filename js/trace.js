@@ -63,11 +63,11 @@ export const STEPS = {
     [['=Terminal', 'JUnit XML', '=HTML', '=JSON', '=Markdown', 'SVG Badge'], 'Results go to the terminal, JUnit XML, HTML, JSON, Markdown or an SVG badge.'],
   ],
   'goatcounter': [
-    [['Single HTML File'], 'The dashboard is one HTML file: React and Recharts, no server and no build step.'],
-    [['GoatCounter API'], 'It reads your GoatCounter stats through the read-only API with a token you provide.'],
-    [['Response Cache'], 'Responses are cached for 60 seconds.'],
-    [['KPI Cards', 'Traffic Chart', 'World Map'], 'KPI cards with period trends, a traffic chart and a world map.'],
-    [['=Referrers', '=Versions', '=Regions', '=Campaigns', '=Devices', '=Languages'], 'Breakdowns by referrer, browser version, region, campaign, device and language, with click-to-drill-down.'],
+    [['Static Files'], 'The dashboard is a folder of static files: Preact and htm as native modules, with no server and no build step.'],
+    [['GoatCounter API'], 'It reads your GoatCounter stats through the read-only API with a key you provide, one request at a time. The key goes only to your own GoatCounter site.'],
+    [['IndexedDB Cache'], 'Answers are cached in the browser and shown at once while a fresh copy loads. Refresh clears them.'],
+    [['Two Designs', 'Traffic Chart', 'Globe and Skyline'], 'Two designs (Nova and Classic), a chart that draws itself with a ghost of the previous period, and a WebGL globe with a 3D skyline of reader habits.'],
+    [['=Referrers', '=Versions', '=Regions', '=Sites', '=One page', '=Recap image'], 'Click to drill into referrers, versions and regions, switch between your sites, narrow everything to one page, or export a recap image.'],
   ],
 };
 
