@@ -54,6 +54,7 @@
   /* ── ABOUT ── */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
   @media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+  .about-grid>.span-all{grid-column:1/-1}
   .about-text p{color:var(--text-dim);margin-bottom:16px;font-size:.95rem}
   .about-highlights{display:grid;gap:16px}
   .about-hl{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;transition:border-color .3s}
@@ -135,7 +136,7 @@
 
   /* ── FOOTER ── */
   footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
-  .logo-note{margin-top:10px;font-size:.7rem;max-width:70ch;margin-left:auto;margin-right:auto}
+  .logo-note{margin-top:10px;font-size:.62rem;max-width:70ch;margin-left:auto;margin-right:auto}
 
   /* ── TABBED PROJECTS ── */
   .proj-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;padding:4px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}

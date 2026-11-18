@@ -141,6 +141,7 @@ section{padding:100px 32px}
 .hero-stat .label{font-size:.78rem;color:var(--text-muted);margin-top:2px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 @media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-grid>.span-all{grid-column:1/-1}
 .about-text p{color:var(--text-dim);margin-bottom:16px;font-size:.95rem}
 .about-highlights{display:grid;gap:16px}
 .about-hl{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;transition:border-color .3s}
@@ -204,7 +205,7 @@ section{padding:100px 32px}
 .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .js .reveal.visible{opacity:1;transform:translateY(0)}
 footer{text-align:center;padding:40px 32px;font-size:.78rem;color:var(--text-muted);border-top:1px solid var(--border)}
-.logo-note{margin-top:10px;font-size:.7rem;max-width:70ch;margin-left:auto;margin-right:auto}
+.logo-note{margin-top:10px;font-size:.62rem;max-width:70ch;margin-left:auto;margin-right:auto}
 .proj-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;padding:4px;background:var(--surface);border-radius:12px;border:1px solid var(--border)}
 .proj-tab{padding:10px 18px;border-radius:10px;border:none;background:transparent;color:var(--text-muted);font-family:var(--font-head);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
 .proj-tab:hover{color:var(--text);background:var(--surface-2)}
@@ -863,7 +864,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
     <div class="about-grid">
       <div class="about-text reveal">
         <p>Principal Engineer at Gainsight with <span data-years>12</span>+ years building production distributed systems across two product lines: Customer Success (CS) and Customer Communities (CC). Based in Hyderabad, India. B.Tech in Computer Science from BBD National Institute of Technology &amp; Management, Lucknow.</p>
-        <p>On the CS side, I built the Data Highway pipeline engine, the graph-based permission system used by 7+ services, and the event processing platform with cross-region SQS failover. On the CC side, I architected the AI-native search platform: three LLM-powered features, a production MCP server exposing dozens of tools, and a federated search system indexing records from 5 sources.</p>
+        <p>On the CC side, I architected the AI-native search platform: three LLM-powered features, a production MCP server exposing 35+ tools, and a federated search system indexing records from 5+ sources. On the CS side, I built the Data Highway pipeline engine, the graph-based permission system used by 7+ services, and the event processing platform with cross-region SQS failover.</p>
         <p>My work sits at the intersection of distributed systems, data engineering, and AI, building the kind of infrastructure that other teams build their products on.</p>
       </div>
       <div class="about-highlights reveal">
@@ -873,11 +874,11 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
         </div>
         <div class="about-hl card">
           <h3>AI & MCP Integration</h3>
-          <p>Production MCP server exposing dozens of tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
+          <p>Production MCP server exposing 35+ tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
         </div>
         <div class="about-hl card">
           <h3>Data at Scale</h3>
-          <p>61B+ records processed daily, 25M+ search records indexed, 35+ SaaS connectors, dual-warehouse analytics (Postgres + Redshift), S3 Parquet data lake</p>
+          <p>61B+ records processed daily, 25M+ search records indexed, 35+ SaaS connectors, dual-warehouse analytics (Postgres + Redshift), search analytics on an S3 Parquet + Athena data lake</p>
         </div>
         <div class="about-hl card">
           <h3>Security-First Design</h3>
@@ -893,32 +894,32 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
   <div class="container">
     <div class="section-label reveal" data-prompt="git log --oneline">Career Journey</div>
     <h2 class="section-title reveal">Building at Every <span class="ital">Layer</span> of the Stack</h2>
-    <div class="section-sub reveal">A decade of progressive engineering ownership, from automation frameworks to architecting the data and AI backbone of an enterprise SaaS platform.</div>
+    <div class="section-sub reveal">12+ years of engineering ownership across data pipelines, platform services and AI search at enterprise scale.</div>
 
     <div class="timeline reveal">
       <div class="tl-item active role">
         <div class="tl-date">APR 2025 - PRESENT</div>
         <div class="tl-role">Principal Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
-        <div class="tl-desc">Architecting the Search & AI platform: production MCP server for AI assistants, three LLM-powered features with cross-provider fallback, search analytics data lake, and federated search indexing across multiple content sources. Leading the platform's AI-native evolution.</div>
+        <div class="tl-desc">Architecting the Search & AI platform for Customer Communities. Built the production MCP server (35+ tools, Streamable HTTP, OAuth 2.1 PKCE), designed and built three LLM-powered features with cross-provider fallback, architected and built the search analytics pipeline feeding the S3 Parquet + Athena data lake (cutting search API usage by 90%+), and contributed to federated search indexing across 5+ sources. Leading the platform's AI-native evolution.</div>
       </div>
       <div class="tl-item role">
         <div class="tl-date">AUG 2019 - MAR 2025</div>
         <div class="tl-role">Lead Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
-        <div class="tl-desc">Led architecture of the Data Highway pipeline engine scaling to billions of records daily across hundreds of enterprise tenants. Built the Usage Data Model analytics platform, community search system, and enterprise webhook delivery with IAM SigV4 signing.</div>
+        <div class="tl-desc">Led architecture of the DAG-based Data Highway pipeline engine, processing billions of records daily across 600+ tenants with 35+ pluggable connectors. Designed the four-tier event processing platform with cross-region failover, built the analytics orchestration platform on dual warehouses (PostgreSQL + Redshift), and delivered enterprise webhooks with IAM role assumption and SigV4 request signing.</div>
       </div>
       <div class="tl-item role">
         <div class="tl-date">JUL 2017 - AUG 2019</div>
         <div class="tl-role">Senior Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
-        <div class="tl-desc">Built the Usage Data Model (UDM) analytics platform with dual-warehouse abstraction (Postgres + Redshift), Event Processing pub/sub system, and core Data Highway infrastructure.</div>
+        <div class="tl-desc">Designed and built core platform services: a graph-based RBAC system on Neo4j (permission SDK used by 7+ services), the centralized configuration service, and the reactive audit service. Developed 60+ custom SQL functions (Apache Drill UDFs) for the pipeline engine.</div>
       </div>
       <div class="tl-item role">
         <div class="tl-date">JUL 2016 - JUN 2017</div>
         <div class="tl-role">Software Engineer</div>
         <div class="tl-company">Gainsight · Hyderabad</div>
-        <div class="tl-desc">Developed the graph-based permission system (Neo4j), centralized Config Server, Audit Service, and contributed to the Data Highway DAG engine with 60+ custom Drill UDFs.</div>
+        <div class="tl-desc">Joined as the data platform was being built from the ground up. Contributed to the initial architecture of the permission system and distributed configuration service, built data transformation components and connector integrations for the pipeline engine, and developed shared platform libraries.</div>
       </div>
       <div class="tl-item role">
         <div class="tl-date">DEC 2015 - JUN 2016</div>
@@ -930,7 +931,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
         <div class="tl-date">AUG 2014 - DEC 2015</div>
         <div class="tl-role">Software Analyst</div>
         <div class="tl-company">Nihilent · Pune</div>
-        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary), a major media platform serving millions of subscribers. Contributed to technology solutions spanning .NET, Java, PHP, and Oracle, with test automation in Selenium and UFT.</div>
+        <div class="tl-desc">Delivered 5 projects for MultiChoice Africa (Naspers subsidiary), a major media platform serving millions of subscribers. Built automation frameworks in Selenium and UFT for end-to-end regression coverage, added JMeter performance testing, and worked directly with the onshore client team in South Africa to keep delivery quality high.</div>
       </div>
     </div>
   </div>
@@ -1067,7 +1068,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
 
           <!-- Data Lake -->
           <rect x="530" y="340" width="235" height="26" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
-          <text x="647" y="357" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Analytics: S3 Parquet + Athena · 25M+ records indexed</text>
+          <text x="647" y="357" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6">Analytics: S3 Parquet + Athena</text>
 
           <!-- CC infra -->
           <rect x="490" y="384" width="75" height="28" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
@@ -1094,7 +1095,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
 
           <!-- Footer stats -->
           <text x="235" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".9">61B+ records/day · 14 TB processed · 600+ tenants</text>
-          <text x="647" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".9">25M+ indexed · 5 federated sources · 3 AI features</text>
+          <text x="647" y="440" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5" opacity=".9">25M+ indexed · 5+ federated sources · 3 AI features</text>
 
           <!-- Legend -->
           <text x="35" y="475" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5" opacity=".9">━━ primary dependency   ╌╌ SDK/client usage   ● animated data flow</text>
@@ -1149,12 +1150,12 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <rect x="555" y="12" width="185" height="75" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
           <text x="647" y="32" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search</text>
           <text x="647" y="48" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Index builder · Token issuer</text>
-          <text x="647" y="62" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Analytics data lake</text>
-          <text x="647" y="76" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="5.5">25M+ records · 600+ communities</text>
+          <text x="647" y="62" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">25M+ records indexed</text>
+          <text x="647" y="76" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="5.5">Analytics data lake · 600+ communities</text>
           <!-- Algolia -->
           <rect x="555" y="125" width="185" height="55" rx="8" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width="1"/>
           <text x="647" y="148" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="10" font-weight="600">Algolia</text>
-          <text x="647" y="163" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="6">Multi-app (APP1/APP2) · AskAI</text>
+          <text x="647" y="163" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="6">Multi-app · AskAI</text>
           <text x="647" y="175" text-anchor="middle" fill="var(--dg-fill-amber-4)" font-family="JetBrains Mono,monospace" font-size="5.5">Secured API keys · Scoped tokens</text>
           <!-- Federated Sources -->
           <rect x="555" y="200" width="185" height="40" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
@@ -1163,7 +1164,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <!-- SNS messagebus -->
           <rect x="20" y="200" width="160" height="40" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width=".5"/>
           <text x="100" y="218" text-anchor="middle" fill="var(--text-dim)" font-family="Sora,sans-serif" font-size="8" font-weight="600">SNS Messagebus</text>
-          <text x="100" y="232" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">~95 events · Webhooks · Connectors</text>
+          <text x="100" y="232" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="5.5">Events · Webhooks · Connectors</text>
           <!-- Data stores -->
           <rect x="200" y="200" width="65" height="40" rx="5" fill="var(--surface)" stroke="#4479A1" stroke-width=".8"/>
           <text x="232" y="223" text-anchor="middle" fill="var(--dg-fill-blue-2)" font-size="7.5" font-family="DM Sans">MySQL</text>
@@ -1189,7 +1190,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <circle r="2" fill="var(--amber)" opacity=".6"><animateMotion dur="2.5s" repeatCount="indefinite" path="M275,180 L580,148"/></circle>
         </svg>
       </div>
-      <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern: primary plus fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5 federated sources to Algolia with zero-downtime index swaps.</div>
+      <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern: primary plus fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5+ federated sources to Algolia with zero-downtime index swaps.</div>
       <div class="tech-pills"><span class="tech-pill chip">PHP (Yii/Symfony)</span><span class="tech-pill chip">Algolia AskAI</span><span class="tech-pill chip">OpenAI</span><span class="tech-pill chip">Gemini</span><span class="tech-pill chip">Llama 3 70B</span><span class="tech-pill chip">AWS Bedrock</span><span class="tech-pill chip">SSE Streaming</span><span class="tech-pill chip">Python</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">S3 Parquet</span><span class="tech-pill chip">Athena</span></div>
       <ul class="highlights-list">
         <li>Cross-provider LLM fallback: dedicated adapter per provider handles payload asymmetry, with automatic retry across providers even on client errors to prevent single-provider outages</li>
@@ -1197,7 +1198,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
         <li>Domain-driven prompt architecture: composable prompt traits (model, version, temperature, reasoning effort) enable per-feature model versioning and A/B testing without code duplication</li>
         <li>Dynamic rate limiting with zero-restart retuning: atomic Redis counters (no locks, no races), thresholds configurable at runtime so ops can retune without a deploy</li>
         <li>Zero-downtime full sync: bulk-index 25M+ records into temp Algolia index, atomic rename over production. No search outage during reindex</li>
-        <li>Analytics data lake on S3 Parquet + Athena with tag expression consolidation reducing Algolia API calls by 90%+</li>
+        <li>Search analytics pipeline feeding an S3 Parquet + Athena data lake, with query optimization cutting search API usage by 90%+</li>
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
@@ -1248,7 +1249,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <text x="649" y="191" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="5.5">TTL + LRU</text>
 
           <!-- Tools exposed (category grouped, no counts) -->
-          <text x="380" y="226" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Tools exposed, grouped by domain (read-only + administrative)</text>
+          <text x="380" y="226" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono,monospace" font-size="6.5">Tools exposed, grouped by domain (read, write and moderation)</text>
           <rect x="20" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-amber-1)" stroke="var(--amber)" stroke-width=".8"/>
           <text x="88" y="249" text-anchor="middle" fill="var(--dg-fill-amber-6)" font-family="Sora,sans-serif" font-size="8" font-weight="600">Search</text>
           <rect x="166" y="232" width="136" height="26" rx="5" fill="var(--dg-fill-slate-3)" stroke="var(--accent)" stroke-width=".8"/>
@@ -1312,11 +1313,11 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
         <li>Multi-region deployment with edge-based request routing for geographic locality and failover</li>
         <li>Permission-scoped search tokens with access control baked at the token layer, not post-filtered</li>
         <li>Per-tenant rate limiting, connection lifecycle management, and graceful degradation on backend failures</li>
-        <li>Dozens of tools spanning search, analytics, content moderation, user management, and education backends behind a single MCP interface</li>
+        <li>35+ tools, read and write, spanning search, analytics, content moderation, user management, and education backends behind a single MCP interface</li>
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>AI assistants needed a safe, standard way to query community knowledge for enterprise customers.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>A large set of tools behind one standard interface, available across regions.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Treat security as a design input from the start: access rules apply at every layer instead of being added at the end.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More up-front design and testing for each tool, in exchange for customer-safe results by default.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>One interface that the major AI assistants can connect to, with fair-use controls and graceful behaviour when a dependency is slow or unavailable.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>AI assistants needed a safe, standard way to query community knowledge for enterprise customers.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>35+ tools behind one standard interface, available across regions.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Treat security as a design input from the start: access rules apply at every layer instead of being added at the end.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>More up-front design and testing for each tool, in exchange for customer-safe results by default.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>One interface that the major AI assistants can connect to, with fair-use controls and graceful behaviour when a dependency is slow or unavailable.</p></div></div>
       </div>
     </div>
 
@@ -1384,13 +1385,13 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
       <ul class="highlights-list">
         <li>Processes 61B+ records/day across 600+ enterprise tenants at 98.7% job success rate</li>
         <li>Multi-worker architecture: DAG Workers (Java/Vert.x) + Dynamic Workers (35 isolated connector JARs) + Python/Celery ML Workers + Apache Drill SQL engine</li>
-        <li>60+ custom Apache Drill UDFs for tenant-specific data transformations</li>
+        <li>60+ custom SQL functions (Apache Drill UDFs) for tenant-specific data transformations</li>
         <li>Horizontally-scalable cluster coordinated by Zookeeper leader election and distributed workflow orchestration</li>
         <li>Failure-injection tasks (OOM, disk exhaustion, FD leak) as production resilience probes</li>
       </ul>
       <div class="case-study">
         <div class="eyebrow eyebrow--spaced">Case study</div>
-        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Enterprise customers keep their data in many different systems. Each one needs it brought together, transformed and loaded reliably.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Billions of records a day across hundreds of enterprise customers, with dozens of source connectors.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Model the work as a graph of tasks run by a pool of specialised workers, coordinated centrally so scheduling stays safe at scale.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Keeping connectors isolated from each other means more to package and deploy, in exchange for stopping one source’s problems from spreading.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>High job success at that volume, flexible per-customer transformations, and regular resilience drills so failure handling is tested before it is needed.</p></div></div>
+        <div class="cs-grid"><div class="cs-item card"><div class="cs-label">Context</div><p>Enterprise customers keep their data in many different systems. Each one needs it brought together, transformed and loaded reliably.</p></div><div class="cs-item card"><div class="cs-label">Scale</div><p>Billions of records a day across hundreds of enterprise customers, with 35+ source connectors.</p></div><div class="cs-item card"><div class="cs-label">Decision</div><p>Model the work as a graph of tasks run by a pool of specialised workers, coordinated centrally so scheduling stays safe at scale.</p></div><div class="cs-item card"><div class="cs-label">Trade-off</div><p>Keeping connectors isolated from each other means more to package and deploy, in exchange for stopping one source’s problems from spreading.</p></div><div class="cs-item card"><div class="cs-label">Outcome</div><p>High job success at that volume, flexible per-customer transformations, and regular resilience drills so failure handling is tested before it is needed.</p></div></div>
       </div>
       <div class="divider-top">
         <div class="eyebrow eyebrow--spaced">35+ Enterprise Connectors</div>
@@ -1667,7 +1668,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <!-- Static files -->
           <rect x="180" y="24" width="400" height="44" rx="9" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1.5" filter="url(#gc)"/>
           <text x="380" y="44" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="11" font-weight="700">Static Files</text>
-          <text x="380" y="59" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Preact + htm · native ES modules · no server · no build step · host anywhere</text>
+          <text x="380" y="59" text-anchor="middle" fill="var(--dg-fill-green-2)" font-family="JetBrains Mono,monospace" font-size="6">Preact + htm templates · native ES modules · no server · no build step · host anywhere</text>
 
           <!-- API -->
           <text x="380" y="84" text-anchor="middle" fill="var(--amber)" font-family="JetBrains Mono,monospace" font-size="6">GoatCounter API · read-only, your key stays in the browser</text>
@@ -1719,15 +1720,15 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <circle r="2" fill="var(--accent-3)" opacity=".6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M380,246 L380,266"/></circle>
         </svg>
       </div>
-      <div class="desc">A folder of static files that replaces GoatCounter's default analytics UI. Two designs, a WebGL globe, a 3D skyline of when readers show up, a calendar year with streaks, a referrer-to-page Sankey, a site switcher and a shareable recap image. No server, no build step, and a built-in demo that needs no key.</div>
+      <div class="desc">A folder of static files that replaces GoatCounter's default analytics UI. Two designs, a WebGL globe with live arcs, a 3D skyline and a day-by-day ridgeline of when readers show up, a calendar year with streaks, a referrer-to-page Sankey, a site switcher and a shareable recap image. No server, no build step, and a built-in demo that needs no key.</div>
       <div class="tech-pills"><span class="tech-pill chip">HTML</span><span class="tech-pill chip">CSS</span><span class="tech-pill chip">JavaScript</span><span class="tech-pill chip">Preact</span><span class="tech-pill chip">WebGL</span><span class="tech-pill chip">GoatCounter API</span><span class="tech-pill chip">GitHub Pages</span></div>
       <ul class="highlights-list">
-        <li>Two complete designs on one set of components: Nova (glass, aurora, tilting cards) and Classic (the original flat look), each in dark and light. A new visit opens in Nova dark, and remembering a choice is opt-in</li>
+        <li>Two complete designs on one set of components: Nova (glass cards, a slow flowing background and, in dark mode, a starfield with shooting stars) and Classic (the original flat look), each in dark and light with a sun and moon switch. A new visit opens in Nova dark, and remembering a choice is opt-in</li>
         <li>A visitors chart that draws itself, with a ghost line for the previous period, annotated spikes, a crosshair, and click-to-zoom into a day's 24 hours</li>
-        <li>Countries on a WebGL globe (with a flat map fallback), browsers, systems and devices as donuts with real logos, and drill-down from referrers to pages, browsers to versions, and countries to regions</li>
-        <li>When readers show up as a 3D skyline by weekday and hour, plus a calendar year with streaks and goal rings</li>
+        <li>Countries on a WebGL globe with arcs, pulses and labels (with a flat map fallback), browsers, systems and devices as donuts with real logos, and drill-down from referrers to pages, browsers to versions, and countries to regions</li>
+        <li>When readers show up as a 3D skyline by weekday and hour and a day-by-day ridgeline, plus a calendar year with streaks and goal rings</li>
         <li>All your sites in one place: switch between the sites of a GoatCounter account, or narrow every card to a single page. A command palette, keyboard shortcuts and a refresh that clears the cache</li>
-        <li>Rebuilt for speed and privacy: about 130 KB on first load instead of 970 KB, and usable in about 1 second instead of 6.4 on a throttled phone. No CDN, no analytics, and the key goes only to your own GoatCounter site</li>
+        <li>Fast and private: about 85 KB for the first screen (about 160 KB with the animated background), usable in about 1.2 seconds on a throttled phone, and a steady 60 frames a second on a real GPU. No CDN, no analytics, and the key goes only to your own GoatCounter site</li>
       </ul>
       <div class="contact-links mt-8">
         <a class="contact-link" href="https://github.com/abhishekhsingh/goatcounter-dashboard" target="_blank" rel="noopener">GitHub Repo</a>
@@ -1856,7 +1857,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
   <div class="container">
     <div class="section-label reveal" data-prompt="cat stack.md">Tech Stack</div>
     <h2 class="section-title reveal"><span class="ital">Technologies</span> & Tools</h2>
-    <div class="section-sub reveal">A decade of hands-on experience across languages, frameworks, cloud services, and data systems.</div>
+    <div class="section-sub reveal">12+ years of hands-on experience across languages, frameworks, cloud services, and data systems.</div>
 
     <div class="skill-category reveal">
       <h3>Languages & Frameworks</h3>
@@ -1905,7 +1906,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
       <h3>AI & Protocols</h3>
       <div class="skills-grid">
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/mcp.svg" alt="MCP" width="28" height="28"><div class="name">MCP Protocol</div></div>
-        <div class="skill-card card"><img loading="lazy" src="./assets/logos/sse.svg" alt="SSE" width="28" height="28"><div class="name">SSE Transport</div></div>
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/streamable-http.svg" alt="Streamable HTTP" width="28" height="28"><div class="name">Streamable HTTP</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/openai.svg" alt="OpenAI" width="28" height="28"><div class="name">OpenAI / GPT</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/gemini.svg" alt="Gemini" width="28" height="28"><div class="name">Google Gemini</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/llama.svg" alt="Llama" width="28" height="28"><div class="name">Llama 3</div></div>
@@ -1917,6 +1918,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
     <div class="skill-category reveal">
       <h3>DevOps & Quality</h3>
       <div class="skills-grid">
+        <div class="skill-card card"><img loading="lazy" src="./assets/logos/git.svg" alt="Git" width="28" height="28"><div class="name">Git</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/githubactions.svg" alt="GitHub Actions" width="28" height="28"><div class="name">GitHub Actions</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/bitbucket.svg" alt="Bitbucket" width="28" height="28"><div class="name">Bitbucket Pipelines</div></div>
         <div class="skill-card card"><img loading="lazy" src="./assets/logos/sonarcloud.svg" alt="SonarCloud" width="28" height="28"><div class="name">SonarCloud</div></div>
@@ -1953,9 +1955,11 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
       <div class="reveal">
         <div class="about-hl card mb-16">
           <h3>Awards & Leadership</h3>
-          <p class="mb-10"><strong class="em">Vice-Captain, Nihilentia</strong>. Selected to lead Nihilent's annual fest (Dec 2014). Successfully organized events and competitions.</p>
+          <p class="mb-10"><strong class="em">Gainsight spot awards</strong>. Won nine spot awards across 5 years for consistent delivery and engineering excellence.</p>
+          <p class="mb-10"><strong class="em">Vice-Captain, Nihilentia</strong>. Selected to lead Nihilent's annual fest (Dec 2014). Coordinated events and competitions across 200+ participants.</p>
           <p class="mb-10"><strong class="em">IT-FIESTA 2011</strong>. Appreciation Certificate awarded by T. Ashok (Founder & CEO, Stag Software Pvt. Ltd.)</p>
           <p class="mb-10"><strong class="em">UTKARSH-13 & 14</strong>. Coordinated Technical Events at BBDNITM (2013 &amp; 2014)</p>
+          <p class="mb-10"><strong class="em">UTKARSH-13</strong>. First Prize in the Cyber Attack Finale at BBDNITM Lucknow.</p>
           <p class="mb-10"><strong class="em">ENCORE-12</strong>. Honor & Excellence Certificate at IET Lucknow (Oct 2012)</p>
           <p class="mb-10"><strong class="em">Techsamagam-11</strong>. Certificate Of Merit, FORCE CIC Education (Nov 2011)</p>
           <p><strong class="em">3rd Position, UP Board</strong>. Block-level topper in Jaunpur, High School Examinations (2007)</p>
@@ -1984,23 +1988,23 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
       </div>
     </div>
     <div class="about-grid mt-20">
-      <div class="testimonial reveal quote">
-        <blockquote>"Abhishekh successfully automated our application and single handedly managed all testing activities. He is extremely enthusiastic about his work which is infectious, makes it fun to learn. He always has a creative, positive outlook and he's good at organizing and bringing people together."</blockquote>
-        <div class="author">Shivesh Verma</div>
-        <div class="meta-note">Senior Software Engineer (JL4) at Maersk</div>
-      </div>
-      <div class="testimonial reveal quote">
+      <div class="testimonial reveal quote span-all">
         <blockquote>"I had the privilege of working with Abhishek on a couple of academic projects during our B.Tech. He is a highly organized, goal oriented, independent and hard working perfectionist. He has very good analytical and interpersonal skills. He is the most motivated and enthusiastic person I have ever met."</blockquote>
         <div class="author">Kuldeep Kr</div>
         <div class="meta-note">Staff Software Engineer @ ServiceNow | Ex-Microsoft</div>
       </div>
     </div>
     <div class="collapsible-content" id="moreTestimonials">
-      <div class="mt-20 measure-600">
+      <div class="about-grid mt-20">
         <div class="testimonial reveal quote">
           <blockquote>"Abhishek has tremendous knowledge of Testing, always there to help for problems related to testing. His rational approach of making complex topics very simpler by relating it with day to day examples was amazing. That was the beauty of his approach in System Testing and Integration Testing."</blockquote>
           <div class="author">Rupender Rana</div>
           <div class="meta-note">Technical Lead, iOS at Nagarro</div>
+        </div>
+        <div class="testimonial reveal quote">
+          <blockquote>"Abhishekh successfully automated our application and single handedly managed all testing activities. He is extremely enthusiastic about his work which is infectious, makes it fun to learn. He always has a creative, positive outlook and he's good at organizing and bringing people together."</blockquote>
+          <div class="author">Shivesh Verma</div>
+          <div class="meta-note">Senior Software Engineer (JL4) at Maersk</div>
         </div>
       </div>
     </div>
