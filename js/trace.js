@@ -66,7 +66,7 @@ export const STEPS = {
     [['Static Files'], 'The dashboard is a folder of static files: Preact and htm as native modules, with no server and no build step.'],
     [['GoatCounter API'], 'It reads your GoatCounter stats through the read-only API with a key you provide, one request at a time. The key goes only to your own GoatCounter site.'],
     [['IndexedDB Cache'], 'Answers are cached in the browser and shown at once while a fresh copy loads. Refresh clears them.'],
-    [['Two Designs', 'Traffic Chart', 'Globe and Skyline'], 'Two designs (Nova and Classic), a chart that draws itself with a ghost of the previous period, and a WebGL globe with a 3D skyline of reader habits.'],
+    [['Two Designs', 'Traffic Chart', 'Globe and Skyline'], 'Two designs (Nova and Classic), a chart that draws itself with a ghost of the previous period, and a WebGL globe with live arcs, and a 3D skyline and a ridgeline of reader habits.'],
     [['=Referrers', '=Versions', '=Regions', '=Sites', '=One page', '=Recap image'], 'Click to drill into referrers, versions and regions, switch between your sites, narrow everything to one page, or export a recap image.'],
   ],
 };
