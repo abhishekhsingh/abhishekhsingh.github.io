@@ -874,7 +874,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
         </div>
         <div class="about-hl card">
           <h3>AI & MCP Integration</h3>
-          <p>Production MCP server exposing 35+ tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Llama 3 70B)</p>
+          <p>Production MCP server exposing 35+ tools for Claude/ChatGPT. Three AI features: ReplyBot (OpenAI + Gemini fallback), AI Answers Summary (SSE streaming), Smart Search Summary (Algolia AskAI)</p>
         </div>
         <div class="about-hl card">
           <h3>Data at Scale</h3>
@@ -1145,7 +1145,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
           <rect x="370" y="125" width="160" height="55" rx="8" fill="var(--dg-fill-violet-1)" stroke="var(--purple)" stroke-width="1"/>
           <text x="450" y="145" text-anchor="middle" fill="var(--dg-fill-violet-5)" font-family="Sora,sans-serif" font-size="9" font-weight="600">Smart Search Summary</text>
           <text x="450" y="158" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="6">Blocking response</text>
-          <text x="450" y="170" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">Llama 3 70B via Bedrock</text>
+          <text x="450" y="170" text-anchor="middle" fill="var(--dg-fill-violet-3)" font-family="JetBrains Mono,monospace" font-size="5.5">Algolia AskAI</text>
           <!-- Synchronized Search -->
           <rect x="555" y="12" width="185" height="75" rx="8" fill="var(--dg-fill-green-1)" stroke="var(--accent-3)" stroke-width="1"/>
           <text x="647" y="32" text-anchor="middle" fill="var(--dg-fill-green-4)" font-family="Sora,sans-serif" font-size="10" font-weight="700">Synchronized Search</text>
@@ -1191,7 +1191,7 @@ html[data-theme="signal"]::before { content: ""; position: fixed; top: 0; left: 
         </svg>
       </div>
       <div class="desc">The AI brain of Gainsight Communities. A provider-agnostic AI orchestration layer powers three flagship features through a factory pattern: primary plus fallback LLM chains with automatic cross-provider retry, bidirectional payload transformation for provider compatibility, and graceful degradation on any failure. Synchronized Search Service indexes 25M+ records from 5+ federated sources to Algolia with zero-downtime index swaps.</div>
-      <div class="tech-pills"><span class="tech-pill chip">PHP (Yii/Symfony)</span><span class="tech-pill chip">Algolia AskAI</span><span class="tech-pill chip">OpenAI</span><span class="tech-pill chip">Gemini</span><span class="tech-pill chip">Llama 3 70B</span><span class="tech-pill chip">AWS Bedrock</span><span class="tech-pill chip">SSE Streaming</span><span class="tech-pill chip">Python</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">S3 Parquet</span><span class="tech-pill chip">Athena</span></div>
+      <div class="tech-pills"><span class="tech-pill chip">PHP (Yii/Symfony)</span><span class="tech-pill chip">Algolia AskAI</span><span class="tech-pill chip">OpenAI</span><span class="tech-pill chip">Gemini</span><span class="tech-pill chip">SSE Streaming</span><span class="tech-pill chip">Python</span><span class="tech-pill chip">Redis</span><span class="tech-pill chip">S3 Parquet</span><span class="tech-pill chip">Athena</span></div>
       <ul class="highlights-list">
         <li>Cross-provider LLM fallback: dedicated adapter per provider handles payload asymmetry, with automatic retry across providers even on client errors to prevent single-provider outages</li>
         <li>SSE streaming with thinking-phase deduplication: stateful stream processor filters duplicate reasoning blocks per model family while preserving final output fidelity</li>

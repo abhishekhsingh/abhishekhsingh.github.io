@@ -7,7 +7,7 @@ export const STEPS = {
     [['API Gateway'], 'A request enters through the API gateway, which handles authentication and traffic controls.'],
     [['Service Layer'], 'The service layer picks a model chain for the feature, with prompts built from reusable pieces.'],
     [['OpenAI Provider', 'Gemini Provider'], 'Each provider sits behind its own adapter, with automatic fallback to the other if one has trouble.'],
-    [['=ReplyBot', 'AI Answers Summary', 'Smart Search Summary'], 'Three features run on top: ReplyBot (triggered by the message bus), AI Answers Summary (streamed over SSE) and Smart Search Summary (Llama 3 70B on Bedrock).'],
+    [['=ReplyBot', 'AI Answers Summary', 'Smart Search Summary'], 'Three features run on top: ReplyBot (triggered by the message bus), AI Answers Summary (streamed over SSE) and Smart Search Summary (Algolia AskAI).'],
     [['Synchronized Search', '=Algolia'], 'Search is served from a managed search index that a sync service keeps up to date.'],
     [['Federated Sources', 'SNS Messagebus'], 'Content flows in from several connected sources, and platform events arrive over a message bus.'],
   ],
