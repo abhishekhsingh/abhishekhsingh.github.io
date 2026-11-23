@@ -1,7 +1,7 @@
 {
   "pypi": {
-    "last_month": 556,
-    "last_week": 506,
+    "last_month": 705,
+    "last_week": 189,
     "package": "mcp-halflist"
   },
   "releases": {
@@ -10,9 +10,9 @@
       "tag": "v1.2.0"
     },
     "mcp_halflist": {
-      "date": "2026-11-15",
-      "tag": "v1.1.1"
+      "date": "2026-11-20",
+      "tag": "v1.1.2"
     }
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-23"
 }
